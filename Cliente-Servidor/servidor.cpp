@@ -12,7 +12,7 @@ int main()
     char connectionType, mode, buffer[2000];
     size_t received;
     string text = "Connected to: Server";
-    
+
     TcpListener listener;
     listener.listen(8080);
     listener.accept(socket);
