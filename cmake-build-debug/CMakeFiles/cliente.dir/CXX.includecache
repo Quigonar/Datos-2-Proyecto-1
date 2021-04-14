@@ -1,0 +1,36 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/Cliente-Servidor/ClienteRes/GUI.cpp
+SFML/Graphics.hpp
+-
+iostream
+-
+
+/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/Cliente-Servidor/ClienteRes/ListaDobleEnlazada.cpp
+iostream
+-
+
+/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/Cliente-Servidor/cliente.cpp
+SFML/Network.hpp
+-
+SFML/Graphics.hpp
+-
+iostream
+-
+vector
+-
+map
+-
+rapidjson/document.h
+/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/Cliente-Servidor/rapidjson/document.h
+ClienteRes/ListaDobleEnlazada.cpp
+/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/Cliente-Servidor/ClienteRes/ListaDobleEnlazada.cpp
+ClienteRes/GUI.cpp
+/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/Cliente-Servidor/ClienteRes/GUI.cpp
+
