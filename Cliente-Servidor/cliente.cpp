@@ -24,6 +24,53 @@ Document jsonReceiver(Packet packet)
     return petD;
 }
 
+bool valueVerifier(string type, string value)
+{
+    if (type == "int" && *(typeid(stoi(value)).name()) == 'i')
+    {
+        return true;
+    }
+    else if (type == "long" && *(typeid(stol(value)).name()) == 'l')
+    {
+        return true;
+    }
+    else if (type == "char")
+    {
+        if (value.length() == 3)
+        {
+            if (*(typeid(value[1]).name()) == 'c')
+                return true;
+            else
+                return false;
+        }
+        else
+            return false;
+    }
+    else if (type == "float" && *(typeid(stof(value)).name()) == 'f')
+    {
+        return true;
+    }
+    else if (type == "double" && *(typeid(stod(value)).name()) == 'd')
+    {
+        return true;
+    }
+    /*else if (type == "struct" && *(typeid(stoi(value)).name()) == 's')
+    {
+        cout << "Not implemented yet" << endl;
+        return true;
+    }
+    else if (type == "reference" && *(typeid(stoi(value)).name()) == 'r')
+    {
+        cout << "Not implemented yet" << endl;
+        return true;
+    }*/
+    else
+    {
+        cout << "Value wasn't valid" << endl;
+        return false;
+    }
+}
+
 /*string jsonSender(string type, string value, string variable, string line)
 {
     string jsonStr = "{\"type\":"+ type + ",\"value\":" + value + ",\"variable\":" + variable + ",\"line\":" + line + "}";
@@ -52,24 +99,62 @@ string jsonSender(Node* node)
 
     for (n = 0; n < 7; n++)
     {
-        if (lineSplit.front().compare(types[n]) == 0)
+        if (lineSplit.front() == types[n])
         {
             type = types[n];
             it = lineSplit.begin();
             lineSplit.erase(it);
-        }
-        else
-        {
-            cout << "Error code syntaxis is wrong" << endl;
             break;
         }
     }
+    if (type.empty())
+    {
+        cout << "Error: code syntaxis is wrong, forgot to declare type" << endl;
+        return "Failed to create json";
+    }
 
-    for (auto i = lineSplit.begin(); i != lineSplit.end(); i++)
-        cout << *i << ", ";
+    if (lineSplit.front().length() >= 2 && lineSplit.front().back() == ';')
+    {
+        value = "NULL";
+        variable = lineSplit.front().erase(lineSplit.front().length() - 1);
+        string jsonStr = "{\"type\":"+ type + ",\"value\":" + value + ",\"variable\":" + variable + "}";
+        return jsonStr;
+    }
+    else if (lineSplit.front() == '=')
+    {
+        cout << "Error: code syntaxis is wrong, forgot to declare variable" << endl;
+    }
+    else
+    {
+        variable = lineSplit.front();
+        it = lineSplit.begin();
+        lineSplit.erase(it);
+    }
 
-    string jsonStr = "{\"type\":"+ type + ",\"value\":" + value + ",\"variable\":" + variable + "}";
-    return jsonStr;
+    if (lineSplit.front() == '=')
+    {
+        it = lineSplit.begin();
+        lineSplit.erase(it);
+        if (lineSplit.front().back() == ';' && lineSplit.front().length() >= 2)
+        {
+            value = lineSplit.front().erase(lineSplit.front().length() - 1);
+            bool validValue = valueVerifier(type, value);
+            if (validValue)
+            {
+                string jsonStr = "{\"type\":" + type + ",\"value\":" + value + ",\"variable\":" + variable + "}";
+                return jsonStr;
+            }
+        }
+        else
+        {
+            cout << "Error: code syntaxis is wrong, forgot to add \";\"" << endl;
+        }
+    }
+    else
+    {
+        cout << "Error: code syntaxis is wrong, forgot to add value to the variable" << endl;
+    }
+    return "Couldn't create the json";
 }
 
 int main()
@@ -81,7 +166,6 @@ int main()
     //Document RLV;
     //Packet packetS, packetR;
     string json;
-    //Text playerText;
 
     Node* head = nullptr;
 
@@ -119,11 +203,50 @@ int main()
         Event event;
         while (window.pollEvent(event))
         {
+            bool analyzeLines = gui.update(Vector2f(event.mouseButton.x,event.mouseButton.y));
+            bool highlightLine = false;
+
+            if (analyzeLines)
+            {
+                clearDLList(&head);
+                string delimiter = "\n";
+                auto start = 0U;
+                auto end = codeInput.find(delimiter);
+                while (end != string::npos)
+                {
+                    insert_end(&head, codeInput.substr(start, end - start));
+                    start = end + delimiter.length();
+                    end = codeInput.find(delimiter, start);
+                }
+                insert_end(&head, codeInput.substr(start, end));
+                gui.lineUpdater("nothing");
+                json = jsonSender(head);
+                cout << json << endl;
+                highlightLine = true;
+            }
+            if (Keyboard::isKeyPressed(Keyboard::Down) && highlightLine)
+            {
+                Node* temp;
+                temp = head;
+                head = head->next;
+                head->prev = temp;
+                gui.lineUpdater("down");
+                json = jsonSender(head);
+                cout << json << endl;
+            }
+            else if (Keyboard::isKeyPressed(Keyboard::Up) && highlightLine)
+            {
+                Node* temp;
+                temp = head;
+                head = head->prev;
+                head->next = temp;
+                gui.lineUpdater("up");
+            }
+
             switch(event.type)
             {
                 case Event::Closed:
                     //printList(head);
-                    cout << json << endl;
                     window.close();
                     break;
 
@@ -183,23 +306,6 @@ int main()
                 system("clear");
                 break;
             }
-        }
-
-        bool analyzeLines = gui.update(Vector2f(event.mouseButton.x,event.mouseButton.y));
-
-        if (analyzeLines)
-        {
-            string delimiter = "\n";
-            auto start = 0U;
-            auto end = codeInput.find(delimiter);
-            while (end != string::npos)
-            {
-                insert_end(&head, codeInput.substr(start, end - start));
-                start = end + delimiter.length();
-                end = codeInput.find(delimiter, start);
-            }
-            insert_end(&head, codeInput.substr(start, end));
-            json = jsonSender(head);
         }
 
         /*

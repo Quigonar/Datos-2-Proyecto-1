@@ -6,11 +6,13 @@ using namespace std;
 
 class GUI{
 public:
-    //Different windows
+    //Different rectangles
     RectangleShape codeBackground;
     RectangleShape standardOutput;
     RectangleShape appLog;
     RectangleShape RLV;
+    RectangleShape lineHighlight;
+
     Vector2f vCodeBackground;
     Vector2f vStandardOutput;
     Vector2f vAppLog;
@@ -70,6 +72,10 @@ public:
         activeColor = Color::Red;
         button.setFillColor(idleColor);
 
+        lineHighlight.setSize(Vector2f(930, 17));
+        lineHighlight.setPosition(0,30);
+        lineHighlight.setFillColor(Color(255,255,0,0));
+
 
     }
 
@@ -83,6 +89,23 @@ public:
         window->draw(RLV);
         window->draw(button);
         window->draw(text);
+        window->draw(lineHighlight);
+    }
+
+    void lineUpdater(const string& action)
+    {
+        if (action == "up")
+        {
+            lineHighlight.setPosition(lineHighlight.getPosition().x, lineHighlight.getPosition().y - 17);
+        }
+        else if (action == "down")
+        {
+            lineHighlight.setPosition(lineHighlight.getPosition().x, lineHighlight.getPosition().y + 17);
+        }
+        else if (action == "nothing")
+        {
+            lineHighlight.setFillColor(Color(255,255,0,150));
+        }
     }
 
     bool update(Vector2f mousePos)
