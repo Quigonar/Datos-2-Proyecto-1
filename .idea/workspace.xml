@@ -38,6 +38,7 @@
     <property name="cidr.known.project.marker" value="true" />
     <property name="cmake.loaded.for.project" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -71,6 +72,10 @@
       <workItem from="1618076445714" duration="12450000" />
       <workItem from="1618374130722" duration="5375000" />
       <workItem from="1618439062262" duration="12438000" />
+      <workItem from="1618614419737" duration="496000" />
+      <workItem from="1618619209244" duration="1029000" />
+      <workItem from="1618620259779" duration="10538000" />
+      <workItem from="1618796571831" duration="16372000" />
     </task>
     <servers />
   </component>

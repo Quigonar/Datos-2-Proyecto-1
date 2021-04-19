@@ -93,12 +93,12 @@ clean: CMakeFiles/cliente.dir/clean
 CMakeFiles/cliente.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cliente.dir/build.make CMakeFiles/cliente.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cliente.dir/build.make CMakeFiles/cliente.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/cmake-build-debug/CMakeFiles --progress-num=1,2,3 "Built target cliente"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/cmake-build-debug/CMakeFiles --progress-num=1,2 "Built target cliente"
 .PHONY : CMakeFiles/cliente.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/cliente.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/marcos/Documents/GitHub/Datos-2-Proyecto-1/cmake-build-debug/CMakeFiles 3
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/marcos/Documents/GitHub/Datos-2-Proyecto-1/cmake-build-debug/CMakeFiles 2
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/cliente.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/marcos/Documents/GitHub/Datos-2-Proyecto-1/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/cliente.dir/rule

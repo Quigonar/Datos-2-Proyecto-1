@@ -86,9 +86,6 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/Cliente-Servidor/ClienteRes/GUI.cpp">
-			<Option target="cliente"/>
-		</Unit>
 		<Unit filename="/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/Cliente-Servidor/cliente.cpp">
 			<Option target="cliente"/>
 		</Unit>
