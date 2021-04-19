@@ -6,31 +6,25 @@
 
 #IncludeRegexTransform: 
 
-/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/Cliente-Servidor/ClienteRes/GUI.cpp
-SFML/Graphics.hpp
--
+/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/Cliente-Servidor/MemoryList/LinkedList.cpp
 iostream
+-
+cmath
+-
+Node.cpp
+/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/Cliente-Servidor/MemoryList/Node.cpp
+
+/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/Cliente-Servidor/MemoryList/Node.cpp
+iostream
+-
+cmath
 -
 
-/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/Cliente-Servidor/ClienteRes/ListaDobleEnlazada.cpp
+/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/Cliente-Servidor/MemoryManager.cpp
 iostream
 -
-
-/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/Cliente-Servidor/cliente.cpp
-SFML/Network.hpp
+MemoryList/LinkedList.cpp
+/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/Cliente-Servidor/MemoryList/LinkedList.cpp
+stdlib.h
 -
-SFML/Graphics.hpp
--
-iostream
--
-vector
--
-map
--
-rapidjson/document.h
-/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/Cliente-Servidor/rapidjson/document.h
-ClienteRes/ListaDobleEnlazada.cpp
-/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/Cliente-Servidor/ClienteRes/ListaDobleEnlazada.cpp
-ClienteRes/GUI.cpp
-/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/Cliente-Servidor/ClienteRes/GUI.cpp
 

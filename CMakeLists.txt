@@ -7,7 +7,7 @@ include_directories(Cliente-Servidor Cliente-Servidor/ClienteRes)
 
 set(EXECUTABLE_NAME "cliente")
 add_executable(${EXECUTABLE_NAME} Cliente-Servidor/cliente.cpp Cliente-Servidor/ClienteRes/GUI.cpp)
-
+#add_executable(${EXECUTABLE_NAME} Cliente-Servidor/MemoryManager.cpp)
 
 
 set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake_modules" ${CMAKE_MODULE_PATH})

@@ -62,10 +62,10 @@ RM = /snap/clion/149/bin/cmake/linux/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/marcos/Documents/GitHub/Datos-2-Proyecto-1
+CMAKE_SOURCE_DIR = "/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/marcos/Documents/GitHub/Datos-2-Proyecto-1/cmake-build-debug
+CMAKE_BINARY_DIR = "/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/cmake-build-debug"
 
 # Include any dependencies generated for this target.
 include CMakeFiles/cliente.dir/depend.make
@@ -78,29 +78,29 @@ include CMakeFiles/cliente.dir/flags.make
 
 CMakeFiles/cliente.dir/Cliente-Servidor/cliente.cpp.o: CMakeFiles/cliente.dir/flags.make
 CMakeFiles/cliente.dir/Cliente-Servidor/cliente.cpp.o: ../Cliente-Servidor/cliente.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/cliente.dir/Cliente-Servidor/cliente.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cliente.dir/Cliente-Servidor/cliente.cpp.o -c /home/marcos/Documents/GitHub/Datos-2-Proyecto-1/Cliente-Servidor/cliente.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/cliente.dir/Cliente-Servidor/cliente.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cliente.dir/Cliente-Servidor/cliente.cpp.o -c "/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/Cliente-Servidor/cliente.cpp"
 
 CMakeFiles/cliente.dir/Cliente-Servidor/cliente.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cliente.dir/Cliente-Servidor/cliente.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/marcos/Documents/GitHub/Datos-2-Proyecto-1/Cliente-Servidor/cliente.cpp > CMakeFiles/cliente.dir/Cliente-Servidor/cliente.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/Cliente-Servidor/cliente.cpp" > CMakeFiles/cliente.dir/Cliente-Servidor/cliente.cpp.i
 
 CMakeFiles/cliente.dir/Cliente-Servidor/cliente.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cliente.dir/Cliente-Servidor/cliente.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/marcos/Documents/GitHub/Datos-2-Proyecto-1/Cliente-Servidor/cliente.cpp -o CMakeFiles/cliente.dir/Cliente-Servidor/cliente.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/Cliente-Servidor/cliente.cpp" -o CMakeFiles/cliente.dir/Cliente-Servidor/cliente.cpp.s
 
 CMakeFiles/cliente.dir/Cliente-Servidor/ClienteRes/GUI.cpp.o: CMakeFiles/cliente.dir/flags.make
 CMakeFiles/cliente.dir/Cliente-Servidor/ClienteRes/GUI.cpp.o: ../Cliente-Servidor/ClienteRes/GUI.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/cliente.dir/Cliente-Servidor/ClienteRes/GUI.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cliente.dir/Cliente-Servidor/ClienteRes/GUI.cpp.o -c /home/marcos/Documents/GitHub/Datos-2-Proyecto-1/Cliente-Servidor/ClienteRes/GUI.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/cliente.dir/Cliente-Servidor/ClienteRes/GUI.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cliente.dir/Cliente-Servidor/ClienteRes/GUI.cpp.o -c "/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/Cliente-Servidor/ClienteRes/GUI.cpp"
 
 CMakeFiles/cliente.dir/Cliente-Servidor/ClienteRes/GUI.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cliente.dir/Cliente-Servidor/ClienteRes/GUI.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/marcos/Documents/GitHub/Datos-2-Proyecto-1/Cliente-Servidor/ClienteRes/GUI.cpp > CMakeFiles/cliente.dir/Cliente-Servidor/ClienteRes/GUI.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/Cliente-Servidor/ClienteRes/GUI.cpp" > CMakeFiles/cliente.dir/Cliente-Servidor/ClienteRes/GUI.cpp.i
 
 CMakeFiles/cliente.dir/Cliente-Servidor/ClienteRes/GUI.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cliente.dir/Cliente-Servidor/ClienteRes/GUI.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/marcos/Documents/GitHub/Datos-2-Proyecto-1/Cliente-Servidor/ClienteRes/GUI.cpp -o CMakeFiles/cliente.dir/Cliente-Servidor/ClienteRes/GUI.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/Cliente-Servidor/ClienteRes/GUI.cpp" -o CMakeFiles/cliente.dir/Cliente-Servidor/ClienteRes/GUI.cpp.s
 
 # Object files for target cliente
 cliente_OBJECTS = \
@@ -119,7 +119,7 @@ cliente: /usr/lib/x86_64-linux-gnu/libsfml-graphics.so
 cliente: /usr/lib/x86_64-linux-gnu/libsfml-network.so
 cliente: /usr/lib/x86_64-linux-gnu/libsfml-audio.so
 cliente: CMakeFiles/cliente.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable cliente"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable cliente"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/cliente.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -132,6 +132,6 @@ CMakeFiles/cliente.dir/clean:
 .PHONY : CMakeFiles/cliente.dir/clean
 
 CMakeFiles/cliente.dir/depend:
-	cd /home/marcos/Documents/GitHub/Datos-2-Proyecto-1/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/marcos/Documents/GitHub/Datos-2-Proyecto-1 /home/marcos/Documents/GitHub/Datos-2-Proyecto-1 /home/marcos/Documents/GitHub/Datos-2-Proyecto-1/cmake-build-debug /home/marcos/Documents/GitHub/Datos-2-Proyecto-1/cmake-build-debug /home/marcos/Documents/GitHub/Datos-2-Proyecto-1/cmake-build-debug/CMakeFiles/cliente.dir/DependInfo.cmake --color=$(COLOR)
+	cd "/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/cmake-build-debug" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1" "/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1" "/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/cmake-build-debug" "/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/cmake-build-debug" "/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/cmake-build-debug/CMakeFiles/cliente.dir/DependInfo.cmake" --color=$(COLOR)
 .PHONY : CMakeFiles/cliente.dir/depend
 

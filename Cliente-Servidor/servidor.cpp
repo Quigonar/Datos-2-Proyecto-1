@@ -3,6 +3,7 @@
 #include "rapidjson/document.h"
 #include <string>
 #include <iostream>
+#include "MemoryManager.cpp"
 
 using namespace sf;
 using namespace std;
