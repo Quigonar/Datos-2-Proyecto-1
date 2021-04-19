@@ -142,33 +142,6 @@ cliente/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cliente.dir/build.make CMakeFiles/cliente.dir/build
 .PHONY : cliente/fast
 
-Cliente-Servidor/ClienteRes/GUI.o: Cliente-Servidor/ClienteRes/GUI.cpp.o
-
-.PHONY : Cliente-Servidor/ClienteRes/GUI.o
-
-# target to build an object file
-Cliente-Servidor/ClienteRes/GUI.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cliente.dir/build.make CMakeFiles/cliente.dir/Cliente-Servidor/ClienteRes/GUI.cpp.o
-.PHONY : Cliente-Servidor/ClienteRes/GUI.cpp.o
-
-Cliente-Servidor/ClienteRes/GUI.i: Cliente-Servidor/ClienteRes/GUI.cpp.i
-
-.PHONY : Cliente-Servidor/ClienteRes/GUI.i
-
-# target to preprocess a source file
-Cliente-Servidor/ClienteRes/GUI.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cliente.dir/build.make CMakeFiles/cliente.dir/Cliente-Servidor/ClienteRes/GUI.cpp.i
-.PHONY : Cliente-Servidor/ClienteRes/GUI.cpp.i
-
-Cliente-Servidor/ClienteRes/GUI.s: Cliente-Servidor/ClienteRes/GUI.cpp.s
-
-.PHONY : Cliente-Servidor/ClienteRes/GUI.s
-
-# target to generate assembly for a file
-Cliente-Servidor/ClienteRes/GUI.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cliente.dir/build.make CMakeFiles/cliente.dir/Cliente-Servidor/ClienteRes/GUI.cpp.s
-.PHONY : Cliente-Servidor/ClienteRes/GUI.cpp.s
-
 Cliente-Servidor/cliente.o: Cliente-Servidor/cliente.cpp.o
 
 .PHONY : Cliente-Servidor/cliente.o
@@ -205,9 +178,6 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... cliente"
-	@echo "... Cliente-Servidor/ClienteRes/GUI.o"
-	@echo "... Cliente-Servidor/ClienteRes/GUI.i"
-	@echo "... Cliente-Servidor/ClienteRes/GUI.s"
 	@echo "... Cliente-Servidor/cliente.o"
 	@echo "... Cliente-Servidor/cliente.i"
 	@echo "... Cliente-Servidor/cliente.s"

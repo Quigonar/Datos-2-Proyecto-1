@@ -1,11 +1,11 @@
 #include <SFML/Network.hpp>
 #include <SFML/Graphics.hpp>
 #include <iostream>
-#include <vector>
 #include <map>
 #include "rapidjson/document.h"
 #include "ClienteRes/ListaDobleEnlazada.cpp"
 #include "ClienteRes/GUI.cpp"
+#include "ClienteRes/JsonHandler.cpp"
 
 using namespace sf;
 using namespace std;
@@ -24,55 +24,7 @@ Document jsonReceiver(Packet packet)
     return petD;
 }
 
-/*string jsonSender(string type, string value, string variable, string line)
-{
-    string jsonStr = "{\"type\":"+ type + ",\"value\":" + value + ",\"variable\":" + variable + ",\"line\":" + line + "}";
-    return jsonStr;
-}*/
-
-string jsonSender(Node* node)
-{
-    string type, value, variable, line, delimiter;
-    int n;
-    vector<string> lineSplit;
-    vector<string>::iterator it;
-    line = node->data;
-    string types[7] = {"int", "long", "char", "float", "double", "struct", "reference"};
-
-    delimiter = " ";
-    auto start = 0U;
-    auto end = line.find(delimiter);
-    while (end != string::npos)
-    {
-        lineSplit.push_back(line.substr(start, end - start));
-        start = end + delimiter.length();
-        end = line.find(delimiter, start);
-    }
-    lineSplit.push_back(line.substr(start, end));
-
-    for (n = 0; n < 7; n++)
-    {
-        if (lineSplit.front().compare(types[n]) == 0)
-        {
-            type = types[n];
-            it = lineSplit.begin();
-            lineSplit.erase(it);
-        }
-        else
-        {
-            cout << "Error code syntaxis is wrong" << endl;
-            break;
-        }
-    }
-
-    for (auto i = lineSplit.begin(); i != lineSplit.end(); i++)
-        cout << *i << ", ";
-
-    string jsonStr = "{\"type\":"+ type + ",\"value\":" + value + ",\"variable\":" + variable + "}";
-    return jsonStr;
-}
-
-int main()
+int main(int argc, char *argv[])
 {
     //IpAddress ip = IpAddress::getLocalAddress();
     //TcpSocket socket;
@@ -81,7 +33,8 @@ int main()
     //Document RLV;
     //Packet packetS, packetR;
     string json;
-    //Text playerText;
+    bool highlightLine = false;
+    JsonHandler jsonHandler;
 
     Node* head = nullptr;
 
@@ -119,11 +72,49 @@ int main()
         Event event;
         while (window.pollEvent(event))
         {
+            bool analyzeLines = gui.update(Vector2f(event.mouseButton.x,event.mouseButton.y));
+
+            if (analyzeLines)
+            {
+                clearDLList(&head);
+                string delimiter = "\n";
+                auto start = 0U;
+                auto end = codeInput.find(delimiter);
+                while (end != string::npos)
+                {
+                    insert_end(&head, codeInput.substr(start, end - start));
+                    start = end + delimiter.length();
+                    end = codeInput.find(delimiter, start);
+                }
+                insert_end(&head, codeInput.substr(start, end));
+                gui.lineUpdater("nothing");
+                json = jsonHandler.jsonSender(head);
+                cout << json << endl;
+                highlightLine = true;
+            }
+            if (Keyboard::isKeyPressed(Keyboard::Down) && highlightLine)
+            {
+                Node* temp;
+                temp = head;
+                head = head->next;
+                head->prev = temp;
+                gui.lineUpdater("down");
+                json = jsonHandler.jsonSender(head);
+                cout << json << endl;
+            }
+            else if (Keyboard::isKeyPressed(Keyboard::Up) && highlightLine)
+            {
+                Node* temp;
+                temp = head;
+                head = head->prev;
+                head->next = temp;
+                gui.lineUpdater("up");
+            }
+
             switch(event.type)
             {
                 case Event::Closed:
                     //printList(head);
-                    cout << json << endl;
                     window.close();
                     break;
 
@@ -183,23 +174,6 @@ int main()
                 system("clear");
                 break;
             }
-        }
-
-        bool analyzeLines = gui.update(Vector2f(event.mouseButton.x,event.mouseButton.y));
-
-        if (analyzeLines)
-        {
-            string delimiter = "\n";
-            auto start = 0U;
-            auto end = codeInput.find(delimiter);
-            while (end != string::npos)
-            {
-                insert_end(&head, codeInput.substr(start, end - start));
-                start = end + delimiter.length();
-                end = codeInput.find(delimiter, start);
-            }
-            insert_end(&head, codeInput.substr(start, end));
-            json = jsonSender(head);
         }
 
         /*
