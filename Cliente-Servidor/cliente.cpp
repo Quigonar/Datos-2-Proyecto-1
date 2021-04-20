@@ -102,14 +102,6 @@ int main(int argc, char *argv[])
                 json = jsonHandler.jsonSender(head);
                 cout << json << endl;
             }
-            else if (Keyboard::isKeyPressed(Keyboard::Up) && highlightLine)
-            {
-                Node* temp;
-                temp = head;
-                head = head->prev;
-                head->next = temp;
-                gui.lineUpdater("up");
-            }
 
             switch(event.type)
             {

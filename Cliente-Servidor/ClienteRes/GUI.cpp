@@ -96,11 +96,7 @@ public:
 
     void lineUpdater(const string& action)
     {
-        if (action == "up")
-        {
-            lineHighlight.setPosition(lineHighlight.getPosition().x, lineHighlight.getPosition().y - 17);
-        }
-        else if (action == "down")
+        if (action == "down")
         {
             lineHighlight.setPosition(lineHighlight.getPosition().x, lineHighlight.getPosition().y + 17);
         }

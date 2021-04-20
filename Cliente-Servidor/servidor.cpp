@@ -7,6 +7,7 @@
 using namespace sf;
 using namespace std;
 using namespace rapidjson;
+
 Document jsonReceiver(Packet packet)
 {
     string pet;
