@@ -4,6 +4,7 @@
 #include <string>
 #include <iostream>
 #include "MemoryManager.cpp"
+#include <sstream>
 
 using namespace sf;
 using namespace std;
@@ -90,8 +91,12 @@ int main()
             {
                 //Hace offset de 4 bytes
             }*/
-
-            json = jsonSender("0x000", value, variable);
+            int a = 10;
+            ostringstream o;
+            int* ptr = &a;
+            o << ptr;
+            string addr = o.str();
+            json = jsonSender(addr, value, variable);
             packetS << json;
             socket.send(packetS);
             packetS.clear();

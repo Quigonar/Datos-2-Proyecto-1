@@ -2,7 +2,6 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include <map>
-#include "rapidjson/document.h"
 #include "ClienteRes/ListaDobleEnlazada.cpp"
 #include "ClienteRes/GUI.cpp"
 #include "ClienteRes/JsonHandler.cpp"
@@ -10,19 +9,6 @@
 using namespace sf;
 using namespace std;
 using namespace rapidjson;
-
-Document jsonReceiver(Packet packet)
-{
-    string pet;
-    Document petD;
-
-    packet >> pet;
-    cout << pet << endl;
-    const char* petChar = pet.c_str();
-    petD.Parse(petChar);
-
-    return petD;
-}
 
 int main(int argc, char *argv[])
 {
@@ -92,21 +78,40 @@ int main(int argc, char *argv[])
                 }
                 insert_end(&head, codeInput.substr(start, end));
                 gui.lineUpdater("nothing");
-                json = jsonHandler.jsonSender(head, &window);
+                json = jsonHandler.jsonSender(head);
+                terminal = jsonHandler.getTerminal();
                 code.setPosition(50,30);
                 lineNumber.setPosition(5,30);
-                packetS << json;
-                if (socket.send(packetS))
-                    cout << "I will now receive a message" << endl;
-                packetS.clear();
-                cout << json << endl;
-                highlightLine = true;
+                if (json == "error")
+                {
+                    highlightLine = false;
+                }
+                else if (json == "print")
+                {
+                    cout << "Requested to print in stdout";
+                }
+                else if (json != "error" && json != "print" && !json.empty())
+                {
+                    packetS << json;
+                    if (socket.send(packetS))
+                        cout << "I will now receive a message" << endl;
+                    packetS.clear();
+                    cout << json << endl;
+                    highlightLine = true;
+                }
             }
             else if (analyzeLines == 2)
             {
                 highlightLine = false;
-                jsonHandler.terminal = "";
-                terminal = "";
+                jsonHandler.terminal.clear();
+                terminal.clear();
+                analyzeLines = 0;
+                clearDLList(&head);
+                jsonHandler.ints.clear();
+                jsonHandler.longs.clear();
+                jsonHandler.floats.clear();
+                jsonHandler.doubles.clear();
+                jsonHandler.chars.clear();
             }
             if (Keyboard::isKeyPressed(Keyboard::Down) && highlightLine)
             {
@@ -120,13 +125,25 @@ int main(int argc, char *argv[])
                     code.setPosition(code.getPosition().x, code.getPosition().y - 17);
                     lineNumber.setPosition(lineNumber.getPosition().x, lineNumber.getPosition().y - 17);
                 }
-                json = jsonHandler.jsonSender(head, &window);
+                json = jsonHandler.jsonSender(head);
                 terminal = jsonHandler.getTerminal();
-                packetS << json;
-                if (socket.send(packetS))
-                    cout << "I will now receive a message" << endl;
-                packetS.clear();
-                cout << json << endl;
+                if (json == "error")
+                {
+                    highlightLine = false;
+                }
+                else if (json == "print")
+                {
+                    cout << "Requested to print in stdout";
+                }
+                else if (json != "error" && json != "print" && !json.empty())
+                {
+                    packetS << json;
+                    if (socket.send(packetS))
+                        cout << "I will now receive a message" << endl;
+                    packetS.clear();
+                    cout << json << endl;
+                    highlightLine = true;
+                }
             }
 
             switch(event.type)
@@ -137,8 +154,9 @@ int main(int argc, char *argv[])
                     break;
 
                 case Event::MouseWheelMoved:
-                    if (event.mouseWheel.delta >= 0 && !highlightLine)
+                    if (event.mouseWheel.delta >= 0 )
                     {
+                        if (!highlightLine && gui.codeBool)
                         {
                             if (code.getPosition().y <= 29 && lineNumber.getPosition().y <= 29)
                             {
@@ -146,50 +164,72 @@ int main(int argc, char *argv[])
                                 lineNumber.setPosition(lineNumber.getPosition().x, lineNumber.getPosition().y + 5);
                             }
                         }
+                        else if (gui.stdoutBool)
+                        {
+                            if (terminalT.getPosition().y <= 539)
+                                terminalT.setPosition(terminalT.getPosition().x, terminalT.getPosition().y + 5);
+                        }
+                        else if (gui.appLogBool)
+                        {
+                            cout << "applog is selected" << endl;
+                        }
                     }
-                    else if (event.mouseWheel.delta <= 0 && !highlightLine)
+                    else if (event.mouseWheel.delta <= 0)
                     {
+                        if (!highlightLine && gui.codeBool)
                         {
                             if (code.getPosition().y + code.getGlobalBounds().height >= 150) {
                                 code.setPosition(code.getPosition().x, code.getPosition().y - 5);
                                 lineNumber.setPosition(lineNumber.getPosition().x, lineNumber.getPosition().y - 5);
                             }
                         }
+                        else if (gui.stdoutBool)
+                        {
+                            if (terminalT.getPosition().y + terminalT.getGlobalBounds().height >= 600)
+                                terminalT.setPosition(terminalT.getPosition().x, terminalT.getPosition().y - 5);
+                        }
+                        else if (gui.appLogBool)
+                        {
+                            cout << "applog is selected" << endl;
+                        }
                     }
                     break;
                     
                 case Event::TextEntered:
-                    if(event.text.unicode == 8)
+                    if (gui.codeBool)
                     {
-                        if (codeInput.back() == '\n')
+                        if(event.text.unicode == 8)
                         {
-                            codeInput = codeInput.substr(0, codeInput.length() - 1);
-                            if (lineCounter >= 10)
+                            if (codeInput.back() == '\n')
                             {
-                                lineStr = lineStr.substr(0, lineStr.length() - 5);
-                                lineCounter --;
+                                codeInput = codeInput.substr(0, codeInput.length() - 1);
+                                if (lineCounter >= 10)
+                                {
+                                    lineStr = lineStr.substr(0, lineStr.length() - 5);
+                                    lineCounter --;
+                                }
+                                else
+                                {
+                                    lineStr = lineStr.substr(0, lineStr.length() - 4);
+                                    lineCounter --;
+                                }
+
                             }
                             else
-                            {
-                                lineStr = lineStr.substr(0, lineStr.length() - 4);
-                                lineCounter --;
-                            }
+                                codeInput = codeInput.substr(0, codeInput.length() - 1);
+
 
                         }
+                        else if(event.text.unicode == 13)
+                        {
+                            lineCounter ++;
+                            codeInput = codeInput.append("\n");
+                            lineStr = lineStr.append("<" + to_string(lineCounter) + ">\n");
+                        }
                         else
-                            codeInput = codeInput.substr(0, codeInput.length() - 1);
-
-
-                    }
-                    else if(event.text.unicode == 13)
-                    {
-                        lineCounter ++;
-                        codeInput = codeInput.append("\n");
-                        lineStr = lineStr.append("<" + to_string(lineCounter) + ">\n");
-                    }
-                    else
-                    {
-                        codeInput += (char)event.text.unicode;
+                        {
+                            codeInput += (char)event.text.unicode;
+                        }
                     }
                 
                 system("clear");
@@ -199,13 +239,15 @@ int main(int argc, char *argv[])
         socket.receive(packetR);
         if (packetR.getData() != NULL)
         {
-            RLV = jsonReceiver(packetR);
-            mode = 's';
+            RLV = jsonHandler.jsonReceiver(packetR);
             packetR.clear();
         }
         terminalT.setString(terminal);
         lineNumber.setString(lineStr);
-        code.setString(codeInput + "_");
+        if (gui.codeBool)
+            code.setString(codeInput + "_");
+        else
+            code.setString(codeInput);
         window.clear();
         gui.Render(&window, code, lineNumber, font, terminalT);
         window.display();

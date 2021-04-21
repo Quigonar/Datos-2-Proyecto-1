@@ -2,8 +2,10 @@
 #include <map>
 #include "ClienteRes/ListaDobleEnlazada.cpp"
 #include "ClienteRes/GUI.cpp"
+#include "rapidjson/document.h"
 
 using namespace std;
+using namespace rapidjson;
 
 class JsonHandler{
 public:
@@ -14,7 +16,7 @@ public:
     map<string, char> chars;
     string terminal;
 
-    bool valueVerifier(string type, string value, string variable, bool addMap)
+    bool valueVerifier(const string& type, string value, const string& variable, bool addMap)
     {
         if (type == "int" && *(typeid(stoi(value)).name()) == 'i')
         {
@@ -74,7 +76,7 @@ public:
         }
     }
 
-    string jsonSender(Node* node, RenderWindow* window)
+    string jsonSender(Node* node)
     {
         string type, value, variable, line, delimiter;
         int n;
@@ -148,8 +150,10 @@ public:
             cout << terminal << endl;
             return "print";
         }
-        else if (type.empty())
+        else if (type.empty()) {
             terminal.append("Error! code syntaxis is wrong: forgot to declare type or forgot to add \";\"\n");
+            return "error";
+        }
 
         if (lineSplit.front().length() >= 2 && lineSplit.front().back() == ';')
         {
@@ -210,6 +214,18 @@ public:
             if (lineSplit.front().back() == ';' && lineSplit.front().length() >= 2)
             {
                 value = lineSplit.front().erase(lineSplit.front().length() - 1);
+
+                if (ints.count(value) > 0)
+                    value = to_string(ints.at(value));
+                else if (longs.count(value) > 0)
+                    value = to_string(longs.at(value));
+                else if (floats.count(value) > 0)
+                    value = to_string(floats.at(value));
+                else if (doubles.count(value) > 0)
+                    value = to_string(doubles.at(value));
+                else if (chars.count(value) > 0)
+                    value = to_string(chars.at(value));
+
                 bool validValue = valueVerifier(type, value, variable, true);
                 if (validValue)
                 {
@@ -346,5 +362,18 @@ public:
     string getTerminal() const
     {
         return terminal;
+    }
+
+    Document jsonReceiver(Packet packet)
+    {
+        string pet;
+        Document petD;
+
+        packet >> pet;
+        cout << pet << endl;
+        const char* petChar = pet.c_str();
+        petD.Parse(petChar);
+
+        return petD;
     }
 };
