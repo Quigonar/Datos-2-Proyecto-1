@@ -1,0 +1,328 @@
+#include <iostream>
+#include "MemoryList/LinkedList.cpp"
+#include <stdlib.h>
+
+using namespace std;
+
+class MemoryManager {
+
+    int offset;
+    char* mem;
+    int bytes;
+    int used;
+
+    LinkedList intarray;
+    LinkedList floatarray;
+    LinkedList doublearray;
+    LinkedList chararray;
+    LinkedList longarray;
+    LinkedList refarray;
+    LinkedList structarray;
+
+public:
+
+    MemoryManager(int abytes) {
+        offset = 0;
+        mem = (char*)malloc(abytes);
+        bytes = abytes;
+        used = 0;
+    }
+
+    //Memory offset manager ***************************************
+    int* getmemoryoffsetint(int off) {
+        return (int*)(mem + off);
+    }
+
+    float* getmemoryoffsetfloat(int off) {
+        return (float*)(mem + off);
+    }
+    double* getmemoryoffsetdouble(int off) {
+        return (double*)(mem + off);
+    }
+    char* getmemoryoffsetchar(int off) {
+        return (char*)(mem + off);
+    }
+
+    long long* getmemoryoffsetlong(int off) {
+        return (long long*)(mem + off);
+    }
+
+    int* getmemoryoffsetref(int off) {
+        return (int*)(mem + off);
+    }
+
+    int* getmemoryoffsetstruct(int off) {
+        return (int*)(mem + off);
+    }
+    //Memory variable add *****************************************
+
+    void addvariableint(int value,string name) {
+        if(outofmemory(4)){
+            int tmp = getoffset();
+            cout << "This is offset: " << getoffset() << endl;
+            int* mtp = getmemoryoffsetint(tmp);
+
+            *mtp = value;
+            cout << "Value: " << value << endl;
+            intarray.append(tmp, "int", name);
+            offset = offset+4;
+            used = used + 4;
+        }
+        else
+        {
+            //return error en consola
+        }
+
+
+    }
+
+    void addvariablefloat(float value, string name) {
+        if(outofmemory(4)){
+            int tmp = getoffset();
+            cout << "This is offset: " << getoffset() << endl;
+
+            float* mtp = (float*)getmemoryoffsetfloat(tmp);
+
+            *mtp = value;
+
+            floatarray.append(tmp, "float", name);
+            offset = offset+4;
+            used = used + 4;
+        }
+        else
+        {
+            //return error en consola
+        }
+
+
+    }
+
+    void addvariabledouble(double value, string name) {
+        if (outofmemory(8))
+        {
+            int tmp = getoffset();
+            cout << "This is offset: " << getoffset() << endl;
+            double* mtp = getmemoryoffsetdouble(tmp);
+
+            *mtp = value;
+
+            doublearray.append(getoffset(), "double", name);
+            offset = offset+8;
+            used = used + 8;
+        }
+        else
+        {
+            //return error en consola
+        }
+
+    }
+
+
+    void addvariablechar(char value, string name) {
+        if (outofmemory(1))
+        {
+            int tmp = getoffset();
+            cout << "This is offset: " << getoffset() << endl;
+            char* mtp = getmemoryoffsetchar(tmp);
+
+            *mtp = value;
+
+            chararray.append(getoffset(), "char", name);
+            offset = offset+1;
+            used = used + 1;
+        }
+        else
+        {
+            //return error console
+        }
+
+    }
+
+    void addvariablelong(long value, string name) {
+        if (outofmemory(8))
+        {
+            int tmp = getoffset();
+            cout << "This is offset: " << getoffset() << endl;
+            long long* mtp = getmemoryoffsetlong(tmp);
+
+            *mtp = value;
+
+            longarray.append(getoffset(), "long", name);
+            offset = offset + 8;
+            used = used + 8;
+        }
+        else
+        {
+            //return error console
+        }
+
+    }
+
+    void addvariableref(int* addr, string type, string name) {
+        int tmp = getoffset();
+        cout << "This is offset: " << getoffset() << endl;
+        cout << "This is address value: " << *addr<< endl;
+
+        if (type == "int")
+        {
+            int* mtp = addr;
+        }
+        else if (type == "float")
+        {
+            float* mtp = getmemoryoffsetfloat(tmp);
+            mtp = (float*) addr;
+        }
+        else if (type == "double")
+        {
+            double* mtp = getmemoryoffsetdouble(tmp);
+            mtp = (double*) addr;
+        }
+        else if (type == "char")
+        {
+            char* mtp = getmemoryoffsetchar(tmp);
+            mtp = (char*) addr;
+        }
+        else if (type == "long")
+        {
+            long long* mtp = getmemoryoffsetlong(tmp);
+            mtp = (long long*) addr;
+        }
+
+        refarray.append(getoffset(), type, name);
+        offset++;
+    }
+
+    void printmem() {
+        for (int i = 0; i < this->offset; i++) {
+
+            bool isint = intarray.find(i);
+            bool isfloat = floatarray.find(i);
+            bool isdouble = doublearray.find(i);
+            bool ischar = chararray.find(i);
+            bool islong = longarray.find(i);
+            bool isref = refarray.find(i);
+
+            if(isint||isfloat||isdouble||ischar||islong||isref){
+                cout << "===============" << endl;
+                cout << "offset: " << i << endl;
+                cout << "int: " << isint << endl;
+                cout << "float: " << isfloat << endl;
+                cout << "double: " << isdouble << endl;
+                cout << "char: " << ischar << endl;
+                cout << "long: " << islong << endl;
+                cout << "res: " << isref << endl;
+                if (isint)
+                {
+                    int* tmp = getmemoryoffsetint(i);
+                    cout << *tmp << endl;
+                    cout << "size: " << sizeof(*tmp) << endl;
+                    cout << "Memory: " << tmp << endl;
+                }
+                else if (isfloat)
+                {
+                    float* tmp = getmemoryoffsetfloat(i);
+                    cout << *tmp << endl;
+                    cout << "size: " << sizeof(*tmp) << endl;
+                    cout << "Memory: " << tmp << endl;
+                }
+                else if (isdouble)
+                {
+                    double* tmp = getmemoryoffsetdouble(i);
+                    cout << *tmp << endl;
+                    cout << "size: " << sizeof(*tmp) << endl;
+                    cout << "Memory: " << tmp << endl;
+                }
+                else if (ischar)
+                {
+                    char* tmp = getmemoryoffsetchar(i);
+                    cout << *tmp << endl;
+                    cout << "size: " << sizeof(*tmp) << endl;
+
+                    cout << "Memory: " << getmemoryoffsetchar(i) << endl;
+                    cout << "Memory: " << tmp << endl;
+
+                }
+                else if (islong)
+                {
+                    long long* tmp = getmemoryoffsetlong(i);
+                    cout << *tmp << endl;
+                    cout << "size: " << sizeof(*tmp) << endl;
+                    cout << "Memory: " << tmp << endl;
+
+                }
+                else if (isref)
+                {
+                    int* tmp = getmemoryoffsetint(i);
+                    cout << *tmp << endl;
+                    cout << "size: " << sizeof(*tmp) << endl;
+                    cout << "Memory: " << tmp << endl;
+
+                }
+            }
+        }
+    }
+
+    int getoffset() {
+        return offset;
+    }
+
+    void* get_mem() {
+        return mem;
+    }
+
+    LinkedList* getlist(string type) {
+        if (type == "int")
+        {
+            return &intarray;
+        }
+        else if (type == "float")
+        {
+            return &floatarray;
+        }
+        else if (type == "double")
+        {
+            return &doublearray;
+        }
+        else if (type == "char")
+        {
+            return &chararray;
+        }
+        else if (type == "long")
+        {
+            return &longarray;
+        }
+        else if (type == "ref")
+        {
+            return &refarray;
+        }
+    }
+
+
+    bool outofmemory(int abytes) {
+        if (used + abytes <= bytes )
+        {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+};
+
+int main(){
+
+    MemoryManager m(30);
+
+    m.addvariableint(12,"a");
+    m.addvariableint(68,"b");
+    m.addvariabledouble(68.9,"c");
+
+    m.printmem();
+
+    m.getlist("int")->printList();
+    m.getlist("double")->printList();
+    m.getlist("char")->printList();
+
+    return 0;
+}
+
