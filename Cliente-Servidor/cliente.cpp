@@ -89,8 +89,14 @@ int main(int argc, char *argv[])
                 else if (json == "print")
                 {
                     cout << "Requested to print in stdout";
+                    highlightLine = true;
                 }
-                else if (json != "error" && json != "print" && !json.empty())
+                else if (json == "continue")
+                {
+                    cout << "Requested to continue";
+                    highlightLine = true;
+                }
+                else if (json != "error" && json != "print" && json != "continue" && !json.empty())
                 {
                     packetS << json;
                     if (socket.send(packetS))
@@ -134,6 +140,11 @@ int main(int argc, char *argv[])
                 else if (json == "print")
                 {
                     cout << "Requested to print in stdout";
+                }
+                else if (json == "continue")
+                {
+                    cout << "Requested to continue";
+                    highlightLine = true;
                 }
                 else if (json != "error" && json != "print" && !json.empty())
                 {

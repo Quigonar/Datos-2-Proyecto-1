@@ -97,6 +97,9 @@ public:
         }
         lineSplit.push_back(line.substr(start, end));
 
+        if (lineSplit.front().empty())
+            return "continue";
+
         for (n = 0; n < 7; n++)
         {
             if (lineSplit.front() == types[n])
