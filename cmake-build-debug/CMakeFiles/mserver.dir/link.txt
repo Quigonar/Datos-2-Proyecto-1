@@ -1,0 +1,1 @@
+/usr/bin/c++ -g CMakeFiles/mserver.dir/Cliente-Servidor/servidor.cpp.o -o mserver  -lsfml-network 

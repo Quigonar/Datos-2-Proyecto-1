@@ -21,9 +21,9 @@ Document jsonReceiver(Packet packet)
     return petD;
 }
 
-string jsonSender(string memory, string value, string variable, string line)
+string jsonSender(string memory, string value, string variable)
 {
-    string jsonStr = "{\"memory\":"+ memory + ",\"value\":" + value + ",\"variable\":" + variable + ",\"line\":" + line + "}";
+    string jsonStr = "{\"memory\":"+ memory + ",\"value\":" + value + ",\"variable\":" + variable + "}";
     return jsonStr;
 }
 
@@ -52,17 +52,16 @@ int main()
         socket.receive(packetR);
 
         if (packetR.getData() == NULL)
-            cout << "No message received yet" << endl;
+            //cout << "No message received yet" << endl;
+            done = false;
 
         else
         {
             petition = jsonReceiver(packetR);
-            Value& type = petition["type"];
-            Value& value = petition["value"];
-            Value& variable = petition["variable"];
-            Value& line = petition["line"];
+            string value = petition["value"].GetString();
+            string variable = petition["variable"].GetString();
 
-            if (type.GetString() == "int")
+            /*if (type.GetString() == "int")
             {
                 //Hace offset de 4 bytes
             }
@@ -89,11 +88,13 @@ int main()
             else if (type.GetString() == "reference")
             {
                 //Hace offset de 4 bytes
-            }
+            }*/
 
-            json = jsonSender("0x000", value.GetString(), variable.GetString(), line.GetString());
+            json = jsonSender("0x000", value, variable);
             packetS << json;
             socket.send(packetS);
+            packetS.clear();
+            packetR.clear();
         }
     }
     

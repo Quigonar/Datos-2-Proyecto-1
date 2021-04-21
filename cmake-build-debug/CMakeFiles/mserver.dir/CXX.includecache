@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/Cliente-Servidor/servidor.cpp
+SFML/Network.hpp
+-
+SFML/Graphics.hpp
+-
+rapidjson/document.h
+/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/Cliente-Servidor/rapidjson/document.h
+string
+-
+iostream
+-
+

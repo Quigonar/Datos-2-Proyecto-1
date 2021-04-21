@@ -19,6 +19,8 @@ map
 -
 ClienteRes/ListaDobleEnlazada.cpp
 /home/marcos/Documents/GitHub/Datos-2-Proyecto-1/Cliente-Servidor/ClienteRes/ClienteRes/ListaDobleEnlazada.cpp
+ClienteRes/GUI.cpp
+/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/Cliente-Servidor/ClienteRes/ClienteRes/GUI.cpp
 
 /home/marcos/Documents/GitHub/Datos-2-Proyecto-1/Cliente-Servidor/ClienteRes/ListaDobleEnlazada.cpp
 iostream
