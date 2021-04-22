@@ -1,3 +1,4 @@
-/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/cmake-build-debug/CMakeFiles/cliente.dir
+/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/cmake-build-debug/CMakeFiles/mserver.dir
+/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/cmake-build-debug/CMakeFiles/cliente.dir

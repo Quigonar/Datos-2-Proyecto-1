@@ -72,6 +72,7 @@ CMAKE_BINARY_DIR = "/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/cmake-bu
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
+all: CMakeFiles/mserver.dir/all
 all: CMakeFiles/cliente.dir/all
 
 .PHONY : all
@@ -82,9 +83,37 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
+clean: CMakeFiles/mserver.dir/clean
 clean: CMakeFiles/cliente.dir/clean
 
 .PHONY : clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/mserver.dir
+
+# All Build rule for target.
+CMakeFiles/mserver.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mserver.dir/build.make CMakeFiles/mserver.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mserver.dir/build.make CMakeFiles/mserver.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/cmake-build-debug/CMakeFiles --progress-num=3,4 "Built target mserver"
+.PHONY : CMakeFiles/mserver.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/mserver.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/marcos/Documents/GitHub/Datos-2-Proyecto-1/cmake-build-debug/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/mserver.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/marcos/Documents/GitHub/Datos-2-Proyecto-1/cmake-build-debug/CMakeFiles 0
+.PHONY : CMakeFiles/mserver.dir/rule
+
+# Convenience name for target.
+mserver: CMakeFiles/mserver.dir/rule
+
+.PHONY : mserver
+
+# clean rule for target.
+CMakeFiles/mserver.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mserver.dir/build.make CMakeFiles/mserver.dir/clean
+.PHONY : CMakeFiles/mserver.dir/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/cliente.dir

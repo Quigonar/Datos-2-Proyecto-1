@@ -69,4 +69,17 @@ void printList(Node* node)
         last = node;
         node = node->next;
     }
+    cout << endl;
 }
+/*int main()
+{
+    struct Node* head =  nullptr;
+    insert_end(&head, "10");
+    insert_end(&head, "9");
+    insert_end(&head, "7");
+    insert_end(&head, "6");
+    insert_end(&head, "5");
+    printList(head);
+    clearDLList(&head);
+    printList(head);
+}*/

@@ -1,8 +1,11 @@
 #include <iostream>
 #include <map>
 #include "ClienteRes/ListaDobleEnlazada.cpp"
+#include "ClienteRes/GUI.cpp"
+#include "rapidjson/document.h"
 
 using namespace std;
+using namespace rapidjson;
 
 class JsonHandler{
 public:
@@ -11,8 +14,9 @@ public:
     map<string, float> floats;
     map<string, double> doubles;
     map<string, char> chars;
+    string terminal;
 
-    bool valueVerifier(string type, string value, string variable, bool addMap)
+    bool valueVerifier(const string& type, string value, const string& variable, bool addMap)
     {
         if (type == "int" && *(typeid(stoi(value)).name()) == 'i')
         {
@@ -55,16 +59,16 @@ public:
             return true;
         }
 
-            /*else if (type == "struct" && *(typeid(stoi(value)).name()) == 's')
-            {
-                cout << "Not implemented yet" << endl;
-                return true;
-            }
-            else if (type == "reference" && *(typeid(stoi(value)).name()) == 'r')
-            {
-                cout << "Not implemented yet" << endl;
-                return true;
-            }*/
+        /*else if (type == "struct" && *(typeid(stoi(value)).name()) == 's')
+        {
+            cout << "Not implemented yet" << endl;
+            return true;
+        }
+        else if (type == "reference" && *(typeid(stoi(value)).name()) == 'r')
+        {
+            cout << "Not implemented yet" << endl;
+            return true;
+        }*/
         else
         {
             cout << "Value wasn't valid" << endl;
@@ -92,6 +96,9 @@ public:
             end = line.find(delimiter, start);
         }
         lineSplit.push_back(line.substr(start, end));
+
+        if (lineSplit.front().empty())
+            return "continue";
 
         for (n = 0; n < 7; n++)
         {
@@ -128,78 +135,73 @@ public:
             type = "char";
             ignoreStep = true;
         }
-        else if (type.empty())
-        {
-            cout << "Error: code syntaxis is wrong, forgot to declare type" << endl;
-            return "Failed to create json";
+        else if (lineSplit.front() == "cout" && lineSplit.back().back() == ';') {
+            it = lineSplit.begin();
+            lineSplit.erase(it);
+            for (auto & i : lineSplit) {
+                if (ints.count(i.erase(i.size() - 1)) > 0)
+                    terminal.append(to_string(ints.at(i)) + "\n");
+                else if (longs.count(i.erase(i.size() - 1)) > 0)
+                    terminal.append(to_string(longs.at(i)) + "\n");
+                else if (floats.count(i.erase(i.size() - 1)) > 0)
+                    terminal.append(to_string(floats.at(i)) + "\n");
+                else if (doubles.count(i.erase(i.size() - 1)) > 0)
+                    terminal.append(to_string(doubles.at(i)) + "\n");
+                else if (chars.count(i.erase(i.size() - 1)) > 0)
+                    terminal.append(to_string(chars.at(i)) + "\n");
+            }
+            cout << terminal << endl;
+            return "print";
+        }
+        else if (type.empty()) {
+            terminal.append("Error! code syntaxis is wrong: forgot to declare type or forgot to add \";\"\n");
+            return "error";
         }
 
         if (lineSplit.front().length() >= 2 && lineSplit.front().back() == ';')
         {
             variable = lineSplit.front().erase(lineSplit.front().length() - 1);
-            if (ints.count(variable) > 0)
-            {
-                cout << "Error redefining same variable: " << variable << endl;
-                return "Failed to create json";
-            }
-            else if (longs.count(variable) > 0)
-            {
-                cout << "Error redefining same variable: " << variable << endl;
-                return "Failed to create json";
-            }
-            else if (floats.count(variable) > 0)
-            {
-                cout << "Error redefining same variable: " << variable << endl;
-                return "Failed to create json";
-            }
-            else if (doubles.count(variable) > 0)
-            {
-                cout << "Error redefining same variable: " << variable << endl;
-                return "Failed to create json";
+            if (ints.count(variable) > 0 || longs.count(variable) > 0 || floats.count(variable) > 0 || doubles.count(variable) > 0){
+                terminal.append("Error! redefining same variable: " + variable + "\n");
+                return "error";
             }
             else
+            {
                 value = "NULL";
                 if (type == "int")
-                    ints[variable] = NULL;
+                    ints[variable] = 0;
                 else if (type == "long")
-                    longs[variable] = NULL;
+                    longs[variable] = 0;
                 else if (type == "float")
-                    floats[variable] = NULL;
+                    floats[variable] = 0;
                 else if (type == "double")
-                    doubles[variable] = NULL;
+                    doubles[variable] = 0;
                 else if (type == "char")
-                    chars[variable] = NULL;
+                    chars[variable] = 0;
 
-                string jsonStr = "{\"type\":"+ type + ",\"value\":" + value + ",\"variable\":" + variable + "}";
+                string jsonStr = R"({"type":")"+ type + R"(","value":")" + value + R"(","variable":")" + variable + "\"}";
                 return jsonStr;
+            }
         }
-        else if (lineSplit.front() == '=')
-        {
-            cout << "Error: code syntaxis is wrong, forgot to declare variable" << endl;
+        else if (lineSplit.front() == '=') {
+            terminal.append("Error! code syntaxis is wrong: forgot to declare variable\n");
+            return "error";
         }
-        else if (ints.count(lineSplit.front()) > 0 && !ignoreStep)
-        {
-            cout << "Error redefining same variable: " << variable << endl;
-            ignoreStep = false;
-            return "Failed to create json";
+        else if (ints.count(lineSplit.front()) > 0 && !ignoreStep){
+            terminal.append("Error! code syntaxis is wrong: forgot to declare variable\n");
+            return "error";
         }
-        else if (longs.count(lineSplit.front()) > 0 && !ignoreStep)
-        {
-            cout << "Error redefining same variable: " << variable << endl;
-            ignoreStep = false;
-            return "Failed to create json";
+        else if (longs.count(lineSplit.front()) > 0 && !ignoreStep){
+            terminal.append("Error! code syntaxis is wrong: forgot to declare variable\n");
+            return "error";
         }
-        else if (floats.count(lineSplit.front()) > 0 && !ignoreStep)
-        {
-            cout << "Error redefining same variable: " << variable << endl;
-            ignoreStep = false;
-            return "Failed to create json";
+        else if (floats.count(lineSplit.front()) > 0 && !ignoreStep){
+            terminal.append("Error! code syntaxis is wrong: forgot to declare variable\n");
+            return "error";
         }
-        else if (doubles.count(lineSplit.front()) > 0 && !ignoreStep)
-        {
-            cout << "Error redefining same variable: " << variable << endl;
-            ignoreStep = false;
-            return "Failed to create json";
+        else if (doubles.count(lineSplit.front()) > 0 && !ignoreStep){
+            terminal.append("Error! code syntaxis is wrong: forgot to declare variable\n");
+            return "error";
         }
         else
         {
@@ -215,10 +217,22 @@ public:
             if (lineSplit.front().back() == ';' && lineSplit.front().length() >= 2)
             {
                 value = lineSplit.front().erase(lineSplit.front().length() - 1);
+
+                if (ints.count(value) > 0)
+                    value = to_string(ints.at(value));
+                else if (longs.count(value) > 0)
+                    value = to_string(longs.at(value));
+                else if (floats.count(value) > 0)
+                    value = to_string(floats.at(value));
+                else if (doubles.count(value) > 0)
+                    value = to_string(doubles.at(value));
+                else if (chars.count(value) > 0)
+                    value = to_string(chars.at(value));
+
                 bool validValue = valueVerifier(type, value, variable, true);
                 if (validValue)
                 {
-                    string jsonStr = "{\"type\":" + type + ",\"value\":" + value + ",\"variable\":" + variable + "}";
+                    string jsonStr = R"({"type":")"+ type + R"(","value":")" + value + R"(","variable":")" + variable + "\"}";
                     return jsonStr;
                 }
             }
@@ -281,21 +295,13 @@ public:
                         i2 = stoi(lineSplit.at(2));
 
                         if (lineSplit.at(1) == "+")
-                        {
                             value = to_string(i1 + i2);
-                        }
                         else if (lineSplit.at(1) == "-")
-                        {
                             value = to_string(i1 - i2);
-                        }
                         else if (lineSplit.at(1) == "*")
-                        {
                             value = to_string(i1 * i2);
-                        }
                         else if (lineSplit.at(1) == "/")
-                        {
                             value = to_string(i1 / i2);
-                        }
                         ints[variable] = stoi(value);
 
                     } else if (type == "long")
@@ -304,21 +310,13 @@ public:
                         l2 = stol(lineSplit.at(2));
 
                         if (lineSplit.at(1) == "+")
-                        {
                             value = to_string(l1 + l2);
-                        }
                         else if (lineSplit.at(1) == "-")
-                        {
                             value = to_string(l1 - l2);
-                        }
                         else if (lineSplit.at(1) == "*")
-                        {
                             value = to_string(l1 * l2);
-                        }
                         else if (lineSplit.at(1) == "/")
-                        {
                             value = to_string(l1 / l2);
-                        }
                         longs[variable] = stol(value);
                     } else if (type == "float")
                     {
@@ -326,21 +324,13 @@ public:
                         f2 = stof(lineSplit.at(2));
 
                         if (lineSplit.at(1) == "+")
-                        {
                             value = to_string(f1 + f2);
-                        }
                         else if (lineSplit.at(1) == "-")
-                        {
                             value = to_string(f1 - f2);
-                        }
                         else if (lineSplit.at(1) == "*")
-                        {
                             value = to_string(f1 * f2);
-                        }
                         else if (lineSplit.at(1) == "/")
-                        {
                             value = to_string(f1 / f2);
-                        }
                         floats[variable] = stof(value);
                     } else if (type == "double")
                     {
@@ -348,37 +338,45 @@ public:
                         d2 = stod(lineSplit.at(2));
 
                         if (lineSplit.at(1) == "+")
-                        {
                             value = to_string(d1 + d2);
-                        }
                         else if (lineSplit.at(1) == "-")
-                        {
                             value = to_string(d1 - d2);
-                        }
                         else if (lineSplit.at(1) == "*")
-                        {
                             value = to_string(d1 * d2);
-                        }
                         else if (lineSplit.at(1) == "/")
-                        {
                             value = to_string(d1 / d2);
-                        }
                         doubles[variable] = stod(value);
                     }
-                string jsonStr = "{\"type\":" + type + ",\"value\":" + value + ",\"variable\":" + variable + "}";
-                return jsonStr;
+                    string jsonStr = R"({"type":")"+ type + R"(","value":")" + value + R"(","variable":")" + variable + "\"}";
+                    return jsonStr;
                 }
 
             }
-            else
-            {
-                cout << "Error: code syntaxis is wrong, forgot to add \";\" or invalid operation" << endl;
+            else {
+                terminal.append("Error! code syntaxis is wrong: forgot to add \";\" or invalid operation written\n");
+                return "error";
             }
         }
         else
-        {
-            cout << "Error: code syntaxis is wrong, forgot to add value to the variable" << endl;
-        }
-        return "Couldn't create the json";
+            terminal.append("Error! code syntaxis is wrong: forgot to add value to the variable\n");
+        return "error";
+    }
+
+    string getTerminal() const
+    {
+        return terminal;
+    }
+
+    Document jsonReceiver(Packet packet)
+    {
+        string pet;
+        Document petD;
+
+        packet >> pet;
+        cout << pet << endl;
+        const char* petChar = pet.c_str();
+        petD.Parse(petChar);
+
+        return petD;
     }
 };

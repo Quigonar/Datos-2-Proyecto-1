@@ -130,6 +130,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named mserver
+
+# Build rule for target.
+mserver: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 mserver
+.PHONY : mserver
+
+# fast build rule for target.
+mserver/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mserver.dir/build.make CMakeFiles/mserver.dir/build
+.PHONY : mserver/fast
+
+#=============================================================================
 # Target rules for targets named cliente
 
 # Build rule for target.
@@ -169,6 +182,33 @@ Cliente-Servidor/cliente.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cliente.dir/build.make CMakeFiles/cliente.dir/Cliente-Servidor/cliente.cpp.s
 .PHONY : Cliente-Servidor/cliente.cpp.s
 
+Cliente-Servidor/servidor.o: Cliente-Servidor/servidor.cpp.o
+
+.PHONY : Cliente-Servidor/servidor.o
+
+# target to build an object file
+Cliente-Servidor/servidor.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mserver.dir/build.make CMakeFiles/mserver.dir/Cliente-Servidor/servidor.cpp.o
+.PHONY : Cliente-Servidor/servidor.cpp.o
+
+Cliente-Servidor/servidor.i: Cliente-Servidor/servidor.cpp.i
+
+.PHONY : Cliente-Servidor/servidor.i
+
+# target to preprocess a source file
+Cliente-Servidor/servidor.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mserver.dir/build.make CMakeFiles/mserver.dir/Cliente-Servidor/servidor.cpp.i
+.PHONY : Cliente-Servidor/servidor.cpp.i
+
+Cliente-Servidor/servidor.s: Cliente-Servidor/servidor.cpp.s
+
+.PHONY : Cliente-Servidor/servidor.s
+
+# target to generate assembly for a file
+Cliente-Servidor/servidor.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mserver.dir/build.make CMakeFiles/mserver.dir/Cliente-Servidor/servidor.cpp.s
+.PHONY : Cliente-Servidor/servidor.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -178,9 +218,13 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... cliente"
+	@echo "... mserver"
 	@echo "... Cliente-Servidor/cliente.o"
 	@echo "... Cliente-Servidor/cliente.i"
 	@echo "... Cliente-Servidor/cliente.s"
+	@echo "... Cliente-Servidor/servidor.o"
+	@echo "... Cliente-Servidor/servidor.i"
+	@echo "... Cliente-Servidor/servidor.s"
 .PHONY : help
 
 

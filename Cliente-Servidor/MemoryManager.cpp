@@ -309,7 +309,7 @@ public:
     }
 };
 
-int main(){
+/*int main(){
 
     MemoryManager m(30);
 
@@ -325,4 +325,4 @@ int main(){
 
     return 0;
 }
-
+*/
