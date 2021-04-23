@@ -7,8 +7,10 @@
 using namespace std;
 using namespace rapidjson;
 
+//Se crea la clase para manejar y verificar las lineas del codigo
 class JsonHandler{
 public:
+    //Se definen los diferentes diccionarios necesarios
     map<string, int> ints;
     map<string, long> longs;
     map<string, float> floats;
@@ -16,6 +18,7 @@ public:
     map<string, char> chars;
     string terminal;
 
+    //Verificador de que el valor ingresado corresponda al tipo ingresado
     bool valueVerifier(const string& type, string value, const string& variable, bool addMap)
     {
         if (type == "int" && *(typeid(stoi(value)).name()) == 'i')
@@ -76,6 +79,8 @@ public:
         }
     }
 
+    //Descompositor de la linea que crea un string estilo JSON con las variables necesarias o el tipo de funcion que
+    //el usuario decidio hacer
     string jsonSender(Node* node)
     {
         string type, value, variable, line, delimiter;
@@ -100,6 +105,7 @@ public:
         if (lineSplit.front().empty())
             return "continue";
 
+        //Verifica si el tipo esta definido al principio y define el tipo de la variable
         for (n = 0; n < 7; n++)
         {
             if (lineSplit.front() == types[n])
@@ -110,6 +116,7 @@ public:
                 break;
             }
         }
+        //Si no verifica que la variable se encuentre en alguno de los diccionarios
         if (ints.count(lineSplit.front()) > 0 && type.empty())
         {
             type = "int";
@@ -135,6 +142,7 @@ public:
             type = "char";
             ignoreStep = true;
         }
+        //Si no seria el imprimir alguna variable y desplegarla en la terminal o stdout
         else if (lineSplit.front() == "cout" && lineSplit.back().back() == ';') {
             it = lineSplit.begin();
             lineSplit.erase(it);
@@ -153,11 +161,13 @@ public:
             cout << terminal << endl;
             return "print";
         }
+        //Y por ultimo devolver un error y desplegarlo en la terminal o stdout
         else if (type.empty()) {
             terminal.append("Error! code syntaxis is wrong: forgot to declare type or forgot to add \";\"\n");
             return "error";
         }
 
+        //Luego revisa si solo se define la variable sin valor alguno por lo cual por default se le da valor de NULL o 0
         if (lineSplit.front().length() >= 2 && lineSplit.front().back() == ';')
         {
             variable = lineSplit.front().erase(lineSplit.front().length() - 1);
@@ -177,12 +187,13 @@ public:
                 else if (type == "double")
                     doubles[variable] = 0;
                 else if (type == "char")
-                    chars[variable] = 0;
+                    chars[variable] = '\0';
 
                 string jsonStr = R"({"type":")"+ type + R"(","value":")" + value + R"(","variable":")" + variable + "\"}";
                 return jsonStr;
             }
         }
+        //Revisa si se encuentra alguna error de sintaxis
         else if (lineSplit.front() == '=') {
             terminal.append("Error! code syntaxis is wrong: forgot to declare variable\n");
             return "error";
@@ -203,6 +214,7 @@ public:
             terminal.append("Error! code syntaxis is wrong: forgot to declare variable\n");
             return "error";
         }
+        //Y si no se continua a encontrar el valor de la variable.
         else
         {
             variable = lineSplit.front();
@@ -210,6 +222,7 @@ public:
             lineSplit.erase(it);
         }
 
+        //Si el sintaxis esta bien escrito se procede a poner el valor a la variable
         if (lineSplit.front() == '=')
         {
             it = lineSplit.begin();
@@ -236,10 +249,12 @@ public:
                     return jsonStr;
                 }
             }
+            //Si se encuentra algun tipo de operacion para realizarlo
             else if (lineSplit.at(1) == "+" || lineSplit.at(1) == "-" || lineSplit.at(1) == "*" || lineSplit.at(1) == "/")
             {
                 string val;
                 string split2 = lineSplit.at(2).erase(lineSplit.at(2).size() - 1);
+                //verifica si la operacion contiene algun tipo de variable previamente definida
                 if (ints.count(lineSplit.at(0)) > 0)
                 {
                     val = to_string(ints.at(lineSplit.at(0)));
@@ -281,6 +296,7 @@ public:
                     lineSplit.at(2) = val;
                 }
 
+                //Se realiza la operacion
                 if (valueVerifier(type, lineSplit.at(0), variable, false)
                     && valueVerifier(type, lineSplit.at(2), variable, false))
                 {
@@ -352,21 +368,25 @@ public:
                 }
 
             }
+            //Si no hay problema de sintaxis en el codigo
             else {
                 terminal.append("Error! code syntaxis is wrong: forgot to add \";\" or invalid operation written\n");
                 return "error";
             }
         }
+        //Si no hay problema de sintaxis en el codigo
         else
             terminal.append("Error! code syntaxis is wrong: forgot to add value to the variable\n");
         return "error";
     }
 
+    //Se define funcion que devuelve el string de la terminal para desplegarlo en la pantalla
     string getTerminal() const
     {
         return terminal;
     }
 
+    //Se define funcion que devuelve el json que puede ser accedido como un JSON
     Document jsonReceiver(Packet packet)
     {
         string pet;

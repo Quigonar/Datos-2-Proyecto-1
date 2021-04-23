@@ -12,6 +12,7 @@ using namespace rapidjson;
 
 int main(int argc, char *argv[])
 {
+    //Se definen la variables necesarias para la comunicacion por sockets
     IpAddress ip = IpAddress::getLocalAddress();
     TcpSocket socket;
     char connectionType, mode;
@@ -22,8 +23,10 @@ int main(int argc, char *argv[])
     bool highlightLine = false;
     JsonHandler jsonHandler;
 
+    //Se define la cabeza para crear la lista enlazada
     Node* head = nullptr;
 
+    //Se crean las variables graficas
     Font font;
     GUI gui;
 
@@ -49,21 +52,28 @@ int main(int argc, char *argv[])
     terminalT.setFillColor(Color::White);
     terminalT.setPosition(5, 540);
 
+    //Se conecta el cliente al socket
     socket.connect(ip, 8080);
 
+    //Se crea la pantalla grafica
     RenderWindow window(VideoMode(1500,1050), "C! IDE");
 
+    //Se ponen condiciones para el socket y pantalla
     socket.setBlocking(false);
     mode = 's';
     window.setKeyRepeatEnabled(true);
 
+    //Se define el while loop principal
     while(window.isOpen())
     {
+        //Se revisa por eventos que suceden en la pantalla
         Event event;
         while (window.pollEvent(event))
         {
+            //Se revisa por click en los botones
             int analyzeLines = gui.update(Vector2f(event.mouseButton.x,event.mouseButton.y));
 
+            //Si se presiona el boton de run se anaden las lineas a nodos de lista enlazada para enviar al handler
             if (analyzeLines == 1)
             {
                 clearDLList(&head);
@@ -106,6 +116,7 @@ int main(int argc, char *argv[])
                     highlightLine = true;
                 }
             }
+            //Si se presiona el boton de stop el programa detiene el corrido del codigo y limpia la terminal y variables creadas
             else if (analyzeLines == 2)
             {
                 highlightLine = false;
@@ -119,6 +130,7 @@ int main(int argc, char *argv[])
                 jsonHandler.doubles.clear();
                 jsonHandler.chars.clear();
             }
+            //Al presionar el boton de abajo en las flechas cuando se corre el codigo la linea siendo analizada baja
             if (Keyboard::isKeyPressed(Keyboard::Down) && highlightLine)
             {
                 Node* temp;
@@ -156,14 +168,15 @@ int main(int argc, char *argv[])
                     highlightLine = true;
                 }
             }
-
             switch(event.type)
             {
+                //Si se cierra la pantalla se termina el programa
                 case Event::Closed:
                     //printList(head);
                     window.close();
                     break;
 
+                    //Funcionalidad para hacer scroll de las diferentes partes de la interfaz grafica
                 case Event::MouseWheelMoved:
                     if (event.mouseWheel.delta >= 0 )
                     {
@@ -205,7 +218,8 @@ int main(int argc, char *argv[])
                         }
                     }
                     break;
-                    
+
+                    //Funcionalidad para guardar codigo y desplegarlo en la pantalla
                 case Event::TextEntered:
                     if (gui.codeBool)
                     {
@@ -247,18 +261,28 @@ int main(int argc, char *argv[])
                 break;
             }
         }
+
+        //El socket esta constantemente recibiendo los mensajes
         socket.receive(packetR);
+
+        //Si el mensaje recibido no se encuentra vacio
         if (packetR.getData() != NULL)
         {
             RLV = jsonHandler.jsonReceiver(packetR);
             packetR.clear();
         }
+
+        //Se pone el texto anadido a la pantalla
         terminalT.setString(terminal);
         lineNumber.setString(lineStr);
+
+        //Si se selecciona la parte del codigo se despliega un caracter para reconocer donde se encuentra
         if (gui.codeBool)
             code.setString(codeInput + "_");
         else
             code.setString(codeInput);
+
+        //Se limpia la pantalla para evitar memory overflow y se vuelve a imprimir en la pantalla la interfaz
         window.clear();
         gui.Render(&window, code, lineNumber, font, terminalT);
         window.display();
