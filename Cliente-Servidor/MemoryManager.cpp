@@ -56,7 +56,7 @@ public:
     }
     //Memory variable add *****************************************
 
-    void addvariableint(int value,string name) {
+    bool addvariableint(int value,string name) {
         if(outofmemory(4)){
             int tmp = getoffset();
             cout << "This is offset: " << getoffset() << endl;
@@ -67,16 +67,18 @@ public:
             intarray.append(tmp, "int", name);
             offset = offset+4;
             used = used + 4;
+            return true;
         }
         else
         {
+            return false;
             //return error en consola
         }
 
 
     }
 
-    void addvariablefloat(float value, string name) {
+    bool addvariablefloat(float value, string name) {
         if(outofmemory(4)){
             int tmp = getoffset();
             cout << "This is offset: " << getoffset() << endl;
@@ -88,16 +90,18 @@ public:
             floatarray.append(tmp, "float", name);
             offset = offset+4;
             used = used + 4;
+            return true;
         }
         else
         {
             //return error en consola
+            return false;
         }
 
 
     }
 
-    void addvariabledouble(double value, string name) {
+    bool addvariabledouble(double value, string name) {
         if (outofmemory(8))
         {
             int tmp = getoffset();
@@ -109,16 +113,18 @@ public:
             doublearray.append(getoffset(), "double", name);
             offset = offset+8;
             used = used + 8;
+            return true;
         }
         else
         {
             //return error en consola
+            return false;
         }
 
     }
 
 
-    void addvariablechar(char value, string name) {
+    bool addvariablechar(char value, string name) {
         if (outofmemory(1))
         {
             int tmp = getoffset();
@@ -130,15 +136,17 @@ public:
             chararray.append(getoffset(), "char", name);
             offset = offset+1;
             used = used + 1;
+            return true;
         }
         else
         {
             //return error console
+            return false;
         }
 
     }
 
-    void addvariablelong(long value, string name) {
+    bool addvariablelong(long long value, string name) {
         if (outofmemory(8))
         {
             int tmp = getoffset();
@@ -150,10 +158,12 @@ public:
             longarray.append(getoffset(), "long", name);
             offset = offset + 8;
             used = used + 8;
+            return true;
         }
         else
         {
             //return error console
+            return false;
         }
 
     }
@@ -190,6 +200,87 @@ public:
 
         refarray.append(getoffset(), type, name);
         offset++;
+    }
+
+    void change_intvar(string name,int value){
+
+    }
+
+    void change_floatvar(string name,float value){
+
+    }
+
+    void change_longvar(string name,long long value){
+
+    }
+
+    void change_charvar(string name, char value){
+
+    }
+
+    void change_doublevar(string name, double value){
+
+    }
+    void change_structvar(string name, int value){
+
+    }
+
+    int get_varref(string type, string name){
+        if (type == "int")
+        {
+            if(intarray.findvar(name)){
+                int xref = intarray.findref(name);
+                return xref;
+            }
+            else{
+                return -1;
+            }
+
+        }
+        else if (type == "float")
+        {
+            if(floatarray.findvar(name)){
+                int xref = floatarray.findref(name);
+                return xref;
+            }
+            else{
+                return -1;
+            }
+        }
+        else if (type == "double")
+        {
+            if(doublearray.findvar(name)){
+                int xref = doublearray.findref(name);
+                return xref;
+            }
+            else{
+                return -1;
+            }
+        }
+        else if (type == "char")
+        {
+            if(chararray.findvar(name)){
+                int xref = chararray.findref(name);
+                return xref;
+            }
+            else{
+                return -1;
+            }
+        }
+        else if (type == "long")
+        {
+            if(longarray.findvar(name)){
+                int xref = longarray.findref(name);
+                return xref;
+            }
+            else{
+                return -1;
+            }
+        }
+        else if (type == "ref")
+        {
+            return 0;
+        }
     }
 
     void printmem() {
@@ -309,20 +400,3 @@ public:
     }
 };
 
-/*int main(){
-
-    MemoryManager m(30);
-
-    m.addvariableint(12,"a");
-    m.addvariableint(68,"b");
-    m.addvariabledouble(68.9,"c");
-
-    m.printmem();
-
-    m.getlist("int")->printList();
-    m.getlist("double")->printList();
-    m.getlist("char")->printList();
-
-    return 0;
-}
-*/

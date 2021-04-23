@@ -120,6 +120,45 @@ public:
             }
         }
     }
+    int findref(string aname) {
+        if (start == NULL)
+        {
+            return 0;
+        }
+        else if (start == tail)
+        {
+            if (start->get_name() == aname)
+            {
+                return start->get_refnum();
+            }
+            else
+            {
+                return 0;
+            }
+        }
+        else
+        {
+            if (start->get_name() == aname)
+            {
+                return start->get_refnum();;
+            }
+            else
+            {
+                Node* tmp = start->get_next();
+                while (tmp != NULL)
+                {
+                    if (tmp->get_name() == aname)
+                    {
+                        return tmp->get_refnum();;
+                    }
+
+                    tmp = tmp->get_next();
+                }
+
+                return 0;
+            }
+        }
+    }
     //print list
     void printList() {
 

@@ -1,4 +1,4 @@
-/snap/clion/149/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" "/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1"
+/snap/clion/151/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" "/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1"
 -- Found SFML 2.5.1 in /usr/include
 -- Configuring done
 -- Generating done
