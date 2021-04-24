@@ -19,7 +19,7 @@ int main(int argc, char *argv[])
     size_t received;
     Document RLV;
     Packet packetS, packetR;
-    string json, terminal;
+    string json, terminal, RLVStrA, RLVStrVal, RLVStrVar, RLVStrRef;
     bool highlightLine = false;
     JsonHandler jsonHandler;
 
@@ -33,7 +33,7 @@ int main(int argc, char *argv[])
     if (!font.loadFromFile("arial.ttf"))
         cout << "Couldn't load font" << endl;
 
-    Text code, lineNumber, terminalT;
+    Text code, lineNumber, terminalT, RLVAddr, RLVValue, RLVVariable, RLVReference;
     string codeInput;
     code.setFont(font);
     code.setCharacterSize(15);
@@ -51,6 +51,26 @@ int main(int argc, char *argv[])
     terminalT.setCharacterSize(15);
     terminalT.setFillColor(Color::White);
     terminalT.setPosition(5, 540);
+
+    RLVAddr.setFont(font);
+    RLVAddr.setCharacterSize(20);
+    RLVAddr.setFillColor(Color::Black);
+    RLVAddr.setPosition(975, 50);
+
+    RLVValue.setFont(font);
+    RLVValue.setCharacterSize(20);
+    RLVValue.setFillColor(Color::Black);
+    RLVValue.setPosition(1190, 50);
+
+    RLVVariable.setFont(font);
+    RLVVariable.setCharacterSize(20);
+    RLVVariable.setFillColor(Color::Black);
+    RLVVariable.setPosition(1305, 50);
+
+    RLVReference.setFont(font);
+    RLVReference.setCharacterSize(20);
+    RLVReference.setFillColor(Color::Black);
+    RLVReference.setPosition(1412, 50);
 
     //Se conecta el cliente al socket
     socket.connect(ip, 8080);
@@ -98,12 +118,12 @@ int main(int argc, char *argv[])
                 }
                 else if (json == "print")
                 {
-                    cout << "Requested to print in stdout";
+                    cout << "Requested to print in stdout" << endl;
                     highlightLine = true;
                 }
                 else if (json == "continue")
                 {
-                    cout << "Requested to continue";
+                    cout << "Requested to continue" << endl;
                     highlightLine = true;
                 }
                 else if (json != "error" && json != "print" && json != "continue" && !json.empty())
@@ -129,6 +149,10 @@ int main(int argc, char *argv[])
                 jsonHandler.floats.clear();
                 jsonHandler.doubles.clear();
                 jsonHandler.chars.clear();
+                RLVStrA.clear();
+                RLVStrVal.clear();
+                RLVStrVar.clear();
+                RLVStrRef.clear();
             }
             //Al presionar el boton de abajo en las flechas cuando se corre el codigo la linea siendo analizada baja
             if (Keyboard::isKeyPressed(Keyboard::Down) && highlightLine)
@@ -221,7 +245,7 @@ int main(int argc, char *argv[])
 
                     //Funcionalidad para guardar codigo y desplegarlo en la pantalla
                 case Event::TextEntered:
-                    if (gui.codeBool)
+                    if (gui.codeBool && !highlightLine)
                     {
                         if(event.text.unicode == 8)
                         {
@@ -269,12 +293,24 @@ int main(int argc, char *argv[])
         if (packetR.getData() != NULL)
         {
             RLV = jsonHandler.jsonReceiver(packetR);
+            string memory = RLV["memory"].GetString();
+            RLVStrA += memory + "\n\n";
+            string value = RLV["value"].GetString();
+            RLVStrVal += value + "\n\n";
+            string variable = RLV["variable"].GetString();
+            RLVStrVar += variable + "\n\n";
+            string ref = RLV["ref"].GetString();
+            RLVStrRef += ref + "\n\n";
             packetR.clear();
         }
 
         //Se pone el texto anadido a la pantalla
-        terminalT.setString(terminal);
+        terminalT.setString("STDOUT: \n" + terminal);
         lineNumber.setString(lineStr);
+        RLVAddr.setString("Memory Addr\n\n" + RLVStrA);
+        RLVValue.setString("Value\n\n" + RLVStrVal);
+        RLVVariable.setString("Variable\n\n" + RLVStrVar);
+        RLVReference.setString("Reference\n\n" + RLVStrRef);
 
         //Si se selecciona la parte del codigo se despliega un caracter para reconocer donde se encuentra
         if (gui.codeBool)
@@ -284,7 +320,7 @@ int main(int argc, char *argv[])
 
         //Se limpia la pantalla para evitar memory overflow y se vuelve a imprimir en la pantalla la interfaz
         window.clear();
-        gui.Render(&window, code, lineNumber, font, terminalT);
+        gui.Render(&window, code, lineNumber, font, terminalT, RLVAddr, RLVValue, RLVVariable, RLVReference);
         window.display();
     }
     

@@ -25,7 +25,7 @@ Document jsonReceiver(Packet packet)
 
 string jsonSender(string memory, string value, string variable,string ref)
 {
-    string jsonStr = "{\"memory\":"+ memory + ",\"value\":" + value + ",\"variable\":" + variable + ",\"ref\":" + ref+ "}";
+    string jsonStr = R"({"memory":")"+ memory + R"(","value":")" + value + R"(","variable":")" + variable + R"(","ref":")" + ref + "\"}";
     return jsonStr;
 }
 
