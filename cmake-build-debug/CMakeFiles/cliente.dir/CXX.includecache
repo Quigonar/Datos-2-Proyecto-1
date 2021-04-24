@@ -6,27 +6,29 @@
 
 #IncludeRegexTransform: 
 
-/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/Cliente-Servidor/ClienteRes/GUI.cpp
+/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/Cliente-Servidor/ClienteRes/GUI.cpp
 SFML/Graphics.hpp
 -
 iostream
 -
 
-/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/Cliente-Servidor/ClienteRes/JsonHandler.cpp
+/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/Cliente-Servidor/ClienteRes/JsonHandler.cpp
 iostream
 -
 map
 -
 ClienteRes/ListaDobleEnlazada.cpp
-/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/Cliente-Servidor/ClienteRes/ClienteRes/ListaDobleEnlazada.cpp
+/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/Cliente-Servidor/ClienteRes/ClienteRes/ListaDobleEnlazada.cpp
 ClienteRes/GUI.cpp
-/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/Cliente-Servidor/ClienteRes/ClienteRes/GUI.cpp
+/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/Cliente-Servidor/ClienteRes/ClienteRes/GUI.cpp
+rapidjson/document.h
+/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/Cliente-Servidor/ClienteRes/rapidjson/document.h
 
-/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/Cliente-Servidor/ClienteRes/ListaDobleEnlazada.cpp
+/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/Cliente-Servidor/ClienteRes/ListaDobleEnlazada.cpp
 iostream
 -
 
-/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/Cliente-Servidor/cliente.cpp
+/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/Cliente-Servidor/cliente.cpp
 SFML/Network.hpp
 -
 SFML/Graphics.hpp
@@ -35,12 +37,10 @@ iostream
 -
 map
 -
-rapidjson/document.h
-/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/Cliente-Servidor/rapidjson/document.h
 ClienteRes/ListaDobleEnlazada.cpp
-/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/Cliente-Servidor/ClienteRes/ListaDobleEnlazada.cpp
+/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/Cliente-Servidor/ClienteRes/ListaDobleEnlazada.cpp
 ClienteRes/GUI.cpp
-/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/Cliente-Servidor/ClienteRes/GUI.cpp
+/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/Cliente-Servidor/ClienteRes/GUI.cpp
 ClienteRes/JsonHandler.cpp
-/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/Cliente-Servidor/ClienteRes/JsonHandler.cpp
+/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/Cliente-Servidor/ClienteRes/JsonHandler.cpp
 

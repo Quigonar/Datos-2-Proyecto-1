@@ -159,6 +159,83 @@ public:
             }
         }
     }
+
+    void changeref(string aname) {
+        if (start == NULL)
+        {
+            //Lista vacia
+        }
+        else if (start == tail)
+        {
+            if (start->get_name() == aname)
+            {
+                start->add_refnum();
+            }
+
+        }
+        else
+        {
+            if (start->get_name() == aname)
+            {
+                start->add_refnum();
+            }
+            else
+            {
+                Node* tmp = start->get_next();
+                while (tmp != NULL)
+                {
+                    if (tmp->get_name() == aname)
+                    {
+                        tmp->add_refnum();
+                        break;
+                    }
+
+                    tmp = tmp->get_next();
+                }
+            }
+        }
+    }
+
+    int findoffset(string aname) {
+        if (start == NULL)
+        {
+            return -1;
+        }
+        else if (start == tail)
+        {
+            if (start->get_name() == aname)
+            {
+                return start->get_offset();
+            }
+            else
+            {
+                return -1;
+            }
+        }
+        else
+        {
+            if (start->get_name() == aname)
+            {
+                return start->get_offset();
+            }
+            else
+            {
+                Node* tmp = start->get_next();
+                while (tmp != NULL)
+                {
+                    if (tmp->get_name() == aname)
+                    {
+                        return tmp->get_offset();;
+                    }
+
+                    tmp = tmp->get_next();
+                }
+
+                return -1;
+            }
+        }
+    }
+
     //print list
     void printList() {
 

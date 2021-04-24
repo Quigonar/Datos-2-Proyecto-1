@@ -27,7 +27,9 @@ public:
     void set_next(Node* ptr) {
         next = ptr;
     }
-
+    void add_refnum() {
+        refnum++;
+    }
 
 
     //pointer getter
@@ -41,6 +43,9 @@ public:
 
     int get_refnum(){
         return refnum;
+    }
+    int get_offset(){
+        return offset;
     }
     string get_name() {
         return name;

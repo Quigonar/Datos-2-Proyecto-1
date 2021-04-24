@@ -6,6 +6,16 @@
 
 #IncludeRegexTransform: 
 
+/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/Cliente-Servidor/Logger.cpp
+string
+-
+iostream
+-
+sstream
+-
+ctime
+-
+
 /home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/Cliente-Servidor/MemoryList/LinkedList.cpp
 iostream
 -
@@ -41,6 +51,8 @@ iostream
 -
 MemoryManager.cpp
 /home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/Cliente-Servidor/MemoryManager.cpp
+Logger.cpp
+/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/Cliente-Servidor/Logger.cpp
 sstream
 -
 

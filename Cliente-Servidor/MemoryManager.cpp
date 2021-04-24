@@ -202,25 +202,41 @@ public:
         offset++;
     }
 
-    void change_intvar(string name,int value){
-
+    int change_intvar(string name,int value){
+        int aoffset = intarray.findoffset(name);
+        int* ptr = getmemoryoffsetint(aoffset);
+        *ptr = value;
+        return aoffset;
     }
 
-    void change_floatvar(string name,float value){
-
+    int change_floatvar(string name,float value){
+        int aoffset = floatarray.findoffset(name);
+        float* ptr = getmemoryoffsetfloat(aoffset);
+        *ptr = value;
+        return aoffset;
     }
 
-    void change_longvar(string name,long long value){
-
+    int change_longvar(string name,long long value){
+        int aoffset = longarray.findoffset(name);
+        long long* ptr = getmemoryoffsetlong(aoffset);
+        *ptr = value;
+        return aoffset;
     }
 
-    void change_charvar(string name, char value){
-
+    int change_charvar(string name, char value){
+        int aoffset = chararray.findoffset(name);
+        char* ptr = getmemoryoffsetchar(aoffset);
+        *ptr = value;
+        return aoffset;
     }
 
-    void change_doublevar(string name, double value){
-
+    int change_doublevar(string name, double value){
+        int aoffset = doublearray.findoffset(name);
+        double* ptr = getmemoryoffsetdouble(aoffset);
+        *ptr = value;
+        return aoffset;
     }
+
     void change_structvar(string name, int value){
 
     }

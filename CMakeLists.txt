@@ -10,6 +10,7 @@ set(EXECUTABLE_NAME2 "mserver")
 add_executable(${EXECUTABLE_NAME} Cliente-Servidor/cliente.cpp)
 add_executable(${EXECUTABLE_NAME2} Cliente-Servidor/servidor.cpp)
 
+
 target_link_libraries(mserver sfml-network)
 
 set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake_modules" ${CMAKE_MODULE_PATH})
