@@ -17,64 +17,75 @@ public:
     map<string, double> doubles;
     map<string, char> chars;
     string terminal;
+    vector<string> variableScope;
+    bool scopeActive, printValue;
 
     //Verificador de que el valor ingresado corresponda al tipo ingresado
     bool valueVerifier(const string& type, string value, const string& variable, bool addMap)
     {
-        if (type == "int" && *(typeid(stoi(value)).name()) == 'i')
+        try
         {
-            if (addMap)
-                ints[variable] = stoi(value);
-            return true;
-        }
-        else if (type == "long" && *(typeid(stol(value)).name()) == 'l')
-        {
-            if (addMap)
-                longs[variable] = stol(value);
-            return true;
-        }
-        else if (type == "char")
-        {
-            if (value.length() == 3)
+            if (type == "int" && *(typeid(stoi(value)).name()) == 'i')
             {
-                if (*(typeid(value[1]).name()) == 'c')
+                int num = stoi(value);
+                if (addMap)
+                    ints[variable] = num;
+                return true;
+            }
+            else if (type == "long" && *(typeid(stol(value)).name()) == 'l')
+            {
+                long num = stol(value);
+                if (addMap)
+                    longs[variable] = num;
+                return true;
+            }
+            else if (type == "char")
+            {
+                if (value.length() == 3)
                 {
-                    if (addMap)
-                        chars[variable] = value[1];
-                    return true;
+                    if (*(typeid(value[1]).name()) == 'c')
+                    {
+                        char c = value[1];
+                        if (addMap)
+                            chars[variable] = c;
+                        return true;
+                    }
+                    else
+                        return false;
                 }
                 else
                     return false;
             }
-            else
-                return false;
-        }
-        else if (type == "float" && *(typeid(stof(value)).name()) == 'f')
+            else if (type == "float" && *(typeid(stof(value)).name()) == 'f')
+            {
+                float num = stof(value);
+                if (addMap)
+                    floats[variable] = num;
+                return true;
+            }
+            else if (type == "double" && *(typeid(stod(value)).name()) == 'd')
+            {
+                double num = stod(value);
+                if (addMap)
+                    doubles[variable] = stod(value);
+                return true;
+            }
+            /*
+            else if (type == "struct" && *(typeid(stoi(value)).name()) == 's')
+            {
+                cout << "Not implemented yet" << endl;
+                return true;
+            }
+            else if (type == "reference" && *(typeid(stoi(value)).name()) == 'r')
+            {
+                cout << "Not implemented yet" << endl;
+                return true;
+            }*/
+            }
+        catch (invalid_argument error)
         {
-            if (addMap)
-                floats[variable] = stof(value);
-            return true;
-        }
-        else if (type == "double" && *(typeid(stod(value)).name()) == 'd')
-        {
-            if (addMap)
-                doubles[variable] = stod(value);
-            return true;
-        }
-
-        /*else if (type == "struct" && *(typeid(stoi(value)).name()) == 's')
-        {
-            cout << "Not implemented yet" << endl;
-            return true;
-        }
-        else if (type == "reference" && *(typeid(stoi(value)).name()) == 'r')
-        {
-            cout << "Not implemented yet" << endl;
-            return true;
-        }*/
-        else
-        {
-            cout << "Value wasn't valid" << endl;
+            cout << "Entre al catch" << endl;
+            terminal.append("Error! Variable is not defined");
             return false;
         }
     }
@@ -116,6 +127,12 @@ public:
                 break;
             }
         }
+        if (lineSplit.front() == "cout" && lineSplit.back().back() == ';') {
+            it = lineSplit.begin();
+            lineSplit.erase(it);
+            lineSplit.front().erase(lineSplit.front().size() - 1);
+            printValue = true;
+        }
         //Si no verifica que la variable se encuentre en alguno de los diccionarios
         if (ints.count(lineSplit.front()) > 0 && type.empty())
         {
@@ -142,27 +159,69 @@ public:
             type = "char";
             ignoreStep = true;
         }
-        //Si no seria el imprimir alguna variable y desplegarla en la terminal o stdout
-        else if (lineSplit.front() == "cout" && lineSplit.back().back() == ';') {
-            it = lineSplit.begin();
-            lineSplit.erase(it);
-            for (auto & i : lineSplit) {
-                if (ints.count(i.erase(i.size() - 1)) > 0)
-                    terminal.append(to_string(ints.at(i)) + "\n");
-                else if (longs.count(i.erase(i.size() - 1)) > 0)
-                    terminal.append(to_string(longs.at(i)) + "\n");
-                else if (floats.count(i.erase(i.size() - 1)) > 0)
-                    terminal.append(to_string(floats.at(i)) + "\n");
-                else if (doubles.count(i.erase(i.size() - 1)) > 0)
-                    terminal.append(to_string(doubles.at(i)) + "\n");
-                else if (chars.count(i.erase(i.size() - 1)) > 0)
-                    terminal.append(to_string(chars.at(i)) + "\n");
+        else if(lineSplit.front() == "{" && lineSplit.size() == 1 && !scopeActive)
+        {
+            cout << "Entered scope" << endl;
+            scopeActive = true;
+            return "continue";
+        }
+        else if(lineSplit.front() == "}" && lineSplit.size() == 1 && scopeActive)
+        {
+            for (auto & i : variableScope)
+            {
+                if (ints.count(i) > 0)
+                    ints.erase(i);
+                else if (longs.count(i) > 0)
+                    longs.erase(i);
+                else if (floats.count(i) > 0)
+                    floats.erase(i);
+                else if (doubles.count(i) > 0)
+                    doubles.erase(i);
+                else if (chars.count(i) > 0)
+                    chars.erase(i);
             }
-            cout << terminal << endl;
-            return "print";
+            cout << "Finished scope" << endl;
+            scopeActive = false;
+            return "continue";
+        }
+        //Si no seria el imprimir alguna variable y desplegarla en la terminal o stdout
+        if (printValue)
+        {
+            if (type.empty()) {
+                terminal.append("Error! Variable doesn't exist\n");
+                printValue = false;
+                return "error";
+            }
+            if (ints.count(lineSplit.front()) > 0) {
+                terminal.append(to_string(ints.at(lineSplit.front())) + "\n");
+                printValue = false;
+                return "print";
+            }
+            else if (longs.count(lineSplit.front()) > 0) {
+                terminal.append(to_string(longs.at(lineSplit.front())) + "\n");
+                printValue = false;
+                return "print";
+            }
+            else if (floats.count(lineSplit.front()) > 0) {
+                terminal.append(to_string(floats.at(lineSplit.front())) + "\n");
+                printValue = false;
+                return "print";
+            }
+            else if (doubles.count(lineSplit.front()) > 0) {
+                terminal.append(to_string(doubles.at(lineSplit.front())) + "\n");
+                printValue = false;
+                return "print";
+            }
+            else if (chars.count(lineSplit.front()) > 0) {
+                string Char;
+                Char = (char)chars.at(lineSplit.front());
+                terminal.append(Char + "\n");
+                printValue = false;
+                return "print";
+            }
         }
         //Y por ultimo devolver un error y desplegarlo en la terminal o stdout
-        else if (type.empty()) {
+        if (type.empty()) {
             terminal.append("Error! code syntaxis is wrong: forgot to declare type or forgot to add \";\"\n");
             return "error";
         }
@@ -171,6 +230,8 @@ public:
         if (lineSplit.front().length() >= 2 && lineSplit.front().back() == ';')
         {
             variable = lineSplit.front().erase(lineSplit.front().length() - 1);
+            if (scopeActive)
+                variableScope.push_back(variable);
             if (ints.count(variable) > 0 || longs.count(variable) > 0 || floats.count(variable) > 0 || doubles.count(variable) > 0){
                 terminal.append("Error! redefining same variable: " + variable + "\n");
                 return "error";
@@ -217,7 +278,24 @@ public:
         //Y si no se continua a encontrar el valor de la variable.
         else
         {
-            variable = lineSplit.front();
+            //If its "a" and out of scope
+            if (ignoreStep && !scopeActive)
+                variable = lineSplit.front();
+            //If its "a" and in scope
+            else if (ignoreStep && scopeActive) {
+                //If variable was defined in scope
+                if (count(variableScope.begin(), variableScope.end(), lineSplit.front()))
+                    variable = lineSplit.front();
+                //Else if variable wasn't define in scope
+                else
+                    variable = lineSplit.front();
+            }
+            else if (!ignoreStep && !scopeActive)
+                variable = lineSplit.front();
+            else if (!ignoreStep && scopeActive){
+                variable = lineSplit.front();
+                variableScope.push_back(variable);
+            }
             it = lineSplit.begin();
             lineSplit.erase(it);
         }
@@ -254,7 +332,7 @@ public:
             {
                 string val;
                 string split2 = lineSplit.at(2).erase(lineSplit.at(2).size() - 1);
-                //verifica si la operacion contiene algun tipo de variable previamente definida
+                //Verifica si la operacion contiene algun tipo de variable previamente definida
                 if (ints.count(lineSplit.at(0)) > 0)
                 {
                     val = to_string(ints.at(lineSplit.at(0)));

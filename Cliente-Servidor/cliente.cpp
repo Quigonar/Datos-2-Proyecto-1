@@ -191,11 +191,11 @@ int main(int argc, char *argv[])
                 }
                 else if (json == "print")
                 {
-                    cout << "Requested to print in stdout";
+                    cout << "Requested to print in stdout" << endl;
                 }
                 else if (json == "continue")
                 {
-                    cout << "Requested to continue";
+                    cout << "Requested to continue" << endl;
                     highlightLine = true;
                 }
                 else if (json != "error" && json != "print" && !json.empty())
