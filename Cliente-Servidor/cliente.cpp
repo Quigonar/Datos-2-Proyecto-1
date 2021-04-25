@@ -292,7 +292,7 @@ int main(int argc, char *argv[])
         }
 
         //El socket esta constantemente recibiendo los mensajes
-        socket.receive(packetR)
+        socket.receive(packetR);
 
 
         //Si el mensaje recibido no se encuentra vacio
@@ -336,7 +336,7 @@ int main(int argc, char *argv[])
 
         //Se limpia la pantalla para evitar memory overflow y se vuelve a imprimir en la pantalla la interfaz
         window.clear();
-        gui.Render(&window, code, lineNumber, font, terminalT, RLVAddr, RLVValue, RLVVariable, RLVReference);
+        gui.Render(&window, code, lineNumber, font, terminalT, appLogT, RLVAddr, RLVValue, RLVVariable, RLVReference);
         window.display();
     }
     
