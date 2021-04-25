@@ -182,7 +182,7 @@ public:
     }
 
     //Define function to draw all the different areas to the window
-    void Render(RenderWindow* window, const Text& code, const Text& line, const Font& font, const Text& terminal, const Text& RLVAddr,
+    void Render(RenderWindow* window, const Text& code, const Text& line, const Font& font, const Text& terminal, const Text& appLogT, const Text& RLVAddr,
                 const Text& RLVVal, const Text& RLVVar, const Text& RLVRef) const
     {
         Text text, text2, RLVT;
@@ -207,6 +207,7 @@ public:
         window->draw(standardOutput);
         window->draw(terminal);
         window->draw(appLog);
+        window->draw(appLogT);
         window->draw(RLV);
         window->draw(RLVT);
         window->draw(RLVAddr);
