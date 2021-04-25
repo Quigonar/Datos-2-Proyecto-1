@@ -153,6 +153,13 @@ int main(int argc, char *argv[])
                 RLVStrVal.clear();
                 RLVStrVar.clear();
                 RLVStrRef.clear();
+                string type = "free";
+                json = R"({"type":")"+ type + "\"}";
+                packetS << json;
+                if (socket.send(packetS))
+                    cout << "I will now receive a message" << endl;
+                packetS.clear();
+                cout << json << endl;
             }
             //Al presionar el boton de abajo en las flechas cuando se corre el codigo la linea siendo analizada baja
             if (Keyboard::isKeyPressed(Keyboard::Down) && highlightLine)
@@ -287,7 +294,7 @@ int main(int argc, char *argv[])
         }
 
         //El socket esta constantemente recibiendo los mensajes
-        socket.receive(packetR)
+        socket.receive(packetR);
 
 
         //Si el mensaje recibido no se encuentra vacio
@@ -297,7 +304,6 @@ int main(int argc, char *argv[])
             string type = petition["type"].GetString();
 
             if (type == "RLV"){
-
                 RLV = jsonHandler.jsonReceiver(packetR);
                 string memory = RLV["memory"].GetString();
                 RLVStrA += memory + "\n\n";

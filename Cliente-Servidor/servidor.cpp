@@ -141,6 +141,7 @@ int main()
                         string xref = int_tostring(mserver.get_varref("int",variable));
                         json = jsonSender(addr,value,variable,xref);
                         mserver.printmem();
+                        log = msgsender(logger.get_infolog("variable: "+variable+ " was allocated successfully"),"msg");
                     }
                     else{
                         //retorna error para que salga en consola falta de memoria
@@ -155,6 +156,7 @@ int main()
                     string xref = int_tostring(mserver.get_varref("int",variable));
                     json = jsonSender(addr,value,variable,xref);
                     mserver.printmem();
+                    log = msgsender(logger.get_infolog("variable: "+variable+ " was allocated successfully"),"msg");
                     //addreference
                 }
 
@@ -173,6 +175,7 @@ int main()
                         string xref = int_tostring(mserver.get_varref("long", variable));
                         json = jsonSender(addr, value, variable, xref);
                         mserver.printmem();
+                        log = msgsender(logger.get_infolog("variable: "+variable+ " was allocated successfully"),"msg");
                     } else {
                         //retorna error para que salga en consola falta de memoria
                         json = msgsender(logger.get_errorlog("IDE is out of memory. Could not allocate variable"),"msg");
@@ -185,6 +188,7 @@ int main()
                     string xref = int_tostring(mserver.get_varref("long",variable));
                     json = jsonSender(addr,value,variable,xref);
                     mserver.printmem();
+                    log = msgsender(logger.get_infolog("variable: "+variable+ " was redefined successfully"),"msg");
 
                 }
             }
@@ -201,6 +205,7 @@ int main()
                         string xref = int_tostring(mserver.get_varref("char", variable));
                         json = jsonSender(addr, value, variable, xref);
                         mserver.printmem();
+                        log = msgsender(logger.get_infolog("variable: "+variable+ " was allocated successfully"),"msg");
                     } else {
                         //retorna error para que salga en consola falta de memoria
                         json = msgsender(logger.get_errorlog("IDE is out of memory. Could not allocate variable"),"msg");
@@ -213,6 +218,7 @@ int main()
                     string xref = int_tostring(mserver.get_varref("char",variable));
                     json = jsonSender(addr,value,variable,xref);
                     mserver.printmem();
+                    log = msgsender(logger.get_infolog("variable: "+variable+ " was redefined successfully"),"msg");
                 }
             }
             else if (type == "float")
@@ -228,6 +234,7 @@ int main()
                         string xref = int_tostring(mserver.get_varref("float", variable));
                         json = jsonSender(addr, value, variable, xref);
                         mserver.printmem();
+                        log = msgsender(logger.get_infolog("variable: "+variable+ " was allocated successfully"),"msg");
                     } else {
                         //retorna error para que salga en consola falta de memoria
                         json = msgsender(logger.get_errorlog("IDE is out of memory. Could not allocate variable"),"msg");
@@ -240,6 +247,7 @@ int main()
                     string xref = int_tostring(mserver.get_varref("float",variable));
                     json = jsonSender(addr,value,variable,xref);
                     mserver.printmem();
+                    log = msgsender(logger.get_infolog("variable: "+variable+ " was redefined successfully"),"msg");
                 }
             }
             else if (type == "double")
@@ -255,6 +263,7 @@ int main()
                         string xref = int_tostring(mserver.get_varref("double", variable));
                         json = jsonSender(addr, value, variable, xref);
                         mserver.printmem();
+                        log = msgsender(logger.get_infolog("variable: "+variable+ " was allocated successfully"),"msg");
                     } else {
                         //retorna error para que salga en consola falta de memoria
                         json = msgsender(logger.get_errorlog("IDE is out of memory. Could not allocate variable"),"msg");
@@ -267,6 +276,7 @@ int main()
                     string xref = int_tostring(mserver.get_varref("float",variable));
                     json = jsonSender(addr,value,variable,xref);
                     mserver.printmem();
+                    log = msgsender(logger.get_infolog("variable: "+variable+ " was redefined successfully"),"msg");
                 }
             }
             else if (type == "struct")
@@ -276,6 +286,9 @@ int main()
             else if (type == "reference")
             {
                 //Hace offset de 4 bytes
+            }
+            else if (type == "free"){
+                mserver.free_memory();
             }
             /*
             int a = 10;

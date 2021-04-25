@@ -18,7 +18,7 @@ public:
     LinkedList() {
         start = NULL;
         tail = NULL;
-        this->size = 0;
+        size = 0;
     }
 
     //Append element to list
@@ -236,6 +236,11 @@ public:
         }
     }
 
+    void deleteall(){
+        start = NULL;
+        tail = NULL;
+        size = 0;
+    }
     //print list
     void printList() {
 
