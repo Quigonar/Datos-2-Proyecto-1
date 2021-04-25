@@ -19,7 +19,7 @@ int main(int argc, char *argv[])
     size_t received;
     Document RLV;
     Packet packetS, packetR;
-    string json, terminal, RLVStrA, RLVStrVal, RLVStrVar, RLVStrRef;
+    string json, terminal, appLog, RLVStrA, RLVStrVal, RLVStrVar, RLVStrRef;
     bool highlightLine = false;
     JsonHandler jsonHandler;
 
@@ -33,7 +33,7 @@ int main(int argc, char *argv[])
     if (!font.loadFromFile("arial.ttf"))
         cout << "Couldn't load font" << endl;
 
-    Text code, lineNumber, terminalT, RLVAddr, RLVValue, RLVVariable, RLVReference;
+    Text code, lineNumber, terminalT, appLogT, RLVAddr, RLVValue, RLVVariable, RLVReference;
     string codeInput;
     code.setFont(font);
     code.setCharacterSize(15);
@@ -51,6 +51,11 @@ int main(int argc, char *argv[])
     terminalT.setCharacterSize(15);
     terminalT.setFillColor(Color::White);
     terminalT.setPosition(5, 540);
+
+    appLogT.setFont(font);
+    appLogT.setCharacterSize(15);
+    appLogT.setFillColor(Color::White);
+    appLogT.setPosition(5, 770);
 
     RLVAddr.setFont(font);
     RLVAddr.setCharacterSize(20);
@@ -315,6 +320,7 @@ int main(int argc, char *argv[])
         }
 
         //Se pone el texto anadido a la pantalla
+        appLogT.setString("APP LOG: \n" + appLog);
         terminalT.setString("STDOUT: \n" + terminal);
         lineNumber.setString(lineStr);
         RLVAddr.setString("Memory Addr\n\n" + RLVStrA);
