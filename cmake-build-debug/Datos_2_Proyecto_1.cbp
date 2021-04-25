@@ -27,6 +27,16 @@
 					<DistClean command="/usr/bin/make -f &quot;/home/david/Documents/Proyecto\ 1/Datos-2-Proyecto-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/david/Documents/Proyecto\ 1/Datos-2-Proyecto-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/david/Documents/Proyecto\ 1/Datos-2-Proyecto-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/david/Documents/Proyecto\ 1/Datos-2-Proyecto-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/david/Documents/Proyecto\ 1/Datos-2-Proyecto-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
 			<Target title="mserver">
 				<Option output="/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/cmake-build-debug/mserver" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/cmake-build-debug"/>
@@ -70,16 +80,6 @@
 				</Compiler>
 				<MakeCommands>
 					<Build command="/usr/bin/make -f &quot;/home/david/Documents/Proyecto\ 1/Datos-2-Proyecto-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 mserver/fast"/>
-					<CompileFile command="/usr/bin/make -f &quot;/home/david/Documents/Proyecto\ 1/Datos-2-Proyecto-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -f &quot;/home/david/Documents/Proyecto\ 1/Datos-2-Proyecto-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -f &quot;/home/david/Documents/Proyecto\ 1/Datos-2-Proyecto-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="edit_cache">
-				<Option working_dir="/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/cmake-build-debug"/>
-				<Option type="4"/>
-				<MakeCommands>
-					<Build command="/usr/bin/make -f &quot;/home/david/Documents/Proyecto\ 1/Datos-2-Proyecto-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
 					<CompileFile command="/usr/bin/make -f &quot;/home/david/Documents/Proyecto\ 1/Datos-2-Proyecto-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="/usr/bin/make -f &quot;/home/david/Documents/Proyecto\ 1/Datos-2-Proyecto-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="/usr/bin/make -f &quot;/home/david/Documents/Proyecto\ 1/Datos-2-Proyecto-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
@@ -133,7 +133,58 @@
 					<DistClean command="/usr/bin/make -f &quot;/home/david/Documents/Proyecto\ 1/Datos-2-Proyecto-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
+			<Target title="Manager">
+				<Option output="/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/cmake-build-debug/Manager" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/Cliente-Servidor"/>
+					<Add directory="/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/Cliente-Servidor/ClienteRes"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/david/Documents/Proyecto\ 1/Datos-2-Proyecto-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 Manager"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/david/Documents/Proyecto\ 1/Datos-2-Proyecto-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/david/Documents/Proyecto\ 1/Datos-2-Proyecto-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/david/Documents/Proyecto\ 1/Datos-2-Proyecto-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Manager/fast">
+				<Option output="/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/cmake-build-debug/Manager" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/Cliente-Servidor"/>
+					<Add directory="/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/Cliente-Servidor/ClienteRes"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/david/Documents/Proyecto\ 1/Datos-2-Proyecto-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 Manager/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/david/Documents/Proyecto\ 1/Datos-2-Proyecto-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/david/Documents/Proyecto\ 1/Datos-2-Proyecto-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/david/Documents/Proyecto\ 1/Datos-2-Proyecto-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
 		</Build>
+		<Unit filename="/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/Cliente-Servidor/MemoryManager.cpp">
+			<Option target="Manager"/>
+		</Unit>
 		<Unit filename="/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/Cliente-Servidor/cliente.cpp">
 			<Option target="cliente"/>
 		</Unit>

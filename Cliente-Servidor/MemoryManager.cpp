@@ -175,7 +175,8 @@ public:
 
         if (type == "int")
         {
-            int* mtp = addr;
+            int* mtp = getmemoryoffsetint(tmp);
+            mtp = addr;
         }
         else if (type == "float")
         {
@@ -454,3 +455,15 @@ public:
     }
 };
 
+
+int main(){
+
+    MemoryManager m(10000);
+
+    m.addvariableint(10,"a");
+    m.addvariableref(m.getmemoryoffsetint(0),"int","b");
+
+    m.printmem();
+
+    return 0;
+}

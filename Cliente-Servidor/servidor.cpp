@@ -190,7 +190,6 @@ int main()
                     json = jsonSender(addr,value,variable,xref);
                     mserver.printmem();
                     log = msgsender(logger.get_infolog("variable: "+variable+ " was redefined successfully"),"msg");
-
                 }
             }
             else if (type == "char")
@@ -293,6 +292,9 @@ int main()
                 string type = "ignore";
                 json = R"({"type":")" + type + R"(","msg":")" + "msg" + "\"}";
                 mserver.printmem();
+            }
+            else if(type == "garbage"){
+                //borrar los espacios de memoria que se consideran basura
             }
             /*
             int a = 10;
