@@ -327,6 +327,8 @@ public:
 
     void free_memory(){
         free(mem);
+        offset = 0;
+        used = 0;
         mem = (char*)malloc(bytes);
         intarray.deleteall();
         floatarray.deleteall();

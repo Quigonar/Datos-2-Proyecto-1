@@ -199,17 +199,18 @@ public:
     int findoffset(string aname) {
         if (start == NULL)
         {
+
             return -1;
         }
         else if (start == tail)
         {
+
+
             if (start->get_name() == aname)
             {
+                cout<< "entro segundo if"<<endl;
                 return start->get_offset();
-            }
-            else
-            {
-                return -1;
+
             }
         }
         else
@@ -230,7 +231,7 @@ public:
 
                     tmp = tmp->get_next();
                 }
-
+                cout<< "entro 4 if"<<endl;
                 return -1;
             }
         }

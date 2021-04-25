@@ -5,6 +5,7 @@
 #include "ClienteRes/ListaDobleEnlazada.cpp"
 #include "ClienteRes/GUI.cpp"
 #include "ClienteRes/JsonHandler.cpp"
+#include "RLVList/RLVlist.cpp"
 
 using namespace sf;
 using namespace std;
@@ -22,6 +23,7 @@ int main(int argc, char *argv[])
     string json, terminal, appLog, RLVStrA, RLVStrVal, RLVStrVar, RLVStrRef;
     bool highlightLine = false;
     JsonHandler jsonHandler;
+    RLVlist rlvlist;
 
     //Se define la cabeza para crear la lista enlazada
     Node* head = nullptr;
@@ -158,13 +160,15 @@ int main(int argc, char *argv[])
                 RLVStrVal.clear();
                 RLVStrVar.clear();
                 RLVStrRef.clear();
+                rlvlist.clear();
                 string type = "free";
-                json = R"({"type":")"+ type + "\"}";
+                json = R"({"type":")"+ type + R"(","value":")" + "value" + R"(","variable":")"+"variable"+"\"}";
                 packetS << json;
                 if (socket.send(packetS))
                     cout << "I will now receive a message" << endl;
                 packetS.clear();
                 cout << json << endl;
+                appLog = "";
             }
             //Al presionar el boton de abajo en las flechas cuando se corre el codigo la linea siendo analizada baja
             if (Keyboard::isKeyPressed(Keyboard::Down) && highlightLine)
@@ -311,17 +315,23 @@ int main(int argc, char *argv[])
             if (type == "RLV"){
                 RLV = jsonHandler.jsonReceiver(packetR);
                 string memory = RLV["memory"].GetString();
-                RLVStrA += memory + "\n\n";
+
                 string value = RLV["value"].GetString();
-                RLVStrVal += value + "\n\n";
+
                 string variable = RLV["variable"].GetString();
-                RLVStrVar += variable + "\n\n";
+
                 string ref = RLV["ref"].GetString();
-                RLVStrRef += ref + "\n\n";
+
+                rlvlist.append(memory,value,variable,ref);
+                RLVStrA = rlvlist.get_memory();
+                RLVStrVal = rlvlist.get_value();
+                RLVStrVar = rlvlist.get_name();
+                RLVStrRef = rlvlist.get_ref();
                 packetR.clear();
             }
             if (type == "msg"){
-                //app log
+                string log = petition["msg"].GetString();
+                appLog += log + "\n";
             }
         }
 

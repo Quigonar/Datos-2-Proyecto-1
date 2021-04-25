@@ -28,6 +28,24 @@ rapidjson/document.h
 iostream
 -
 
+/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/Cliente-Servidor/RLVList/RLVlist.cpp
+iostream
+-
+cmath
+-
+string
+-
+RLVnode.cpp
+/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/Cliente-Servidor/RLVList/RLVnode.cpp
+
+/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/Cliente-Servidor/RLVList/RLVnode.cpp
+iostream
+-
+cmath
+-
+string
+-
+
 /home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/Cliente-Servidor/cliente.cpp
 SFML/Network.hpp
 -
@@ -43,4 +61,6 @@ ClienteRes/GUI.cpp
 /home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/Cliente-Servidor/ClienteRes/GUI.cpp
 ClienteRes/JsonHandler.cpp
 /home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/Cliente-Servidor/ClienteRes/JsonHandler.cpp
+RLVList/RLVlist.cpp
+/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/Cliente-Servidor/RLVList/RLVlist.cpp
 
