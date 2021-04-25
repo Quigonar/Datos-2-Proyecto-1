@@ -325,6 +325,18 @@ public:
         }
     }
 
+    void free_memory(){
+        free(mem);
+        offset = 0;
+        used = 0;
+        mem = (char*)malloc(bytes);
+        intarray.deleteall();
+        floatarray.deleteall();
+        doublearray.deleteall();
+        longarray.deleteall();
+        chararray.deleteall();
+
+    }
     void printmem() {
         for (int i = 0; i < this->offset; i++) {
 

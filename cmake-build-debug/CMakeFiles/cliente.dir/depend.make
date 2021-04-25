@@ -4,5 +4,7 @@
 CMakeFiles/cliente.dir/Cliente-Servidor/cliente.cpp.o: ../Cliente-Servidor/ClienteRes/GUI.cpp
 CMakeFiles/cliente.dir/Cliente-Servidor/cliente.cpp.o: ../Cliente-Servidor/ClienteRes/JsonHandler.cpp
 CMakeFiles/cliente.dir/Cliente-Servidor/cliente.cpp.o: ../Cliente-Servidor/ClienteRes/ListaDobleEnlazada.cpp
+CMakeFiles/cliente.dir/Cliente-Servidor/cliente.cpp.o: ../Cliente-Servidor/RLVList/RLVlist.cpp
+CMakeFiles/cliente.dir/Cliente-Servidor/cliente.cpp.o: ../Cliente-Servidor/RLVList/RLVnode.cpp
 CMakeFiles/cliente.dir/Cliente-Servidor/cliente.cpp.o: ../Cliente-Servidor/cliente.cpp
 

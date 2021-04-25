@@ -98,7 +98,7 @@ int main()
     string json;
     string log = "";
     Logger logger;
-    MemoryManager mserver(1);
+    MemoryManager mserver(10*10*10*10*10);
 
     TcpListener listener;
     listener.listen(8080);
@@ -141,6 +141,7 @@ int main()
                         string xref = int_tostring(mserver.get_varref("int",variable));
                         json = jsonSender(addr,value,variable,xref);
                         mserver.printmem();
+                        log = msgsender(logger.get_infolog("variable: "+variable+ " was allocated successfully"),"msg");
                     }
                     else{
                         //retorna error para que salga en consola falta de memoria
@@ -150,11 +151,13 @@ int main()
 
                 else{
                     //redefine el valor de esa variable
-                    offset = mserver.change_intvar("int", int_parse(value));
+                    offset = mserver.change_intvar(variable, int_parse(value));
                     string addr = mem_parse((void*)mserver.getmemoryoffsetint(offset));
+                    mserver.add_varref("int",variable);
                     string xref = int_tostring(mserver.get_varref("int",variable));
                     json = jsonSender(addr,value,variable,xref);
                     mserver.printmem();
+                    log = msgsender(logger.get_infolog("variable: "+variable+ " was redefined successfully"),"msg");
                     //addreference
                 }
 
@@ -173,6 +176,7 @@ int main()
                         string xref = int_tostring(mserver.get_varref("long", variable));
                         json = jsonSender(addr, value, variable, xref);
                         mserver.printmem();
+                        log = msgsender(logger.get_infolog("variable: "+variable+ " was allocated successfully"),"msg");
                     } else {
                         //retorna error para que salga en consola falta de memoria
                         json = msgsender(logger.get_errorlog("IDE is out of memory. Could not allocate variable"),"msg");
@@ -180,11 +184,12 @@ int main()
                 }
                 else{
                     //redefine el valor de esa variable
-                    offset = mserver.change_longvar("long", long_parse(value));
+                    offset = mserver.change_longvar(variable, long_parse(value));
                     string addr = mem_parse((void*)mserver.getmemoryoffsetlong(offset));
                     string xref = int_tostring(mserver.get_varref("long",variable));
                     json = jsonSender(addr,value,variable,xref);
                     mserver.printmem();
+                    log = msgsender(logger.get_infolog("variable: "+variable+ " was redefined successfully"),"msg");
 
                 }
             }
@@ -201,6 +206,7 @@ int main()
                         string xref = int_tostring(mserver.get_varref("char", variable));
                         json = jsonSender(addr, value, variable, xref);
                         mserver.printmem();
+                        log = msgsender(logger.get_infolog("variable: "+variable+ " was allocated successfully"),"msg");
                     } else {
                         //retorna error para que salga en consola falta de memoria
                         json = msgsender(logger.get_errorlog("IDE is out of memory. Could not allocate variable"),"msg");
@@ -208,11 +214,12 @@ int main()
                 }
                 else{
                     //redefine el valor de esa variable
-                    offset = mserver.change_charvar("char", char_parse(value));
+                    offset = mserver.change_charvar(variable, char_parse(value));
                     string addr = mem_parse((void*)mserver.getmemoryoffsetchar(offset));
                     string xref = int_tostring(mserver.get_varref("char",variable));
                     json = jsonSender(addr,value,variable,xref);
                     mserver.printmem();
+                    log = msgsender(logger.get_infolog("variable: "+variable+ " was redefined successfully"),"msg");
                 }
             }
             else if (type == "float")
@@ -228,6 +235,7 @@ int main()
                         string xref = int_tostring(mserver.get_varref("float", variable));
                         json = jsonSender(addr, value, variable, xref);
                         mserver.printmem();
+                        log = msgsender(logger.get_infolog("variable: "+variable+ " was allocated successfully"),"msg");
                     } else {
                         //retorna error para que salga en consola falta de memoria
                         json = msgsender(logger.get_errorlog("IDE is out of memory. Could not allocate variable"),"msg");
@@ -235,11 +243,12 @@ int main()
                 }
                 else{
                     //redefine el valor de esa variable
-                    offset = mserver.change_floatvar("float", float_parse(value));
+                    offset = mserver.change_floatvar(variable, float_parse(value));
                     string addr = mem_parse((void*)mserver.getmemoryoffsetfloat(offset));
                     string xref = int_tostring(mserver.get_varref("float",variable));
                     json = jsonSender(addr,value,variable,xref);
                     mserver.printmem();
+                    log = msgsender(logger.get_infolog("variable: "+variable+ " was redefined successfully"),"msg");
                 }
             }
             else if (type == "double")
@@ -255,6 +264,7 @@ int main()
                         string xref = int_tostring(mserver.get_varref("double", variable));
                         json = jsonSender(addr, value, variable, xref);
                         mserver.printmem();
+                        log = msgsender(logger.get_infolog("variable: "+variable+ " was allocated successfully"),"msg");
                     } else {
                         //retorna error para que salga en consola falta de memoria
                         json = msgsender(logger.get_errorlog("IDE is out of memory. Could not allocate variable"),"msg");
@@ -262,11 +272,12 @@ int main()
                 }
                 else{
                     //redefine el valor de esa variable
-                    offset = mserver.change_doublevar("double", long_parse(value));
+                    offset = mserver.change_doublevar(variable, long_parse(value));
                     string addr = mem_parse((void*)mserver.getmemoryoffsetdouble(offset));
                     string xref = int_tostring(mserver.get_varref("float",variable));
                     json = jsonSender(addr,value,variable,xref);
                     mserver.printmem();
+                    log = msgsender(logger.get_infolog("variable: "+variable+ " was redefined successfully"),"msg");
                 }
             }
             else if (type == "struct")
@@ -276,6 +287,12 @@ int main()
             else if (type == "reference")
             {
                 //Hace offset de 4 bytes
+            }
+            else if (type == "free"){
+                mserver.free_memory();
+                string type = "ignore";
+                json = R"({"type":")" + type + R"(","msg":")" + "msg" + "\"}";
+                mserver.printmem();
             }
             /*
             int a = 10;
@@ -289,8 +306,11 @@ int main()
             socket.send(packetS);
             packetS.clear();
             packetR.clear();
+            json = "";
+
             if(log != ""){
-                packetR << log;
+                cout<<"log is being sent"<<endl;
+                packetS << log;
                 socket.send(packetS);
                 log = "";
                 packetS.clear();
