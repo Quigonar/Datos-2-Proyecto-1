@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/Cliente-Servidor/MemoryList/LinkedList.cpp
+iostream
+-
+cmath
+-
+Node.cpp
+/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/Cliente-Servidor/MemoryList/Node.cpp
+
+/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/Cliente-Servidor/MemoryList/Node.cpp
+iostream
+-
+cmath
+-
+
+/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/Cliente-Servidor/MemoryManager.cpp
+iostream
+-
+MemoryList/LinkedList.cpp
+/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/Cliente-Servidor/MemoryList/LinkedList.cpp
+stdlib.h
+-
+

@@ -1,0 +1,1 @@
+/usr/bin/c++ -g CMakeFiles/Manager.dir/Cliente-Servidor/MemoryManager.cpp.o -o Manager 

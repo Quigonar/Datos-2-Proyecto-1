@@ -1,0 +1,887 @@
+Index: CMakeLists.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>cmake_minimum_required(VERSION 3.17)\nproject(Datos_2_Proyecto_1)\n\nset(CMAKE_CXX_STANDARD 14)\n\ninclude_directories(Cliente-Servidor Cliente-Servidor/ClienteRes)\n\nset(EXECUTABLE_NAME \"cliente\")\nadd_executable(${EXECUTABLE_NAME} Cliente-Servidor/cliente.cpp)\n\nset(CMAKE_MODULE_PATH \"${CMAKE_SOURCE_DIR}/cmake_modules\" ${CMAKE_MODULE_PATH})\nfind_package(SFML 2 REQUIRED system window graphics network audio)\nif(SFML_FOUND)\n    include_directories(${SFML_INCLUDE_DIR})\n    target_link_libraries(${EXECUTABLE_NAME} ${SFML_LIBRARIES})\nendif()
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+--- a/CMakeLists.txt	(revision 57a8e6f43051b2aad7fd23203f1283ecc69653f7)
++++ b/CMakeLists.txt	(date 1618976490322)
+@@ -6,7 +6,13 @@
+ include_directories(Cliente-Servidor Cliente-Servidor/ClienteRes)
+ 
+ set(EXECUTABLE_NAME "cliente")
+-add_executable(${EXECUTABLE_NAME} Cliente-Servidor/cliente.cpp)
++set(EXECUTABLE_NAME2 "mserver")
++add_executable(${EXECUTABLE_NAME} Cliente-Servidor/cliente.cpp )
++add_executable(${EXECUTABLE_NAME2} Cliente-Servidor/servidor.cpp)
++
++#add_executable(${EXECUTABLE_NAME} Cliente-Servidor/MemoryManager.cpp)
++target_link_libraries (mserver sfml-network)
++
+ 
+ set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake_modules" ${CMAKE_MODULE_PATH})
+ find_package(SFML 2 REQUIRED system window graphics network audio)
+Index: Cliente-Servidor/servidor.cpp
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>#include <SFML/Network.hpp>\n#include <SFML/Graphics.hpp>\n#include \"rapidjson/document.h\"\n#include <string>\n#include <iostream>\n#include \"MemoryManager.cpp\"\n\nusing namespace sf;\nusing namespace std;\nusing namespace rapidjson;\nDocument jsonReceiver(Packet packet)\n{\n    string pet;\n    Document petD;\n\n    packet >> pet;\n    cout << pet << endl;\n    const char* petChar = pet.c_str();\n    petD.Parse(petChar);\n\n    return petD;\n}\n\nstring jsonSender(string memory, string value, string variable, string line)\n{\n    string jsonStr = \"{\\\"memory\\\":\"+ memory + \",\\\"value\\\":\" + value + \",\\\"variable\\\":\" + variable + \",\\\"line\\\":\" + line + \"}\";\n    return jsonStr;\n}\n\nint main()\n{\n    IpAddress ip = IpAddress::getLocalAddress();\n    TcpSocket socket;\n    char connectionType, mode;\n    bool done = false;\n    Packet packetR, packetS;\n    size_t received;\n    Document petition;\n    string json;\n\n    TcpListener listener;\n    listener.listen(8080);\n    listener.accept(socket);\n    mode = 'r';\n    \n    while (!done)\n    {\n        Event event;\n        if (event.key.code == Keyboard::Escape)\n            done = true;\n        \n        socket.receive(packetR);\n\n        if (packetR.getData() == NULL)\n            cout << \"No message received yet\" << endl;\n\n        else\n        {\n            petition = jsonReceiver(packetR);\n            Value& type = petition[\"type\"];\n            Value& value = petition[\"value\"];\n            Value& variable = petition[\"variable\"];\n            Value& line = petition[\"line\"];\n\n            if (type.GetString() == \"int\")\n            {\n                //Hace offset de 4 bytes\n            }\n            else if (type.GetString() == \"long\")\n            {\n                //Hace offset de 8 bytes\n            }\n            else if (type.GetString() == \"char\")\n            {\n                //Hace offset de 1 byte\n            }\n            else if (type.GetString() == \"float\")\n            {\n                //Hace offset de 4 bytes\n            }\n            else if (type.GetString() == \"double\")\n            {\n                //Hace offset de 8 bytes\n            }\n            else if (type.GetString() == \"struct\")\n            {\n                //Sigue sintaxis de C\n            }\n            else if (type.GetString() == \"reference\")\n            {\n                //Hace offset de 4 bytes\n            }\n\n            json = jsonSender(\"0x000\", value.GetString(), variable.GetString(), line.GetString());\n            packetS << json;\n            socket.send(packetS);\n        }\n    }\n    \n    return 0;\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Cliente-Servidor/servidor.cpp b/Cliente-Servidor/servidor.cpp
+--- a/Cliente-Servidor/servidor.cpp	(revision 57a8e6f43051b2aad7fd23203f1283ecc69653f7)
++++ b/Cliente-Servidor/servidor.cpp	(date 1618977473290)
+@@ -2,12 +2,14 @@
+ #include <SFML/Graphics.hpp>
+ #include "rapidjson/document.h"
+ #include <string>
++#include <sstream>
+ #include <iostream>
+ #include "MemoryManager.cpp"
+ 
+ using namespace sf;
+ using namespace std;
+ using namespace rapidjson;
++
+ Document jsonReceiver(Packet packet)
+ {
+     string pet;
+@@ -16,14 +18,16 @@
+     packet >> pet;
+     cout << pet << endl;
+     const char* petChar = pet.c_str();
++
++    cout << petChar << endl;
+     petD.Parse(petChar);
+-
++    cout<<"paso"<<endl;
+     return petD;
+ }
+ 
+-string jsonSender(string memory, string value, string variable, string line)
++string jsonSender(string memory, string value, string variable, int ref)
+ {
+-    string jsonStr = "{\"memory\":"+ memory + ",\"value\":" + value + ",\"variable\":" + variable + ",\"line\":" + line + "}";
++    string jsonStr = "{\"memory\":"+ memory + ",\"value\":" + value + ",\"variable\":" + variable + + ",\"ref\":" + to_string(ref) +"}";
+     return jsonStr;
+ }
+ 
+@@ -42,7 +46,10 @@
+     listener.listen(8080);
+     listener.accept(socket);
+     mode = 'r';
+-    
++
++    MemoryManager mserver(100);
++
++    cout<<"server starting"<<endl;
+     while (!done)
+     {
+         Event event;
+@@ -53,18 +60,28 @@
+ 
+         if (packetR.getData() == NULL)
+             cout << "No message received yet" << endl;
+-
++        
+         else
+         {
+             petition = jsonReceiver(packetR);
+             Value& type = petition["type"];
++            cout<<"type"<<endl;
+             Value& value = petition["value"];
++            cout<<"value"<<endl;
+             Value& variable = petition["variable"];
+-            Value& line = petition["line"];
++            cout<<"variable"<<endl;
++
++            string mem;
++            ostringstream oss;
+ 
+             if (type.GetString() == "int")
+             {
+-                //Hace offset de 4 bytes
++                int offset = mserver.getoffset();
++                mserver.addvariableint(value.GetInt(),variable.GetString());
++                int* ptr = mserver.getmemoryoffsetint(offset);
++                oss << ptr;
++                mem = oss.str();
++
+             }
+             else if (type.GetString() == "long")
+             {
+@@ -91,9 +108,13 @@
+                 //Hace offset de 4 bytes
+             }
+ 
+-            json = jsonSender("0x000", value.GetString(), variable.GetString(), line.GetString());
++
++            json = jsonSender(mem, value.GetString(), variable.GetString(), mserver.get_varrefnum(type.GetString(),variable.GetString()));
+             packetS << json;
+             socket.send(packetS);
++
++
++
+         }
+     }
+     
+Index: Cliente-Servidor/cliente.cpp
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>#include <SFML/Network.hpp>\n#include <SFML/Graphics.hpp>\n#include <iostream>\n#include <map>\n#include \"rapidjson/document.h\"\n#include \"ClienteRes/ListaDobleEnlazada.cpp\"\n#include \"ClienteRes/GUI.cpp\"\n#include \"ClienteRes/JsonHandler.cpp\"\n\nusing namespace sf;\nusing namespace std;\nusing namespace rapidjson;\n\nDocument jsonReceiver(Packet packet)\n{\n    string pet;\n    Document petD;\n\n    packet >> pet;\n    cout << pet << endl;\n    const char* petChar = pet.c_str();\n    petD.Parse(petChar);\n\n    return petD;\n}\n\nint main(int argc, char *argv[])\n{\n    //IpAddress ip = IpAddress::getLocalAddress();\n    //TcpSocket socket;\n    char connectionType, mode;\n    //size_t received;\n    //Document RLV;\n    //Packet packetS, packetR;\n    string json;\n    bool highlightLine = false;\n    JsonHandler jsonHandler;\n\n    Node* head = nullptr;\n\n    Font font;\n    GUI gui;\n\n    if (!font.loadFromFile(\"arial.ttf\"))\n        cout << \"Couldn't load font\" << endl;\n\n    Text code;\n    string codeInput;\n    code.setFont(font);\n    code.setCharacterSize(15);\n    code.setFillColor(Color::White);\n    code.setPosition(50, 30);\n\n    Text lineNumber;\n    int lineCounter = 1;\n    string lineStr = \"<1>\\n\";\n    lineNumber.setFont(font);\n    lineNumber.setCharacterSize(15);\n    lineNumber.setFillColor(Color::White);\n    lineNumber.setPosition(5, 30);\n\n    //socket.connect(ip, 8080);\n\n    RenderWindow window(VideoMode(1400,800), \"C! IDE\");\n\n    //socket.setBlocking(false);\n    mode = 's';\n    window.setKeyRepeatEnabled(true);\n\n    while(window.isOpen())\n    {\n        Event event;\n        while (window.pollEvent(event))\n        {\n            bool analyzeLines = gui.update(Vector2f(event.mouseButton.x,event.mouseButton.y));\n\n            if (analyzeLines)\n            {\n                clearDLList(&head);\n                string delimiter = \"\\n\";\n                auto start = 0U;\n                auto end = codeInput.find(delimiter);\n                while (end != string::npos)\n                {\n                    insert_end(&head, codeInput.substr(start, end - start));\n                    start = end + delimiter.length();\n                    end = codeInput.find(delimiter, start);\n                }\n                insert_end(&head, codeInput.substr(start, end));\n                gui.lineUpdater(\"nothing\");\n                json = jsonHandler.jsonSender(head);\n                cout << json << endl;\n                highlightLine = true;\n            }\n            if (Keyboard::isKeyPressed(Keyboard::Down) && highlightLine)\n            {\n                Node* temp;\n                temp = head;\n                head = head->next;\n                head->prev = temp;\n                gui.lineUpdater(\"down\");\n                json = jsonHandler.jsonSender(head);\n                cout << json << endl;\n            }\n            else if (Keyboard::isKeyPressed(Keyboard::Up) && highlightLine)\n            {\n                Node* temp;\n                temp = head;\n                head = head->prev;\n                head->next = temp;\n                gui.lineUpdater(\"up\");\n            }\n\n            switch(event.type)\n            {\n                case Event::Closed:\n                    //printList(head);\n                    window.close();\n                    break;\n\n                case Event::MouseWheelMoved:\n                    if (event.mouseWheel.delta >= 0)\n                    {\n                        if (code.getPosition().y <= 33 && lineNumber.getPosition().y <= 33)\n                        {\n                            code.setPosition(code.getPosition().x, code.getPosition().y + 7);\n                            lineNumber.setPosition(lineNumber.getPosition().x, lineNumber.getPosition().y + 7);\n                        }\n                    }\n                    else\n                    {\n                        if (code.getPosition().y + code.getGlobalBounds().height >= 200)\n                        {\n                            code.setPosition(code.getPosition().x, code.getPosition().y - 5);\n                            lineNumber.setPosition(lineNumber.getPosition().x, lineNumber.getPosition().y - 5);\n                        }\n                    }\n                    break;\n                    \n                case Event::TextEntered:\n                    if(event.text.unicode == 8)\n                    {\n                        if (codeInput.back() == '\\n')\n                        {\n                            codeInput = codeInput.substr(0, codeInput.length() - 1);\n                            if (lineCounter >= 10)\n                            {\n                                lineStr = lineStr.substr(0, lineStr.length() - 5);\n                                lineCounter --;\n                            }\n                            else\n                            {\n                                lineStr = lineStr.substr(0, lineStr.length() - 4);\n                                lineCounter --;\n                            }\n\n                        }\n                        else\n                            codeInput = codeInput.substr(0, codeInput.length() - 1);\n\n\n                    }\n                    else if(event.text.unicode == 13)\n                    {\n                        lineCounter ++;\n                        codeInput = codeInput.append(\"\\n\");\n                        lineStr = lineStr.append(\"<\" + to_string(lineCounter) + \">\\n\");\n                    }\n                    else\n                    {\n                        codeInput += (char)event.text.unicode;\n                    }\n                \n                system(\"clear\");\n                break;\n            }\n        }\n\n        /*\n        json = jsonSender(\"int\", \"20\", \"a\", \"1\");\n        packetS << json;\n        \n        if (mode == 's')\n        {\n            if (socket.send(packetS))\n            {\n                cout << \"I will now receive a message\" << endl;\n                mode = 'r';\n            }\n            else\n                cout << \"Message hasn't been sent\" << endl;\n        }\n        else if (mode == 'r')\n        {\n            socket.receive(packetR);\n            if (!packetR.getData() == NULL)\n            {\n                cout << packetR.getData() << endl;\n                RLV = jsonReceiver(packetR);\n                mode = 's';\n            }\n        }*/\n\n        lineNumber.setString(lineStr);\n        code.setString(codeInput + \"_\");\n        window.clear();\n        gui.Render(&window, code, lineNumber);\n        window.display();\n    }\n    \n    return 0;\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Cliente-Servidor/cliente.cpp b/Cliente-Servidor/cliente.cpp
+--- a/Cliente-Servidor/cliente.cpp	(revision 57a8e6f43051b2aad7fd23203f1283ecc69653f7)
++++ b/Cliente-Servidor/cliente.cpp	(date 1618976948050)
+@@ -26,12 +26,12 @@
+ 
+ int main(int argc, char *argv[])
+ {
+-    //IpAddress ip = IpAddress::getLocalAddress();
+-    //TcpSocket socket;
++    IpAddress ip = IpAddress::getLocalAddress();
++    TcpSocket socket;
+     char connectionType, mode;
+-    //size_t received;
+-    //Document RLV;
+-    //Packet packetS, packetR;
++    size_t received;
++    Document RLV;
++    Packet packetS, packetR;
+     string json;
+     bool highlightLine = false;
+     JsonHandler jsonHandler;
+@@ -59,11 +59,11 @@
+     lineNumber.setFillColor(Color::White);
+     lineNumber.setPosition(5, 30);
+ 
+-    //socket.connect(ip, 8080);
++    socket.connect(ip, 8080);
+ 
+     RenderWindow window(VideoMode(1400,800), "C! IDE");
+ 
+-    //socket.setBlocking(false);
++    socket.setBlocking(false);
+     mode = 's';
+     window.setKeyRepeatEnabled(true);
+ 
+@@ -91,6 +91,7 @@
+                 json = jsonHandler.jsonSender(head);
+                 cout << json << endl;
+                 highlightLine = true;
++
+             }
+             if (Keyboard::isKeyPressed(Keyboard::Down) && highlightLine)
+             {
+@@ -101,6 +102,7 @@
+                 gui.lineUpdater("down");
+                 json = jsonHandler.jsonSender(head);
+                 cout << json << endl;
++
+             }
+             else if (Keyboard::isKeyPressed(Keyboard::Up) && highlightLine)
+             {
+@@ -176,12 +178,15 @@
+             }
+         }
+ 
+-        /*
+-        json = jsonSender("int", "20", "a", "1");
++        string type = "int";
++        string value = "5";
++        string variable = "a";
++        json =  "{\"type\":" + type + ",\"value\":" + value + ",\"variable\":" + variable + "}";
+         packetS << json;
+         
+         if (mode == 's')
+         {
++
+             if (socket.send(packetS))
+             {
+                 cout << "I will now receive a message" << endl;
+@@ -190,6 +195,7 @@
+             else
+                 cout << "Message hasn't been sent" << endl;
+         }
++
+         else if (mode == 'r')
+         {
+             socket.receive(packetR);
+@@ -199,7 +205,7 @@
+                 RLV = jsonReceiver(packetR);
+                 mode = 's';
+             }
+-        }*/
++        }
+ 
+         lineNumber.setString(lineStr);
+         code.setString(codeInput + "_");
+Index: Cliente-Servidor/MemoryManager.cpp
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>#include <iostream>\n#include \"MemoryList/LinkedList.cpp\"\n#include <stdlib.h>\n\nusing namespace std;\n\nclass MemoryManager {\n\n    int offset;\n    char* mem;\n    int bytes;\n    int used;\n\n    LinkedList intarray;\n    LinkedList floatarray;\n    LinkedList doublearray;\n    LinkedList chararray;\n    LinkedList longarray;\n    LinkedList refarray;\n    LinkedList structarray;\n\npublic:\n\n    MemoryManager(int abytes) {\n        offset = 0;\n        mem = (char*)malloc(abytes);\n        bytes = abytes;\n        used = 0;\n    }\n\n    //Memory offset manager ***************************************\n    int* getmemoryoffsetint(int off) {\n        return (int*)(mem + off);\n    }\n\n    float* getmemoryoffsetfloat(int off) {\n        return (float*)(mem + off);\n    }\n    double* getmemoryoffsetdouble(int off) {\n        return (double*)(mem + off);\n    }\n    char* getmemoryoffsetchar(int off) {\n        return (char*)(mem + off);\n    }\n\n    long long* getmemoryoffsetlong(int off) {\n        return (long long*)(mem + off);\n    }\n\n    int* getmemoryoffsetref(int off) {\n        return (int*)(mem + off);\n    }\n\n    int* getmemoryoffsetstruct(int off) {\n        return (int*)(mem + off);\n    }\n    //Memory variable add *****************************************\n\n    void addvariableint(int value,string name) {\n        if(outofmemory(4)){\n            int tmp = getoffset();\n            cout << \"This is offset: \" << getoffset() << endl;\n            int* mtp = getmemoryoffsetint(tmp);\n\n            *mtp = value;\n            cout << \"Value: \" << value << endl;\n            intarray.append(tmp, \"int\", name);\n            offset = offset+4;\n            used = used + 4;\n        }\n        else\n        {\n            //return error en consola\n        }\n\n\n    }\n\n    void addvariablefloat(float value, string name) {\n        if(outofmemory(4)){\n            int tmp = getoffset();\n            cout << \"This is offset: \" << getoffset() << endl;\n\n            float* mtp = (float*)getmemoryoffsetfloat(tmp);\n\n            *mtp = value;\n\n            floatarray.append(tmp, \"float\", name);\n            offset = offset+4;\n            used = used + 4;\n        }\n        else\n        {\n            //return error en consola\n        }\n\n\n    }\n\n    void addvariabledouble(double value, string name) {\n        if (outofmemory(8))\n        {\n            int tmp = getoffset();\n            cout << \"This is offset: \" << getoffset() << endl;\n            double* mtp = getmemoryoffsetdouble(tmp);\n\n            *mtp = value;\n\n            doublearray.append(getoffset(), \"double\", name);\n            offset = offset+8;\n            used = used + 8;\n        }\n        else\n        {\n            //return error en consola\n        }\n\n    }\n\n\n    void addvariablechar(char value, string name) {\n        if (outofmemory(1))\n        {\n            int tmp = getoffset();\n            cout << \"This is offset: \" << getoffset() << endl;\n            char* mtp = getmemoryoffsetchar(tmp);\n\n            *mtp = value;\n\n            chararray.append(getoffset(), \"char\", name);\n            offset = offset+1;\n            used = used + 1;\n        }\n        else\n        {\n            //return error console\n        }\n\n    }\n\n    void addvariablelong(long value, string name) {\n        if (outofmemory(8))\n        {\n            int tmp = getoffset();\n            cout << \"This is offset: \" << getoffset() << endl;\n            long long* mtp = getmemoryoffsetlong(tmp);\n\n            *mtp = value;\n\n            longarray.append(getoffset(), \"long\", name);\n            offset = offset + 8;\n            used = used + 8;\n        }\n        else\n        {\n            //return error console\n        }\n\n    }\n\n    void addvariableref(int* addr, string type, string name) {\n        int tmp = getoffset();\n        cout << \"This is offset: \" << getoffset() << endl;\n        cout << \"This is address value: \" << *addr<< endl;\n\n        if (type == \"int\")\n        {\n            int* mtp = addr;\n        }\n        else if (type == \"float\")\n        {\n            float* mtp = getmemoryoffsetfloat(tmp);\n            mtp = (float*) addr;\n        }\n        else if (type == \"double\")\n        {\n            double* mtp = getmemoryoffsetdouble(tmp);\n            mtp = (double*) addr;\n        }\n        else if (type == \"char\")\n        {\n            char* mtp = getmemoryoffsetchar(tmp);\n            mtp = (char*) addr;\n        }\n        else if (type == \"long\")\n        {\n            long long* mtp = getmemoryoffsetlong(tmp);\n            mtp = (long long*) addr;\n        }\n\n        refarray.append(getoffset(), type, name);\n        offset++;\n    }\n\n    void printmem() {\n        for (int i = 0; i < this->offset; i++) {\n\n            bool isint = intarray.find(i);\n            bool isfloat = floatarray.find(i);\n            bool isdouble = doublearray.find(i);\n            bool ischar = chararray.find(i);\n            bool islong = longarray.find(i);\n            bool isref = refarray.find(i);\n\n            if(isint||isfloat||isdouble||ischar||islong||isref){\n                cout << \"===============\" << endl;\n                cout << \"offset: \" << i << endl;\n                cout << \"int: \" << isint << endl;\n                cout << \"float: \" << isfloat << endl;\n                cout << \"double: \" << isdouble << endl;\n                cout << \"char: \" << ischar << endl;\n                cout << \"long: \" << islong << endl;\n                cout << \"res: \" << isref << endl;\n                if (isint)\n                {\n                    int* tmp = getmemoryoffsetint(i);\n                    cout << *tmp << endl;\n                    cout << \"size: \" << sizeof(*tmp) << endl;\n                    cout << \"Memory: \" << tmp << endl;\n                }\n                else if (isfloat)\n                {\n                    float* tmp = getmemoryoffsetfloat(i);\n                    cout << *tmp << endl;\n                    cout << \"size: \" << sizeof(*tmp) << endl;\n                    cout << \"Memory: \" << tmp << endl;\n                }\n                else if (isdouble)\n                {\n                    double* tmp = getmemoryoffsetdouble(i);\n                    cout << *tmp << endl;\n                    cout << \"size: \" << sizeof(*tmp) << endl;\n                    cout << \"Memory: \" << tmp << endl;\n                }\n                else if (ischar)\n                {\n                    char* tmp = getmemoryoffsetchar(i);\n                    cout << *tmp << endl;\n                    cout << \"size: \" << sizeof(*tmp) << endl;\n\n                    cout << \"Memory: \" << getmemoryoffsetchar(i) << endl;\n                    cout << \"Memory: \" << tmp << endl;\n\n                }\n                else if (islong)\n                {\n                    long long* tmp = getmemoryoffsetlong(i);\n                    cout << *tmp << endl;\n                    cout << \"size: \" << sizeof(*tmp) << endl;\n                    cout << \"Memory: \" << tmp << endl;\n\n                }\n                else if (isref)\n                {\n                    int* tmp = getmemoryoffsetint(i);\n                    cout << *tmp << endl;\n                    cout << \"size: \" << sizeof(*tmp) << endl;\n                    cout << \"Memory: \" << tmp << endl;\n\n                }\n            }\n        }\n    }\n\n    int getoffset() {\n        return offset;\n    }\n\n    void* get_mem() {\n        return mem;\n    }\n\n    LinkedList* getlist(string type) {\n        if (type == \"int\")\n        {\n            return &intarray;\n        }\n        else if (type == \"float\")\n        {\n            return &floatarray;\n        }\n        else if (type == \"double\")\n        {\n            return &doublearray;\n        }\n        else if (type == \"char\")\n        {\n            return &chararray;\n        }\n        else if (type == \"long\")\n        {\n            return &longarray;\n        }\n        else if (type == \"ref\")\n        {\n            return &refarray;\n        }\n    }\n\n\n    bool outofmemory(int abytes) {\n        if (used + abytes <= bytes )\n        {\n            return true;\n        }\n        else {\n            return false;\n        }\n    }\n};\n\nint main(){\n\n    MemoryManager m(30);\n\n    m.addvariableint(12,\"a\");\n    m.addvariableint(68,\"b\");\n    m.addvariabledouble(68.9,\"c\");\n\n    m.printmem();\n\n    m.getlist(\"int\")->printList();\n    m.getlist(\"double\")->printList();\n    m.getlist(\"char\")->printList();\n\n    return 0;\n}\n\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Cliente-Servidor/MemoryManager.cpp b/Cliente-Servidor/MemoryManager.cpp
+--- a/Cliente-Servidor/MemoryManager.cpp	(revision 57a8e6f43051b2aad7fd23203f1283ecc69653f7)
++++ b/Cliente-Servidor/MemoryManager.cpp	(date 1618888116541)
+@@ -262,6 +262,60 @@
+         }
+     }
+ 
++    void addref(string type, string name){
++        if (type == "int")
++        {
++            intarray.addref(name);
++        }
++        else if (type == "float")
++        {
++            floatarray.addref(name);
++        }
++        else if (type == "double")
++        {
++            doublearray.addref(name);
++        }
++        else if (type == "char")
++        {
++            chararray.addref(name);
++        }
++        else if (type == "long")
++        {
++            longarray.addref(name);
++        }
++        else if (type == "ref")
++        {
++            refarray.addref(name);
++        }
++    }
++
++    int get_varrefnum(string type, string name){
++        if (type == "int")
++        {
++            return intarray.get_varrefnum(name);
++        }
++        else if (type == "float")
++        {
++            return floatarray.get_varrefnum(name);
++        }
++        else if (type == "double")
++        {
++            return doublearray.get_varrefnum(name);
++        }
++        else if (type == "char")
++        {
++            return chararray.get_varrefnum(name);
++        }
++        else if (type == "long")
++        {
++            return longarray.get_varrefnum(name);
++        }
++        else if (type == "ref")
++        {
++            return refarray.get_varrefnum(name);
++        }
++    }
++
+     int getoffset() {
+         return offset;
+     }
+@@ -308,7 +362,7 @@
+         }
+     }
+ };
+-
++/*
+ int main(){
+ 
+     MemoryManager m(30);
+@@ -325,4 +379,4 @@
+ 
+     return 0;
+ }
+-
++*/
+Index: Cliente-Servidor/MemoryList/Node.cpp
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>#include <iostream>\n#include <cmath>\nusing namespace std;\n\n//Node list\nclass Node {\npublic:\n    //Atributes\n    string name;\n    string type;\n    int offset;\n    Node* next;\n\n\n    //Simple Constructor\n    Node() {\n        type = \"\";\n        name = \"\";\n        offset = NULL;\n        next = NULL;\n\n    }\n    //Constructor with argument\n    Node(int adata,string atype, string aname) {\n        offset = adata;\n        type = atype;\n        name = aname;\n        next = NULL;\n\n    }\n\n    //pointer setter\n    void set_next(Node* ptr) {\n        next = ptr;\n    }\n\n\n\n    //pointer getter\n    Node* get_next() {\n        return next;\n    }\n\n    int get_varoffset() {\n        return offset;\n    }\n    string get_name() {\n        return name;\n    }\n\n};\n\n\n\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Cliente-Servidor/MemoryList/Node.cpp b/Cliente-Servidor/MemoryList/Node.cpp
+--- a/Cliente-Servidor/MemoryList/Node.cpp	(revision 57a8e6f43051b2aad7fd23203f1283ecc69653f7)
++++ b/Cliente-Servidor/MemoryList/Node.cpp	(date 1618884701896)
+@@ -9,23 +9,18 @@
+     string name;
+     string type;
+     int offset;
++    int refnum;
+     Node* next;
+ 
+ 
+-    //Simple Constructor
+-    Node() {
+-        type = "";
+-        name = "";
+-        offset = NULL;
+-        next = NULL;
+ 
+-    }
+     //Constructor with argument
+     Node(int adata,string atype, string aname) {
+         offset = adata;
+         type = atype;
+         name = aname;
+         next = NULL;
++        refnum = 0;
+ 
+     }
+ 
+@@ -34,6 +29,10 @@
+         next = ptr;
+     }
+ 
++    //refnum adder
++    void addrefnum() {
++        refnum++;
++    }
+ 
+ 
+     //pointer getter
+@@ -41,13 +40,21 @@
+         return next;
+     }
+ 
++    //returns the offset of the variable
+     int get_varoffset() {
+         return offset;
+     }
++
++    //return the name of the variable
+     string get_name() {
+         return name;
+     }
+ 
++    //returns the amout of references of the variable
++    int get_ref() {
++        return refnum;
++    }
++
+ };
+ 
+ 
+Index: Cliente-Servidor/MemoryList/LinkedList.cpp
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>#include <iostream>\n#include <cmath>\n#include \"Node.cpp\"\nusing namespace std;\n\n\n//List class\nclass LinkedList {\n\n\npublic:\n    //Atributes\n    Node* start;\n    int size;\n    Node* tail;\n\n    //Constructor\n    LinkedList() {\n        start = NULL;\n        tail = NULL;\n        this->size = 0;\n    }\n\n    //Append element to list\n    void append(int data,string type,string name) {\n\n        if (start == NULL)\n        {\n            start = new Node(data,type, name);\n            tail = start;\n            size++;\n        }\n        else\n        {\n            Node* newNode = new Node(data, type, name);\n            tail->set_next(newNode);\n            tail = newNode;\n            size++;\n\n        }\n    }\n\n\n    bool find(int aoffset) {\n        if (start == NULL)\n        {\n            return false;\n        }\n        else if (start == tail)\n        {\n            if (start->get_varoffset() == aoffset)\n            {\n                return true;\n            }\n            else\n            {\n                return false;\n            }\n        }\n        else\n        {\n            if (start->get_varoffset() == aoffset)\n            {\n                return true;\n            }\n            else\n            {\n                Node* tmp = start->get_next();\n                while (tmp != NULL)\n                {\n                    if (tmp->get_varoffset() == aoffset)\n                    {\n                        return true;\n                    }\n\n                    tmp = tmp->get_next();\n                }\n\n                return false;\n            }\n        }\n    }\n\n    bool findvar(string aname) {\n        if (start == NULL)\n        {\n            return false;\n        }\n        else if (start == tail)\n        {\n            if (start->get_name() == aname)\n            {\n                return true;\n            }\n            else\n            {\n                return false;\n            }\n        }\n        else\n        {\n            if (start->get_name() == aname)\n            {\n                return true;\n            }\n            else\n            {\n                Node* tmp = start->get_next();\n                while (tmp != NULL)\n                {\n                    if (tmp->get_name() == aname)\n                    {\n                        return true;\n                    }\n\n                    tmp = tmp->get_next();\n                }\n\n                return false;\n            }\n        }\n    }\n    //print list\n    void printList() {\n\n        if (size == 0)\n        {\n            cout << \"Lista Vacia\" << endl;\n\n        }\n        else {\n\n            Node* tmp = start;\n\n            while (tmp != NULL)\n            {\n                cout << \"|\" << tmp->get_varoffset()<<\" : \"<<tmp->name<< \"|-->\";\n                tmp = tmp->get_next();\n            }\n            cout << \" \" << endl;\n\n        }\n    }\n};\n\n\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Cliente-Servidor/MemoryList/LinkedList.cpp b/Cliente-Servidor/MemoryList/LinkedList.cpp
+--- a/Cliente-Servidor/MemoryList/LinkedList.cpp	(revision 57a8e6f43051b2aad7fd23203f1283ecc69653f7)
++++ b/Cliente-Servidor/MemoryList/LinkedList.cpp	(date 1618887587808)
+@@ -120,6 +120,89 @@
+             }
+         }
+     }
++
++    void addref(string aname) {
++        if (start == NULL)
++        {
++            //stdout log error
++        }
++        else if (start == tail)
++        {
++            if (start->get_name() == aname)
++            {
++                start->addrefnum();
++            }
++            else
++            {
++                //stdout log error
++            }
++        }
++        else
++        {
++
++            if (start->get_name() == aname)
++            {
++
++                start->addrefnum();
++            }
++            else
++            {
++                Node* tmp = start->get_next();
++                while (tmp != NULL)
++                {
++                    if (tmp->get_name() == aname)
++                    {
++                        tmp->addrefnum();
++                    }
++
++                    tmp = tmp->get_next();
++                }
++            }
++        }
++    }
++
++    int get_varrefnum(string aname) {
++        if (start == NULL)
++        {
++            return 0;
++        }
++        else if (start == tail)
++        {
++            if (start->get_name() == aname)
++            {
++                return start->get_ref();
++            }
++            else
++            {
++                return 0;
++            }
++        }
++        else
++        {
++
++            if (start->get_name() == aname)
++            {
++
++                return start->get_ref();
++            }
++            else
++            {
++                Node* tmp = start->get_next();
++                while (tmp != NULL)
++                {
++                    if (tmp->get_name() == aname)
++                    {
++                        return tmp->get_ref();
++                    }
++
++                    tmp = tmp->get_next();
++                }
++                return 0;
++            }
++        }
++    }
++
++
+     //print list
+     void printList() {
+ 
+@@ -134,7 +217,7 @@
+ 
+             while (tmp != NULL)
+             {
+-                cout << "|" << tmp->get_varoffset()<<" : "<<tmp->name<< "|-->";
++                cout << "|" << tmp->get_varoffset()<<" : "<<tmp->name<<" : "<<tmp->refnum <<"|-->";
+                 tmp = tmp->get_next();
+             }
+             cout << " " << endl;
+Index: cmake-build-debug/Testing/Temporary/LastTest.log
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>Start testing: Apr 19 01:32 CST\n----------------------------------------------------------\nEnd testing: Apr 19 01:32 CST\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/cmake-build-debug/Testing/Temporary/LastTest.log b/cmake-build-debug/Testing/Temporary/LastTest.log
+--- a/cmake-build-debug/Testing/Temporary/LastTest.log	(revision 57a8e6f43051b2aad7fd23203f1283ecc69653f7)
++++ b/cmake-build-debug/Testing/Temporary/LastTest.log	(date 1619122781060)
+@@ -1,3 +1,3 @@
+-Start testing: Apr 19 01:32 CST
++Start testing: Apr 22 14:19 CST
+ ----------------------------------------------------------
+-End testing: Apr 19 01:32 CST
++End testing: Apr 22 14:19 CST
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"CMakeRunConfigurationManager\" shouldGenerate=\"true\" shouldDeleteObsolete=\"true\">\n    <generated>\n      <config projectName=\"Datos_2_Proyecto_1\" targetName=\"cliente\" />\n    </generated>\n  </component>\n  <component name=\"CMakeSettings\">\n    <configurations>\n      <configuration PROFILE_NAME=\"Debug\" CONFIG_NAME=\"Debug\" ENABLED=\"true\" />\n    </configurations>\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"2fe48f70-c3ca-42f2-bce1-2812ff8397cc\" name=\"Default Changelist\" comment=\"\" />\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"ClangdSettings\">\n    <option name=\"formatViaClangd\" value=\"false\" />\n  </component>\n  <component name=\"ExecutionTargetManager\" SELECTED_TARGET=\"CMakeBuildProfile:Debug\" />\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"ProjectId\" id=\"1qqN8OdfhWC32wR7oVhUtqZhRfn\" />\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\">\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\n    <property name=\"RunOnceActivity.ShowReadmeOnStart\" value=\"true\" />\n    <property name=\"RunOnceActivity.cidr.known.project.marker\" value=\"true\" />\n    <property name=\"WebServerToolWindowFactoryState\" value=\"false\" />\n    <property name=\"cf.first.check.clang-format\" value=\"false\" />\n    <property name=\"cidr.known.project.marker\" value=\"true\" />\n    <property name=\"cmake.loaded.for.project\" value=\"true\" />\n    <property name=\"last_opened_file_path\" value=\"$PROJECT_DIR$\" />\n    <property name=\"nodejs_package_manager_path\" value=\"npm\" />\n  </component>\n  <component name=\"RecentsManager\">\n    <key name=\"MoveFile.RECENT_KEYS\">\n      <recent name=\"$PROJECT_DIR$/Cliente-Servidor\" />\n      <recent name=\"$PROJECT_DIR$/cmake-build-debug\" />\n      <recent name=\"$PROJECT_DIR$\" />\n    </key>\n  </component>\n  <component name=\"RunManager\">\n    <configuration name=\"cliente\" type=\"CMakeRunConfiguration\" factoryName=\"Application\" REDIRECT_INPUT=\"false\" ELEVATE=\"false\" USE_EXTERNAL_CONSOLE=\"false\" PASS_PARENT_ENVS_2=\"true\" PROJECT_NAME=\"Datos_2_Proyecto_1\" TARGET_NAME=\"cliente\" CONFIG_NAME=\"Debug\" RUN_TARGET_PROJECT_NAME=\"Datos_2_Proyecto_1\" RUN_TARGET_NAME=\"cliente\">\n      <method v=\"2\">\n        <option name=\"com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <configuration default=\"true\" type=\"GradleAppRunConfiguration\" factoryName=\"Application\" REDIRECT_INPUT=\"false\" ELEVATE=\"false\" USE_EXTERNAL_CONSOLE=\"false\" PASS_PARENT_ENVS_2=\"true\">\n      <method v=\"2\">\n        <option name=\"com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask\" enabled=\"true\" />\n      </method>\n    </configuration>\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"2fe48f70-c3ca-42f2-bce1-2812ff8397cc\" name=\"Default Changelist\" comment=\"\" />\n      <created>1617803002184</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1617803002184</updated>\n      <workItem from=\"1617803003998\" duration=\"24466000\" />\n      <workItem from=\"1617988594426\" duration=\"3191000\" />\n      <workItem from=\"1618076445714\" duration=\"12450000\" />\n      <workItem from=\"1618374130722\" duration=\"5375000\" />\n      <workItem from=\"1618439062262\" duration=\"12438000\" />\n      <workItem from=\"1618614419737\" duration=\"496000\" />\n      <workItem from=\"1618619209244\" duration=\"1029000\" />\n      <workItem from=\"1618620259779\" duration=\"10538000\" />\n      <workItem from=\"1618796571831\" duration=\"16372000\" />\n    </task>\n    <servers />\n  </component>\n  <component name=\"TypeScriptGeneratedFilesManager\">\n    <option name=\"version\" value=\"3\" />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 57a8e6f43051b2aad7fd23203f1283ecc69653f7)
++++ b/.idea/workspace.xml	(date 1619123216158)
+@@ -3,15 +3,33 @@
+   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
+     <generated>
+       <config projectName="Datos_2_Proyecto_1" targetName="cliente" />
++      <config projectName="Datos_2_Proyecto_1" targetName="mserver" />
+     </generated>
+   </component>
+-  <component name="CMakeSettings">
++  <component name="CMakeSettings" AUTO_RELOAD="true">
+     <configurations>
+       <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" ENABLED="true" />
+     </configurations>
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="2fe48f70-c3ca-42f2-bce1-2812ff8397cc" name="Default Changelist" comment="" />
++    <list default="true" id="2fe48f70-c3ca-42f2-bce1-2812ff8397cc" name="Default Changelist" comment="Added Memory Manager">
++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/Cliente-Servidor/MemoryList/LinkedList.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Cliente-Servidor/MemoryList/LinkedList.cpp" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/Cliente-Servidor/MemoryList/Node.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Cliente-Servidor/MemoryList/Node.cpp" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/Cliente-Servidor/MemoryManager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Cliente-Servidor/MemoryManager.cpp" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/Cliente-Servidor/cliente.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Cliente-Servidor/cliente.cpp" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/Cliente-Servidor/servidor.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Cliente-Servidor/servidor.cpp" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/cliente.dir/Cliente-Servidor/cliente.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/cliente.dir/Cliente-Servidor/cliente.cpp.o" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Datos_2_Proyecto_1.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Datos_2_Proyecto_1.cbp" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/cmake-build-debug/cliente" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/cliente" afterDir="false" />
++    </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+@@ -38,7 +56,6 @@
+     <property name="cidr.known.project.marker" value="true" />
+     <property name="cmake.loaded.for.project" value="true" />
+     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+-    <property name="nodejs_package_manager_path" value="npm" />
+   </component>
+   <component name="RecentsManager">
+     <key name="MoveFile.RECENT_KEYS">
+@@ -47,8 +64,13 @@
+       <recent name="$PROJECT_DIR$" />
+     </key>
+   </component>
+-  <component name="RunManager">
+-    <configuration name="cliente" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Datos_2_Proyecto_1" TARGET_NAME="cliente" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Datos_2_Proyecto_1" RUN_TARGET_NAME="cliente">
++  <component name="RunManager" selected="CMake Application.cliente">
++    <configuration name="cliente" type="CMakeRunConfiguration" factoryName="Application" singleton="false" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Datos_2_Proyecto_1" TARGET_NAME="cliente" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Datos_2_Proyecto_1" RUN_TARGET_NAME="cliente">
++      <method v="2">
++        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
++      </method>
++    </configuration>
++    <configuration name="mserver" type="CMakeRunConfiguration" factoryName="Application" singleton="false" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Datos_2_Proyecto_1" TARGET_NAME="mserver" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Datos_2_Proyecto_1" RUN_TARGET_NAME="mserver">
+       <method v="2">
+         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+       </method>
+@@ -58,6 +80,10 @@
+         <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+       </method>
+     </configuration>
++    <list>
++      <item itemvalue="CMake Application.cliente" />
++      <item itemvalue="CMake Application.mserver" />
++    </list>
+   </component>
+   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+   <component name="TaskManager">
+@@ -71,15 +97,42 @@
+       <workItem from="1617988594426" duration="3191000" />
+       <workItem from="1618076445714" duration="12450000" />
+       <workItem from="1618374130722" duration="5375000" />
+-      <workItem from="1618439062262" duration="12438000" />
+-      <workItem from="1618614419737" duration="496000" />
+-      <workItem from="1618619209244" duration="1029000" />
+-      <workItem from="1618620259779" duration="10538000" />
+-      <workItem from="1618796571831" duration="16372000" />
++      <workItem from="1618439062262" duration="1210000" />
++      <workItem from="1618514502386" duration="3757000" />
++      <workItem from="1618773728084" duration="5511000" />
++      <workItem from="1618785764053" duration="5400000" />
++      <workItem from="1618879031450" duration="9636000" />
++      <workItem from="1618944280692" duration="6516000" />
++      <workItem from="1618974721166" duration="2698000" />
++      <workItem from="1619122779482" duration="434000" />
+     </task>
++    <task id="LOCAL-00001" summary="Added Memory Manager">
++      <created>1618871548725</created>
++      <option name="number" value="00001" />
++      <option name="presentableId" value="LOCAL-00001" />
++      <option name="project" value="LOCAL" />
++      <updated>1618871548726</updated>
++    </task>
++    <option name="localTasksCounter" value="2" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+     <option name="version" value="3" />
+   </component>
++  <component name="Vcs.Log.Tabs.Properties">
++    <option name="TAB_STATES">
++      <map>
++        <entry key="MAIN">
++          <value>
++            <State />
++          </value>
++        </entry>
++      </map>
++    </option>
++    <option name="oldMeFiltersMigrated" value="true" />
++  </component>
++  <component name="VcsManagerConfiguration">
++    <MESSAGE value="Added Memory Manager" />
++    <option name="LAST_COMMIT_MESSAGE" value="Added Memory Manager" />
++  </component>
+ </project>
+\ No newline at end of file
+Index: cmake-build-debug/Makefile
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+># CMAKE generated file: DO NOT EDIT!\n# Generated by \"Unix Makefiles\" Generator, CMake Version 3.19\n\n# Default target executed when no arguments are given to make.\ndefault_target: all\n\n.PHONY : default_target\n\n# Allow only one \"make -f Makefile2\" at a time, but pass parallelism.\n.NOTPARALLEL:\n\n\n#=============================================================================\n# Special targets provided by cmake.\n\n# Disable implicit rules so canonical targets will work.\n.SUFFIXES:\n\n\n# Disable VCS-based implicit rules.\n% : %,v\n\n\n# Disable VCS-based implicit rules.\n% : RCS/%\n\n\n# Disable VCS-based implicit rules.\n% : RCS/%,v\n\n\n# Disable VCS-based implicit rules.\n% : SCCS/s.%\n\n\n# Disable VCS-based implicit rules.\n% : s.%\n\n\n.SUFFIXES: .hpux_make_needs_suffix_list\n\n\n# Command-line flag to silence nested $(MAKE).\n$(VERBOSE)MAKESILENT = -s\n\n#Suppress display of executed commands.\n$(VERBOSE).SILENT:\n\n# A target that is always out of date.\ncmake_force:\n\n.PHONY : cmake_force\n\n#=============================================================================\n# Set environment variables for the build.\n\n# The shell in which to execute make rules.\nSHELL = /bin/sh\n\n# The CMake executable.\nCMAKE_COMMAND = /snap/clion/149/bin/cmake/linux/bin/cmake\n\n# The command to remove a file.\nRM = /snap/clion/149/bin/cmake/linux/bin/cmake -E rm -f\n\n# Escaping for special characters.\nEQUALS = =\n\n# The top-level source directory on which CMake was run.\nCMAKE_SOURCE_DIR = \"/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1\"\n\n# The top-level build directory on which CMake was run.\nCMAKE_BINARY_DIR = \"/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/cmake-build-debug\"\n\n#=============================================================================\n# Targets provided globally by CMake.\n\n# Special rule for the target rebuild_cache\nrebuild_cache:\n\t@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan \"Running CMake to regenerate build system...\"\n\t/snap/clion/149/bin/cmake/linux/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)\n.PHONY : rebuild_cache\n\n# Special rule for the target rebuild_cache\nrebuild_cache/fast: rebuild_cache\n\n.PHONY : rebuild_cache/fast\n\n# Special rule for the target edit_cache\nedit_cache:\n\t@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan \"No interactive CMake dialog available...\"\n\t/snap/clion/149/bin/cmake/linux/bin/cmake -E echo No\\ interactive\\ CMake\\ dialog\\ available.\n.PHONY : edit_cache\n\n# Special rule for the target edit_cache\nedit_cache/fast: edit_cache\n\n.PHONY : edit_cache/fast\n\n# The main all target\nall: cmake_check_build_system\n\t$(CMAKE_COMMAND) -E cmake_progress_start \"/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/cmake-build-debug/CMakeFiles\" \"/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/cmake-build-debug//CMakeFiles/progress.marks\"\n\t$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all\n\t$(CMAKE_COMMAND) -E cmake_progress_start \"/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/cmake-build-debug/CMakeFiles\" 0\n.PHONY : all\n\n# The main clean target\nclean:\n\t$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 clean\n.PHONY : clean\n\n# The main clean target\nclean/fast: clean\n\n.PHONY : clean/fast\n\n# Prepare targets for installation.\npreinstall: all\n\t$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 preinstall\n.PHONY : preinstall\n\n# Prepare targets for installation.\npreinstall/fast:\n\t$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 preinstall\n.PHONY : preinstall/fast\n\n# clear depends\ndepend:\n\t$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1\n.PHONY : depend\n\n#=============================================================================\n# Target rules for targets named cliente\n\n# Build rule for target.\ncliente: cmake_check_build_system\n\t$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 cliente\n.PHONY : cliente\n\n# fast build rule for target.\ncliente/fast:\n\t$(MAKE) $(MAKESILENT) -f CMakeFiles/cliente.dir/build.make CMakeFiles/cliente.dir/build\n.PHONY : cliente/fast\n\nCliente-Servidor/cliente.o: Cliente-Servidor/cliente.cpp.o\n\n.PHONY : Cliente-Servidor/cliente.o\n\n# target to build an object file\nCliente-Servidor/cliente.cpp.o:\n\t$(MAKE) $(MAKESILENT) -f CMakeFiles/cliente.dir/build.make CMakeFiles/cliente.dir/Cliente-Servidor/cliente.cpp.o\n.PHONY : Cliente-Servidor/cliente.cpp.o\n\nCliente-Servidor/cliente.i: Cliente-Servidor/cliente.cpp.i\n\n.PHONY : Cliente-Servidor/cliente.i\n\n# target to preprocess a source file\nCliente-Servidor/cliente.cpp.i:\n\t$(MAKE) $(MAKESILENT) -f CMakeFiles/cliente.dir/build.make CMakeFiles/cliente.dir/Cliente-Servidor/cliente.cpp.i\n.PHONY : Cliente-Servidor/cliente.cpp.i\n\nCliente-Servidor/cliente.s: Cliente-Servidor/cliente.cpp.s\n\n.PHONY : Cliente-Servidor/cliente.s\n\n# target to generate assembly for a file\nCliente-Servidor/cliente.cpp.s:\n\t$(MAKE) $(MAKESILENT) -f CMakeFiles/cliente.dir/build.make CMakeFiles/cliente.dir/Cliente-Servidor/cliente.cpp.s\n.PHONY : Cliente-Servidor/cliente.cpp.s\n\n# Help Target\nhelp:\n\t@echo \"The following are some of the valid targets for this Makefile:\"\n\t@echo \"... all (the default if no target is provided)\"\n\t@echo \"... clean\"\n\t@echo \"... depend\"\n\t@echo \"... edit_cache\"\n\t@echo \"... rebuild_cache\"\n\t@echo \"... cliente\"\n\t@echo \"... Cliente-Servidor/cliente.o\"\n\t@echo \"... Cliente-Servidor/cliente.i\"\n\t@echo \"... Cliente-Servidor/cliente.s\"\n.PHONY : help\n\n\n\n#=============================================================================\n# Special targets to cleanup operation of make.\n\n# Special rule to run CMake to check the build system integrity.\n# No rule that depends on this can have commands that come from listfiles\n# because they might be regenerated.\ncmake_check_build_system:\n\t$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0\n.PHONY : cmake_check_build_system\n\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/cmake-build-debug/Makefile b/cmake-build-debug/Makefile
+--- a/cmake-build-debug/Makefile	(revision 57a8e6f43051b2aad7fd23203f1283ecc69653f7)
++++ b/cmake-build-debug/Makefile	(date 1618976490802)
+@@ -129,6 +129,19 @@
+ 	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+ .PHONY : depend
+ 
++#=============================================================================
++# Target rules for targets named mserver
++
++# Build rule for target.
++mserver: cmake_check_build_system
++	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 mserver
++.PHONY : mserver
++
++# fast build rule for target.
++mserver/fast:
++	$(MAKE) $(MAKESILENT) -f CMakeFiles/mserver.dir/build.make CMakeFiles/mserver.dir/build
++.PHONY : mserver/fast
++
+ #=============================================================================
+ # Target rules for targets named cliente
+ 
+@@ -169,6 +182,33 @@
+ 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cliente.dir/build.make CMakeFiles/cliente.dir/Cliente-Servidor/cliente.cpp.s
+ .PHONY : Cliente-Servidor/cliente.cpp.s
+ 
++Cliente-Servidor/servidor.o: Cliente-Servidor/servidor.cpp.o
++
++.PHONY : Cliente-Servidor/servidor.o
++
++# target to build an object file
++Cliente-Servidor/servidor.cpp.o:
++	$(MAKE) $(MAKESILENT) -f CMakeFiles/mserver.dir/build.make CMakeFiles/mserver.dir/Cliente-Servidor/servidor.cpp.o
++.PHONY : Cliente-Servidor/servidor.cpp.o
++
++Cliente-Servidor/servidor.i: Cliente-Servidor/servidor.cpp.i
++
++.PHONY : Cliente-Servidor/servidor.i
++
++# target to preprocess a source file
++Cliente-Servidor/servidor.cpp.i:
++	$(MAKE) $(MAKESILENT) -f CMakeFiles/mserver.dir/build.make CMakeFiles/mserver.dir/Cliente-Servidor/servidor.cpp.i
++.PHONY : Cliente-Servidor/servidor.cpp.i
++
++Cliente-Servidor/servidor.s: Cliente-Servidor/servidor.cpp.s
++
++.PHONY : Cliente-Servidor/servidor.s
++
++# target to generate assembly for a file
++Cliente-Servidor/servidor.cpp.s:
++	$(MAKE) $(MAKESILENT) -f CMakeFiles/mserver.dir/build.make CMakeFiles/mserver.dir/Cliente-Servidor/servidor.cpp.s
++.PHONY : Cliente-Servidor/servidor.cpp.s
++
+ # Help Target
+ help:
+ 	@echo "The following are some of the valid targets for this Makefile:"
+@@ -178,9 +218,13 @@
+ 	@echo "... edit_cache"
+ 	@echo "... rebuild_cache"
+ 	@echo "... cliente"
++	@echo "... mserver"
+ 	@echo "... Cliente-Servidor/cliente.o"
+ 	@echo "... Cliente-Servidor/cliente.i"
+ 	@echo "... Cliente-Servidor/cliente.s"
++	@echo "... Cliente-Servidor/servidor.o"
++	@echo "... Cliente-Servidor/servidor.i"
++	@echo "... Cliente-Servidor/servidor.s"
+ .PHONY : help
+ 
+ 
+Index: cmake-build-debug/Datos_2_Proyecto_1.cbp
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<CodeBlocks_project_file>\n\t<FileVersion major=\"1\" minor=\"6\"/>\n\t<Project>\n\t\t<Option title=\"Datos_2_Proyecto_1\"/>\n\t\t<Option makefile_is_custom=\"1\"/>\n\t\t<Option compiler=\"gcc\"/>\n\t\t<Option virtualFolders=\"CMake Files\\;CMake Files\\cmake_modules\\;\"/>\n\t\t<Build>\n\t\t\t<Target title=\"all\">\n\t\t\t\t<Option working_dir=\"/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/cmake-build-debug\"/>\n\t\t\t\t<Option type=\"4\"/>\n\t\t\t\t<MakeCommands>\n\t\t\t\t\t<Build command=\"/usr/bin/make -f &quot;/home/david/Documents/Proyecto\\ 1/Datos-2-Proyecto-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 all\"/>\n\t\t\t\t\t<CompileFile command=\"/usr/bin/make -f &quot;/home/david/Documents/Proyecto\\ 1/Datos-2-Proyecto-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;\"/>\n\t\t\t\t\t<Clean command=\"/usr/bin/make -f &quot;/home/david/Documents/Proyecto\\ 1/Datos-2-Proyecto-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean\"/>\n\t\t\t\t\t<DistClean command=\"/usr/bin/make -f &quot;/home/david/Documents/Proyecto\\ 1/Datos-2-Proyecto-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean\"/>\n\t\t\t\t</MakeCommands>\n\t\t\t</Target>\n\t\t\t<Target title=\"rebuild_cache\">\n\t\t\t\t<Option working_dir=\"/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/cmake-build-debug\"/>\n\t\t\t\t<Option type=\"4\"/>\n\t\t\t\t<MakeCommands>\n\t\t\t\t\t<Build command=\"/usr/bin/make -f &quot;/home/david/Documents/Proyecto\\ 1/Datos-2-Proyecto-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache\"/>\n\t\t\t\t\t<CompileFile command=\"/usr/bin/make -f &quot;/home/david/Documents/Proyecto\\ 1/Datos-2-Proyecto-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;\"/>\n\t\t\t\t\t<Clean command=\"/usr/bin/make -f &quot;/home/david/Documents/Proyecto\\ 1/Datos-2-Proyecto-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean\"/>\n\t\t\t\t\t<DistClean command=\"/usr/bin/make -f &quot;/home/david/Documents/Proyecto\\ 1/Datos-2-Proyecto-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean\"/>\n\t\t\t\t</MakeCommands>\n\t\t\t</Target>\n\t\t\t<Target title=\"edit_cache\">\n\t\t\t\t<Option working_dir=\"/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/cmake-build-debug\"/>\n\t\t\t\t<Option type=\"4\"/>\n\t\t\t\t<MakeCommands>\n\t\t\t\t\t<Build command=\"/usr/bin/make -f &quot;/home/david/Documents/Proyecto\\ 1/Datos-2-Proyecto-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache\"/>\n\t\t\t\t\t<CompileFile command=\"/usr/bin/make -f &quot;/home/david/Documents/Proyecto\\ 1/Datos-2-Proyecto-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;\"/>\n\t\t\t\t\t<Clean command=\"/usr/bin/make -f &quot;/home/david/Documents/Proyecto\\ 1/Datos-2-Proyecto-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean\"/>\n\t\t\t\t\t<DistClean command=\"/usr/bin/make -f &quot;/home/david/Documents/Proyecto\\ 1/Datos-2-Proyecto-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean\"/>\n\t\t\t\t</MakeCommands>\n\t\t\t</Target>\n\t\t\t<Target title=\"cliente\">\n\t\t\t\t<Option output=\"/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/cmake-build-debug/cliente\" prefix_auto=\"0\" extension_auto=\"0\"/>\n\t\t\t\t<Option working_dir=\"/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/cmake-build-debug\"/>\n\t\t\t\t<Option object_output=\"./\"/>\n\t\t\t\t<Option type=\"1\"/>\n\t\t\t\t<Option compiler=\"gcc\"/>\n\t\t\t\t<Compiler>\n\t\t\t\t\t<Add directory=\"/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/Cliente-Servidor\"/>\n\t\t\t\t\t<Add directory=\"/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/Cliente-Servidor/ClienteRes\"/>\n\t\t\t\t\t<Add directory=\"/usr/include/c++/9\"/>\n\t\t\t\t\t<Add directory=\"/usr/include/x86_64-linux-gnu/c++/9\"/>\n\t\t\t\t\t<Add directory=\"/usr/include/c++/9/backward\"/>\n\t\t\t\t\t<Add directory=\"/usr/lib/gcc/x86_64-linux-gnu/9/include\"/>\n\t\t\t\t\t<Add directory=\"/usr/local/include\"/>\n\t\t\t\t\t<Add directory=\"/usr/include/x86_64-linux-gnu\"/>\n\t\t\t\t\t<Add directory=\"/usr/include\"/>\n\t\t\t\t</Compiler>\n\t\t\t\t<MakeCommands>\n\t\t\t\t\t<Build command=\"/usr/bin/make -f &quot;/home/david/Documents/Proyecto\\ 1/Datos-2-Proyecto-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 cliente\"/>\n\t\t\t\t\t<CompileFile command=\"/usr/bin/make -f &quot;/home/david/Documents/Proyecto\\ 1/Datos-2-Proyecto-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;\"/>\n\t\t\t\t\t<Clean command=\"/usr/bin/make -f &quot;/home/david/Documents/Proyecto\\ 1/Datos-2-Proyecto-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean\"/>\n\t\t\t\t\t<DistClean command=\"/usr/bin/make -f &quot;/home/david/Documents/Proyecto\\ 1/Datos-2-Proyecto-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean\"/>\n\t\t\t\t</MakeCommands>\n\t\t\t</Target>\n\t\t\t<Target title=\"cliente/fast\">\n\t\t\t\t<Option output=\"/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/cmake-build-debug/cliente\" prefix_auto=\"0\" extension_auto=\"0\"/>\n\t\t\t\t<Option working_dir=\"/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/cmake-build-debug\"/>\n\t\t\t\t<Option object_output=\"./\"/>\n\t\t\t\t<Option type=\"1\"/>\n\t\t\t\t<Option compiler=\"gcc\"/>\n\t\t\t\t<Compiler>\n\t\t\t\t\t<Add directory=\"/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/Cliente-Servidor\"/>\n\t\t\t\t\t<Add directory=\"/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/Cliente-Servidor/ClienteRes\"/>\n\t\t\t\t\t<Add directory=\"/usr/include/c++/9\"/>\n\t\t\t\t\t<Add directory=\"/usr/include/x86_64-linux-gnu/c++/9\"/>\n\t\t\t\t\t<Add directory=\"/usr/include/c++/9/backward\"/>\n\t\t\t\t\t<Add directory=\"/usr/lib/gcc/x86_64-linux-gnu/9/include\"/>\n\t\t\t\t\t<Add directory=\"/usr/local/include\"/>\n\t\t\t\t\t<Add directory=\"/usr/include/x86_64-linux-gnu\"/>\n\t\t\t\t\t<Add directory=\"/usr/include\"/>\n\t\t\t\t</Compiler>\n\t\t\t\t<MakeCommands>\n\t\t\t\t\t<Build command=\"/usr/bin/make -f &quot;/home/david/Documents/Proyecto\\ 1/Datos-2-Proyecto-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 cliente/fast\"/>\n\t\t\t\t\t<CompileFile command=\"/usr/bin/make -f &quot;/home/david/Documents/Proyecto\\ 1/Datos-2-Proyecto-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;\"/>\n\t\t\t\t\t<Clean command=\"/usr/bin/make -f &quot;/home/david/Documents/Proyecto\\ 1/Datos-2-Proyecto-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean\"/>\n\t\t\t\t\t<DistClean command=\"/usr/bin/make -f &quot;/home/david/Documents/Proyecto\\ 1/Datos-2-Proyecto-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean\"/>\n\t\t\t\t</MakeCommands>\n\t\t\t</Target>\n\t\t</Build>\n\t\t<Unit filename=\"/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/Cliente-Servidor/cliente.cpp\">\n\t\t\t<Option target=\"cliente\"/>\n\t\t</Unit>\n\t\t<Unit filename=\"/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/CMakeLists.txt\">\n\t\t\t<Option virtualFolder=\"CMake Files\\\"/>\n\t\t</Unit>\n\t\t<Unit filename=\"/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/cmake_modules/FindSFML.cmake\">\n\t\t\t<Option virtualFolder=\"CMake Files\\cmake_modules\\\"/>\n\t\t</Unit>\n\t</Project>\n</CodeBlocks_project_file>\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/cmake-build-debug/Datos_2_Proyecto_1.cbp b/cmake-build-debug/Datos_2_Proyecto_1.cbp
+--- a/cmake-build-debug/Datos_2_Proyecto_1.cbp	(revision 57a8e6f43051b2aad7fd23203f1283ecc69653f7)
++++ b/cmake-build-debug/Datos_2_Proyecto_1.cbp	(date 1618976490814)
+@@ -27,6 +27,54 @@
+ 					<DistClean command="/usr/bin/make -f &quot;/home/david/Documents/Proyecto\ 1/Datos-2-Proyecto-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+ 				</MakeCommands>
+ 			</Target>
++			<Target title="mserver">
++				<Option output="/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/cmake-build-debug/mserver" prefix_auto="0" extension_auto="0"/>
++				<Option working_dir="/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/cmake-build-debug"/>
++				<Option object_output="./"/>
++				<Option type="1"/>
++				<Option compiler="gcc"/>
++				<Compiler>
++					<Add directory="/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/Cliente-Servidor"/>
++					<Add directory="/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/Cliente-Servidor/ClienteRes"/>
++					<Add directory="/usr/include/c++/9"/>
++					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
++					<Add directory="/usr/include/c++/9/backward"/>
++					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
++					<Add directory="/usr/local/include"/>
++					<Add directory="/usr/include/x86_64-linux-gnu"/>
++					<Add directory="/usr/include"/>
++				</Compiler>
++				<MakeCommands>
++					<Build command="/usr/bin/make -f &quot;/home/david/Documents/Proyecto\ 1/Datos-2-Proyecto-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 mserver"/>
++					<CompileFile command="/usr/bin/make -f &quot;/home/david/Documents/Proyecto\ 1/Datos-2-Proyecto-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
++					<Clean command="/usr/bin/make -f &quot;/home/david/Documents/Proyecto\ 1/Datos-2-Proyecto-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
++					<DistClean command="/usr/bin/make -f &quot;/home/david/Documents/Proyecto\ 1/Datos-2-Proyecto-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
++				</MakeCommands>
++			</Target>
++			<Target title="mserver/fast">
++				<Option output="/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/cmake-build-debug/mserver" prefix_auto="0" extension_auto="0"/>
++				<Option working_dir="/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/cmake-build-debug"/>
++				<Option object_output="./"/>
++				<Option type="1"/>
++				<Option compiler="gcc"/>
++				<Compiler>
++					<Add directory="/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/Cliente-Servidor"/>
++					<Add directory="/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/Cliente-Servidor/ClienteRes"/>
++					<Add directory="/usr/include/c++/9"/>
++					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
++					<Add directory="/usr/include/c++/9/backward"/>
++					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
++					<Add directory="/usr/local/include"/>
++					<Add directory="/usr/include/x86_64-linux-gnu"/>
++					<Add directory="/usr/include"/>
++				</Compiler>
++				<MakeCommands>
++					<Build command="/usr/bin/make -f &quot;/home/david/Documents/Proyecto\ 1/Datos-2-Proyecto-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 mserver/fast"/>
++					<CompileFile command="/usr/bin/make -f &quot;/home/david/Documents/Proyecto\ 1/Datos-2-Proyecto-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
++					<Clean command="/usr/bin/make -f &quot;/home/david/Documents/Proyecto\ 1/Datos-2-Proyecto-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
++					<DistClean command="/usr/bin/make -f &quot;/home/david/Documents/Proyecto\ 1/Datos-2-Proyecto-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
++				</MakeCommands>
++			</Target>
+ 			<Target title="edit_cache">
+ 				<Option working_dir="/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/cmake-build-debug"/>
+ 				<Option type="4"/>
+@@ -88,6 +136,9 @@
+ 		</Build>
+ 		<Unit filename="/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/Cliente-Servidor/cliente.cpp">
+ 			<Option target="cliente"/>
++		</Unit>
++		<Unit filename="/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/Cliente-Servidor/servidor.cpp">
++			<Option target="mserver"/>
+ 		</Unit>
+ 		<Unit filename="/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/CMakeLists.txt">
+ 			<Option virtualFolder="CMake Files\"/>
+Index: cmake-build-debug/CMakeFiles/progress.marks
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>2\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/cmake-build-debug/CMakeFiles/progress.marks b/cmake-build-debug/CMakeFiles/progress.marks
+--- a/cmake-build-debug/CMakeFiles/progress.marks	(revision 57a8e6f43051b2aad7fd23203f1283ecc69653f7)
++++ b/cmake-build-debug/CMakeFiles/progress.marks	(date 1618976490814)
+@@ -1,1 +1,1 @@
+-2
++4
+Index: cmake-build-debug/CMakeFiles/Makefile.cmake
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+># CMAKE generated file: DO NOT EDIT!\n# Generated by \"Unix Makefiles\" Generator, CMake Version 3.19\n\n# The generator used is:\nset(CMAKE_DEPENDS_GENERATOR \"Unix Makefiles\")\n\n# The top level Makefile was generated from the following files:\nset(CMAKE_MAKEFILE_DEPENDS\n  \"CMakeCache.txt\"\n  \"../CMakeLists.txt\"\n  \"CMakeFiles/3.19.2/CMakeCCompiler.cmake\"\n  \"CMakeFiles/3.19.2/CMakeCXXCompiler.cmake\"\n  \"CMakeFiles/3.19.2/CMakeSystem.cmake\"\n  \"../cmake_modules/FindSFML.cmake\"\n  \"/snap/clion/149/bin/cmake/linux/share/cmake-3.19/Modules/CMakeCInformation.cmake\"\n  \"/snap/clion/149/bin/cmake/linux/share/cmake-3.19/Modules/CMakeCXXInformation.cmake\"\n  \"/snap/clion/149/bin/cmake/linux/share/cmake-3.19/Modules/CMakeCommonLanguageInclude.cmake\"\n  \"/snap/clion/149/bin/cmake/linux/share/cmake-3.19/Modules/CMakeExtraGeneratorDetermineCompilerMacrosAndIncludeDirs.cmake\"\n  \"/snap/clion/149/bin/cmake/linux/share/cmake-3.19/Modules/CMakeFindCodeBlocks.cmake\"\n  \"/snap/clion/149/bin/cmake/linux/share/cmake-3.19/Modules/CMakeGenericSystem.cmake\"\n  \"/snap/clion/149/bin/cmake/linux/share/cmake-3.19/Modules/CMakeInitializeConfigs.cmake\"\n  \"/snap/clion/149/bin/cmake/linux/share/cmake-3.19/Modules/CMakeLanguageInformation.cmake\"\n  \"/snap/clion/149/bin/cmake/linux/share/cmake-3.19/Modules/CMakeSystemSpecificInformation.cmake\"\n  \"/snap/clion/149/bin/cmake/linux/share/cmake-3.19/Modules/CMakeSystemSpecificInitialize.cmake\"\n  \"/snap/clion/149/bin/cmake/linux/share/cmake-3.19/Modules/Compiler/CMakeCommonCompilerMacros.cmake\"\n  \"/snap/clion/149/bin/cmake/linux/share/cmake-3.19/Modules/Compiler/GNU-C.cmake\"\n  \"/snap/clion/149/bin/cmake/linux/share/cmake-3.19/Modules/Compiler/GNU-CXX.cmake\"\n  \"/snap/clion/149/bin/cmake/linux/share/cmake-3.19/Modules/Compiler/GNU.cmake\"\n  \"/snap/clion/149/bin/cmake/linux/share/cmake-3.19/Modules/Platform/Linux-GNU-C.cmake\"\n  \"/snap/clion/149/bin/cmake/linux/share/cmake-3.19/Modules/Platform/Linux-GNU-CXX.cmake\"\n  \"/snap/clion/149/bin/cmake/linux/share/cmake-3.19/Modules/Platform/Linux-GNU.cmake\"\n  \"/snap/clion/149/bin/cmake/linux/share/cmake-3.19/Modules/Platform/Linux.cmake\"\n  \"/snap/clion/149/bin/cmake/linux/share/cmake-3.19/Modules/Platform/UnixPaths.cmake\"\n  \"/snap/clion/149/bin/cmake/linux/share/cmake-3.19/Modules/ProcessorCount.cmake\"\n  )\n\n# The corresponding makefile is:\nset(CMAKE_MAKEFILE_OUTPUTS\n  \"Makefile\"\n  \"CMakeFiles/cmake.check_cache\"\n  )\n\n# Byproducts of CMake generate step:\nset(CMAKE_MAKEFILE_PRODUCTS\n  \"CMakeFiles/CMakeDirectoryInformation.cmake\"\n  )\n\n# Dependency information for all targets:\nset(CMAKE_DEPEND_INFO_FILES\n  \"CMakeFiles/cliente.dir/DependInfo.cmake\"\n  )\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/cmake-build-debug/CMakeFiles/Makefile.cmake b/cmake-build-debug/CMakeFiles/Makefile.cmake
+--- a/cmake-build-debug/CMakeFiles/Makefile.cmake	(revision 57a8e6f43051b2aad7fd23203f1283ecc69653f7)
++++ b/cmake-build-debug/CMakeFiles/Makefile.cmake	(date 1618976490818)
+@@ -47,5 +47,6 @@
+ 
+ # Dependency information for all targets:
+ set(CMAKE_DEPEND_INFO_FILES
++  "CMakeFiles/mserver.dir/DependInfo.cmake"
+   "CMakeFiles/cliente.dir/DependInfo.cmake"
+   )
+Index: cmake-build-debug/CMakeFiles/Makefile2
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+># CMAKE generated file: DO NOT EDIT!\n# Generated by \"Unix Makefiles\" Generator, CMake Version 3.19\n\n# Default target executed when no arguments are given to make.\ndefault_target: all\n\n.PHONY : default_target\n\n#=============================================================================\n# Special targets provided by cmake.\n\n# Disable implicit rules so canonical targets will work.\n.SUFFIXES:\n\n\n# Disable VCS-based implicit rules.\n% : %,v\n\n\n# Disable VCS-based implicit rules.\n% : RCS/%\n\n\n# Disable VCS-based implicit rules.\n% : RCS/%,v\n\n\n# Disable VCS-based implicit rules.\n% : SCCS/s.%\n\n\n# Disable VCS-based implicit rules.\n% : s.%\n\n\n.SUFFIXES: .hpux_make_needs_suffix_list\n\n\n# Command-line flag to silence nested $(MAKE).\n$(VERBOSE)MAKESILENT = -s\n\n#Suppress display of executed commands.\n$(VERBOSE).SILENT:\n\n# A target that is always out of date.\ncmake_force:\n\n.PHONY : cmake_force\n\n#=============================================================================\n# Set environment variables for the build.\n\n# The shell in which to execute make rules.\nSHELL = /bin/sh\n\n# The CMake executable.\nCMAKE_COMMAND = /snap/clion/149/bin/cmake/linux/bin/cmake\n\n# The command to remove a file.\nRM = /snap/clion/149/bin/cmake/linux/bin/cmake -E rm -f\n\n# Escaping for special characters.\nEQUALS = =\n\n# The top-level source directory on which CMake was run.\nCMAKE_SOURCE_DIR = \"/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1\"\n\n# The top-level build directory on which CMake was run.\nCMAKE_BINARY_DIR = \"/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/cmake-build-debug\"\n\n#=============================================================================\n# Directory level rules for the build root directory\n\n# The main recursive \"all\" target.\nall: CMakeFiles/cliente.dir/all\n\n.PHONY : all\n\n# The main recursive \"preinstall\" target.\npreinstall:\n\n.PHONY : preinstall\n\n# The main recursive \"clean\" target.\nclean: CMakeFiles/cliente.dir/clean\n\n.PHONY : clean\n\n#=============================================================================\n# Target rules for target CMakeFiles/cliente.dir\n\n# All Build rule for target.\nCMakeFiles/cliente.dir/all:\n\t$(MAKE) $(MAKESILENT) -f CMakeFiles/cliente.dir/build.make CMakeFiles/cliente.dir/depend\n\t$(MAKE) $(MAKESILENT) -f CMakeFiles/cliente.dir/build.make CMakeFiles/cliente.dir/build\n\t@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=\"/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/cmake-build-debug/CMakeFiles\" --progress-num=1,2 \"Built target cliente\"\n.PHONY : CMakeFiles/cliente.dir/all\n\n# Build rule for subdir invocation for target.\nCMakeFiles/cliente.dir/rule: cmake_check_build_system\n\t$(CMAKE_COMMAND) -E cmake_progress_start \"/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/cmake-build-debug/CMakeFiles\" 2\n\t$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/cliente.dir/all\n\t$(CMAKE_COMMAND) -E cmake_progress_start \"/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/cmake-build-debug/CMakeFiles\" 0\n.PHONY : CMakeFiles/cliente.dir/rule\n\n# Convenience name for target.\ncliente: CMakeFiles/cliente.dir/rule\n\n.PHONY : cliente\n\n# clean rule for target.\nCMakeFiles/cliente.dir/clean:\n\t$(MAKE) $(MAKESILENT) -f CMakeFiles/cliente.dir/build.make CMakeFiles/cliente.dir/clean\n.PHONY : CMakeFiles/cliente.dir/clean\n\n#=============================================================================\n# Special targets to cleanup operation of make.\n\n# Special rule to run CMake to check the build system integrity.\n# No rule that depends on this can have commands that come from listfiles\n# because they might be regenerated.\ncmake_check_build_system:\n\t$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0\n.PHONY : cmake_check_build_system\n\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/cmake-build-debug/CMakeFiles/Makefile2 b/cmake-build-debug/CMakeFiles/Makefile2
+--- a/cmake-build-debug/CMakeFiles/Makefile2	(revision 57a8e6f43051b2aad7fd23203f1283ecc69653f7)
++++ b/cmake-build-debug/CMakeFiles/Makefile2	(date 1618976490814)
+@@ -72,6 +72,7 @@
+ # Directory level rules for the build root directory
+ 
+ # The main recursive "all" target.
++all: CMakeFiles/mserver.dir/all
+ all: CMakeFiles/cliente.dir/all
+ 
+ .PHONY : all
+@@ -82,10 +83,38 @@
+ .PHONY : preinstall
+ 
+ # The main recursive "clean" target.
++clean: CMakeFiles/mserver.dir/clean
+ clean: CMakeFiles/cliente.dir/clean
+ 
+ .PHONY : clean
+ 
++#=============================================================================
++# Target rules for target CMakeFiles/mserver.dir
++
++# All Build rule for target.
++CMakeFiles/mserver.dir/all:
++	$(MAKE) $(MAKESILENT) -f CMakeFiles/mserver.dir/build.make CMakeFiles/mserver.dir/depend
++	$(MAKE) $(MAKESILENT) -f CMakeFiles/mserver.dir/build.make CMakeFiles/mserver.dir/build
++	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/cmake-build-debug/CMakeFiles" --progress-num=3,4 "Built target mserver"
++.PHONY : CMakeFiles/mserver.dir/all
++
++# Build rule for subdir invocation for target.
++CMakeFiles/mserver.dir/rule: cmake_check_build_system
++	$(CMAKE_COMMAND) -E cmake_progress_start "/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/cmake-build-debug/CMakeFiles" 2
++	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/mserver.dir/all
++	$(CMAKE_COMMAND) -E cmake_progress_start "/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/cmake-build-debug/CMakeFiles" 0
++.PHONY : CMakeFiles/mserver.dir/rule
++
++# Convenience name for target.
++mserver: CMakeFiles/mserver.dir/rule
++
++.PHONY : mserver
++
++# clean rule for target.
++CMakeFiles/mserver.dir/clean:
++	$(MAKE) $(MAKESILENT) -f CMakeFiles/mserver.dir/build.make CMakeFiles/mserver.dir/clean
++.PHONY : CMakeFiles/mserver.dir/clean
++
+ #=============================================================================
+ # Target rules for target CMakeFiles/cliente.dir
+ 
+Index: cmake-build-debug/CMakeFiles/TargetDirectories.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/cmake-build-debug/CMakeFiles/rebuild_cache.dir\n/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/cmake-build-debug/CMakeFiles/edit_cache.dir\n/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/cmake-build-debug/CMakeFiles/cliente.dir\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/cmake-build-debug/CMakeFiles/TargetDirectories.txt b/cmake-build-debug/CMakeFiles/TargetDirectories.txt
+--- a/cmake-build-debug/CMakeFiles/TargetDirectories.txt	(revision 57a8e6f43051b2aad7fd23203f1283ecc69653f7)
++++ b/cmake-build-debug/CMakeFiles/TargetDirectories.txt	(date 1618976490810)
+@@ -1,3 +1,4 @@
+ /home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/cmake-build-debug/CMakeFiles/rebuild_cache.dir
++/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/cmake-build-debug/CMakeFiles/mserver.dir
+ /home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/cmake-build-debug/CMakeFiles/edit_cache.dir
+ /home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/cmake-build-debug/CMakeFiles/cliente.dir

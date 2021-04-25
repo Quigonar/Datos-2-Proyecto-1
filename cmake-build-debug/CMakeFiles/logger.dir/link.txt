@@ -1,0 +1,1 @@
+/usr/bin/c++ -g CMakeFiles/logger.dir/Cliente-Servidor/Logger.cpp.o -o logger 
