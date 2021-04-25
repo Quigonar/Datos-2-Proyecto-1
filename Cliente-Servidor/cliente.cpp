@@ -287,21 +287,31 @@ int main(int argc, char *argv[])
         }
 
         //El socket esta constantemente recibiendo los mensajes
-        socket.receive(packetR);
+        socket.receive(packetR)
+
 
         //Si el mensaje recibido no se encuentra vacio
         if (packetR.getData() != NULL)
         {
-            RLV = jsonHandler.jsonReceiver(packetR);
-            string memory = RLV["memory"].GetString();
-            RLVStrA += memory + "\n\n";
-            string value = RLV["value"].GetString();
-            RLVStrVal += value + "\n\n";
-            string variable = RLV["variable"].GetString();
-            RLVStrVar += variable + "\n\n";
-            string ref = RLV["ref"].GetString();
-            RLVStrRef += ref + "\n\n";
-            packetR.clear();
+            Document petition = jsonHandler.jsonReceiver(packetR);
+            string type = petition["type"].GetString();
+
+            if (type == "RLV"){
+
+                RLV = jsonHandler.jsonReceiver(packetR);
+                string memory = RLV["memory"].GetString();
+                RLVStrA += memory + "\n\n";
+                string value = RLV["value"].GetString();
+                RLVStrVal += value + "\n\n";
+                string variable = RLV["variable"].GetString();
+                RLVStrVar += variable + "\n\n";
+                string ref = RLV["ref"].GetString();
+                RLVStrRef += ref + "\n\n";
+                packetR.clear();
+            }
+            if (type == "msg"){
+                //app log
+            }
         }
 
         //Se pone el texto anadido a la pantalla

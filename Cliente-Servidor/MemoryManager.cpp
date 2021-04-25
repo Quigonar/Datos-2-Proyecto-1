@@ -240,6 +240,32 @@ public:
     void change_structvar(string name, int value){
 
     }
+    void add_varref(string type, string name){
+        if (type == "int")
+        {
+            intarray.changeref(name);
+        }
+        else if (type == "float")
+        {
+            floatarray.changeref(name);
+        }
+        else if (type == "double")
+        {
+            doublearray.changeref(name);
+        }
+        else if (type == "char")
+        {
+            chararray.changeref(name);
+        }
+        else if (type == "long")
+        {
+            longarray.changeref(name);
+        }
+        else if (type == "ref")
+        {
+
+        }
+    }
 
     int get_varref(string type, string name){
         if (type == "int")

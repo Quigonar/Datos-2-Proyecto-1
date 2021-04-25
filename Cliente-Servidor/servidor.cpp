@@ -26,7 +26,8 @@ Document jsonReceiver(Packet packet)
 
 string jsonSender(string memory, string value, string variable,string ref)
 {
-    string jsonStr = R"({"memory":")"+ memory + R"(","value":")" + value + R"(","variable":")" + variable + R"(","ref":")" + ref + "\"}";
+    string type = "RLV";
+    string jsonStr = R"({"memory":")"+ memory + R"(","type":")" + type + R"(","value":")" + value + R"(","variable":")" + variable + R"(","ref":")" + ref + "\"}";
     return jsonStr;
 }
 
@@ -97,7 +98,7 @@ int main()
     string json;
     string log = "";
     Logger logger;
-    MemoryManager mserver(10*10*10*10*10);
+    MemoryManager mserver(1);
 
     TcpListener listener;
     listener.listen(8080);
@@ -143,9 +144,10 @@ int main()
                     }
                     else{
                         //retorna error para que salga en consola falta de memoria
-                        json = logger.get_errorlog("IDE is out of memory. Could not allocate variable");
+                        json = msgsender(logger.get_errorlog("IDE is out of memory. Could not allocate variable"),"msg");
                     }
                 }
+
                 else{
                     //redefine el valor de esa variable
                     offset = mserver.change_intvar("int", int_parse(value));
@@ -153,6 +155,7 @@ int main()
                     string xref = int_tostring(mserver.get_varref("int",variable));
                     json = jsonSender(addr,value,variable,xref);
                     mserver.printmem();
+                    //addreference
                 }
 
             }
@@ -172,7 +175,7 @@ int main()
                         mserver.printmem();
                     } else {
                         //retorna error para que salga en consola falta de memoria
-                        json = logger.get_errorlog("IDE is out of memory. Could not allocate variable");
+                        json = msgsender(logger.get_errorlog("IDE is out of memory. Could not allocate variable"),"msg");
                     }
                 }
                 else{
@@ -200,7 +203,7 @@ int main()
                         mserver.printmem();
                     } else {
                         //retorna error para que salga en consola falta de memoria
-                        json = logger.get_errorlog("IDE is out of memory. Could not allocate variable");
+                        json = msgsender(logger.get_errorlog("IDE is out of memory. Could not allocate variable"),"msg");
                     }
                 }
                 else{
@@ -227,16 +230,16 @@ int main()
                         mserver.printmem();
                     } else {
                         //retorna error para que salga en consola falta de memoria
-                        offset = mserver.change_floatvar("float", float_parse(value));
-                        string addr = mem_parse((void*)mserver.getmemoryoffsetfloat(offset));
-                        string xref = int_tostring(mserver.get_varref("float",variable));
-                        json = jsonSender(addr,value,variable,xref);
-                        mserver.printmem();
+                        json = msgsender(logger.get_errorlog("IDE is out of memory. Could not allocate variable"),"msg");
                     }
                 }
                 else{
                     //redefine el valor de esa variable
-                    json = logger.get_errorlog("IDE is out of memory. Could not allocate variable");
+                    offset = mserver.change_floatvar("float", float_parse(value));
+                    string addr = mem_parse((void*)mserver.getmemoryoffsetfloat(offset));
+                    string xref = int_tostring(mserver.get_varref("float",variable));
+                    json = jsonSender(addr,value,variable,xref);
+                    mserver.printmem();
                 }
             }
             else if (type == "double")
@@ -254,7 +257,7 @@ int main()
                         mserver.printmem();
                     } else {
                         //retorna error para que salga en consola falta de memoria
-                        json = logger.get_errorlog("IDE is out of memory. Could not allocate variable");
+                        json = msgsender(logger.get_errorlog("IDE is out of memory. Could not allocate variable"),"msg");
                     }
                 }
                 else{
