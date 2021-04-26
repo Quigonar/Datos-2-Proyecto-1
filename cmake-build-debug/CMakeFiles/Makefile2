@@ -63,10 +63,10 @@ RM = /snap/clion/151/bin/cmake/linux/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1"
+CMAKE_SOURCE_DIR = /home/marcos/Documents/GitHub/Datos-2-Proyecto-1
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/cmake-build-debug"
+CMAKE_BINARY_DIR = /home/marcos/Documents/GitHub/Datos-2-Proyecto-1/cmake-build-debug
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -74,7 +74,6 @@ CMAKE_BINARY_DIR = "/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/cmake-bu
 # The main recursive "all" target.
 all: CMakeFiles/mserver.dir/all
 all: CMakeFiles/cliente.dir/all
-all: CMakeFiles/Manager.dir/all
 
 .PHONY : all
 
@@ -86,7 +85,6 @@ preinstall:
 # The main recursive "clean" target.
 clean: CMakeFiles/mserver.dir/clean
 clean: CMakeFiles/cliente.dir/clean
-clean: CMakeFiles/Manager.dir/clean
 
 .PHONY : clean
 
@@ -97,14 +95,14 @@ clean: CMakeFiles/Manager.dir/clean
 CMakeFiles/mserver.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/mserver.dir/build.make CMakeFiles/mserver.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/mserver.dir/build.make CMakeFiles/mserver.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/cmake-build-debug/CMakeFiles" --progress-num=5,6 "Built target mserver"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/cmake-build-debug/CMakeFiles --progress-num=3,4 "Built target mserver"
 .PHONY : CMakeFiles/mserver.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/mserver.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/cmake-build-debug/CMakeFiles" 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/marcos/Documents/GitHub/Datos-2-Proyecto-1/cmake-build-debug/CMakeFiles 2
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/mserver.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start "/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/cmake-build-debug/CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/marcos/Documents/GitHub/Datos-2-Proyecto-1/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/mserver.dir/rule
 
 # Convenience name for target.
@@ -124,14 +122,14 @@ CMakeFiles/mserver.dir/clean:
 CMakeFiles/cliente.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cliente.dir/build.make CMakeFiles/cliente.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cliente.dir/build.make CMakeFiles/cliente.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/cmake-build-debug/CMakeFiles" --progress-num=3,4 "Built target cliente"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/cmake-build-debug/CMakeFiles --progress-num=1,2 "Built target cliente"
 .PHONY : CMakeFiles/cliente.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/cliente.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/cmake-build-debug/CMakeFiles" 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/marcos/Documents/GitHub/Datos-2-Proyecto-1/cmake-build-debug/CMakeFiles 2
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/cliente.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start "/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/cmake-build-debug/CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/marcos/Documents/GitHub/Datos-2-Proyecto-1/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/cliente.dir/rule
 
 # Convenience name for target.
@@ -143,33 +141,6 @@ cliente: CMakeFiles/cliente.dir/rule
 CMakeFiles/cliente.dir/clean:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cliente.dir/build.make CMakeFiles/cliente.dir/clean
 .PHONY : CMakeFiles/cliente.dir/clean
-
-#=============================================================================
-# Target rules for target CMakeFiles/Manager.dir
-
-# All Build rule for target.
-CMakeFiles/Manager.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Manager.dir/build.make CMakeFiles/Manager.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Manager.dir/build.make CMakeFiles/Manager.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/cmake-build-debug/CMakeFiles" --progress-num=1,2 "Built target Manager"
-.PHONY : CMakeFiles/Manager.dir/all
-
-# Build rule for subdir invocation for target.
-CMakeFiles/Manager.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/cmake-build-debug/CMakeFiles" 2
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/Manager.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start "/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/cmake-build-debug/CMakeFiles" 0
-.PHONY : CMakeFiles/Manager.dir/rule
-
-# Convenience name for target.
-Manager: CMakeFiles/Manager.dir/rule
-
-.PHONY : Manager
-
-# clean rule for target.
-CMakeFiles/Manager.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Manager.dir/build.make CMakeFiles/Manager.dir/clean
-.PHONY : CMakeFiles/Manager.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

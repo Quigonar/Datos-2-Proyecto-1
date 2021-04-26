@@ -49,5 +49,4 @@ set(CMAKE_MAKEFILE_PRODUCTS
 set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/mserver.dir/DependInfo.cmake"
   "CMakeFiles/cliente.dir/DependInfo.cmake"
-  "CMakeFiles/Manager.dir/DependInfo.cmake"
   )

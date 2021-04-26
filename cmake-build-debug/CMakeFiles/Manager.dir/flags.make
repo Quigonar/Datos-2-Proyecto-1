@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I"/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/Cliente-Servidor" -I"/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/Cliente-Servidor/ClienteRes"
+CXX_INCLUDES = -I/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/Cliente-Servidor -I/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/Cliente-Servidor/ClienteRes
 
 CXX_FLAGS = -g -std=gnu++14
 

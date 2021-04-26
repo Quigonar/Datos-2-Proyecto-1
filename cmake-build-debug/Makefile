@@ -67,10 +67,10 @@ RM = /snap/clion/151/bin/cmake/linux/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1"
+CMAKE_SOURCE_DIR = /home/marcos/Documents/GitHub/Datos-2-Proyecto-1
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/cmake-build-debug"
+CMAKE_BINARY_DIR = /home/marcos/Documents/GitHub/Datos-2-Proyecto-1/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -99,9 +99,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/cmake-build-debug/CMakeFiles" "/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/cmake-build-debug//CMakeFiles/progress.marks"
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/marcos/Documents/GitHub/Datos-2-Proyecto-1/cmake-build-debug/CMakeFiles /home/marcos/Documents/GitHub/Datos-2-Proyecto-1/cmake-build-debug//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start "/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/cmake-build-debug/CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/marcos/Documents/GitHub/Datos-2-Proyecto-1/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -154,46 +154,6 @@ cliente: cmake_check_build_system
 cliente/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cliente.dir/build.make CMakeFiles/cliente.dir/build
 .PHONY : cliente/fast
-
-#=============================================================================
-# Target rules for targets named Manager
-
-# Build rule for target.
-Manager: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Manager
-.PHONY : Manager
-
-# fast build rule for target.
-Manager/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Manager.dir/build.make CMakeFiles/Manager.dir/build
-.PHONY : Manager/fast
-
-Cliente-Servidor/MemoryManager.o: Cliente-Servidor/MemoryManager.cpp.o
-
-.PHONY : Cliente-Servidor/MemoryManager.o
-
-# target to build an object file
-Cliente-Servidor/MemoryManager.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Manager.dir/build.make CMakeFiles/Manager.dir/Cliente-Servidor/MemoryManager.cpp.o
-.PHONY : Cliente-Servidor/MemoryManager.cpp.o
-
-Cliente-Servidor/MemoryManager.i: Cliente-Servidor/MemoryManager.cpp.i
-
-.PHONY : Cliente-Servidor/MemoryManager.i
-
-# target to preprocess a source file
-Cliente-Servidor/MemoryManager.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Manager.dir/build.make CMakeFiles/Manager.dir/Cliente-Servidor/MemoryManager.cpp.i
-.PHONY : Cliente-Servidor/MemoryManager.cpp.i
-
-Cliente-Servidor/MemoryManager.s: Cliente-Servidor/MemoryManager.cpp.s
-
-.PHONY : Cliente-Servidor/MemoryManager.s
-
-# target to generate assembly for a file
-Cliente-Servidor/MemoryManager.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Manager.dir/build.make CMakeFiles/Manager.dir/Cliente-Servidor/MemoryManager.cpp.s
-.PHONY : Cliente-Servidor/MemoryManager.cpp.s
 
 Cliente-Servidor/cliente.o: Cliente-Servidor/cliente.cpp.o
 
@@ -257,12 +217,8 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... Manager"
 	@echo "... cliente"
 	@echo "... mserver"
-	@echo "... Cliente-Servidor/MemoryManager.o"
-	@echo "... Cliente-Servidor/MemoryManager.i"
-	@echo "... Cliente-Servidor/MemoryManager.s"
 	@echo "... Cliente-Servidor/cliente.o"
 	@echo "... Cliente-Servidor/cliente.i"
 	@echo "... Cliente-Servidor/cliente.s"

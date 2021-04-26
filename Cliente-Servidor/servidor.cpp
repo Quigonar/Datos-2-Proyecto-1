@@ -295,6 +295,29 @@ int main()
             }
             else if(type == "garbage"){
                 //borrar los espacios de memoria que se consideran basura
+                cout << "Entre a garbage collector: " << variable << endl;
+                vector<string> variables;
+                string delimiter = ",";
+                auto start = 0U;
+                auto end = variable.find(delimiter);
+                while (end != string::npos)
+                {
+                    variables.push_back(variable.substr(start, end - start));
+                    start = end + delimiter.length();
+                    end = variable.find(delimiter, start);
+                }
+                variables.push_back(variable.substr(start, end));
+                //Utilizar "variables" para que el garbage collector elimine las variables que se encuentran en el garbage collector
+                //Para instanciar y sacar todas las variables de un vector usar:
+                for (auto & i : variables)
+                {
+                    //Utilizar i como la variable
+                    cout << i << endl;
+                }
+            }
+            else if (type == "addRef"){
+                //anadir una referencia a la variable que le llega, el value esta estaria vacio
+                cout << "Entre a anadir una referencia: " << variable << endl;
             }
             /*
             int a = 10;

@@ -16,7 +16,7 @@ public:
     map<string, float> floats;
     map<string, double> doubles;
     map<string, char> chars;
-    string terminal;
+    string terminal, addRef;
     vector<string> variableScope;
     bool scopeActive, printValue;
 
@@ -101,6 +101,7 @@ public:
         line = node->data;
         bool ignoreStep = false;
         string types[7] = {"int", "long", "char", "float", "double", "struct", "reference"};
+        addRef = "";
 
         delimiter = " ";
         auto start = 0U;
@@ -167,6 +168,7 @@ public:
         }
         else if(lineSplit.front() == "}" && lineSplit.size() == 1 && scopeActive)
         {
+            string variables;
             for (auto & i : variableScope)
             {
                 if (ints.count(i) > 0)
@@ -179,9 +181,13 @@ public:
                     doubles.erase(i);
                 else if (chars.count(i) > 0)
                     chars.erase(i);
+
+                variables.append(i + ",");
             }
             cout << "Finished scope" << endl;
             scopeActive = false;
+            string Type = "garbage";
+            string jsonStr = R"({"type":")" + Type + R"(","value":")" + "value" + R"(","variable":")"+ variables +"\"}";
             return "continue";
         }
         //Si no seria el imprimir alguna variable y desplegarla en la terminal o stdout
@@ -193,26 +199,36 @@ public:
                 return "error";
             }
             if (ints.count(lineSplit.front()) > 0) {
+                string Type = "addRef";
+                addRef = R"({"type":")" + Type + R"(","value":")" + "value" + R"(","variable":")"+ lineSplit.front() +"\"}";
                 terminal.append(to_string(ints.at(lineSplit.front())) + "\n");
                 printValue = false;
                 return "print";
             }
             else if (longs.count(lineSplit.front()) > 0) {
+                string Type = "addRef";
+                addRef = R"({"type":")" + Type + R"(","value":")" + "value" + R"(","variable":")"+ lineSplit.front() +"\"}";
                 terminal.append(to_string(longs.at(lineSplit.front())) + "\n");
                 printValue = false;
                 return "print";
             }
             else if (floats.count(lineSplit.front()) > 0) {
+                string Type = "addRef";
+                addRef = R"({"type":")" + Type + R"(","value":")" + "value" + R"(","variable":")"+ lineSplit.front() +"\"}";
                 terminal.append(to_string(floats.at(lineSplit.front())) + "\n");
                 printValue = false;
                 return "print";
             }
             else if (doubles.count(lineSplit.front()) > 0) {
+                string Type = "addRef";
+                addRef = R"({"type":")" + Type + R"(","value":")" + "value" + R"(","variable":")"+ lineSplit.front() +"\"}";
                 terminal.append(to_string(doubles.at(lineSplit.front())) + "\n");
                 printValue = false;
                 return "print";
             }
             else if (chars.count(lineSplit.front()) > 0) {
+                string Type = "addRef";
+                addRef = R"({"type":")" + Type + R"(","value":")" + "value" + R"(","variable":")"+ lineSplit.front() +"\"}";
                 string Char;
                 Char = (char)chars.at(lineSplit.front());
                 terminal.append(Char + "\n");
@@ -328,123 +344,142 @@ public:
                 }
             }
             //Si se encuentra algun tipo de operacion para realizarlo
-            else if (lineSplit.at(1) == "+" || lineSplit.at(1) == "-" || lineSplit.at(1) == "*" || lineSplit.at(1) == "/")
+            else if (lineSplit.size() >= 3)
             {
-                string val;
-                string split2 = lineSplit.at(2).erase(lineSplit.at(2).size() - 1);
-                //Verifica si la operacion contiene algun tipo de variable previamente definida
-                if (ints.count(lineSplit.at(0)) > 0)
+                if (lineSplit.at(1) == "+" || lineSplit.at(1) == "-" || lineSplit.at(1) == "*" || lineSplit.at(1) == "/")
                 {
-                    val = to_string(ints.at(lineSplit.at(0)));
-                    lineSplit.at(0) = val;
-                }
-                if (ints.count(split2) > 0)
-                {
-                    val = to_string(ints.at(lineSplit.at(2)));
-                    lineSplit.at(2) = val;
-                }
-                if (longs.count(lineSplit.at(0)) > 0)
-                {
-                    val = to_string(longs.at(lineSplit.at(0)));
-                    lineSplit.at(0) = val;
-                }
-                if (longs.count(split2) > 0)
-                {
-                    val = to_string(longs.at(lineSplit.at(2)));
-                    lineSplit.at(2) = val;
-                }
-                if (floats.count(lineSplit.at(0)) > 0)
-                {
-                    val = to_string(floats.at(lineSplit.at(0)));
-                    lineSplit.at(0) = val;
-                }
-                if (floats.count(split2) > 0)
-                {
-                    val = to_string(floats.at(lineSplit.at(2)));
-                    lineSplit.at(2) = val;
-                }
-                if (doubles.count(lineSplit.at(0)) > 0)
-                {
-                    val = to_string(doubles.at(lineSplit.at(0)));
-                    lineSplit.at(0) = val;
-                }
-                if (doubles.count(split2) > 0)
-                {
-                    val = to_string(doubles.at(lineSplit.at(2)));
-                    lineSplit.at(2) = val;
-                }
-
-                //Se realiza la operacion
-                if (valueVerifier(type, lineSplit.at(0), variable, false)
-                    && valueVerifier(type, lineSplit.at(2), variable, false))
-                {
-                    int i1, i2;
-                    long l1, l2;
-                    float f1, f2;
-                    double d1 , d2;
-
-                    if (type == "int")
+                    string val;
+                    string split2 = lineSplit.at(2).erase(lineSplit.at(2).size() - 1);
+                    //Verifica si la operacion contiene algun tipo de variable previamente definida
+                    if (ints.count(lineSplit.at(0)) > 0)
                     {
-                        i1 = stoi(lineSplit.at(0));
-                        i2 = stoi(lineSplit.at(2));
-
-                        if (lineSplit.at(1) == "+")
-                            value = to_string(i1 + i2);
-                        else if (lineSplit.at(1) == "-")
-                            value = to_string(i1 - i2);
-                        else if (lineSplit.at(1) == "*")
-                            value = to_string(i1 * i2);
-                        else if (lineSplit.at(1) == "/")
-                            value = to_string(i1 / i2);
-                        ints[variable] = stoi(value);
-
-                    } else if (type == "long")
-                    {
-                        l1 = stol(lineSplit.at(0));
-                        l2 = stol(lineSplit.at(2));
-
-                        if (lineSplit.at(1) == "+")
-                            value = to_string(l1 + l2);
-                        else if (lineSplit.at(1) == "-")
-                            value = to_string(l1 - l2);
-                        else if (lineSplit.at(1) == "*")
-                            value = to_string(l1 * l2);
-                        else if (lineSplit.at(1) == "/")
-                            value = to_string(l1 / l2);
-                        longs[variable] = stol(value);
-                    } else if (type == "float")
-                    {
-                        f1 = stof(lineSplit.at(0));
-                        f2 = stof(lineSplit.at(2));
-
-                        if (lineSplit.at(1) == "+")
-                            value = to_string(f1 + f2);
-                        else if (lineSplit.at(1) == "-")
-                            value = to_string(f1 - f2);
-                        else if (lineSplit.at(1) == "*")
-                            value = to_string(f1 * f2);
-                        else if (lineSplit.at(1) == "/")
-                            value = to_string(f1 / f2);
-                        floats[variable] = stof(value);
-                    } else if (type == "double")
-                    {
-                        d1 = stod(lineSplit.at(0));
-                        d2 = stod(lineSplit.at(2));
-
-                        if (lineSplit.at(1) == "+")
-                            value = to_string(d1 + d2);
-                        else if (lineSplit.at(1) == "-")
-                            value = to_string(d1 - d2);
-                        else if (lineSplit.at(1) == "*")
-                            value = to_string(d1 * d2);
-                        else if (lineSplit.at(1) == "/")
-                            value = to_string(d1 / d2);
-                        doubles[variable] = stod(value);
+                        string Type = "addRef";
+                        addRef = R"({"type":")" + Type + R"(","value":")" + "value" + R"(","variable":")"+ lineSplit.front() +"\"}";
+                        val = to_string(ints.at(lineSplit.at(0)));
+                        lineSplit.at(0) = val;
                     }
-                    string jsonStr = R"({"type":")"+ type + R"(","value":")" + value + R"(","variable":")" + variable + "\"}";
-                    return jsonStr;
-                }
+                    if (ints.count(split2) > 0)
+                    {
+                        string Type = "addRef";
+                        addRef = R"({"type":")" + Type + R"(","value":")" + "value" + R"(","variable":")"+ split2 +"\"}";
+                        val = to_string(ints.at(lineSplit.at(2)));
+                        lineSplit.at(2) = val;
+                    }
+                    if (longs.count(lineSplit.at(0)) > 0)
+                    {
+                        string Type = "addRef";
+                        addRef = R"({"type":")" + Type + R"(","value":")" + "value" + R"(","variable":")"+ lineSplit.front() +"\"}";
+                        val = to_string(longs.at(lineSplit.at(0)));
+                        lineSplit.at(0) = val;
+                    }
+                    if (longs.count(split2) > 0)
+                    {
+                        string Type = "addRef";
+                        addRef = R"({"type":")" + Type + R"(","value":")" + "value" + R"(","variable":")"+ split2 +"\"}";
+                        val = to_string(longs.at(lineSplit.at(2)));
+                        lineSplit.at(2) = val;
+                    }
+                    if (floats.count(lineSplit.at(0)) > 0)
+                    {
+                        string Type = "addRef";
+                        addRef = R"({"type":")" + Type + R"(","value":")" + "value" + R"(","variable":")"+ lineSplit.front() +"\"}";
+                        val = to_string(floats.at(lineSplit.at(0)));
+                        lineSplit.at(0) = val;
+                    }
+                    if (floats.count(split2) > 0)
+                    {
+                        string Type = "addRef";
+                        addRef = R"({"type":")" + Type + R"(","value":")" + "value" + R"(","variable":")"+ split2 +"\"}";
+                        val = to_string(floats.at(lineSplit.at(2)));
+                        lineSplit.at(2) = val;
+                    }
+                    if (doubles.count(lineSplit.at(0)) > 0)
+                    {
+                        string Type = "addRef";
+                        addRef = R"({"type":")" + Type + R"(","value":")" + "value" + R"(","variable":")"+ lineSplit.front() +"\"}";
+                        val = to_string(doubles.at(lineSplit.at(0)));
+                        lineSplit.at(0) = val;
+                    }
+                    if (doubles.count(split2) > 0)
+                    {
+                        string Type = "addRef";
+                        addRef = R"({"type":")" + Type + R"(","value":")" + "value" + R"(","variable":")"+ split2 +"\"}";
+                        val = to_string(doubles.at(lineSplit.at(2)));
+                        lineSplit.at(2) = val;
+                    }
 
+                    //Se realiza la operacion
+                    if (valueVerifier(type, lineSplit.at(0), variable, false)
+                        && valueVerifier(type, lineSplit.at(2), variable, false))
+                    {
+                        int i1, i2;
+                        long l1, l2;
+                        float f1, f2;
+                        double d1 , d2;
+
+                        if (type == "int")
+                        {
+                            i1 = stoi(lineSplit.at(0));
+                            i2 = stoi(lineSplit.at(2));
+
+                            if (lineSplit.at(1) == "+")
+                                value = to_string(i1 + i2);
+                            else if (lineSplit.at(1) == "-")
+                                value = to_string(i1 - i2);
+                            else if (lineSplit.at(1) == "*")
+                                value = to_string(i1 * i2);
+                            else if (lineSplit.at(1) == "/")
+                                value = to_string(i1 / i2);
+                            ints[variable] = stoi(value);
+
+                        } else if (type == "long")
+                        {
+                            l1 = stol(lineSplit.at(0));
+                            l2 = stol(lineSplit.at(2));
+
+                            if (lineSplit.at(1) == "+")
+                                value = to_string(l1 + l2);
+                            else if (lineSplit.at(1) == "-")
+                                value = to_string(l1 - l2);
+                            else if (lineSplit.at(1) == "*")
+                                value = to_string(l1 * l2);
+                            else if (lineSplit.at(1) == "/")
+                                value = to_string(l1 / l2);
+                            longs[variable] = stol(value);
+                        } else if (type == "float")
+                        {
+                            f1 = stof(lineSplit.at(0));
+                            f2 = stof(lineSplit.at(2));
+
+                            if (lineSplit.at(1) == "+")
+                                value = to_string(f1 + f2);
+                            else if (lineSplit.at(1) == "-")
+                                value = to_string(f1 - f2);
+                            else if (lineSplit.at(1) == "*")
+                                value = to_string(f1 * f2);
+                            else if (lineSplit.at(1) == "/")
+                                value = to_string(f1 / f2);
+                            floats[variable] = stof(value);
+                        } else if (type == "double")
+                        {
+                            d1 = stod(lineSplit.at(0));
+                            d2 = stod(lineSplit.at(2));
+
+                            if (lineSplit.at(1) == "+")
+                                value = to_string(d1 + d2);
+                            else if (lineSplit.at(1) == "-")
+                                value = to_string(d1 - d2);
+                            else if (lineSplit.at(1) == "*")
+                                value = to_string(d1 * d2);
+                            else if (lineSplit.at(1) == "/")
+                                value = to_string(d1 / d2);
+                            doubles[variable] = stod(value);
+                        }
+                        string jsonStr = R"({"type":")"+ type + R"(","value":")" + value + R"(","variable":")" + variable + "\"}";
+                        return jsonStr;
+                    }
+
+                }
             }
             //Si no hay problema de sintaxis en el codigo
             else {
@@ -462,6 +497,11 @@ public:
     string getTerminal() const
     {
         return terminal;
+    }
+
+    string getAddRef() const
+    {
+        return addRef;
     }
 
     //Se define funcion que devuelve el json que puede ser accedido como un JSON

@@ -6,29 +6,29 @@
 
 #IncludeRegexTransform: 
 
-/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/Cliente-Servidor/ClienteRes/GUI.cpp
+/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/Cliente-Servidor/ClienteRes/GUI.cpp
 SFML/Graphics.hpp
 -
 iostream
 -
 
-/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/Cliente-Servidor/ClienteRes/JsonHandler.cpp
+/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/Cliente-Servidor/ClienteRes/JsonHandler.cpp
 iostream
 -
 map
 -
 ClienteRes/ListaDobleEnlazada.cpp
-/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/Cliente-Servidor/ClienteRes/ClienteRes/ListaDobleEnlazada.cpp
+/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/Cliente-Servidor/ClienteRes/ClienteRes/ListaDobleEnlazada.cpp
 ClienteRes/GUI.cpp
-/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/Cliente-Servidor/ClienteRes/ClienteRes/GUI.cpp
+/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/Cliente-Servidor/ClienteRes/ClienteRes/GUI.cpp
 rapidjson/document.h
-/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/Cliente-Servidor/ClienteRes/rapidjson/document.h
+/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/Cliente-Servidor/ClienteRes/rapidjson/document.h
 
-/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/Cliente-Servidor/ClienteRes/ListaDobleEnlazada.cpp
+/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/Cliente-Servidor/ClienteRes/ListaDobleEnlazada.cpp
 iostream
 -
 
-/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/Cliente-Servidor/RLVList/RLVlist.cpp
+/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/Cliente-Servidor/RLVList/RLVlist.cpp
 iostream
 -
 cmath
@@ -36,9 +36,9 @@ cmath
 string
 -
 RLVnode.cpp
-/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/Cliente-Servidor/RLVList/RLVnode.cpp
+/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/Cliente-Servidor/RLVList/RLVnode.cpp
 
-/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/Cliente-Servidor/RLVList/RLVnode.cpp
+/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/Cliente-Servidor/RLVList/RLVnode.cpp
 iostream
 -
 cmath
@@ -46,7 +46,7 @@ cmath
 string
 -
 
-/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/Cliente-Servidor/cliente.cpp
+/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/Cliente-Servidor/cliente.cpp
 SFML/Network.hpp
 -
 SFML/Graphics.hpp
@@ -56,11 +56,11 @@ iostream
 map
 -
 ClienteRes/ListaDobleEnlazada.cpp
-/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/Cliente-Servidor/ClienteRes/ListaDobleEnlazada.cpp
+/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/Cliente-Servidor/ClienteRes/ListaDobleEnlazada.cpp
 ClienteRes/GUI.cpp
-/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/Cliente-Servidor/ClienteRes/GUI.cpp
+/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/Cliente-Servidor/ClienteRes/GUI.cpp
 ClienteRes/JsonHandler.cpp
-/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/Cliente-Servidor/ClienteRes/JsonHandler.cpp
+/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/Cliente-Servidor/ClienteRes/JsonHandler.cpp
 RLVList/RLVlist.cpp
-/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/Cliente-Servidor/RLVList/RLVlist.cpp
+/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/Cliente-Servidor/RLVList/RLVlist.cpp
 

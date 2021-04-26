@@ -456,7 +456,7 @@ public:
 };
 
 
-int main(){
+/*int main(){
 
     MemoryManager m(10000);
 
@@ -466,4 +466,4 @@ int main(){
     m.printmem();
 
     return 0;
-}
+}*/
