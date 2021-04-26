@@ -187,7 +187,7 @@ public:
             scopeActive = false;
             string Type = "garbage";
             string jsonStr = R"({"type":")" + Type + R"(","value":")" + "value" + R"(","variable":")"+ variables +"\"}";
-            return "continue";
+            return jsonStr;
         }
         //Si no seria el imprimir alguna variable y desplegarla en la terminal o stdout
         if (printValue)
