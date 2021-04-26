@@ -20,7 +20,8 @@ int main(int argc, char *argv[])
     size_t received;
     Document RLV;
     Packet packetS, packetR;
-    string json, terminal, addRef, appLog, RLVStrA, RLVStrVal, RLVStrVar, RLVStrRef;
+    vector<string> addRef;
+    string json, terminal, appLog, RLVStrA, RLVStrVal, RLVStrVar, RLVStrRef;
     bool highlightLine = false;
     JsonHandler jsonHandler;
     RLVlist rlvlist;
@@ -156,6 +157,7 @@ int main(int argc, char *argv[])
                 jsonHandler.floats.clear();
                 jsonHandler.doubles.clear();
                 jsonHandler.chars.clear();
+                jsonHandler.addRef.clear();
                 RLVStrA.clear();
                 RLVStrVal.clear();
                 RLVStrVar.clear();
@@ -211,12 +213,17 @@ int main(int argc, char *argv[])
                 }
                 if (!addRef.empty())
                 {
-                    packetS << addRef;
-                    if (socket.send(packetS))
-                        cout << "I will now receive a message" << endl;
-                    packetS.clear();
+                    for (auto & i : addRef)
+                    {
+                        packetS << i;
+                        if (socket.send(packetS))
+                            cout << "I will now receive a message" << endl;
+                        packetS.clear();
+                        cout << i << endl;
+                        highlightLine = true;
+                    }
                     addRef.clear();
-                    highlightLine = true;
+                    jsonHandler.addRef.clear();
                 }
             }
             switch(event.type)

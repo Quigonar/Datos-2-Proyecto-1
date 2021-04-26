@@ -16,8 +16,8 @@ public:
     map<string, float> floats;
     map<string, double> doubles;
     map<string, char> chars;
-    string terminal, addRef;
-    vector<string> variableScope;
+    string terminal;
+    vector<string> variableScope, addRef;
     bool scopeActive, printValue;
 
     //Verificador de que el valor ingresado corresponda al tipo ingresado
@@ -101,7 +101,6 @@ public:
         line = node->data;
         bool ignoreStep = false;
         string types[7] = {"int", "long", "char", "float", "double", "struct", "reference"};
-        addRef = "";
 
         delimiter = " ";
         auto start = 0U;
@@ -200,35 +199,35 @@ public:
             }
             if (ints.count(lineSplit.front()) > 0) {
                 string Type = "addRef";
-                addRef = R"({"type":")" + Type + R"(","value":")" + "value" + R"(","variable":")"+ lineSplit.front() +"\"}";
+                addRef.push_back(R"({"type":")" + Type + R"(","value":")" + "value" + R"(","variable":")"+ lineSplit.front() +"\"}");
                 terminal.append(to_string(ints.at(lineSplit.front())) + "\n");
                 printValue = false;
                 return "print";
             }
             else if (longs.count(lineSplit.front()) > 0) {
                 string Type = "addRef";
-                addRef = R"({"type":")" + Type + R"(","value":")" + "value" + R"(","variable":")"+ lineSplit.front() +"\"}";
+                addRef.push_back(R"({"type":")" + Type + R"(","value":")" + "value" + R"(","variable":")"+ lineSplit.front() +"\"}");
                 terminal.append(to_string(longs.at(lineSplit.front())) + "\n");
                 printValue = false;
                 return "print";
             }
             else if (floats.count(lineSplit.front()) > 0) {
                 string Type = "addRef";
-                addRef = R"({"type":")" + Type + R"(","value":")" + "value" + R"(","variable":")"+ lineSplit.front() +"\"}";
+                addRef.push_back(R"({"type":")" + Type + R"(","value":")" + "value" + R"(","variable":")"+ lineSplit.front() +"\"}");
                 terminal.append(to_string(floats.at(lineSplit.front())) + "\n");
                 printValue = false;
                 return "print";
             }
             else if (doubles.count(lineSplit.front()) > 0) {
                 string Type = "addRef";
-                addRef = R"({"type":")" + Type + R"(","value":")" + "value" + R"(","variable":")"+ lineSplit.front() +"\"}";
+                addRef.push_back(R"({"type":")" + Type + R"(","value":")" + "value" + R"(","variable":")"+ lineSplit.front() +"\"}");
                 terminal.append(to_string(doubles.at(lineSplit.front())) + "\n");
                 printValue = false;
                 return "print";
             }
             else if (chars.count(lineSplit.front()) > 0) {
                 string Type = "addRef";
-                addRef = R"({"type":")" + Type + R"(","value":")" + "value" + R"(","variable":")"+ lineSplit.front() +"\"}";
+                addRef.push_back(R"({"type":")" + Type + R"(","value":")" + "value" + R"(","variable":")"+ lineSplit.front() +"\"}");
                 string Char;
                 Char = (char)chars.at(lineSplit.front());
                 terminal.append(Char + "\n");
@@ -354,56 +353,57 @@ public:
                     if (ints.count(lineSplit.at(0)) > 0)
                     {
                         string Type = "addRef";
-                        addRef = R"({"type":")" + Type + R"(","value":")" + "value" + R"(","variable":")"+ lineSplit.front() +"\"}";
+                        addRef.push_back(R"({"type":")" + Type + R"(","value":")" + "value" + R"(","variable":")"+ lineSplit.front() +"\"}");
                         val = to_string(ints.at(lineSplit.at(0)));
                         lineSplit.at(0) = val;
                     }
                     if (ints.count(split2) > 0)
                     {
                         string Type = "addRef";
-                        addRef = R"({"type":")" + Type + R"(","value":")" + "value" + R"(","variable":")"+ split2 +"\"}";
+                        addRef.push_back(R"({"type":")" + Type + R"(","value":")" + "value" + R"(","variable":")"+ split2 +"\"}");
                         val = to_string(ints.at(lineSplit.at(2)));
                         lineSplit.at(2) = val;
                     }
                     if (longs.count(lineSplit.at(0)) > 0)
                     {
                         string Type = "addRef";
-                        addRef = R"({"type":")" + Type + R"(","value":")" + "value" + R"(","variable":")"+ lineSplit.front() +"\"}";
+                        addRef.push_back(R"({"type":")" + Type + R"(","value":")" + "value" + R"(","variable":")"+ lineSplit.front() +"\"}");
                         val = to_string(longs.at(lineSplit.at(0)));
                         lineSplit.at(0) = val;
                     }
                     if (longs.count(split2) > 0)
                     {
                         string Type = "addRef";
-                        addRef = R"({"type":")" + Type + R"(","value":")" + "value" + R"(","variable":")"+ split2 +"\"}";
+                        addRef.push_back(R"({"type":")" + Type + R"(","value":")" + "value" + R"(","variable":")"+ split2 +"\"}");
                         val = to_string(longs.at(lineSplit.at(2)));
                         lineSplit.at(2) = val;
                     }
                     if (floats.count(lineSplit.at(0)) > 0)
                     {
                         string Type = "addRef";
-                        addRef = R"({"type":")" + Type + R"(","value":")" + "value" + R"(","variable":")"+ lineSplit.front() +"\"}";
+                        addRef.push_back(R"({"type":")" + Type + R"(","value":")" + "value" + R"(","variable":")"+ lineSplit.front() +"\"}");
+
                         val = to_string(floats.at(lineSplit.at(0)));
                         lineSplit.at(0) = val;
                     }
                     if (floats.count(split2) > 0)
                     {
                         string Type = "addRef";
-                        addRef = R"({"type":")" + Type + R"(","value":")" + "value" + R"(","variable":")"+ split2 +"\"}";
+                        addRef.push_back(R"({"type":")" + Type + R"(","value":")" + "value" + R"(","variable":")"+ split2 +"\"}");
                         val = to_string(floats.at(lineSplit.at(2)));
                         lineSplit.at(2) = val;
                     }
                     if (doubles.count(lineSplit.at(0)) > 0)
                     {
                         string Type = "addRef";
-                        addRef = R"({"type":")" + Type + R"(","value":")" + "value" + R"(","variable":")"+ lineSplit.front() +"\"}";
+                        addRef.push_back(R"({"type":")" + Type + R"(","value":")" + "value" + R"(","variable":")"+ lineSplit.front() +"\"}");
                         val = to_string(doubles.at(lineSplit.at(0)));
                         lineSplit.at(0) = val;
                     }
                     if (doubles.count(split2) > 0)
                     {
                         string Type = "addRef";
-                        addRef = R"({"type":")" + Type + R"(","value":")" + "value" + R"(","variable":")"+ split2 +"\"}";
+                        addRef.push_back(R"({"type":")" + Type + R"(","value":")" + "value" + R"(","variable":")"+ split2 +"\"}");
                         val = to_string(doubles.at(lineSplit.at(2)));
                         lineSplit.at(2) = val;
                     }
@@ -499,7 +499,7 @@ public:
         return terminal;
     }
 
-    string getAddRef() const
+    vector<string> getAddRef() const
     {
         return addRef;
     }
