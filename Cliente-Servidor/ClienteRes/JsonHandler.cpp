@@ -325,29 +325,29 @@ public:
                 value = lineSplit.front().erase(lineSplit.front().length() - 1);
 
                 if (ints.count(value) > 0) {
-                    value = to_string(ints.at(value));
                     string Type = "addRef";
                     addRef.push_back(R"({"type":")" + Type + R"(","value":")" + "int" + R"(","variable":")" + value + "\"}");
+                    value = to_string(ints.at(value));
                 }
                 else if (longs.count(value) > 0) {
-                    value = to_string(longs.at(value));
                     string Type = "addRef";
                     addRef.push_back(R"({"type":")" + Type + R"(","value":")" + "long" + R"(","variable":")" + value + "\"}");
+                    value = to_string(longs.at(value));
                 }
                 else if (floats.count(value) > 0) {
-                    value = to_string(floats.at(value));
                     string Type = "addRef";
                     addRef.push_back(R"({"type":")" + Type + R"(","value":")" + "float" + R"(","variable":")" + value + "\"}");
+                    value = to_string(floats.at(value));
                 }
                 else if (doubles.count(value) > 0) {
-                    value = to_string(doubles.at(value));
                     string Type = "addRef";
                     addRef.push_back(R"({"type":")" + Type + R"(","value":")" + "double" + R"(","variable":")" + value + "\"}");
+                    value = to_string(doubles.at(value));
                 }
                 else if (chars.count(value) > 0) {
-                    value = to_string(chars.at(value));
                     string Type = "addRef";
                     addRef.push_back(R"({"type":")" + Type + R"(","value":")" + "char" + R"(","variable":")" + value + "\"}");
+                    value = to_string(chars.at(value));
                 }
 
                 bool validValue = valueVerifier(type, value, variable, true);
