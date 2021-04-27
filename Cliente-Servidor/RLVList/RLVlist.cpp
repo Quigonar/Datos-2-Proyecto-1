@@ -34,7 +34,10 @@ public:
         else
         {
             if (find(name)){
-                change_val(name,value);
+                if(value !="empty"){
+                    change_val(name,value);
+                }
+
                 change_ref(name,ref);
             }
             else{

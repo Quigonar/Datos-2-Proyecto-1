@@ -418,6 +418,15 @@ int main()
                     json = jsonSender(addr,valstr,variable,xref);
                     log = msgsender(logger.get_infolog("variable: "+variable+ " has been referenced"),"msg");
                 }
+                else if(value=="ref"){
+                    mserver.add_varref("ref",variable);
+                    offset = mserver.getlist("ref")->findoffset(variable);
+                    int refnum = mserver.get_varref("ref",variable);
+                    string addr = mem_parse((void*)mserver.getmemoryoffsetlong(offset));
+                    string xref = int_tostring(refnum);
+                    json = jsonSender(addr,"empty",variable,xref);
+                    log = msgsender(logger.get_infolog("variable: "+variable+ " has been referenced"),"msg");
+                }
             }
             /*
             int a = 10;

@@ -433,7 +433,13 @@ public:
         }
         else if (type == "ref")
         {
-            return 0;
+            if(refarray.findvar(name)){
+                int xref = refarray.findref(name);
+                return xref;
+            }
+            else{
+                return -1;
+            }
         }
     }
 
