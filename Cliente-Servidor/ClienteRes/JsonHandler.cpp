@@ -77,7 +77,7 @@ public:
             {
                 double num = stod(value);
                 if (addMap)
-                    doubles[variable] = stod(value);
+                    doubles[variable] = num;
                 return true;
             }
             /*
@@ -85,17 +85,41 @@ public:
             {
                 cout << "Not implemented yet" << endl;
                 return true;
-            }
-            else if (type == "reference" && *(typeid(stoi(value)).name()) == 'r')
-            {
-                cout << "Not implemented yet" << endl;
-                return true;
             }*/
+            else if (type == "reference<int>")
+            {
+                if (addMap)
+                    referencesI[variable] = value;
+                return true;
             }
+            else if (type == "reference<long>")
+            {
+                if (addMap)
+                    referencesL[variable] = value;
+                return true;
+            }
+            else if (type == "reference<float>")
+            {
+                if (addMap)
+                    referencesF[variable] = value;
+                return true;
+            }
+            else if (type == "reference<double>")
+            {
+                if (addMap)
+                    referencesD[variable] = value;
+                return true;
+            }
+            else if (type == "reference<char>")
+            {
+                if (addMap)
+                    referencesC[variable] = value;
+                return true;
+            }
+        }
         catch (invalid_argument error)
         {
-            cout << "Entre al catch" << endl;
-            terminal.append("Error! Variable is not defined");
+            terminal.append("Error! Variable is not defined or is invalid");
             return false;
         }
     }
@@ -197,7 +221,6 @@ public:
         }
         else if(lineSplit.front() == "{" && lineSplit.size() == 1 && !scopeActive)
         {
-            cout << "Entered scope" << endl;
             scopeActive = true;
             return "continue";
         }
@@ -219,7 +242,6 @@ public:
 
                 variables.append(i + ",");
             }
-            cout << "Finished scope" << endl;
             scopeActive = false;
             string Type = "garbage";
             string jsonStr = R"({"type":")" + Type + R"(","value":")" + "value" + R"(","variable":")"+ variables +"\"}";
@@ -432,47 +454,75 @@ public:
                     return jsonStr;
                 }
             }
-            //Si se encuentra algun tipo de operacion para realizarlo
             else if (lineSplit.size() == 2 && (type == "reference<int>" || type == "reference<long>" || type == "reference<float>"
                         || type == "reference<double>" || type == "reference<char>"))
             {
-                //string mem = rlv->findmem(variable);
                 if (lineSplit.front() == "getaddr" && lineSplit.back().back() == ';')
                 {
                     if (type == "reference<int>" && ints.count(lineSplit.back().erase(lineSplit.back().size() - 1)) > 0)
                     {
                         string Type = "addRef";
                         addRef.push_back(R"({"type":")" + Type + R"(","value":")" + "int" + R"(","variable":")"+ lineSplit.back() +"\"}");
-                        cout << "entered reference<int>" << endl;
-                        return "continue";
+                        string mem = rlv->findmem(lineSplit.back());
+                        bool validValue = valueVerifier(type, mem, variable, true);
+                        type = "reference";
+                        if (validValue)
+                        {
+                            string jsonStr = R"({"type":")"+ type + R"(","value":")" + mem + R"(","variable":")" + variable + "\"}";
+                            return jsonStr;
+                        }
                     }
                     else if (type == "reference<long>" && longs.count(lineSplit.back().erase(lineSplit.back().size() - 1)) > 0)
                     {
                         string Type = "addRef";
                         addRef.push_back(R"({"type":")" + Type + R"(","value":")" + "int" + R"(","variable":")"+ lineSplit.back() +"\"}");
-                        cout << "entered reference<long>" << endl;
-                        return "continue";
+                        string mem = rlv->findmem(lineSplit.back());
+                        bool validValue = valueVerifier(type, mem, variable, true);
+                        type = "reference";
+                        if (validValue)
+                        {
+                            string jsonStr = R"({"type":")"+ type + R"(","value":")" + mem + R"(","variable":")" + variable + "\"}";
+                            return jsonStr;
+                        }
                     }
                     else if (type == "reference<float>" && floats.count(lineSplit.back().erase(lineSplit.back().size() - 1)) > 0)
                     {
                         string Type = "addRef";
                         addRef.push_back(R"({"type":")" + Type + R"(","value":")" + "int" + R"(","variable":")"+ lineSplit.back() +"\"}");
-                        cout << "entered reference<float>" << endl;
-                        return "continue";
+                        string mem = rlv->findmem(lineSplit.back());
+                        bool validValue = valueVerifier(type, mem, variable, true);
+                        type = "reference";
+                        if (validValue)
+                        {
+                            string jsonStr = R"({"type":")"+ type + R"(","value":")" + mem + R"(","variable":")" + variable + "\"}";
+                            return jsonStr;
+                        }
                     }
                     else if (type == "reference<double>" && doubles.count(lineSplit.back().erase(lineSplit.back().size() - 1)) > 0)
                     {
                         string Type = "addRef";
                         addRef.push_back(R"({"type":")" + Type + R"(","value":")" + "int" + R"(","variable":")"+ lineSplit.back() +"\"}");
-                        cout << "entered reference<double>" << endl;
-                        return "continue";
+                        string mem = rlv->findmem(lineSplit.back());
+                        bool validValue = valueVerifier(type, mem, variable, true);
+                        type = "reference";
+                        if (validValue)
+                        {
+                            string jsonStr = R"({"type":")"+ type + R"(","value":")" + mem + R"(","variable":")" + variable + "\"}";
+                            return jsonStr;
+                        }
                     }
                     else if (type == "reference<char>" && chars.count(lineSplit.back().erase(lineSplit.back().size() - 1)) > 0)
                     {
                         string Type = "addRef";
                         addRef.push_back(R"({"type":")" + Type + R"(","value":")" + "int" + R"(","variable":")"+ lineSplit.back() +"\"}");
-                        cout << "entered reference<char>" << endl;
-                        return "continue";
+                        string mem = rlv->findmem(lineSplit.back());
+                        bool validValue = valueVerifier(type, mem, variable, true);
+                        type = "reference";
+                        if (validValue)
+                        {
+                            string jsonStr = R"({"type":")"+ type + R"(","value":")" + mem + R"(","variable":")" + variable + "\"}";
+                            return jsonStr;
+                        }
                     }
                     else
                     {

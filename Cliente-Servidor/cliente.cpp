@@ -230,9 +230,7 @@ int main(int argc, char *argv[])
                             end = variable.find(delimiter, start);
                         }
                         variables.push_back(variable.substr(start, end));
-                        //Utilizar "variables" para que el garbage collector elimine las variables que se encuentran en el garbage collector
-                        //Para instanciar y sacar todas las variables de un vector usar:
-                        cout<<rlvlist.get_name()<<endl;
+                        cout<< rlvlist.get_name() <<endl;
                         for (auto & i : variables) {
                             rlvlist.RLVupdate(i);
                         }
