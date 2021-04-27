@@ -118,7 +118,7 @@ public:
     }
 
     /**
-     * @brief find var
+     * @brief findvar
      * @param aname
      * @return
      */

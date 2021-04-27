@@ -12,9 +12,14 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2fe48f70-c3ca-42f2-bce1-2812ff8397cc" name="Default Changelist" comment="fixed reference ref error">
+    <list default="true" id="2fe48f70-c3ca-42f2-bce1-2812ff8397cc" name="Default Changelist" comment="RLV find value">
       <change beforePath="$PROJECT_DIR$/Cliente-Servidor/MemoryList/LinkedList.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Cliente-Servidor/MemoryList/LinkedList.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cliente-Servidor/RLVList/RLVlist.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Cliente-Servidor/RLVList/RLVlist.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cliente-Servidor/MemoryManager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Cliente-Servidor/MemoryManager.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/cliente.dir/Cliente-Servidor/cliente.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/cliente.dir/Cliente-Servidor/cliente.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/mserver.dir/Cliente-Servidor/servidor.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/mserver.dir/Cliente-Servidor/servidor.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/cliente" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/cliente" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/mserver" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/mserver" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,7 +114,7 @@
       <workItem from="1619283837767" duration="7575000" />
       <workItem from="1619369814738" duration="13713000" />
       <workItem from="1619483094223" duration="3926000" />
-      <workItem from="1619489957878" duration="6729000" />
+      <workItem from="1619489957878" duration="7099000" />
     </task>
     <task id="LOCAL-00001" summary="Added communication between server and client">
       <created>1619222048025</created>
@@ -167,7 +172,14 @@
       <option name="project" value="LOCAL" />
       <updated>1619496586997</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="RLV find value">
+      <created>1619496890272</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1619496890272</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -194,6 +206,7 @@
     <MESSAGE value="RLV JsonHandler connection" />
     <MESSAGE value="reference type server" />
     <MESSAGE value="fixed reference ref error" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed reference ref error" />
+    <MESSAGE value="RLV find value" />
+    <option name="LAST_COMMIT_MESSAGE" value="RLV find value" />
   </component>
 </project>
