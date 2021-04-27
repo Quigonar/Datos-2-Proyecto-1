@@ -21,7 +21,7 @@ int main(int argc, char *argv[])
     Document RLV;
     Packet packetS, packetR;
     vector<string> addRef;
-    string json, terminal, appLog, RLVStrA, RLVStrVal, RLVStrVar, RLVStrRef;
+    string json, terminal, appLog, RLVStrA, RLVStrVal, RLVStrVar, RLVStrRef, lastAppLog;
     bool highlightLine = false;
     RLVlist rlvlist;
     JsonHandler jsonHandler(&rlvlist);
@@ -282,12 +282,13 @@ int main(int argc, char *argv[])
                         }
                         else if (gui.stdoutBool)
                         {
-                            if (terminalT.getPosition().y <= 539)
+                            if (terminalT.getPosition().y <= 529)
                                 terminalT.setPosition(terminalT.getPosition().x, terminalT.getPosition().y + 5);
                         }
                         else if (gui.appLogBool)
                         {
-                            cout << "applog is selected" << endl;
+                            if (appLogT.getPosition().y <= 759)
+                                appLogT.setPosition(appLogT.getPosition().x, appLogT.getPosition().y + 5);
                         }
                     }
                     else if (event.mouseWheel.delta <= 0)
@@ -306,7 +307,8 @@ int main(int argc, char *argv[])
                         }
                         else if (gui.appLogBool)
                         {
-                            cout << "applog is selected" << endl;
+                            if (appLogT.getPosition().y + appLogT.getGlobalBounds().height >= 905)
+                                appLogT.setPosition(appLogT.getPosition().x, appLogT.getPosition().y - 5);
                         }
                     }
                     break;
@@ -354,6 +356,9 @@ int main(int argc, char *argv[])
             }
         }
 
+        if (appLogT.getPosition().y + appLogT.getGlobalBounds().height >= 1000)
+            appLog = lastAppLog + "\n";
+
         //El socket esta constantemente recibiendo los mensajes
         socket.receive(packetR);
 
@@ -383,6 +388,7 @@ int main(int argc, char *argv[])
             }
             if (type == "msg"){
                 string log = petition["msg"].GetString();
+                lastAppLog = log;
                 appLog += log + "\n";
             }
         }

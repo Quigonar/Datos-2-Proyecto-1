@@ -24,7 +24,7 @@ public:
     map<string, string> referencesC;
     string terminal;
     vector<string> variableScope, addRef;
-    bool scopeActive, printValue;
+    bool scopeActive, printValue, changeType;
     RLVlist* rlv;
 
     JsonHandler(RLVlist* ptr){
@@ -340,7 +340,8 @@ public:
             variable = lineSplit.front().erase(lineSplit.front().length() - 1);
             if (scopeActive)
                 variableScope.push_back(variable);
-            if (ints.count(variable) > 0 || longs.count(variable) > 0 || floats.count(variable) > 0 || doubles.count(variable) > 0){
+            if (ints.count(variable) > 0 || longs.count(variable) > 0 || floats.count(variable) > 0 || doubles.count(variable) > 0 || chars.count(variable) ||
+                referencesI.count(variable) > 0 || referencesL.count(variable) > 0 || referencesF.count(variable) > 0 || referencesD.count(variable) > 0 || referencesC.count(variable) > 0){
                 terminal.append("Error! redefining same variable: " + variable + "\n");
                 return "error";
             }
@@ -444,37 +445,48 @@ public:
                 }
                 else if (referencesI.count(value) > 0){
                     string Type = "addRef";
-                    addRef.push_back(R"({"type":")" + Type + R"(","value":")" + "char" + R"(","variable":")" + value + "\"}");
+                    addRef.push_back(R"({"type":")" + Type + R"(","value":")" + "ref" + R"(","variable":")" + value + "\"}");
+                    changeType = true;
                     value = referencesI.at(value);
                 }
                 else if (referencesL.count(value) > 0){
                     string Type = "addRef";
-                    addRef.push_back(R"({"type":")" + Type + R"(","value":")" + "char" + R"(","variable":")" + value + "\"}");
+                    addRef.push_back(R"({"type":")" + Type + R"(","value":")" + "ref" + R"(","variable":")" + value + "\"}");
+                    changeType = true;
                     value = referencesL.at(value);
                 }
                 else if (referencesF.count(value) > 0){
                     string Type = "addRef";
-                    addRef.push_back(R"({"type":")" + Type + R"(","value":")" + "char" + R"(","variable":")" + value + "\"}");
+                    addRef.push_back(R"({"type":")" + Type + R"(","value":")" + "ref" + R"(","variable":")" + value + "\"}");
+                    changeType = true;
                     value = referencesF.at(value);
                 }
                 else if (referencesD.count(value) > 0){
                     string Type = "addRef";
-                    addRef.push_back(R"({"type":")" + Type + R"(","value":")" + "char" + R"(","variable":")" + value + "\"}");
+                    addRef.push_back(R"({"type":")" + Type + R"(","value":")" + "ref" + R"(","variable":")" + value + "\"}");
+                    changeType = true;
                     value = referencesD.at(value);
                 }
                 else if (referencesC.count(value) > 0){
                     string Type = "addRef";
-                    addRef.push_back(R"({"type":")" + Type + R"(","value":")" + "char" + R"(","variable":")" + value + "\"}");
+                    addRef.push_back(R"({"type":")" + Type + R"(","value":")" + "ref" + R"(","variable":")" + value + "\"}");
+                    changeType = true;
                     value = referencesC.at(value);
                 }
 
-                if (ints.count(variable) > 0 || longs.count(variable) > 0 || floats.count(variable) > 0 || doubles.count(variable) > 0) {
+                /*if (ints.count(variable) > 0 || longs.count(variable) > 0 || floats.count(variable) > 0 || doubles.count(variable) > 0) {
                     terminal.append("Error! redefining same variable: " + variable + "\n");
                     return "error";
-                }
+                }*/
                 bool validValue = valueVerifier(type, value, variable, true);
+                cout << validValue << endl;
                 if (validValue)
                 {
+                    if (changeType)
+                    {
+                        type = "reference";
+                        changeType = false;
+                    }
                     string jsonStr = R"({"type":")"+ type + R"(","value":")" + value + R"(","variable":")" + variable + "\"}";
                     return jsonStr;
                 }
@@ -569,23 +581,65 @@ public:
                 {
                     if (type == "int" && referencesI.count(lineSplit.back().erase(lineSplit.back().size() - 1)) > 0)
                     {
-                        cout << "entered int for reference" << endl;
+                        string val = rlv->findvalue(referencesI.at(lineSplit.back()));
+                        string Type = "addRef";
+                        addRef.push_back(R"({"type":")" + Type + R"(","value":")" + "ref" + R"(","variable":")"+ lineSplit.back() +"\"}");
+                        bool validValue = valueVerifier(type, val, variable, true);
+                        if (validValue)
+                        {
+                            string jsonStr = R"({"type":")"+ type + R"(","value":")" + val + R"(","variable":")" + variable + "\"}";
+                            return jsonStr;
+                        }
                     }
                     else if (type == "long" && referencesL.count(lineSplit.back().erase(lineSplit.back().size() - 1)) > 0)
                     {
-                        cout << "entered long for reference" << endl;
+                        string val = rlv->findvalue(referencesL.at(lineSplit.back()));
+                        string Type = "addRef";
+                        addRef.push_back(R"({"type":")" + Type + R"(","value":")" + "ref" + R"(","variable":")"+ lineSplit.back() +"\"}");
+                        bool validValue = valueVerifier(type, val, variable, true);
+                        if (validValue)
+                        {
+                            string jsonStr = R"({"type":")"+ type + R"(","value":")" + val + R"(","variable":")" + variable + "\"}";
+                            return jsonStr;
+                        }
                     }
                     else if (type == "float" && referencesF.count(lineSplit.back().erase(lineSplit.back().size() - 1)) > 0)
                     {
-                        cout << "entered float for reference" << endl;
+                        string val = rlv->findvalue(referencesF.at(lineSplit.back()));
+                        string Type = "addRef";
+                        addRef.push_back(R"({"type":")" + Type + R"(","value":")" + "ref" + R"(","variable":")"+ lineSplit.back() +"\"}");
+                        bool validValue = valueVerifier(type, val, variable, true);
+                        if (validValue)
+                        {
+                            string jsonStr = R"({"type":")"+ type + R"(","value":")" + val + R"(","variable":")" + variable + "\"}";
+                            return jsonStr;
+                        }
                     }
                     else if (type == "double" && referencesD.count(lineSplit.back().erase(lineSplit.back().size() - 1)) > 0)
                     {
-                        cout << "entered double for reference" << endl;
+                        string val = rlv->findvalue(referencesD.at(lineSplit.back()));
+                        string Type = "addRef";
+                        addRef.push_back(R"({"type":")" + Type + R"(","value":")" + "ref" + R"(","variable":")"+ lineSplit.back() +"\"}");
+                        bool validValue = valueVerifier(type, val, variable, true);
+                        if (validValue)
+                        {
+                            string jsonStr = R"({"type":")"+ type + R"(","value":")" + val + R"(","variable":")" + variable + "\"}";
+                            return jsonStr;
+                        }
                     }
                     else if (type == "char" && referencesC.count(lineSplit.back().erase(lineSplit.back().size() - 1)) > 0)
                     {
-                        cout << "entered char for reference" << endl;
+                        string val = rlv->findvalue(referencesC.at(lineSplit.back()));
+                        string valChar = "'" + val + "'";
+                        string Type = "addRef";
+                        addRef.push_back(R"({"type":")" + Type + R"(","value":")" + "ref" + R"(","variable":")"+ lineSplit.back() +"\"}");
+                        bool validValue = valueVerifier(type, valChar, variable, true);
+                        cout << validValue << endl;
+                        if (validValue)
+                        {
+                            string jsonStr = R"({"type":")"+ type + R"(","value":")" + valChar + R"(","variable":")" + variable + "\"}";
+                            return jsonStr;
+                        }
                     }
                     else
                     {
