@@ -1,16 +1,28 @@
+/**
+ * @file ListaDobleEnlazada.cpp
+ * @version 1.0
+ * @title ListaDobleEnlazada
+ * @brief Manejo de la lista enlazada de las lineas del codigo al presionar run
+ */
 #pragma once
 #include <iostream>
 
 using namespace std;
 
-
+/**
+ * @brief Clase Node se encarga de manejar la informacion de las lineas y los punteros al siguiente
+ */
 class Node{
 public:
     std::string data;
     Node* next;
     Node* prev;
 };
-
+/**
+ * @brief insert_end para insertar una nueva linea al final de la lista
+ * @param head el espacio de memoria de la cabeza de la lista
+ * @param new_data la informacion o string que se mantendra en ese nodo
+ */
 void insert_end(Node** head, std::string new_data)
 {
     Node* newNode = new Node();
@@ -31,7 +43,11 @@ void insert_end(Node** head, std::string new_data)
     last->next = newNode;
     newNode->prev = last;
 }
-
+/**
+ * @brief deleteNode para eliminar un nodo dado
+ * @param head_ref el espacio de memoria de la cabeza de la lista
+ * @param del es el puntero al nodo que se quiere eliminar o borrar
+ */
 void deleteNode(Node** head_ref, Node* del)
 {
     if (*head_ref == nullptr || del == nullptr)
@@ -44,9 +60,11 @@ void deleteNode(Node** head_ref, Node* del)
         del->prev->next = del->next;
 
     free(del);
-    return;
 }
-
+/**
+ * @brief clearDLList es para eliminar todos los nodos de la lista
+ * @param head_ref es el espacio de memoria de la cabeza de la lista
+ */
 void clearDLList(Node** head_ref)
 {
     Node* ptr = *head_ref;
@@ -59,7 +77,10 @@ void clearDLList(Node** head_ref)
         ptr = next;
     }
 }
-
+/**
+ * @brief printList funcion para imprimir en terminal la lista
+ * @param node es el nodo del cual la impresion empezara
+ */
 void printList(Node* node)
 {
     Node* last;

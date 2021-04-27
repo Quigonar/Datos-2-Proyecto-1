@@ -1,3 +1,9 @@
+/**
+ * @file GUI.cpp
+ * @version 1.0
+ * @title GUI
+ * @brief Manejo de la interfaz grafica del usuario
+ */
 #pragma once
 
 #include <SFML/Graphics.hpp>
@@ -6,26 +12,33 @@
 using namespace sf;
 using namespace std;
 
+/**
+ *@brief Clase GUI que se encarga de manejar la interfaz grafica del usuario
+ */
 class GUI{
 public:
     //Different rectangles
-    RectangleShape codeBackground, standardOutput, appLog, RLV, lineHighlight, header;
+    RectangleShape codeBackground, standardOutput, appLog, RLV, lineHighlight, header; //All the backgrounds of the different parts
     RectangleShape RLVline1, RLVline2, RLVline3, RLVline4, RLVline5, RLVline6, RLVline7, RLVline8, RLVline9,
-                    RLVline10, RLVline11, RLVline12, RLVline13, RLVline14, RLVline15, RLVline16, RLVline17;
-    Vector2f vCodeBackground, vStandardOutput, vAppLog, vRLV;
+                    RLVline10, RLVline11, RLVline12, RLVline13, RLVline14, RLVline15, RLVline16, RLVline17; // Grid of the RAM Live Viewer
+    Vector2f vCodeBackground, vStandardOutput, vAppLog, vRLV; //Vector for the backgrounds
 
     //Buttons
-    RectangleShape button;
-    RectangleShape button2;
+    RectangleShape button;  //Button run
+    RectangleShape button2; //Button stop
 
     //ButtonColors
-    Color idleColor, idleColor2, activeColor, activeColor2;
+    Color idleColor, idleColor2, activeColor, activeColor2; //Button colors for press or idle
 
     //Booleans to check what is selected
-    bool codeBool = false, stdoutBool = false, appLogBool = false;
+    bool codeBool = false;
 
+    //Int to avoid over pressing
     int limit = 0;
 
+    /**
+     * @brief constructor de la clase GUI
+     */
     GUI()
     {
         //Define the background for the code editing area
@@ -184,7 +197,19 @@ public:
 
 
     }
-
+    /**
+     * @brief Render para desplegar todo lo que se necesita de la interfaz grafica a una pantalla
+     * @param window es la pantalla a la que se desplegar la interfaz grafica
+     * @param code es el texto del codigo que se quiere deplegar en pantalla
+     * @param line es el texto de la linea del codigo
+     * @param font es el font para el texto
+     * @param terminal es el texto del stdout
+     * @param appLogT es el texto del applog
+     * @param RLVAddr es el texto del address del RAM Live Viewer
+     * @param RLVVal es el texto del valor del RAM Live Viewer
+     * @param RLVVar es el texto de la variable del RAM Live Viewer
+     * @param RLVRef es el texto de la cantidad de referencias del RAM Live Viewer
+     */
     //Define function to draw all the different areas to the window
     void Render(RenderWindow* window, const Text& code, const Text& line, const Font& font, const Text& terminal, const Text& appLogT, const Text& RLVAddr,
                 const Text& RLVVal, const Text& RLVVar, const Text& RLVRef) const
@@ -243,6 +268,11 @@ public:
         window->draw(lineHighlight);
     }
 
+    /**
+     * @brief lineUpdater devuelve un booleano para actualizar graficamente la linea que se analiza
+     * @param action es la accion que hace el usuario de pasar o parar el codigo
+     * @return booleano
+     */
     //Define function that returns a boolean to highlight the line code
     bool lineUpdater(const string& action)
     {
@@ -265,6 +295,11 @@ public:
         return false;
     }
 
+    /**
+     * @brief devuelve int del boton que se presiona
+     * @param mousePos es las coordenadas en las que se encuentra el mouse
+     * @return int que dicta cual boton se presiono si se presiona uno
+     */
     //Define function to check for presses in the buttons or backgrounds
     int update(Vector2f mousePos)
     {
@@ -325,6 +360,7 @@ public:
                 }
             }
         }
+        //If not nothing has been pressed
         else
         {
             button.setFillColor(idleColor);

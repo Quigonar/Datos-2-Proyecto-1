@@ -1,3 +1,9 @@
+/**
+ * @file cliente.cpp
+ * @version 1.0
+ * @title cliente
+ * @brief Manejo de todo el IDE del usuario
+ */
 #include <SFML/Network.hpp>
 #include <SFML/Graphics.hpp>
 #include <iostream>
@@ -10,7 +16,9 @@
 using namespace sf;
 using namespace std;
 using namespace rapidjson;
-
+/**
+ * @brief main es el main del IDE o cliente
+ */
 int main(int argc, char *argv[])
 {
     //Se definen la variables necesarias para la comunicacion por sockets
@@ -34,16 +42,20 @@ int main(int argc, char *argv[])
     Font font;
     GUI gui;
 
+    //Si no logra cargar el font del archivo
     if (!font.loadFromFile("arial.ttf"))
         cout << "Couldn't load font" << endl;
 
+    //Creacion de todos los textos que se pueden desplegar en el IDE
     Text code, lineNumber, terminalT, appLogT, RLVAddr, RLVValue, RLVVariable, RLVReference;
+    //Codigo
     string codeInput;
     code.setFont(font);
     code.setCharacterSize(15);
     code.setFillColor(Color::White);
     code.setPosition(50, 30);
 
+    //Linea del codigo
     int lineCounter = 1;
     string lineStr = "<1>\n";
     lineNumber.setFont(font);
@@ -51,31 +63,37 @@ int main(int argc, char *argv[])
     lineNumber.setFillColor(Color::White);
     lineNumber.setPosition(5, 30);
 
+    //STDOUT
     terminalT.setFont(font);
     terminalT.setCharacterSize(15);
     terminalT.setFillColor(Color::White);
     terminalT.setPosition(5, 540);
 
+    //Application Log
     appLogT.setFont(font);
     appLogT.setCharacterSize(15);
     appLogT.setFillColor(Color::White);
     appLogT.setPosition(5, 770);
 
+    //RAM Live View address
     RLVAddr.setFont(font);
     RLVAddr.setCharacterSize(20);
     RLVAddr.setFillColor(Color::Black);
     RLVAddr.setPosition(975, 50);
 
+    //RAM Live View value
     RLVValue.setFont(font);
     RLVValue.setCharacterSize(20);
     RLVValue.setFillColor(Color::Black);
     RLVValue.setPosition(1190, 50);
 
+    //RAM Live View variable
     RLVVariable.setFont(font);
     RLVVariable.setCharacterSize(20);
     RLVVariable.setFillColor(Color::Black);
     RLVVariable.setPosition(1390, 50);
 
+    //RAM Live View reference
     RLVReference.setFont(font);
     RLVReference.setCharacterSize(20);
     RLVReference.setFillColor(Color::Black);
@@ -105,6 +123,7 @@ int main(int argc, char *argv[])
             //Si se presiona el boton de run se anaden las lineas a nodos de lista enlazada para enviar al handler
             if (analyzeLines == 1)
             {
+                //Se divide las lineas del codigo y se insertan en nodos
                 clearDLList(&head);
                 string delimiter = "\n";
                 auto start = 0U;
@@ -121,20 +140,17 @@ int main(int argc, char *argv[])
                 terminal = jsonHandler.getTerminal();
                 code.setPosition(50,30);
                 lineNumber.setPosition(5,30);
+                //Si el JsonHandler devuelve un error el programa
                 if (json == "error")
                 {
                     highlightLine = false;
                 }
-                else if (json == "print")
+                //Si el JsonHandler devuelve un print o continue continua el programa con stdout actualizado
+                else if (json == "print" || json == "continue")
                 {
-                    cout << "Requested to print in stdout" << endl;
                     highlightLine = true;
                 }
-                else if (json == "continue")
-                {
-                    cout << "Requested to continue" << endl;
-                    highlightLine = true;
-                }
+                //Si el json esta bien formateado entonces se envia
                 else if (json != "error" && json != "print" && json != "continue" && !json.empty())
                 {
                     packetS << json;
@@ -196,19 +212,17 @@ int main(int argc, char *argv[])
                 terminal = jsonHandler.getTerminal();
                 addRef = jsonHandler.getAddRef();
 
+                //Si el JsonHandler devuelve un error el programa
                 if (json == "error")
                 {
                     highlightLine = false;
                 }
-                else if (json == "print")
+                //Si el JsonHandler devuelve un print o continue continua el programa con stdout actualizado
+                else if (json == "print" || json == "continue")
                 {
-                    cout << "Requested to print in stdout" << endl;
-                }
-                else if (json == "continue")
-                {
-                    cout << "Requested to continue" << endl;
                     highlightLine = true;
                 }
+                //Si el json esta bien formateado entonces se envia
                 else if (json != "error" && json != "print" && !json.empty())
                 {
                     packetS << json;
@@ -223,6 +237,7 @@ int main(int argc, char *argv[])
                     Document check = jsonHandler.jsonReceiver(tmp);
                     string variable = check["variable"].GetString();
                     string type = check["type"].GetString();
+                    //Revisa si el json es para que el garbage collector funcione o no
                     if ( type == "garbage"){
                         vector<string> variables;
                         string delimiter = ",";
@@ -245,6 +260,7 @@ int main(int argc, char *argv[])
                         RLVStrRef = rlvlist.get_ref();
                     }
                 }
+                //Si se da el caso de anadir una referencia se lo envia al servidor para que aumente la referencia
                 if (!addRef.empty())
                 {
                     for (auto & i : addRef)
@@ -264,7 +280,7 @@ int main(int argc, char *argv[])
             {
                 //Si se cierra la pantalla se termina el programa
                 case Event::Closed:
-                    //printList(head);
+                    socket.disconnect();
                     window.close();
                     break;
 
@@ -272,51 +288,37 @@ int main(int argc, char *argv[])
                 case Event::MouseWheelMoved:
                     if (event.mouseWheel.delta >= 0 )
                     {
+                        //Si se esta analizando el codigo no sirve la funcion de scroll
                         if (!highlightLine && gui.codeBool)
                         {
+                            //Si la posicion del texto es menor al tope de la pantalla no sirve
                             if (code.getPosition().y <= 29 && lineNumber.getPosition().y <= 29)
                             {
                                 code.setPosition(code.getPosition().x, code.getPosition().y + 5);
                                 lineNumber.setPosition(lineNumber.getPosition().x, lineNumber.getPosition().y + 5);
                             }
                         }
-                        else if (gui.stdoutBool)
-                        {
-                            if (terminalT.getPosition().y <= 529)
-                                terminalT.setPosition(terminalT.getPosition().x, terminalT.getPosition().y + 5);
-                        }
-                        else if (gui.appLogBool)
-                        {
-                            if (appLogT.getPosition().y <= 759)
-                                appLogT.setPosition(appLogT.getPosition().x, appLogT.getPosition().y + 5);
-                        }
                     }
                     else if (event.mouseWheel.delta <= 0)
                     {
+                        //Si se esta analizando el codigo no sirve la funcion de scroll
                         if (!highlightLine && gui.codeBool)
                         {
+                            //Si la posicion del texto es mayor a la mitad de la pantalla no sirve
                             if (code.getPosition().y + code.getGlobalBounds().height >= 150) {
                                 code.setPosition(code.getPosition().x, code.getPosition().y - 5);
                                 lineNumber.setPosition(lineNumber.getPosition().x, lineNumber.getPosition().y - 5);
                             }
-                        }
-                        else if (gui.stdoutBool)
-                        {
-                            if (terminalT.getPosition().y + terminalT.getGlobalBounds().height >= 600)
-                                terminalT.setPosition(terminalT.getPosition().x, terminalT.getPosition().y - 5);
-                        }
-                        else if (gui.appLogBool)
-                        {
-                            if (appLogT.getPosition().y + appLogT.getGlobalBounds().height >= 905)
-                                appLogT.setPosition(appLogT.getPosition().x, appLogT.getPosition().y - 5);
                         }
                     }
                     break;
 
                     //Funcionalidad para guardar codigo y desplegarlo en la pantalla
                 case Event::TextEntered:
+                    //Si no se esta analizando el codigo y se tiene seleccionado la pantalla del code
                     if (gui.codeBool && !highlightLine)
                     {
+                        //Casos especiales de borrar o space
                         if(event.text.unicode == 8)
                         {
                             if (codeInput.back() == '\n')
@@ -345,6 +347,7 @@ int main(int argc, char *argv[])
                             codeInput = codeInput.append("\n");
                             lineStr = lineStr.append("<" + to_string(lineCounter) + ">\n");
                         }
+                        //Si no nada mas agarra el char y lo anade al string
                         else
                         {
                             codeInput += (char)event.text.unicode;
@@ -355,7 +358,7 @@ int main(int argc, char *argv[])
                 break;
             }
         }
-
+        //Si el applog se llena se eliminan las lineas pasadas y se pone la ultima linea como primera
         if (appLogT.getPosition().y + appLogT.getGlobalBounds().height >= 1000)
             appLog = lastAppLog + "\n";
 
@@ -369,6 +372,7 @@ int main(int argc, char *argv[])
             Document petition = jsonHandler.jsonReceiver(packetR);
             string type = petition["type"].GetString();
 
+            //Si el tipo de mensaje es para updatear el RAM Live Viewer
             if (type == "RLV"){
                 RLV = jsonHandler.jsonReceiver(packetR);
                 string memory = RLV["memory"].GetString();
@@ -386,6 +390,7 @@ int main(int argc, char *argv[])
                 RLVStrRef = rlvlist.get_ref();
                 packetR.clear();
             }
+            //Si el tipo de mensaje es para updatear el Application Log
             if (type == "msg"){
                 string log = petition["msg"].GetString();
                 lastAppLog = log;
