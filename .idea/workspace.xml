@@ -12,16 +12,9 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2fe48f70-c3ca-42f2-bce1-2812ff8397cc" name="Default Changelist" comment="reference type server">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cliente-Servidor/MemoryList/Node.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Cliente-Servidor/MemoryList/Node.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cliente-Servidor/MemoryManager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Cliente-Servidor/MemoryManager.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cliente-Servidor/servidor.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Cliente-Servidor/servidor.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/cliente.dir/Cliente-Servidor/cliente.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/cliente.dir/Cliente-Servidor/cliente.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/mserver.dir/Cliente-Servidor/servidor.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/mserver.dir/Cliente-Servidor/servidor.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/cliente" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/cliente" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/mserver" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/mserver" afterDir="false" />
+    <list default="true" id="2fe48f70-c3ca-42f2-bce1-2812ff8397cc" name="Default Changelist" comment="fixed reference ref error">
+      <change beforePath="$PROJECT_DIR$/Cliente-Servidor/MemoryList/LinkedList.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Cliente-Servidor/MemoryList/LinkedList.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cliente-Servidor/RLVList/RLVlist.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Cliente-Servidor/RLVList/RLVlist.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,6 +51,7 @@
     <property name="cmake.loaded.for.project" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../pruebalogging/Datos-2-Proyecto-1" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.ide.settings.uml" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -115,7 +109,7 @@
       <workItem from="1619283837767" duration="7575000" />
       <workItem from="1619369814738" duration="13713000" />
       <workItem from="1619483094223" duration="3926000" />
-      <workItem from="1619489957878" duration="6331000" />
+      <workItem from="1619489957878" duration="6729000" />
     </task>
     <task id="LOCAL-00001" summary="Added communication between server and client">
       <created>1619222048025</created>
@@ -166,7 +160,14 @@
       <option name="project" value="LOCAL" />
       <updated>1619495507833</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="fixed reference ref error">
+      <created>1619496586997</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1619496586997</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -192,6 +193,7 @@
     <MESSAGE value="Garbage collector" />
     <MESSAGE value="RLV JsonHandler connection" />
     <MESSAGE value="reference type server" />
-    <option name="LAST_COMMIT_MESSAGE" value="reference type server" />
+    <MESSAGE value="fixed reference ref error" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed reference ref error" />
   </component>
 </project>

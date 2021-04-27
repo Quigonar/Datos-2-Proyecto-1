@@ -118,50 +118,10 @@ public:
     }
 
     /**
-     * @brief findmem se encarga de retornar 
-     * @param aoffset
+     * @brief find var
+     * @param aname
      * @return
      */
-    int findmem(int aoffset) {
-        if (start == NULL)
-        {
-            return -1;
-        }
-        else if (start == tail)
-        {
-            if (start->get_varoffset() == aoffset)
-            {
-                return start->get_varoffset();
-            }
-            else
-            {
-                return -1;
-            }
-        }
-        else
-        {
-            if (start->get_varoffset() == aoffset)
-            {
-                return start->get_varoffset();
-            }
-            else
-            {
-                Node* tmp = start->get_next();
-                while (tmp != NULL)
-                {
-                    if (tmp->get_varoffset() == aoffset)
-                    {
-                        return tmp->get_varoffset();
-                    }
-
-                    tmp = tmp->get_next();
-                }
-
-                return -1;
-            }
-        }
-    }
-
     bool findvar(string aname) {
         if (start == NULL)
         {
