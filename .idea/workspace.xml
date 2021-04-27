@@ -12,17 +12,12 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2fe48f70-c3ca-42f2-bce1-2812ff8397cc" name="Default Changelist" comment="RLV JsonHandler connection">
+    <list default="true" id="2fe48f70-c3ca-42f2-bce1-2812ff8397cc" name="Default Changelist" comment="reference type server">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cliente-Servidor/ClienteRes/JsonHandler.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Cliente-Servidor/ClienteRes/JsonHandler.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cliente-Servidor/MemoryList/LinkedList.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Cliente-Servidor/MemoryList/LinkedList.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Cliente-Servidor/MemoryList/Node.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Cliente-Servidor/MemoryList/Node.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Cliente-Servidor/MemoryManager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Cliente-Servidor/MemoryManager.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cliente-Servidor/RLVList/RLVlist.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Cliente-Servidor/RLVList/RLVlist.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Cliente-Servidor/servidor.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Cliente-Servidor/servidor.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/cliente.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/cliente.dir/CXX.includecache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/cliente.dir/Cliente-Servidor/cliente.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/cliente.dir/Cliente-Servidor/cliente.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/mserver.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/mserver.dir/CXX.includecache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/mserver.dir/Cliente-Servidor/servidor.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/mserver.dir/Cliente-Servidor/servidor.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/cliente" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/cliente" afterDir="false" />
@@ -74,7 +69,7 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager" selected="CMake Application.mserver">
+  <component name="RunManager" selected="CMake Application.cliente">
     <configuration name="cliente" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Datos_2_Proyecto_1" TARGET_NAME="cliente" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Datos_2_Proyecto_1" RUN_TARGET_NAME="cliente">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -120,7 +115,7 @@
       <workItem from="1619283837767" duration="7575000" />
       <workItem from="1619369814738" duration="13713000" />
       <workItem from="1619483094223" duration="3926000" />
-      <workItem from="1619489957878" duration="5204000" />
+      <workItem from="1619489957878" duration="6331000" />
     </task>
     <task id="LOCAL-00001" summary="Added communication between server and client">
       <created>1619222048025</created>
@@ -164,7 +159,14 @@
       <option name="project" value="LOCAL" />
       <updated>1619484322662</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="reference type server">
+      <created>1619495507833</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1619495507833</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -189,6 +191,7 @@
     <MESSAGE value="RLV update" />
     <MESSAGE value="Garbage collector" />
     <MESSAGE value="RLV JsonHandler connection" />
-    <option name="LAST_COMMIT_MESSAGE" value="RLV JsonHandler connection" />
+    <MESSAGE value="reference type server" />
+    <option name="LAST_COMMIT_MESSAGE" value="reference type server" />
   </component>
 </project>

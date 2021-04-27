@@ -369,7 +369,7 @@ public:
         }
         else if (type == "ref")
         {
-            refarray.changeref(name);//------------------------revisar
+            refarray.changeref(name);
         }
     }
 

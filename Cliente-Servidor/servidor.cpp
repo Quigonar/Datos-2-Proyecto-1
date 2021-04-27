@@ -294,8 +294,9 @@ int main()
 
                     if (paso) {
                         string addr = mem_parse((void *) mserver.getmemoryoffsetint(offset));
-                        string xref = int_tostring(mserver.get_varref("", variable));
+                        string xref = int_tostring(mserver.get_varref("ref", variable));
                         json = jsonSender(addr, value, variable, xref);
+
                         mserver.printmem();
                         log = msgsender(logger.get_infolog("variable: " + variable + " was allocated successfully"), "msg");
                     }

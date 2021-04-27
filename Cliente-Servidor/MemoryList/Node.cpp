@@ -21,7 +21,7 @@ public:
         type = atype;
         name = aname;
         next = NULL;
-        refnum = 1;
+        refnum = 0;
 
     }
 
