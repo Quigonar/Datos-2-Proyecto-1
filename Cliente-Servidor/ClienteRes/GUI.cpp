@@ -56,7 +56,7 @@ public:
         appLog.setOutlineThickness(2);
 
         //Define the background for the RAM Live Viewer area
-        vRLV.x = 580;
+        vRLV.x = 780;
         vRLV.y = 1050;
         RLV.setSize(vRLV);
         RLV.setPosition(930, 0);
@@ -71,91 +71,91 @@ public:
 
         RLVline2.setSize(Vector2f(5, 1050));
         RLVline2.setFillColor(Color::Black);
-        RLVline2.setPosition(1275, 35);
+        RLVline2.setPosition(1370, 35);
 
         RLVline3.setSize(Vector2f(5, 1050));
         RLVline3.setFillColor(Color::Black);
-        RLVline3.setPosition(1400, 35);
+        RLVline3.setPosition(1495, 35);
 
-        RLVline4.setSize(Vector2f(600, 91));
+        RLVline4.setSize(Vector2f(780, 91));
         RLVline4.setFillColor(Color(0,0,0,0));
         RLVline4.setOutlineColor(Color::Black);
         RLVline4.setOutlineThickness(2);
         RLVline4.setPosition(930, 35);
 
-        RLVline5.setSize(Vector2f(600, 91));
+        RLVline5.setSize(Vector2f(780, 91));
         RLVline5.setFillColor(Color(0,0,0,0));
         RLVline5.setOutlineColor(Color::Black);
         RLVline5.setOutlineThickness(2);
         RLVline5.setPosition(930, 80.5);
 
-        RLVline6.setSize(Vector2f(600, 91));
+        RLVline6.setSize(Vector2f(780, 91));
         RLVline6.setFillColor(Color(0,0,0,0));
         RLVline6.setOutlineColor(Color::Black);
         RLVline6.setOutlineThickness(2);
         RLVline6.setPosition(930, 173.5);
 
-        RLVline7.setSize(Vector2f(600, 91));
+        RLVline7.setSize(Vector2f(780, 91));
         RLVline7.setFillColor(Color(0,0,0,0));
         RLVline7.setOutlineColor(Color::Black);
         RLVline7.setOutlineThickness(2);
         RLVline7.setPosition(930, 219);
 
-        RLVline8.setSize(Vector2f(600, 91));
+        RLVline8.setSize(Vector2f(780, 91));
         RLVline8.setFillColor(Color(0,0,0,0));
         RLVline8.setOutlineColor(Color::Black);
         RLVline8.setOutlineThickness(2);
         RLVline8.setPosition(930, 312);
 
-        RLVline9.setSize(Vector2f(600, 91));
+        RLVline9.setSize(Vector2f(780, 91));
         RLVline9.setFillColor(Color(0,0,0,0));
         RLVline9.setOutlineColor(Color::Black);
         RLVline9.setOutlineThickness(2);
         RLVline9.setPosition(930, 357.5);
 
-        RLVline10.setSize(Vector2f(600, 91));
+        RLVline10.setSize(Vector2f(780, 91));
         RLVline10.setFillColor(Color(0,0,0,0));
         RLVline10.setOutlineColor(Color::Black);
         RLVline10.setOutlineThickness(2);
         RLVline10.setPosition(930, 450.5);
 
-        RLVline11.setSize(Vector2f(600, 93));
+        RLVline11.setSize(Vector2f(780, 93));
         RLVline11.setFillColor(Color(0,0,0,0));
         RLVline11.setOutlineColor(Color::Black);
         RLVline11.setOutlineThickness(2);
         RLVline11.setPosition(930, 498);
 
-        RLVline12.setSize(Vector2f(600, 91));
+        RLVline12.setSize(Vector2f(780, 91));
         RLVline12.setFillColor(Color(0,0,0,0));
         RLVline12.setOutlineColor(Color::Black);
         RLVline12.setOutlineThickness(2);
         RLVline12.setPosition(930, 593);
 
-        RLVline13.setSize(Vector2f(600, 91));
+        RLVline13.setSize(Vector2f(780, 91));
         RLVline13.setFillColor(Color(0,0,0,0));
         RLVline13.setOutlineColor(Color::Black);
         RLVline13.setOutlineThickness(2);
         RLVline13.setPosition(930, 638.5);
 
-        RLVline14.setSize(Vector2f(600, 91));
+        RLVline14.setSize(Vector2f(780, 91));
         RLVline14.setFillColor(Color(0,0,0,0));
         RLVline14.setOutlineColor(Color::Black);
         RLVline14.setOutlineThickness(2);
         RLVline14.setPosition(930, 731.5);
 
-        RLVline15.setSize(Vector2f(600, 91));
+        RLVline15.setSize(Vector2f(780, 91));
         RLVline15.setFillColor(Color(0,0,0,0));
         RLVline15.setOutlineColor(Color::Black);
         RLVline15.setOutlineThickness(2);
         RLVline15.setPosition(930, 777);
 
-        RLVline16.setSize(Vector2f(600, 91));
+        RLVline16.setSize(Vector2f(780, 91));
         RLVline16.setFillColor(Color(0,0,0,0));
         RLVline16.setOutlineColor(Color::Black);
         RLVline16.setOutlineThickness(2);
         RLVline16.setPosition(930, 870);
 
-        RLVline17.setSize(Vector2f(600, 91));
+        RLVline17.setSize(Vector2f(780, 91));
         RLVline17.setFillColor(Color(0,0,0,0));
         RLVline17.setOutlineColor(Color::Black);
         RLVline17.setOutlineThickness(2);

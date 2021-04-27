@@ -74,12 +74,12 @@ int main(int argc, char *argv[])
     RLVVariable.setFont(font);
     RLVVariable.setCharacterSize(20);
     RLVVariable.setFillColor(Color::Black);
-    RLVVariable.setPosition(1305, 50);
+    RLVVariable.setPosition(1390, 50);
 
     RLVReference.setFont(font);
     RLVReference.setCharacterSize(20);
     RLVReference.setFillColor(Color::Black);
-    RLVReference.setPosition(1412, 50);
+    RLVReference.setPosition(1515, 50);
 
     //Se conecta el cliente al socket
     socket.connect(ip, 8080);
