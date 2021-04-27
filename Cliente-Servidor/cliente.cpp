@@ -23,8 +23,9 @@ int main(int argc, char *argv[])
     vector<string> addRef;
     string json, terminal, appLog, RLVStrA, RLVStrVal, RLVStrVar, RLVStrRef;
     bool highlightLine = false;
-    JsonHandler jsonHandler;
     RLVlist rlvlist;
+    JsonHandler jsonHandler(&rlvlist);
+
 
     //Se define la cabeza para crear la lista enlazada
     Node* head = nullptr;
@@ -218,7 +219,6 @@ int main(int argc, char *argv[])
                     string variable = check["variable"].GetString();
                     string type = check["type"].GetString();
                     if ( type == "garbage"){
-                        cout<<"Entro a RLV update"<<endl;
                         vector<string> variables;
                         string delimiter = ",";
                         auto start = 0U;

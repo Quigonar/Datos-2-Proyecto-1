@@ -3,6 +3,7 @@
 #include "ClienteRes/ListaDobleEnlazada.cpp"
 #include "ClienteRes/GUI.cpp"
 #include "rapidjson/document.h"
+#include "RLVList/RLVlist.cpp"
 
 using namespace std;
 using namespace rapidjson;
@@ -24,7 +25,11 @@ public:
     string terminal;
     vector<string> variableScope, addRef;
     bool scopeActive, printValue;
+    RLVlist* rlv;
 
+    JsonHandler(RLVlist* ptr){
+        rlv = ptr;
+    }
     //Verificador de que el valor ingresado corresponda al tipo ingresado
     bool valueVerifier(const string& type, string value, const string& variable, bool addMap)
     {
@@ -431,6 +436,7 @@ public:
             else if (lineSplit.size() == 2 && (type == "reference<int>" || type == "reference<long>" || type == "reference<float>"
                         || type == "reference<double>" || type == "reference<char>"))
             {
+                //string mem = rlv->findmem(variable);
                 if (lineSplit.front() == "getaddr" && lineSplit.back().back() == ';')
                 {
                     if (type == "reference<int>" && ints.count(lineSplit.back().erase(lineSplit.back().size() - 1)) > 0)

@@ -119,6 +119,46 @@ public:
         }
     }
 
+    string findmem(string name) {
+        if (start == NULL)
+        {
+            return "NULL";
+        }
+        else if (start == tail)
+        {
+            if (start->get_name() == name)
+            {
+                return start->get_mem();
+            }
+            else
+            {
+                return "NULL";
+            }
+        }
+        else
+        {
+            if (start->get_name() == name)
+            {
+                return start->get_mem();
+            }
+            else
+            {
+                RLVnode* tmp = start->get_next();
+                while (tmp != NULL)
+                {
+                    if (tmp->get_name() == name)
+                    {
+                        return tmp->get_mem();
+                    }
+
+                    tmp = tmp->get_next();
+                }
+
+                return "NULL";
+            }
+        }
+    }
+
     void change_ref(string name,string ref) {
         if (start == NULL)
         {
