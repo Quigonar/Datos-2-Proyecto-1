@@ -9,7 +9,7 @@ using namespace std;
 class GUI{
 public:
     //Different rectangles
-    RectangleShape codeBackground, standardOutput, appLog, RLV, lineHighlight;
+    RectangleShape codeBackground, standardOutput, appLog, RLV, lineHighlight, header;
     RectangleShape RLVline1, RLVline2, RLVline3, RLVline4, RLVline5, RLVline6, RLVline7, RLVline8, RLVline9,
                     RLVline10, RLVline11, RLVline12, RLVline13, RLVline14, RLVline15, RLVline16, RLVline17;
     Vector2f vCodeBackground, vStandardOutput, vAppLog, vRLV;
@@ -36,6 +36,10 @@ public:
         codeBackground.setFillColor(Color(60,60,60,255));
         codeBackground.setOutlineColor(Color::Black);
         codeBackground.setOutlineThickness(2);
+
+        header.setSize(Vector2f(930, 30));
+        header.setPosition(0,0);
+        header.setFillColor(Color::Black);
 
         //Define the background for the stdout area
         vStandardOutput.x = 930;
@@ -231,6 +235,7 @@ public:
         window->draw(RLVline15);
         window->draw(RLVline16);
         window->draw(RLVline17);
+        window->draw(header);
         window->draw(button);
         window->draw(button2);
         window->draw(text);

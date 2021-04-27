@@ -194,6 +194,7 @@ int main()
             }
             else if (type == "char")
             {
+                value = value[1];
                 if(!mserver.getlist("char")->findvar(variable)) {
                     offset = mserver.getoffset();
                     char val = char_parse(value);
@@ -403,7 +404,9 @@ int main()
                     string addr = mem_parse((void*)mserver.getmemoryoffsetchar(offset));
                     string xref = int_tostring(refnum);
                     char val = *mserver.getmemoryoffsetchar(offset);
-                    string valstr = to_string(val);
+                    cout << val << endl;
+                    string valstr(1, val);
+                    cout << valstr << endl;
                     json = jsonSender(addr,valstr,variable,xref);
                     log = msgsender(logger.get_infolog("variable: "+variable+ " has been referenced"),"msg");
                 }
