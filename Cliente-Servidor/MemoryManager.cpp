@@ -59,11 +59,11 @@ public:
     bool addvariableint(int value,string name) {
         if(outofmemory(4)){
             int tmp = getoffset();
-            cout << "This is offset: " << getoffset() << endl;
+
             int* mtp = getmemoryoffsetint(tmp);
 
             *mtp = value;
-            cout << "Value: " << value << endl;
+
             intarray.append(tmp, "int", name);
             offset = offset+4;
             used = used + 4;
@@ -338,6 +338,23 @@ public:
         chararray.deleteall();
 
     }
+
+    void deleteint(string name){
+        intarray.delete_elem(name);
+    }
+    void deletedouble(string name){
+        doublearray.delete_elem(name);
+    }
+    void deletefloat(string name){
+        floatarray.delete_elem(name);
+    }
+    void deletechar(string name){
+        chararray.delete_elem(name);
+    }
+    void deletelong(string name){
+        longarray.delete_elem(name);
+    }
+
     void printmem() {
         for (int i = 0; i < this->offset; i++) {
 
@@ -404,6 +421,7 @@ public:
                     cout << "Memory: " << tmp << endl;
 
                 }
+
             }
         }
     }
@@ -461,9 +479,14 @@ public:
     MemoryManager m(10000);
 
     m.addvariableint(10,"a");
-    m.addvariableref(m.getmemoryoffsetint(0),"int","b");
+    m.addvariableint(20,"b");
+    m.addvariableint(10,"c");
+    m.addvariableint(10,"z");
+    m.addvariableint(10,"d");
+    m.getlist("int")->printList();
+    m.deleteint("a");
 
-    m.printmem();
+    m.getlist("int")->printList();
 
     return 0;
 }*/

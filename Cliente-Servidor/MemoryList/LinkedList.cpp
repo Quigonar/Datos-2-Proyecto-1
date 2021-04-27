@@ -237,6 +237,51 @@ public:
         }
     }
 
+    void delete_elem(string aname){
+        if (start == NULL){
+            //
+        }else {
+            if (start == tail){
+                if (start->get_name() == aname) {
+                    free(start);
+                    start = NULL;
+                    tail = NULL;
+                    size--;
+                }
+            }
+            else{
+                if (start->get_name() == aname) {
+                    free(start);
+                    start = start->get_next();
+                    size--;
+                }
+                else{
+
+                    Node* tmp = start;
+                    while (tmp->get_next() != NULL)
+                    {
+                        if (tmp->get_next()->get_name() == aname)
+                        {
+
+                            Node* tmpnext = tmp->get_next();
+                            if (tmpnext == tail){
+                                tail = tmp;
+                                tail->set_next(NULL);
+                                size--;
+                                break;
+                            }
+                            else{
+                                tmp->set_next(tmpnext->get_next());
+                                size--;
+                                break;
+                            }
+                        }
+                        tmp = tmp->get_next();
+                    }
+                }
+            }
+        }
+    }
     void deleteall(){
         start = NULL;
         tail = NULL;

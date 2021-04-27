@@ -8,34 +8,34 @@
 		<Option virtualFolders="CMake Files\;CMake Files\cmake_modules\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/cmake-build-debug"/>
+				<Option working_dir="/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -f &quot;/home/david/Documents/Proyecto\ 1/Datos-2-Proyecto-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/david/Documents/Proyecto\ 1/Datos-2-Proyecto-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/david/Documents/Proyecto\ 1/Datos-2-Proyecto-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/david/Documents/Proyecto\ 1/Datos-2-Proyecto-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/cmake-build-debug"/>
+				<Option working_dir="/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -f &quot;/home/david/Documents/Proyecto\ 1/Datos-2-Proyecto-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/david/Documents/Proyecto\ 1/Datos-2-Proyecto-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/david/Documents/Proyecto\ 1/Datos-2-Proyecto-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/david/Documents/Proyecto\ 1/Datos-2-Proyecto-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="mserver">
-				<Option output="/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/cmake-build-debug/mserver" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/cmake-build-debug"/>
+				<Option output="/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/cmake-build-debug/mserver" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/Cliente-Servidor"/>
-					<Add directory="/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/Cliente-Servidor/ClienteRes"/>
+					<Add directory="/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/Cliente-Servidor"/>
+					<Add directory="/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/Cliente-Servidor/ClienteRes"/>
 					<Add directory="/usr/include/c++/9"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
 					<Add directory="/usr/include/c++/9/backward"/>
@@ -45,21 +45,21 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 mserver"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -f &quot;/home/david/Documents/Proyecto\ 1/Datos-2-Proyecto-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 mserver"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/david/Documents/Proyecto\ 1/Datos-2-Proyecto-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/david/Documents/Proyecto\ 1/Datos-2-Proyecto-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/david/Documents/Proyecto\ 1/Datos-2-Proyecto-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="mserver/fast">
-				<Option output="/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/cmake-build-debug/mserver" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/cmake-build-debug"/>
+				<Option output="/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/cmake-build-debug/mserver" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/Cliente-Servidor"/>
-					<Add directory="/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/Cliente-Servidor/ClienteRes"/>
+					<Add directory="/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/Cliente-Servidor"/>
+					<Add directory="/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/Cliente-Servidor/ClienteRes"/>
 					<Add directory="/usr/include/c++/9"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
 					<Add directory="/usr/include/c++/9/backward"/>
@@ -69,31 +69,31 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 mserver/fast"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -f &quot;/home/david/Documents/Proyecto\ 1/Datos-2-Proyecto-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 mserver/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/david/Documents/Proyecto\ 1/Datos-2-Proyecto-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/david/Documents/Proyecto\ 1/Datos-2-Proyecto-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/david/Documents/Proyecto\ 1/Datos-2-Proyecto-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/cmake-build-debug"/>
+				<Option working_dir="/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -f &quot;/home/david/Documents/Proyecto\ 1/Datos-2-Proyecto-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/david/Documents/Proyecto\ 1/Datos-2-Proyecto-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/david/Documents/Proyecto\ 1/Datos-2-Proyecto-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/david/Documents/Proyecto\ 1/Datos-2-Proyecto-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="cliente">
-				<Option output="/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/cmake-build-debug/cliente" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/cmake-build-debug"/>
+				<Option output="/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/cmake-build-debug/cliente" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/Cliente-Servidor"/>
-					<Add directory="/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/Cliente-Servidor/ClienteRes"/>
+					<Add directory="/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/Cliente-Servidor"/>
+					<Add directory="/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/Cliente-Servidor/ClienteRes"/>
 					<Add directory="/usr/include/c++/9"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
 					<Add directory="/usr/include/c++/9/backward"/>
@@ -103,21 +103,21 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 cliente"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -f &quot;/home/david/Documents/Proyecto\ 1/Datos-2-Proyecto-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 cliente"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/david/Documents/Proyecto\ 1/Datos-2-Proyecto-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/david/Documents/Proyecto\ 1/Datos-2-Proyecto-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/david/Documents/Proyecto\ 1/Datos-2-Proyecto-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="cliente/fast">
-				<Option output="/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/cmake-build-debug/cliente" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/cmake-build-debug"/>
+				<Option output="/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/cmake-build-debug/cliente" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/Cliente-Servidor"/>
-					<Add directory="/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/Cliente-Servidor/ClienteRes"/>
+					<Add directory="/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/Cliente-Servidor"/>
+					<Add directory="/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/Cliente-Servidor/ClienteRes"/>
 					<Add directory="/usr/include/c++/9"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
 					<Add directory="/usr/include/c++/9/backward"/>
@@ -127,23 +127,23 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 cliente/fast"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -f &quot;/home/david/Documents/Proyecto\ 1/Datos-2-Proyecto-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 cliente/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/david/Documents/Proyecto\ 1/Datos-2-Proyecto-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/david/Documents/Proyecto\ 1/Datos-2-Proyecto-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/david/Documents/Proyecto\ 1/Datos-2-Proyecto-1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/Cliente-Servidor/cliente.cpp">
+		<Unit filename="/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/Cliente-Servidor/cliente.cpp">
 			<Option target="cliente"/>
 		</Unit>
-		<Unit filename="/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/Cliente-Servidor/servidor.cpp">
+		<Unit filename="/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/Cliente-Servidor/servidor.cpp">
 			<Option target="mserver"/>
 		</Unit>
-		<Unit filename="/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/CMakeLists.txt">
+		<Unit filename="/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
-		<Unit filename="/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/cmake_modules/FindSFML.cmake">
+		<Unit filename="/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/cmake_modules/FindSFML.cmake">
 			<Option virtualFolder="CMake Files\cmake_modules\"/>
 		</Unit>
 	</Project>

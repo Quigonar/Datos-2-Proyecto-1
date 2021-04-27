@@ -143,6 +143,7 @@ int main(int argc, char *argv[])
                     cout << json << endl;
                     highlightLine = true;
                 }
+
             }
             //Si se presiona el boton de stop el programa detiene el corrido del codigo y limpia la terminal y variables creadas
             else if (analyzeLines == 2)
@@ -210,6 +211,36 @@ int main(int argc, char *argv[])
                     packetS.clear();
                     cout << json << endl;
                     highlightLine = true;
+
+                    Packet tmp;
+                    tmp << json;
+                    Document check = jsonHandler.jsonReceiver(tmp);
+                    string variable = check["variable"].GetString();
+                    string type = check["type"].GetString();
+                    if ( type == "garbage"){
+                        cout<<"Entro a RLV update"<<endl;
+                        vector<string> variables;
+                        string delimiter = ",";
+                        auto start = 0U;
+                        auto end = variable.find(delimiter);
+                        while (end != string::npos)
+                        {
+                            variables.push_back(variable.substr(start, end - start));
+                            start = end + delimiter.length();
+                            end = variable.find(delimiter, start);
+                        }
+                        variables.push_back(variable.substr(start, end));
+                        //Utilizar "variables" para que el garbage collector elimine las variables que se encuentran en el garbage collector
+                        //Para instanciar y sacar todas las variables de un vector usar:
+                        cout<<rlvlist.get_name()<<endl;
+                        for (auto & i : variables) {
+                            rlvlist.RLVupdate(i);
+                        }
+                        RLVStrA = rlvlist.get_memory();
+                        RLVStrVal = rlvlist.get_value();
+                        RLVStrVar = rlvlist.get_name();
+                        RLVStrRef = rlvlist.get_ref();
+                    }
                 }
                 if (!addRef.empty())
                 {

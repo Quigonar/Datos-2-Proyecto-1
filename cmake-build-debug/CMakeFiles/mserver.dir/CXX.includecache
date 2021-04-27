@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/Cliente-Servidor/Logger.cpp
+/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/Cliente-Servidor/Logger.cpp
 string
 -
 iostream
@@ -16,43 +16,43 @@ sstream
 ctime
 -
 
-/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/Cliente-Servidor/MemoryList/LinkedList.cpp
+/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/Cliente-Servidor/MemoryList/LinkedList.cpp
 iostream
 -
 cmath
 -
 Node.cpp
-/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/Cliente-Servidor/MemoryList/Node.cpp
+/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/Cliente-Servidor/MemoryList/Node.cpp
 
-/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/Cliente-Servidor/MemoryList/Node.cpp
+/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/Cliente-Servidor/MemoryList/Node.cpp
 iostream
 -
 cmath
 -
 
-/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/Cliente-Servidor/MemoryManager.cpp
+/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/Cliente-Servidor/MemoryManager.cpp
 iostream
 -
 MemoryList/LinkedList.cpp
-/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/Cliente-Servidor/MemoryList/LinkedList.cpp
+/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/Cliente-Servidor/MemoryList/LinkedList.cpp
 stdlib.h
 -
 
-/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/Cliente-Servidor/servidor.cpp
+/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/Cliente-Servidor/servidor.cpp
 SFML/Network.hpp
 -
 SFML/Graphics.hpp
 -
 rapidjson/document.h
-/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/Cliente-Servidor/rapidjson/document.h
+/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/Cliente-Servidor/rapidjson/document.h
 string
 -
 iostream
 -
 MemoryManager.cpp
-/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/Cliente-Servidor/MemoryManager.cpp
+/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/Cliente-Servidor/MemoryManager.cpp
 Logger.cpp
-/home/marcos/Documents/GitHub/Datos-2-Proyecto-1/Cliente-Servidor/Logger.cpp
+/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/Cliente-Servidor/Logger.cpp
 sstream
 -
 

@@ -216,7 +216,51 @@ public:
             return ref;
         }
     }
+    void RLVupdate(string aname){
+        if (start == NULL){
+            //
+        }else {
+            if (start == tail){
+                if (start->get_name() == aname) {
+                    free(start);
+                    start = NULL;
+                    tail = NULL;
+                    size--;
+                }
+            }
+            else{
+                if (start->get_name() == aname) {
+                    free(start);
+                    start = start->get_next();
+                    size--;
+                }
+                else{
 
+                    RLVnode* tmp = start;
+                    while (tmp->get_next() != NULL)
+                    {
+                        if (tmp->get_next()->get_name() == aname)
+                        {
+
+                            RLVnode* tmpnext = tmp->get_next();
+                            if (tmpnext == tail){
+                                tail = tmp;
+                                tail->set_next(NULL);
+                                size--;
+                                break;
+                            }
+                            else{
+                                tmp->set_next(tmpnext->get_next());
+                                size--;
+                                break;
+                            }
+                        }
+                        tmp = tmp->get_next();
+                    }
+                }
+            }
+        }
+    }
     void clear(){
         start = NULL;
         tail = NULL;

@@ -77,7 +77,6 @@ string int_tostring(int num){
     return snum;
 }
 
-
 string mem_parse(void* ptr){
     ostringstream o;
     o<<ptr;
@@ -131,15 +130,16 @@ int main()
             {
                 //revisar si variable ya existe.
                 if(!mserver.getlist("int")->findvar(variable)){
-                    offset = mserver.getoffset();
+
+                    offset = mserver.getoffset();//Busca el ultimo offset disponible
                     int val = int_parse(value);
 
-                    bool paso = mserver.addvariableint(val,variable);
+                    bool paso = mserver.addvariableint(val,variable);//Inserta la variable en la memoria
 
-                    if(paso){
-                        string addr = mem_parse((void*)mserver.getmemoryoffsetint(offset));
-                        string xref = int_tostring(mserver.get_varref("int",variable));
-                        json = jsonSender(addr,value,variable,xref);
+                    if(paso){//si se logro insertar le devuelve la info al cliente
+                        string addr = mem_parse((void*)mserver.getmemoryoffsetint(offset));//parse mem to string
+                        string xref = int_tostring(mserver.get_varref("int",variable));//parse refnum to string
+                        json = jsonSender(addr,value,variable,xref);//crea el json a mandar
                         mserver.printmem();
                         log = msgsender(logger.get_infolog("variable: "+variable+ " was allocated successfully"),"msg");
                     }
@@ -311,13 +311,86 @@ int main()
                 //Para instanciar y sacar todas las variables de un vector usar:
                 for (auto & i : variables)
                 {
-                    //Utilizar i como la variable
+                    if(mserver.getlist("int")->findvar(i)){
+                        mserver.deleteint(i);
+                    }
+                    else if(mserver.getlist("float")->findvar(i)){
+                        mserver.deletefloat(i);
+                    }
+                    else if(mserver.getlist("double")->findvar(i)){
+                        mserver.deletedouble(i);
+                    }
+                    else if(mserver.getlist("long")->findvar(i)){
+                        mserver.deletelong(i);
+                    }
+                    else if(mserver.getlist("char")->findvar(i)){
+                        mserver.deletechar(i);
+                    }
+                    string type = "ignore";
+                    json = R"({"type":")" + type + R"(","msg":")" + "msg" + "\"}";
+                    log = msgsender(logger.get_infolog("Garbage collector clean unused variables!"),"msg");
                     cout << i << endl;
                 }
+                cout<<"**************************************************"<<endl;
+                mserver.printmem();
             }
             else if (type == "addRef"){
                 //anadir una referencia a la variable que le llega, el value esta estaria vacio
                 cout << "Entre a anadir una referencia: " << variable << endl;
+                if (value == "int"){
+                    mserver.add_varref("int",variable);
+                    offset = mserver.getlist("int")->findoffset(variable);
+                    int refnum = mserver.get_varref("int",variable);
+                    string addr = mem_parse((void*)mserver.getmemoryoffsetint(offset));
+                    string xref = int_tostring(refnum);
+                    int* val = mserver.getmemoryoffsetint(offset);
+                    json = jsonSender(addr, int_tostring(*val),variable,xref);
+                    log = msgsender(logger.get_infolog("variable: "+variable+ " has been referenced"),"msg");
+                }
+                else if (value=="float"){
+                    mserver.add_varref("float",variable);
+                    offset = mserver.getlist("float")->findoffset(variable);
+                    int refnum = mserver.get_varref("float",variable);
+                    string addr = mem_parse((void*)mserver.getmemoryoffsetfloat(offset));
+                    string xref = int_tostring(refnum);
+                    float val = *mserver.getmemoryoffsetfloat(offset);
+                    string valstr = to_string(val);
+                    json = jsonSender(addr, valstr,variable,xref);
+                    log = msgsender(logger.get_infolog("variable: "+variable+ " has been referenced"),"msg");
+                }
+                else if (value=="double"){
+                    mserver.add_varref("double",variable);
+                    offset = mserver.getlist("double")->findoffset(variable);
+                    int refnum = mserver.get_varref("double",variable);
+                    string addr = mem_parse((void*)mserver.getmemoryoffsetdouble(offset));
+                    string xref = int_tostring(refnum);
+                    double val = *mserver.getmemoryoffsetdouble(offset);
+                    string valstr = to_string(val);
+                    json = jsonSender(addr,valstr,variable,xref);
+                    log = msgsender(logger.get_infolog("variable: "+variable+ " has been referenced"),"msg");
+                }
+                else if (value=="char"){
+                    mserver.add_varref("char",variable);
+                    offset = mserver.getlist("char")->findoffset(variable);
+                    int refnum = mserver.get_varref("char",variable);
+                    string addr = mem_parse((void*)mserver.getmemoryoffsetchar(offset));
+                    string xref = int_tostring(refnum);
+                    char val = *mserver.getmemoryoffsetchar(offset);
+                    string valstr = to_string(val);
+                    json = jsonSender(addr,valstr,variable,xref);
+                    log = msgsender(logger.get_infolog("variable: "+variable+ " has been referenced"),"msg");
+                }
+                else if (value=="long"){
+                    mserver.add_varref("long",variable);
+                    offset = mserver.getlist("long")->findoffset(variable);
+                    int refnum = mserver.get_varref("long",variable);
+                    string addr = mem_parse((void*)mserver.getmemoryoffsetlong(offset));
+                    string xref = int_tostring(refnum);
+                    long long val = *mserver.getmemoryoffsetlong(offset);
+                    string valstr = to_string(val);
+                    json = jsonSender(addr,valstr,variable,xref);
+                    log = msgsender(logger.get_infolog("variable: "+variable+ " has been referenced"),"msg");
+                }
             }
             /*
             int a = 10;
