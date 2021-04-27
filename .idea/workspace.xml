@@ -12,14 +12,9 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2fe48f70-c3ca-42f2-bce1-2812ff8397cc" name="Default Changelist" comment="Ref getaddr complete">
+    <list default="true" id="2fe48f70-c3ca-42f2-bce1-2812ff8397cc" name="Default Changelist" comment="added doxygen documentation">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cliente-Servidor/Logger.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Cliente-Servidor/Logger.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cliente-Servidor/MemoryList/LinkedList.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Cliente-Servidor/MemoryList/LinkedList.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cliente-Servidor/MemoryList/Node.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Cliente-Servidor/MemoryList/Node.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cliente-Servidor/RLVList/RLVlist.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Cliente-Servidor/RLVList/RLVlist.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cliente-Servidor/RLVList/RLVnode.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Cliente-Servidor/RLVList/RLVnode.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cliente-Servidor/ClienteRes/GUI.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Cliente-Servidor/ClienteRes/GUI.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Cliente-Servidor/servidor.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Cliente-Servidor/servidor.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/cliente.dir/Cliente-Servidor/cliente.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/cliente.dir/Cliente-Servidor/cliente.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/mserver.dir/Cliente-Servidor/servidor.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/mserver.dir/Cliente-Servidor/servidor.cpp.o" afterDir="false" />
@@ -75,11 +70,6 @@
     </key>
   </component>
   <component name="RunManager" selected="CMake Application.cliente">
-    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="cliente" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Datos_2_Proyecto_1" TARGET_NAME="cliente" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Datos_2_Proyecto_1" RUN_TARGET_NAME="cliente">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -127,7 +117,8 @@
       <workItem from="1619483094223" duration="3926000" />
       <workItem from="1619489957878" duration="9154000" />
       <workItem from="1619501008929" duration="681000" />
-      <workItem from="1619550085487" duration="10465000" />
+      <workItem from="1619550085487" duration="11200000" />
+      <workItem from="1619563356252" duration="1087000" />
     </task>
     <task id="LOCAL-00001" summary="Added communication between server and client">
       <created>1619222048025</created>
@@ -206,7 +197,14 @@
       <option name="project" value="LOCAL" />
       <updated>1619498631390</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="added doxygen documentation">
+      <created>1619562041063</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1619562041063</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -236,6 +234,7 @@
     <MESSAGE value="RLV find value" />
     <MESSAGE value="added error in free memory" />
     <MESSAGE value="Ref getaddr complete" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ref getaddr complete" />
+    <MESSAGE value="added doxygen documentation" />
+    <option name="LAST_COMMIT_MESSAGE" value="added doxygen documentation" />
   </component>
 </project>

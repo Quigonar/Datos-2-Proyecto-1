@@ -334,8 +334,6 @@ public:
                 {
                     limit = 1;
                     codeBool = true;
-                    stdoutBool = false;
-                    appLogBool = false;
                 }
             }
             //Check if its the stdout background
@@ -344,7 +342,6 @@ public:
                 if (limit == 0)
                 {
                     limit = 1;
-                    stdoutBool = true;
                     codeBool = false;
                 }
             }
@@ -354,8 +351,6 @@ public:
                 if (limit == 0)
                 {
                     limit = 1;
-                    appLogBool = true;
-                    stdoutBool = false;
                     codeBool = false;
                 }
             }
