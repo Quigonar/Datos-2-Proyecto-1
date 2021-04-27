@@ -16,6 +16,11 @@ public:
     map<string, float> floats;
     map<string, double> doubles;
     map<string, char> chars;
+    map<string, string> referencesI;
+    map<string, string> referencesL;
+    map<string, string> referencesF;
+    map<string, string> referencesD;
+    map<string, string> referencesC;
     string terminal;
     vector<string> variableScope, addRef;
     bool scopeActive, printValue;
@@ -100,7 +105,8 @@ public:
         vector<string>::iterator it;
         line = node->data;
         bool ignoreStep = false;
-        string types[7] = {"int", "long", "char", "float", "double", "struct", "reference"};
+        string types[11] = {"int", "long", "char", "float", "double", "struct", "reference<int>", "reference<long>",
+                           "reference<float>", "reference<double>", "reference<char>"};
 
         delimiter = " ";
         auto start = 0U;
@@ -117,7 +123,7 @@ public:
             return "continue";
 
         //Verifica si el tipo esta definido al principio y define el tipo de la variable
-        for (n = 0; n < 7; n++)
+        for (n = 0; n < 11; n++)
         {
             if (lineSplit.front() == types[n])
             {
@@ -157,6 +163,31 @@ public:
         else if(chars.count(lineSplit.front()) > 0 && type.empty())
         {
             type = "char";
+            ignoreStep = true;
+        }
+        else if (referencesI.count(lineSplit.front()) > 0 && type.empty())
+        {
+            type = "reference<int>";
+            ignoreStep = true;
+        }
+        else if (referencesL.count(lineSplit.front()) > 0 && type.empty())
+        {
+            type = "reference<long>";
+            ignoreStep = true;
+        }
+        else if (referencesF.count(lineSplit.front()) > 0 && type.empty())
+        {
+            type = "reference<float>";
+            ignoreStep = true;
+        }
+        else if (referencesD.count(lineSplit.front()) > 0 && type.empty())
+        {
+            type = "reference<double>";
+            ignoreStep = true;
+        }
+        else if (referencesC.count(lineSplit.front()) > 0 && type.empty())
+        {
+            type = "reference<char>";
             ignoreStep = true;
         }
         else if(lineSplit.front() == "{" && lineSplit.size() == 1 && !scopeActive)
@@ -234,6 +265,41 @@ public:
                 printValue = false;
                 return "print";
             }
+            else if (referencesI.count(lineSplit.front()) > 0 )
+            {
+                string Type = "addRef";
+                addRef.push_back(R"({"type":")" + Type + R"(","value":")" + "char" + R"(","variable":")"+ lineSplit.front() +"\"}");
+                terminal.append(referencesI.at(lineSplit.front()) + "\n");
+                return "print";
+            }
+            else if (referencesL.count(lineSplit.front()) > 0 )
+            {
+                string Type = "addRef";
+                addRef.push_back(R"({"type":")" + Type + R"(","value":")" + "char" + R"(","variable":")"+ lineSplit.front() +"\"}");
+                terminal.append(referencesL.at(lineSplit.front()) + "\n");
+                return "print";
+            }
+            else if (referencesF.count(lineSplit.front()) > 0 )
+            {
+                string Type = "addRef";
+                addRef.push_back(R"({"type":")" + Type + R"(","value":")" + "char" + R"(","variable":")"+ lineSplit.front() +"\"}");
+                terminal.append(referencesF.at(lineSplit.front()) + "\n");
+                return "print";
+            }
+            else if (referencesD.count(lineSplit.front()) > 0 )
+            {
+                string Type = "addRef";
+                addRef.push_back(R"({"type":")" + Type + R"(","value":")" + "char" + R"(","variable":")"+ lineSplit.front() +"\"}");
+                terminal.append(referencesD.at(lineSplit.front()) + "\n");
+                return "print";
+            }
+            else if (referencesC.count(lineSplit.front()) > 0 )
+            {
+                string Type = "addRef";
+                addRef.push_back(R"({"type":")" + Type + R"(","value":")" + "char" + R"(","variable":")"+ lineSplit.front() +"\"}");
+                terminal.append(referencesC.at(lineSplit.front()) + "\n");
+                return "print";
+            }
         }
         //Y por ultimo devolver un error y desplegarlo en la terminal o stdout
         if (type.empty()) {
@@ -271,23 +337,23 @@ public:
         }
         //Revisa si se encuentra alguna error de sintaxis
         else if (lineSplit.front() == '=') {
-            terminal.append("Error! code syntaxis is wrong: forgot to declare variable\n");
+            terminal.append("Error! code syntaxis is wrong: forgot to declare variable or redefining variable\n");
             return "error";
         }
         else if (ints.count(lineSplit.front()) > 0 && !ignoreStep){
-            terminal.append("Error! code syntaxis is wrong: forgot to declare variable\n");
+            terminal.append("Error! code syntaxis is wrong: forgot to declare variable or redefining variable\n");
             return "error";
         }
         else if (longs.count(lineSplit.front()) > 0 && !ignoreStep){
-            terminal.append("Error! code syntaxis is wrong: forgot to declare variable\n");
+            terminal.append("Error! code syntaxis is wrong: forgot to declare variable or redefining variable\n");
             return "error";
         }
         else if (floats.count(lineSplit.front()) > 0 && !ignoreStep){
-            terminal.append("Error! code syntaxis is wrong: forgot to declare variable\n");
+            terminal.append("Error! code syntaxis is wrong: forgot to declare variable or redefining variable\n");
             return "error";
         }
         else if (doubles.count(lineSplit.front()) > 0 && !ignoreStep){
-            terminal.append("Error! code syntaxis is wrong: forgot to declare variable\n");
+            terminal.append("Error! code syntaxis is wrong: forgot to declare variable or redefining variable\n");
             return "error";
         }
         //Y si no se continua a encontrar el valor de la variable.
@@ -350,6 +416,10 @@ public:
                     value = to_string(chars.at(value));
                 }
 
+                if (ints.count(variable) > 0 || longs.count(variable) > 0 || floats.count(variable) > 0 || doubles.count(variable) > 0) {
+                    terminal.append("Error! redefining same variable: " + variable + "\n");
+                    return "error";
+                }
                 bool validValue = valueVerifier(type, value, variable, true);
                 if (validValue)
                 {
@@ -358,6 +428,90 @@ public:
                 }
             }
             //Si se encuentra algun tipo de operacion para realizarlo
+            else if (lineSplit.size() == 2 && (type == "reference<int>" || type == "reference<long>" || type == "reference<float>"
+                        || type == "reference<double>" || type == "reference<char>"))
+            {
+                if (lineSplit.front() == "getaddr" && lineSplit.back().back() == ';')
+                {
+                    if (type == "reference<int>" && ints.count(lineSplit.back().erase(lineSplit.back().size() - 1)) > 0)
+                    {
+                        string Type = "addRef";
+                        addRef.push_back(R"({"type":")" + Type + R"(","value":")" + "int" + R"(","variable":")"+ lineSplit.back() +"\"}");
+                        cout << "entered reference<int>" << endl;
+                        return "continue";
+                    }
+                    else if (type == "reference<long>" && longs.count(lineSplit.back().erase(lineSplit.back().size() - 1)) > 0)
+                    {
+                        string Type = "addRef";
+                        addRef.push_back(R"({"type":")" + Type + R"(","value":")" + "int" + R"(","variable":")"+ lineSplit.back() +"\"}");
+                        cout << "entered reference<long>" << endl;
+                        return "continue";
+                    }
+                    else if (type == "reference<float>" && floats.count(lineSplit.back().erase(lineSplit.back().size() - 1)) > 0)
+                    {
+                        string Type = "addRef";
+                        addRef.push_back(R"({"type":")" + Type + R"(","value":")" + "int" + R"(","variable":")"+ lineSplit.back() +"\"}");
+                        cout << "entered reference<float>" << endl;
+                        return "continue";
+                    }
+                    else if (type == "reference<double>" && doubles.count(lineSplit.back().erase(lineSplit.back().size() - 1)) > 0)
+                    {
+                        string Type = "addRef";
+                        addRef.push_back(R"({"type":")" + Type + R"(","value":")" + "int" + R"(","variable":")"+ lineSplit.back() +"\"}");
+                        cout << "entered reference<double>" << endl;
+                        return "continue";
+                    }
+                    else if (type == "reference<char>" && chars.count(lineSplit.back().erase(lineSplit.back().size() - 1)) > 0)
+                    {
+                        string Type = "addRef";
+                        addRef.push_back(R"({"type":")" + Type + R"(","value":")" + "int" + R"(","variable":")"+ lineSplit.back() +"\"}");
+                        cout << "entered reference<char>" << endl;
+                        return "continue";
+                    }
+                    else
+                    {
+                        terminal.append("Error! trying to access invalid variable's memory address\n");
+                        return "error";
+                    }
+                }
+                else
+                {
+                    terminal.append("Error! forgot to add \";\" or syntaxis error\n");
+                    return "error";
+                }
+            }
+            else if (lineSplit.size() == 2 && (type == "int" || type == "long" || type == "float" || type == "double"
+                    || type == "char"))
+            {
+                if (lineSplit.front() == "getvalue" && lineSplit.back().back() == ';')
+                {
+                    if (type == "int" && referencesI.count(lineSplit.back().erase(lineSplit.back().size() - 1)) > 0)
+                    {
+                        cout << "entered int for reference" << endl;
+                    }
+                    else if (type == "long" && referencesL.count(lineSplit.back().erase(lineSplit.back().size() - 1)) > 0)
+                    {
+                        cout << "entered long for reference" << endl;
+                    }
+                    else if (type == "float" && referencesF.count(lineSplit.back().erase(lineSplit.back().size() - 1)) > 0)
+                    {
+                        cout << "entered float for reference" << endl;
+                    }
+                    else if (type == "double" && referencesD.count(lineSplit.back().erase(lineSplit.back().size() - 1)) > 0)
+                    {
+                        cout << "entered double for reference" << endl;
+                    }
+                    else if (type == "char" && referencesC.count(lineSplit.back().erase(lineSplit.back().size() - 1)) > 0)
+                    {
+                        cout << "entered char for reference" << endl;
+                    }
+                    else
+                    {
+                        terminal.append("Error! trying to access invalid memory address\n");
+                        return "error";
+                    }
+                }
+            }
             else if (lineSplit.size() >= 3)
             {
                 if (lineSplit.at(1) == "+" || lineSplit.at(1) == "-" || lineSplit.at(1) == "*" || lineSplit.at(1) == "/")
