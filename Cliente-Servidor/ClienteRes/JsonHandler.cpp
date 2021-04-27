@@ -295,35 +295,35 @@ public:
             else if (referencesI.count(lineSplit.front()) > 0 )
             {
                 string Type = "addRef";
-                addRef.push_back(R"({"type":")" + Type + R"(","value":")" + "char" + R"(","variable":")"+ lineSplit.front() +"\"}");
+                addRef.push_back(R"({"type":")" + Type + R"(","value":")" + "ref" + R"(","variable":")"+ lineSplit.front() +"\"}");
                 terminal.append(referencesI.at(lineSplit.front()) + "\n");
                 return "print";
             }
             else if (referencesL.count(lineSplit.front()) > 0 )
             {
                 string Type = "addRef";
-                addRef.push_back(R"({"type":")" + Type + R"(","value":")" + "char" + R"(","variable":")"+ lineSplit.front() +"\"}");
+                addRef.push_back(R"({"type":")" + Type + R"(","value":")" + "ref" + R"(","variable":")"+ lineSplit.front() +"\"}");
                 terminal.append(referencesL.at(lineSplit.front()) + "\n");
                 return "print";
             }
             else if (referencesF.count(lineSplit.front()) > 0 )
             {
                 string Type = "addRef";
-                addRef.push_back(R"({"type":")" + Type + R"(","value":")" + "char" + R"(","variable":")"+ lineSplit.front() +"\"}");
+                addRef.push_back(R"({"type":")" + Type + R"(","value":")" + "ref" + R"(","variable":")"+ lineSplit.front() +"\"}");
                 terminal.append(referencesF.at(lineSplit.front()) + "\n");
                 return "print";
             }
             else if (referencesD.count(lineSplit.front()) > 0 )
             {
                 string Type = "addRef";
-                addRef.push_back(R"({"type":")" + Type + R"(","value":")" + "char" + R"(","variable":")"+ lineSplit.front() +"\"}");
+                addRef.push_back(R"({"type":")" + Type + R"(","value":")" + "ref" + R"(","variable":")"+ lineSplit.front() +"\"}");
                 terminal.append(referencesD.at(lineSplit.front()) + "\n");
                 return "print";
             }
             else if (referencesC.count(lineSplit.front()) > 0 )
             {
                 string Type = "addRef";
-                addRef.push_back(R"({"type":")" + Type + R"(","value":")" + "char" + R"(","variable":")"+ lineSplit.front() +"\"}");
+                addRef.push_back(R"({"type":")" + Type + R"(","value":")" + "ref" + R"(","variable":")"+ lineSplit.front() +"\"}");
                 terminal.append(referencesC.at(lineSplit.front()) + "\n");
                 return "print";
             }
@@ -441,6 +441,31 @@ public:
                     string Type = "addRef";
                     addRef.push_back(R"({"type":")" + Type + R"(","value":")" + "char" + R"(","variable":")" + value + "\"}");
                     value = to_string(chars.at(value));
+                }
+                else if (referencesI.count(value) > 0){
+                    string Type = "addRef";
+                    addRef.push_back(R"({"type":")" + Type + R"(","value":")" + "char" + R"(","variable":")" + value + "\"}");
+                    value = referencesI.at(value);
+                }
+                else if (referencesL.count(value) > 0){
+                    string Type = "addRef";
+                    addRef.push_back(R"({"type":")" + Type + R"(","value":")" + "char" + R"(","variable":")" + value + "\"}");
+                    value = referencesL.at(value);
+                }
+                else if (referencesF.count(value) > 0){
+                    string Type = "addRef";
+                    addRef.push_back(R"({"type":")" + Type + R"(","value":")" + "char" + R"(","variable":")" + value + "\"}");
+                    value = referencesF.at(value);
+                }
+                else if (referencesD.count(value) > 0){
+                    string Type = "addRef";
+                    addRef.push_back(R"({"type":")" + Type + R"(","value":")" + "char" + R"(","variable":")" + value + "\"}");
+                    value = referencesD.at(value);
+                }
+                else if (referencesC.count(value) > 0){
+                    string Type = "addRef";
+                    addRef.push_back(R"({"type":")" + Type + R"(","value":")" + "char" + R"(","variable":")" + value + "\"}");
+                    value = referencesC.at(value);
                 }
 
                 if (ints.count(variable) > 0 || longs.count(variable) > 0 || floats.count(variable) > 0 || doubles.count(variable) > 0) {

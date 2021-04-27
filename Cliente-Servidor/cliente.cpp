@@ -160,6 +160,11 @@ int main(int argc, char *argv[])
                 jsonHandler.doubles.clear();
                 jsonHandler.chars.clear();
                 jsonHandler.addRef.clear();
+                jsonHandler.referencesI.clear();
+                jsonHandler.referencesL.clear();
+                jsonHandler.referencesF.clear();
+                jsonHandler.referencesD.clear();
+                jsonHandler.referencesC.clear();
                 RLVStrA.clear();
                 RLVStrVal.clear();
                 RLVStrVar.clear();
