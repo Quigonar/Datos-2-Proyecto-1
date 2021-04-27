@@ -476,7 +476,7 @@ public:
                     else if (type == "reference<long>" && longs.count(lineSplit.back().erase(lineSplit.back().size() - 1)) > 0)
                     {
                         string Type = "addRef";
-                        addRef.push_back(R"({"type":")" + Type + R"(","value":")" + "int" + R"(","variable":")"+ lineSplit.back() +"\"}");
+                        addRef.push_back(R"({"type":")" + Type + R"(","value":")" + "long" + R"(","variable":")"+ lineSplit.back() +"\"}");
                         string mem = rlv->findmem(lineSplit.back());
                         bool validValue = valueVerifier(type, mem, variable, true);
                         type = "reference";
@@ -489,7 +489,7 @@ public:
                     else if (type == "reference<float>" && floats.count(lineSplit.back().erase(lineSplit.back().size() - 1)) > 0)
                     {
                         string Type = "addRef";
-                        addRef.push_back(R"({"type":")" + Type + R"(","value":")" + "int" + R"(","variable":")"+ lineSplit.back() +"\"}");
+                        addRef.push_back(R"({"type":")" + Type + R"(","value":")" + "float" + R"(","variable":")"+ lineSplit.back() +"\"}");
                         string mem = rlv->findmem(lineSplit.back());
                         bool validValue = valueVerifier(type, mem, variable, true);
                         type = "reference";
@@ -502,7 +502,7 @@ public:
                     else if (type == "reference<double>" && doubles.count(lineSplit.back().erase(lineSplit.back().size() - 1)) > 0)
                     {
                         string Type = "addRef";
-                        addRef.push_back(R"({"type":")" + Type + R"(","value":")" + "int" + R"(","variable":")"+ lineSplit.back() +"\"}");
+                        addRef.push_back(R"({"type":")" + Type + R"(","value":")" + "double" + R"(","variable":")"+ lineSplit.back() +"\"}");
                         string mem = rlv->findmem(lineSplit.back());
                         bool validValue = valueVerifier(type, mem, variable, true);
                         type = "reference";
@@ -515,7 +515,7 @@ public:
                     else if (type == "reference<char>" && chars.count(lineSplit.back().erase(lineSplit.back().size() - 1)) > 0)
                     {
                         string Type = "addRef";
-                        addRef.push_back(R"({"type":")" + Type + R"(","value":")" + "int" + R"(","variable":")"+ lineSplit.back() +"\"}");
+                        addRef.push_back(R"({"type":")" + Type + R"(","value":")" + "char" + R"(","variable":")"+ lineSplit.back() +"\"}");
                         string mem = rlv->findmem(lineSplit.back());
                         bool validValue = valueVerifier(type, mem, variable, true);
                         type = "reference";
