@@ -35,6 +35,8 @@ iostream
 -
 MemoryList/LinkedList.cpp
 /home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/Cliente-Servidor/MemoryList/LinkedList.cpp
+sstream
+-
 stdlib.h
 -
 

@@ -23,6 +23,8 @@ ClienteRes/GUI.cpp
 /home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/Cliente-Servidor/ClienteRes/ClienteRes/GUI.cpp
 rapidjson/document.h
 /home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/Cliente-Servidor/ClienteRes/rapidjson/document.h
+RLVList/RLVlist.cpp
+/home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/Cliente-Servidor/ClienteRes/RLVList/RLVlist.cpp
 
 /home/david/Documents/Proyecto 1/Datos-2-Proyecto-1/Cliente-Servidor/ClienteRes/ListaDobleEnlazada.cpp
 iostream

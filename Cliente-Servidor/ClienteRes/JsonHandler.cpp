@@ -468,6 +468,7 @@ public:
                         type = "reference";
                         if (validValue)
                         {
+                            cout<<"entra a reference sending"<<endl;
                             string jsonStr = R"({"type":")"+ type + R"(","value":")" + mem + R"(","variable":")" + variable + "\"}";
                             return jsonStr;
                         }

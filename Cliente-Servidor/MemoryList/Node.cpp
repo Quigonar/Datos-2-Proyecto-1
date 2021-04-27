@@ -7,10 +7,12 @@ class Node {
 public:
     //Atributes
     string name;
+    string refname;
     string type;
     int refnum;
     int offset;
     Node* next;
+    string mem;
 
 
     //Constructor with argument
@@ -19,7 +21,7 @@ public:
         type = atype;
         name = aname;
         next = NULL;
-        refnum = 0;
+        refnum = 1;
 
     }
 
@@ -29,6 +31,12 @@ public:
     }
     void add_refnum() {
         refnum++;
+    }
+    void set_mem(string amem){
+        mem = amem;
+    }
+    void set_refname(string arefname){
+        refname = arefname;
     }
 
 
@@ -49,6 +57,12 @@ public:
     }
     string get_name() {
         return name;
+    }
+    string get_mem(){
+        return mem;
+    }
+    string get_refname(){
+        return refname;
     }
 
 };

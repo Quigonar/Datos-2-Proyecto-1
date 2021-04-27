@@ -263,8 +263,10 @@ int main()
                         string xref = int_tostring(mserver.get_varref("double", variable));
                         json = jsonSender(addr, value, variable, xref);
                         mserver.printmem();
-                        log = msgsender(logger.get_infolog("variable: "+variable+ " was allocated successfully"),"msg");
-                    } else {
+                        log = msgsender(logger.get_infolog("variable: " + variable + " was allocated successfully"),
+                                        "msg");
+                    }
+                    else {
                         //retorna error para que salga en consola falta de memoria
                         json = msgsender(logger.get_errorlog("IDE is out of memory. Could not allocate variable"),"msg");
                     }
@@ -285,7 +287,31 @@ int main()
             }
             else if (type == "reference")
             {
-                //Hace offset de 4 bytes
+                if(!mserver.getlist("ref")->findvar(variable)){
+                    offset = mserver.getoffset();
+
+                    bool paso = mserver.addvariableref(type,variable,value);
+
+                    if (paso) {
+                        string addr = mem_parse((void *) mserver.getmemoryoffsetint(offset));
+                        string xref = int_tostring(mserver.get_varref("", variable));
+                        json = jsonSender(addr, value, variable, xref);
+                        mserver.printmem();
+                        log = msgsender(logger.get_infolog("variable: " + variable + " was allocated successfully"), "msg");
+                    }
+                    else{
+                        json = msgsender(logger.get_errorlog("IDE is out of memory. Could not allocate variable"),"msg");
+                    }
+                }
+                else{
+                    //redefine el valor de esa variable
+                    offset = mserver.change_refvar(variable, value);
+                    string addr = mem_parse((void*)mserver.getmemoryoffsetdouble(offset));
+                    string xref = int_tostring(mserver.get_varref("ref",variable));
+                    json = jsonSender(addr,value,variable,xref);
+                    mserver.printmem();
+                    log = msgsender(logger.get_infolog("variable: "+variable+ " was redefined successfully"),"msg");
+                }
             }
             else if (type == "free"){
                 mserver.free_memory();
