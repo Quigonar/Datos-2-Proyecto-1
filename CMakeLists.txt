@@ -7,10 +7,10 @@ include_directories(Cliente-Servidor Cliente-Servidor/ClienteRes)
 
 set(EXECUTABLE_NAME "cliente")
 set(EXECUTABLE_NAME2 "mserver")
-#set(EXECUTABLE_NAME3 "Manager")
+#set(EXECUTABLE_NAME3 "Logger")
 add_executable(${EXECUTABLE_NAME} Cliente-Servidor/cliente.cpp)
 add_executable(${EXECUTABLE_NAME2} Cliente-Servidor/servidor.cpp)
-#add_executable(${EXECUTABLE_NAME3} Cliente-Servidor/MemoryManager.cpp)
+#add_executable(${EXECUTABLE_NAME3} Cliente-Servidor/Logger.cpp)
 
 
 target_link_libraries(mserver sfml-network)

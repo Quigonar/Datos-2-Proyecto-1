@@ -17,17 +17,8 @@ class LinkedList {
 
 public:
     //Atributes
-    /**
-     * @brief Node* start es el inicio de la lista
-     */
     Node* start;
-    /**
-     * @brief int size es el tamaño de la lista
-     */
     int size;
-    /**
-     * @brief Node* tail es el ultimo elemento de la lista
-     */
     Node* tail;
 
     //Constructor
@@ -118,18 +109,18 @@ public:
     }
 
     /**
-     * @brief findvar
-     * @param aname
-     * @return
+     * @brief findvar encuentra si la variable existe dentro de la lista
+     * @param aname nombre de la variable quese quiere encontrar
+     * @return retorna un booleano que indica si existe o no la variable
      */
     bool findvar(string aname) {
-        if (start == NULL)
+        if (start == NULL)//lista vacia
         {
             return false;
         }
-        else if (start == tail)
+        else if (start == tail)//lista solo tiene un elemento
         {
-            if (start->get_name() == aname)
+            if (start->get_name() == aname)//revisar el nombre del primero elemento
             {
                 return true;
             }
@@ -140,37 +131,43 @@ public:
         }
         else
         {
-            if (start->get_name() == aname)
+            if (start->get_name() == aname)//revisar el nombre del primer elemento
             {
                 return true;
             }
             else
             {
-                Node* tmp = start->get_next();
+                Node* tmp = start->get_next();//buscar a traves de toda la lista
                 while (tmp != NULL)
                 {
-                    if (tmp->get_name() == aname)
+                    if (tmp->get_name() == aname)//revisar si el elemento es igual al nombre que se busca
                     {
                         return true;
                     }
 
-                    tmp = tmp->get_next();
+                    tmp = tmp->get_next();//siguente elemento
                 }
 
                 return false;
             }
         }
     }
+
+    /**
+     * @brief findref buscar la cantidad de referencias que tenga la variable que se pida
+     * @param aname nombre de la variable que se quiere obtener la referencia
+     * @return retorna la cantidad de referencias
+     */
     int findref(string aname) {
-        if (start == NULL)
+        if (start == NULL)//lista nula
         {
             return 0;
         }
-        else if (start == tail)
+        else if (start == tail)//lista solo tiene un elemento
         {
-            if (start->get_name() == aname)
+            if (start->get_name() == aname)//revisar el primer elemento
             {
-                return start->get_refnum();
+                return start->get_refnum();//obtiene refnum
             }
             else
             {
@@ -179,21 +176,21 @@ public:
         }
         else
         {
-            if (start->get_name() == aname)
+            if (start->get_name() == aname)//revisar el primer elemento
             {
-                return start->get_refnum();;
+                return start->get_refnum();//obtiene refnum
             }
             else
             {
-                Node* tmp = start->get_next();
+                Node* tmp = start->get_next();//buscar a traves de la lista
                 while (tmp != NULL)
                 {
-                    if (tmp->get_name() == aname)
+                    if (tmp->get_name() == aname)//revisar si el elemento es name
                     {
-                        return tmp->get_refnum();;
+                        return tmp->get_refnum();//retorna las referencias
                     }
 
-                    tmp = tmp->get_next();
+                    tmp = tmp->get_next();//siguiente elemento
                 }
 
                 return 0;
@@ -201,124 +198,139 @@ public:
         }
     }
 
+    /**
+     * @brief changeref cambia la cantidad de referencias que tenga una variable
+     * @param aname nombre de la variable
+     */
     void changeref(string aname) {
-        if (start == NULL)
+        if (start == NULL)//lista vacia
         {
             //Lista vacia
         }
-        else if (start == tail)
+        else if (start == tail)//lista de un solo elemento
         {
-            if (start->get_name() == aname)
+            if (start->get_name() == aname)//revisar si elemento es name
             {
-                start->add_refnum();
+                start->add_refnum();//agrega referencia a variable
             }
 
         }
         else
         {
-            if (start->get_name() == aname)
+            if (start->get_name() == aname)//revisar si elemento es name
             {
-                start->add_refnum();
+                start->add_refnum();//agrega referencia a variable
             }
             else
             {
-                Node* tmp = start->get_next();
+                Node* tmp = start->get_next();//buscar elemento
                 while (tmp != NULL)
                 {
-                    if (tmp->get_name() == aname)
+                    if (tmp->get_name() == aname)//revisar si elemento es name
                     {
-                        tmp->add_refnum();
+                        tmp->add_refnum();//agrega referencia a variable
                         break;
                     }
 
-                    tmp = tmp->get_next();
+                    tmp = tmp->get_next();//siguiente elemento
                 }
             }
         }
     }
+
+    /**
+     * @brief changemem cambia el espacio de memoria del puntero
+     * @param aname nombre de la variable
+     * @param value espacio de memoria en string
+     */
     void changemem(string aname,string value) {
-        if (start == NULL)
+        if (start == NULL)//lista vacia
         {
             //Lista vacia
         }
-        else if (start == tail)
+        else if (start == tail)//lista de un elemento
         {
-            if (start->get_name() == aname)
+            if (start->get_name() == aname)//revisar si comple condicion
             {
-                start->set_mem(value);
+                start->set_mem(value);//se hace set de nuevo mem
             }
 
         }
         else
         {
-            if (start->get_name() == aname)
+            if (start->get_name() == aname)//revisar si comple condicion
             {
-                start->set_mem(value);
+                start->set_mem(value);//se hace set de nuevo mem
             }
             else
             {
-                Node* tmp = start->get_next();
+                Node* tmp = start->get_next();//buscar en lista
                 while (tmp != NULL)
                 {
-                    if (tmp->get_name() == aname)
+                    if (tmp->get_name() == aname)//revisar si comple condicion
                     {
-                        tmp->set_mem(value);
+                        tmp->set_mem(value);//se hace set de nuevo mem
                         break;
                     }
 
-                    tmp = tmp->get_next();
+                    tmp = tmp->get_next();//siguiente elemento
                 }
             }
         }
     }
 
-    int findoffset(string aname) {
-        if (start == NULL)
-        {
 
+    /**
+     * @brief finsoffset retorna el offset de la variable
+     * @param aname nombre de la variable
+     * @return offset de la variable
+     */
+    int findoffset(string aname) {
+        if (start == NULL)//lista nula
+        {
             return -1;
         }
-        else if (start == tail)
+        else if (start == tail)//lista de 1 elemento
         {
-
-
-            if (start->get_name() == aname)
+            if (start->get_name() == aname)//revisra head
             {
-                cout<< "entro segundo if"<<endl;
-                return start->get_offset();
-
+                return start->get_offset();//retorna offset
             }
         }
         else
         {
-            if (start->get_name() == aname)
+            if (start->get_name() == aname)//revisra head
             {
-                return start->get_offset();
+                return start->get_offset();//retorna offset
             }
             else
             {
                 Node* tmp = start->get_next();
                 while (tmp != NULL)
                 {
-                    if (tmp->get_name() == aname)
+                    if (tmp->get_name() == aname)//revisar elemento
                     {
-                        return tmp->get_offset();;
+                        return tmp->get_offset();//retorna offset
                     }
 
-                    tmp = tmp->get_next();
+                    tmp = tmp->get_next();//siguiente elemento
                 }
-                cout<< "entro 4 if"<<endl;
                 return -1;
             }
         }
     }
 
+    /**
+     * @brief delete_elem borra el elemento que se le indique de la memoria
+     * @param aname nombre de variable
+     */
     void delete_elem(string aname){
-        if (start == NULL){
+        if (start == NULL){//lista nula
             //
         }else {
-            if (start == tail){
+            if (start == tail){//revisar head
                 if (start->get_name() == aname) {
+                    //inicializa lista
                     free(start);
                     start = NULL;
                     tail = NULL;
@@ -326,7 +338,8 @@ public:
                 }
             }
             else{
-                if (start->get_name() == aname) {
+                if (start->get_name() == aname) {//revisar head
+                    //inicializa lista
                     free(start);
                     start = start->get_next();
                     size--;
@@ -334,54 +347,59 @@ public:
                 else{
 
                     Node* tmp = start;
-                    while (tmp->get_next() != NULL)
+                    while (tmp->get_next() != NULL)//busca el elemento
                     {
-                        if (tmp->get_next()->get_name() == aname)
+                        if (tmp->get_next()->get_name() == aname)//lo encuentra
                         {
-
                             Node* tmpnext = tmp->get_next();
-                            if (tmpnext == tail){
+                            if (tmpnext == tail){//si el nodo el el ultimo elemento
                                 tail = tmp;
                                 tail->set_next(NULL);
                                 size--;
                                 break;
                             }
                             else{
+                                //se salta el elemento que se quiere borrar
                                 tmp->set_next(tmpnext->get_next());
                                 size--;
                                 break;
                             }
                         }
-                        tmp = tmp->get_next();
+                        tmp = tmp->get_next();//siguiente elemento
                     }
                 }
             }
         }
     }
+
+    /**
+     * @brief deleteall borra toda la lisa
+     */
     void deleteall(){
         start = NULL;
         tail = NULL;
         size = 0;
     }
+
     //print list
+    /**
+     * @brief printList imprime la lista en consola
+     */
     void printList() {
 
-        if (size == 0)
+        if (size == 0)//lista vacia
         {
             cout << "Lista Vacia" << endl;
-
         }
         else {
 
             Node* tmp = start;
-
             while (tmp != NULL)
             {
                 cout << "|" << tmp->get_varoffset()<<" : "<<tmp->name<< "|-->";
                 tmp = tmp->get_next();
             }
             cout << " " << endl;
-
         }
     }
 };
