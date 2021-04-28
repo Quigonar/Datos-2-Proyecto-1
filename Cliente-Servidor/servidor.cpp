@@ -154,6 +154,7 @@ int main()
     Document petition;//petition del packetR
     string json;//json que se manda
     string log = "";//log msg que se manda
+    string auxjson = "";//log msg que se manda
     Logger logger;//instancia de clase Logger
     MemoryManager mserver(10*10*10*10*10*10);//instancia de memory manager con 1 MB
 
@@ -457,7 +458,7 @@ int main()
                 mserver.addvariablestruct(variable,offset1,type1);
                 json = jsonSender(addr1,value1,variable,xref1);
                 log = jsonSender(addr2,value2," ", " ");
-
+                auxjson = msgsender(logger.get_infolog("Struct: " + variable + " was allocated successfully"), "msg");
             }
             else if (type == "reference")//revisa se le envio menssaje para creacion de un referencetype
             {
@@ -626,6 +627,13 @@ int main()
             json = "";//vacia el log
 
             if(log != ""){// si se genero un log de error
+                cout<<"log is being sent"<<endl;
+                packetS << log;
+                socket.send(packetS);
+                log = "";
+                packetS.clear();
+            }
+            if(auxjson != ""){// si se genero un log de error
                 cout<<"log is being sent"<<endl;
                 packetS << log;
                 socket.send(packetS);
