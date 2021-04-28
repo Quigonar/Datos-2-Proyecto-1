@@ -382,6 +382,10 @@ public:
         {
             refarray.changeref(name);
         }
+        else if (type == "struct")
+        {
+            structarray.changeref(name);
+        }
     }
 
     /**
@@ -452,6 +456,16 @@ public:
                 return -1;
             }
         }
+        else if (type == "struct")
+        {
+            if(structarray.findvar(name)){
+                int xref = structarray.findref(name);
+                return xref;
+            }
+            else{
+                return -1;
+            }
+        }
     }
 
     /**
@@ -513,6 +527,9 @@ public:
      void deleteref(string name){
          refarray.delete_elem(name);
      }
+    void deletestruct(string name){
+        structarray.delete_elem(name);
+    }
 
      /**
       * @brief printmem imprime la memoria en consola para hacer casos de prueba
@@ -630,6 +647,10 @@ public:
             return &longarray;
         }
         else if (type == "ref")
+        {
+            return &refarray;
+        }
+        else if (type == "struct")
         {
             return &refarray;
         }
