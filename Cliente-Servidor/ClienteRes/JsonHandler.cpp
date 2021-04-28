@@ -30,9 +30,11 @@ public:
     map<string, string> referencesF;
     map<string, string> referencesD;
     map<string, string> referencesC;
-    string terminal;
+    map<string, string> structs;
+    string terminal, structName;
+    int counter = 1;
     vector<string> variableScope, addRef;
-    bool scopeActive, printValue, changeType;
+    bool scopeActive, printValue, changeType, isStruct;
     RLVlist* rlv;
 
     /**
@@ -105,12 +107,11 @@ public:
                     doubles[variable] = num;
                 return true;
             }
-            /*
             else if (type == "struct" && *(typeid(stoi(value)).name()) == 's')
             {
                 cout << "Not implemented yet" << endl;
                 return true;
-            }*/
+            }
             //Verifica que el reference<int> ingresado sea valido
             else if (type == "reference<int>")
             {
@@ -277,7 +278,7 @@ public:
             return "continue";
         }
         //Si se encuentra el final de un scope se envian las variables al server para el garbage collector
-        else if(lineSplit.front() == "}" && lineSplit.size() == 1 && scopeActive)
+        else if(lineSplit.front() == "}" && lineSplit.size() == 1 && scopeActive && !isStruct)
         {
             string variables;
             for (auto & i : variableScope)
@@ -292,12 +293,32 @@ public:
                     doubles.erase(i);
                 else if (chars.count(i) > 0)
                     chars.erase(i);
+                else if (referencesI.count(i) > 0)
+                    referencesI.erase(i);
+                else if (referencesL.count(i) > 0)
+                    referencesL.erase(i);
+                else if (referencesF.count(i) > 0)
+                    referencesF.erase(i);
+                else if (referencesD.count(i) > 0)
+                    referencesD.erase(i);
+                else if (referencesC.count(i) > 0)
+                    referencesC.erase(i);
 
                 variables.append(i + ",");
             }
             scopeActive = false;
             string Type = "garbage";
             string jsonStr = R"({"type":")" + Type + R"(","value":")" + "value" + R"(","variable":")"+ variables +"\"}";
+            return jsonStr;
+        }
+        else if(lineSplit.front() == "}" && lineSplit.size() == 1 && !scopeActive && isStruct)
+        {
+            string variables = structs.at(structName);
+            type = "struct";
+            isStruct = false;
+            string jsonStr = R"({"type":")" + type + R"(","value":")" + variables + R"(","variable":")"+ structName +"\"}";
+            structName = "";
+            counter = 1;
             return jsonStr;
         }
         //Si no seria el imprimir alguna variable y desplegarla en la terminal o stdout
@@ -390,8 +411,11 @@ public:
             return "error";
         }
 
+        if (type == "struct")
+            isStruct = true;
+
         //Luego revisa si solo se define la variable sin valor alguno por lo cual por default se le da valor de NULL o 0
-        if (lineSplit.front().length() >= 2 && lineSplit.front().back() == ';')
+        if (lineSplit.front().length() >= 2 && lineSplit.front().back() == ';' && !isStruct)
         {
             variable = lineSplit.front().erase(lineSplit.front().length() - 1);
             //Si la variable se define dentro de un scope se anade a un vector para tomarlo en cuenta luego
@@ -441,6 +465,24 @@ public:
                 string jsonStr = R"({"type":")"+ type + R"(","value":")" + value + R"(","variable":")" + variable + "\"}";
                 return jsonStr;
             }
+        }
+        else if (lineSplit.front().length() >= 2 && lineSplit.front().back() == ';' && isStruct && counter <= 2)
+        {
+            if (counter < 2)
+                structs.at(structName) += type + "," + lineSplit.front().erase(lineSplit.front().length() - 1) + ",";
+            else if (counter == 2)
+                structs.at(structName) += type + "," + lineSplit.front().erase(lineSplit.front().length() - 1);
+            cout << counter << endl;
+            cout << structs.at(structName) << endl;
+            counter++;
+            return "continue";
+        }
+        if (isStruct && lineSplit.front().size() >= 2 && lineSplit.front().back() == '{')
+        {
+            variable = lineSplit.front().erase(lineSplit.front().length() - 1);
+            structs[variable] = "";
+            structName = variable;
+            return "continue";
         }
         //Revisa si se encuentra alguna error de sintaxis
         else if (lineSplit.front() == '=') {
@@ -492,7 +534,7 @@ public:
         }
 
         //Si el sintaxis esta bien escrito se procede a poner el valor a la variable
-        if (lineSplit.front() == '=')
+        if (lineSplit.front() == '=' && !isStruct)
         {
             it = lineSplit.begin();
             lineSplit.erase(it);
@@ -1046,7 +1088,7 @@ public:
         }
         //Si no hay problema de sintaxis en el codigo
         else
-            terminal.append("Error! code syntaxis is wrong: forgot to add value to the variable\n");
+            terminal.append("Error! code syntaxis is wrong: forgot to add value to the variable or defining inside struct or defining more that 2 variables inside struct\n");
         return "error";
     }
     /**
