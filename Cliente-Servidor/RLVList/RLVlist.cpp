@@ -395,8 +395,22 @@ public:
                                 break;
                             }
                             else{
+
                                 tmp->set_next(tmpnext->get_next());//saltar elemento
                                 size--;
+                                tmpnext = tmp->get_next();
+                                if(tmp->get_next()->get_name() == " "){
+                                    if (tmp->get_next() == tail){
+                                        tail = tmp;
+                                        tail->set_next(NULL);
+                                        size--;
+                                        break;
+                                    }
+                                    else{
+                                        tmp->set_next(tmpnext->get_next());//saltar elemento
+                                        size--;
+                                    }
+                                }
                                 break;
                             }
                         }

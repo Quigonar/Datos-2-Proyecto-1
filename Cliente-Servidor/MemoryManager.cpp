@@ -484,6 +484,7 @@ public:
         longarray.deleteall();
         chararray.deleteall();
         refarray.deleteall();
+        structarray.deleteall();
     }
     /**
      * @brief deleteint se encarga de borrar la variable int que se le indique de memoria
