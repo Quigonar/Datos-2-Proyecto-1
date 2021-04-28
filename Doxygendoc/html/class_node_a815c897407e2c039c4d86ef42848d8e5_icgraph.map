@@ -1,0 +1,27 @@
+<map id="Node::get_next" name="Node::get_next">
+<area shape="rect" id="node1" title="get_next retorna el puntero al siguiente elemento" alt="" coords="607,459,728,486"/>
+<area shape="rect" id="node2" href="$class_linked_list.html#aed0af5eb2e87e7fd2e93938139944fa3" title="changemem cambia el espacio de memoria del puntero" alt="" coords="383,543,559,570"/>
+<area shape="rect" id="node5" href="$class_linked_list.html#a5cdd735aa5956e122506001542b020fb" title="changeref cambia la cantidad de referencias que tenga una variable" alt="" coords="391,93,551,119"/>
+<area shape="rect" id="node7" href="$class_linked_list.html#a629ffde4aacdca24b641c2497a38f60a" title="delete_elem borra el elemento que se le indique de la memoria" alt="" coords="383,223,559,250"/>
+<area shape="rect" id="node14" href="$class_linked_list.html#a3b2f0e81de101d993e61259ff8d13e12" title="find busca si la variable existe en la lista" alt="" coords="411,379,530,406"/>
+<area shape="rect" id="node16" href="$class_linked_list.html#a6fc1e6dd702fa563cc9ab8c0e7e83db5" title="finsoffset retorna el offset de la variable" alt="" coords="393,681,549,707"/>
+<area shape="rect" id="node22" href="$class_linked_list.html#ad89a7b72aff9979f14ae6b5f1af01f2e" title="findref buscar la cantidad de referencias que tenga la variable que se pida" alt="" coords="402,485,539,511"/>
+<area shape="rect" id="node24" href="$class_linked_list.html#a15a6453db577467a288d260f8a07377d" title="findvar encuentra si la variable existe dentro de la lista" alt="" coords="401,434,541,461"/>
+<area shape="rect" id="node25" href="$class_linked_list.html#ac96230938fd74a4efeb4efe8c995ee53" title="printList imprime la lista en consola" alt="" coords="397,731,545,758"/>
+<area shape="rect" id="node3" href="$class_memory_manager.html#ad0b1e91a275b5aad933f3cdbfdafc924" title="change_refvar cambia el valor de la variable ref que se le indique" alt="" coords="127,543,315,584"/>
+<area shape="rect" id="node4" href="$servidor_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main es la funcion donde corre el servido se y se hace el manejo de mensajes y memoria con el cliente" alt="" coords="5,455,60,482"/>
+<area shape="rect" id="node6" href="$class_memory_manager.html#ac13f4ee68e31bb830abf916904b033ba" title="add_varref le suma la cantidad de veces que la variable esta siendo referenciada" alt="" coords="139,5,304,47"/>
+<area shape="rect" id="node8" href="$class_memory_manager.html#a975493c199eb27fc21b4f8271206e5b6" title="deleteint se encarga de borrar la variable char que se le indique de memoria" alt="" coords="116,223,327,250"/>
+<area shape="rect" id="node9" href="$class_memory_manager.html#a66ce8cf5daa3ca1c276dad7d36689c65" title="deleteint se encarga de borrar la variable double que se le indique de memoria" alt="" coords="108,274,335,301"/>
+<area shape="rect" id="node10" href="$class_memory_manager.html#ad86bd94b55fe72b882e22570df0466bf" title="deleteint se encarga de borrar la variable float que se le indique de memoria" alt="" coords="116,325,327,351"/>
+<area shape="rect" id="node11" href="$class_memory_manager.html#a786146a210b34268ad185b8f2ea36bda" title="deleteint se encarga de borrar la variable int que se le indique de memoria" alt="" coords="122,71,321,98"/>
+<area shape="rect" id="node12" href="$class_memory_manager.html#a5d3ba83cdb4309b3c080ccf0f42c5e26" title="deleteint se encarga de borrar la variable long que se le indique de memoria" alt="" coords="116,122,327,149"/>
+<area shape="rect" id="node13" href="$class_memory_manager.html#a8a2925eb68f8c0e26947385d5235892c" title="deleteint se encarga de borrar la variable ref que se le indique de memoria" alt="" coords="121,173,321,199"/>
+<area shape="rect" id="node15" href="$class_memory_manager.html#ae416e1713c377be836e23fa1ab13fdfa" title="printmem imprime la memoria en consola para hacer casos de prueba" alt="" coords="119,375,324,402"/>
+<area shape="rect" id="node17" href="$class_memory_manager.html#a8d27e28b889c7fcbd1132ca31adc96a1" title="change_charvar cambia el valor de la variable char que se le indique" alt="" coords="127,608,315,649"/>
+<area shape="rect" id="node18" href="$class_memory_manager.html#a3d48aadfef60b4f045ae7fd1e854e57f" title="change_doublevar cambia el valor de la variable double que se le indique" alt="" coords="127,673,315,715"/>
+<area shape="rect" id="node19" href="$class_memory_manager.html#a921cac750cccfa74f0f4b91345b3f334" title="change_floatvar cambia el valor de la variable float que se le indique" alt="" coords="127,739,315,780"/>
+<area shape="rect" id="node20" href="$class_memory_manager.html#acb994c7c12a7ce5c3281773fcf3bdb8e" title="change_intvar cambia el valor de la variable int que se le indique" alt="" coords="127,804,315,845"/>
+<area shape="rect" id="node21" href="$class_memory_manager.html#aa6882aaea670ea33fc27a66e0a0e7142" title="change_longvar cambia el valor de la variable long que se le indique" alt="" coords="127,869,315,911"/>
+<area shape="rect" id="node23" href="$class_memory_manager.html#a5bd75f7a078bd5c87713480c252532ac" title="get_varref se encarga de retornar la cantidad de referencias que tenga la variable que se le indique" alt="" coords="140,477,303,519"/>
+</map>

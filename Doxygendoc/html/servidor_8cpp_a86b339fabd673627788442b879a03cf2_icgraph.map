@@ -1,0 +1,4 @@
+<map id="msgsender" name="msgsender">
+<area shape="rect" id="node1" title="msgsender se encarga de formatear los mensajes de info o de log servidor&#45;&gt;cliente" alt="" coords="108,5,203,32"/>
+<area shape="rect" id="node2" href="$servidor_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main es la funcion donde corre el servido se y se hace el manejo de mensajes y memoria con el cliente" alt="" coords="5,5,60,32"/>
+</map>

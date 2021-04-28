@@ -1,0 +1,4 @@
+<map id="MemoryManager::add_varref" name="MemoryManager::add_varref">
+<area shape="rect" id="node1" title="add_varref le suma la cantidad de veces que la variable esta siendo referenciada" alt="" coords="108,5,273,47"/>
+<area shape="rect" id="node2" href="$servidor_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main es la funcion donde corre el servido se y se hace el manejo de mensajes y memoria con el cliente" alt="" coords="5,13,60,39"/>
+</map>

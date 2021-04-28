@@ -1,0 +1,7 @@
+<map id="Node::get_varoffset" name="Node::get_varoffset">
+<area shape="rect" id="node1" title="get_varoffset retorna el valor del offset de la variable" alt="" coords="557,31,708,57"/>
+<area shape="rect" id="node2" href="$class_linked_list.html#a3b2f0e81de101d993e61259ff8d13e12" title="find busca si la variable existe en la lista" alt="" coords="376,5,495,32"/>
+<area shape="rect" id="node5" href="$class_linked_list.html#ac96230938fd74a4efeb4efe8c995ee53" title="printList imprime la lista en consola" alt="" coords="361,56,509,83"/>
+<area shape="rect" id="node3" href="$class_memory_manager.html#ae416e1713c377be836e23fa1ab13fdfa" title="printmem imprime la memoria en consola para hacer casos de prueba" alt="" coords="108,5,313,32"/>
+<area shape="rect" id="node4" href="$servidor_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main es la funcion donde corre el servido se y se hace el manejo de mensajes y memoria con el cliente" alt="" coords="5,5,60,32"/>
+</map>

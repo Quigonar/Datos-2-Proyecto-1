@@ -1,0 +1,11 @@
+<map id="RLVnode::get_name" name="RLVnode::get_name">
+<area shape="rect" id="node1" title="get_name retorna el nombre de la variable" alt="" coords="532,132,683,159"/>
+<area shape="rect" id="node2" href="$class_r_l_vlist.html#a40e20813d428dbcfd53c89383cfec681" title="change_ref cambia la cantidad de referencias del elemento" alt="" coords="337,5,483,32"/>
+<area shape="rect" id="node3" href="$class_r_l_vlist.html#aa133487173bdd4b03b44c13a2bbd6cd2" title="change_val busca el elemento y cambia el valor" alt="" coords="336,56,484,83"/>
+<area shape="rect" id="node4" href="$class_r_l_vlist.html#a5dda3a82a02f189fbd2d47fb6be148c9" title="find busca si la variable existe en la lista" alt="" coords="361,107,459,133"/>
+<area shape="rect" id="node5" href="$class_r_l_vlist.html#a26bf143d1887ef81a25b8b7474d2da94" title="findmem busca el espacio de memoria de la variable" alt="" coords="344,157,476,184"/>
+<area shape="rect" id="node8" href="$class_r_l_vlist.html#a36345994af3742fb6e4b34bf8d53afc4" title="get_name organiza todos los nombres para el RLV" alt="" coords="341,208,479,235"/>
+<area shape="rect" id="node9" href="$class_r_l_vlist.html#a43d6d7da57f13397db3222580a38ef0c" title=" " alt="" coords="339,259,481,285"/>
+<area shape="rect" id="node6" href="$class_json_handler.html#a7b299cae60de054f4fdb51539116796b" title="verificador de las lineas el cual tambien crea los errores en el stdout y los JSONs que se envian al ..." alt="" coords="108,157,288,184"/>
+<area shape="rect" id="node7" href="$cliente_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main es el main del IDE o cliente" alt="" coords="5,157,60,184"/>
+</map>

@@ -1,0 +1,8 @@
+<map id="MemoryManager::get_varref" name="MemoryManager::get_varref">
+<area shape="rect" id="node1" title="get_varref se encarga de retornar la cantidad de referencias que tenga la variable que se le indique" alt="" coords="5,23,168,65"/>
+<area shape="rect" id="node2" href="$class_linked_list.html#ad89a7b72aff9979f14ae6b5f1af01f2e" title="findref buscar la cantidad de referencias que tenga la variable que se pida" alt="" coords="217,56,355,83"/>
+<area shape="rect" id="node6" href="$class_linked_list.html#a15a6453db577467a288d260f8a07377d" title="findvar encuentra si la variable existe dentro de la lista" alt="" coords="216,5,356,32"/>
+<area shape="rect" id="node3" href="$class_node.html#a81e9f5e01dea4e47abf7a911b5bc5296" title="get_name retorna el nombre de la variable" alt="" coords="409,56,538,83"/>
+<area shape="rect" id="node4" href="$class_node.html#a815c897407e2c039c4d86ef42848d8e5" title="get_next retorna el puntero al siguiente elemento" alt="" coords="413,5,534,32"/>
+<area shape="rect" id="node5" href="$class_node.html#a80dc873551ff3878fcaaa260bde603af" title="get_refnum retorna la cantidad de referencias" alt="" coords="404,107,543,133"/>
+</map>

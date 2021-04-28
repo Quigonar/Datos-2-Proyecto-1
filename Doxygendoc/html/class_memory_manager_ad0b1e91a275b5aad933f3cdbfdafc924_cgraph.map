@@ -1,0 +1,9 @@
+<map id="MemoryManager::change_refvar" name="MemoryManager::change_refvar">
+<area shape="rect" id="node1" title="change_refvar cambia el valor de la variable ref que se le indique" alt="" coords="5,74,193,115"/>
+<area shape="rect" id="node2" href="$class_linked_list.html#aed0af5eb2e87e7fd2e93938139944fa3" title="changemem cambia el espacio de memoria del puntero" alt="" coords="241,107,417,133"/>
+<area shape="rect" id="node6" href="$class_linked_list.html#a6fc1e6dd702fa563cc9ab8c0e7e83db5" title="finsoffset retorna el offset de la variable" alt="" coords="251,56,407,83"/>
+<area shape="rect" id="node3" href="$class_node.html#a81e9f5e01dea4e47abf7a911b5bc5296" title="get_name retorna el nombre de la variable" alt="" coords="465,56,595,83"/>
+<area shape="rect" id="node4" href="$class_node.html#a815c897407e2c039c4d86ef42848d8e5" title="get_next retorna el puntero al siguiente elemento" alt="" coords="469,107,591,133"/>
+<area shape="rect" id="node5" href="$class_node.html#a2c4f94e88a6bdf0b3b8a2d4c32034bd9" title="set_mem cambia el valor al que apunta el puntero" alt="" coords="467,157,593,184"/>
+<area shape="rect" id="node7" href="$class_node.html#a66846674168da0221996ea08edca4aea" title="get_offset retorna el offset de la variable" alt="" coords="465,5,595,32"/>
+</map>

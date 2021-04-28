@@ -1,0 +1,8 @@
+<map id="RLVnode::get_mem" name="RLVnode::get_mem">
+<area shape="rect" id="node1" title="get_mem retorna memoria de la variable" alt="" coords="541,56,689,83"/>
+<area shape="rect" id="node2" href="$class_r_l_vlist.html#a26bf143d1887ef81a25b8b7474d2da94" title="findmem busca el espacio de memoria de la variable" alt="" coords="349,5,481,32"/>
+<area shape="rect" id="node5" href="$class_r_l_vlist.html#a2c98b89a346b9417e974640deadb7c2e" title="findvalue busca el valor de la variable con el espacio de memoria" alt="" coords="347,56,482,83"/>
+<area shape="rect" id="node6" href="$class_r_l_vlist.html#a94c3188c9a766c2897cc69a26bf4c85b" title="get_memory organiza todos los espacios de memoria para el RLV" alt="" coords="336,107,493,133"/>
+<area shape="rect" id="node3" href="$class_json_handler.html#a7b299cae60de054f4fdb51539116796b" title="verificador de las lineas el cual tambien crea los errores en el stdout y los JSONs que se envian al ..." alt="" coords="108,31,288,57"/>
+<area shape="rect" id="node4" href="$cliente_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main es el main del IDE o cliente" alt="" coords="5,31,60,57"/>
+</map>

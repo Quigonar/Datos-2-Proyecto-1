@@ -1,0 +1,4 @@
+<map id="RLVlist" name="RLVlist">
+<area shape="rect" id="node1" title="Clase RLVlist se encarga del manejo de datos del Ram Live View." alt="" coords="11,109,78,136"/>
+<area shape="rect" id="node2" href="$class_r_l_vnode.html" title="Clase RLVnode se encarga de guardar los valores de las variables para el RLV." alt="" coords="5,5,84,32"/>
+</map>

@@ -12,20 +12,709 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2fe48f70-c3ca-42f2-bce1-2812ff8397cc" name="Default Changelist" comment="Ref getaddr complete">
+    <list default="true" id="2fe48f70-c3ca-42f2-bce1-2812ff8397cc" name="Default Changelist" comment="added doxygen documentation 2">
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/_g_u_i_8cpp__dep__incl.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/_g_u_i_8cpp__dep__incl.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/_g_u_i_8cpp__dep__incl.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/_g_u_i_8cpp__incl.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/_g_u_i_8cpp__incl.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/_g_u_i_8cpp__incl.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/_json_handler_8cpp__dep__incl.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/_json_handler_8cpp__dep__incl.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/_json_handler_8cpp__dep__incl.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/_json_handler_8cpp__incl.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/_json_handler_8cpp__incl.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/_json_handler_8cpp__incl.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/_linked_list_8cpp__dep__incl.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/_linked_list_8cpp__dep__incl.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/_linked_list_8cpp__dep__incl.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/_linked_list_8cpp__incl.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/_linked_list_8cpp__incl.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/_linked_list_8cpp__incl.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/_lista_doble_enlazada_8cpp__dep__incl.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/_lista_doble_enlazada_8cpp__dep__incl.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/_lista_doble_enlazada_8cpp__dep__incl.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/_lista_doble_enlazada_8cpp__incl.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/_lista_doble_enlazada_8cpp__incl.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/_lista_doble_enlazada_8cpp__incl.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/_lista_doble_enlazada_8cpp_a44e830c2d064a82c9f82dca6772b484b_icgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/_lista_doble_enlazada_8cpp_a44e830c2d064a82c9f82dca6772b484b_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/_lista_doble_enlazada_8cpp_a44e830c2d064a82c9f82dca6772b484b_icgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/_lista_doble_enlazada_8cpp_a813ff85432320022e40dbe4f0e7cafa2_cgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/_lista_doble_enlazada_8cpp_a813ff85432320022e40dbe4f0e7cafa2_cgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/_lista_doble_enlazada_8cpp_a813ff85432320022e40dbe4f0e7cafa2_cgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/_lista_doble_enlazada_8cpp_a813ff85432320022e40dbe4f0e7cafa2_icgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/_lista_doble_enlazada_8cpp_a813ff85432320022e40dbe4f0e7cafa2_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/_lista_doble_enlazada_8cpp_a813ff85432320022e40dbe4f0e7cafa2_icgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/_lista_doble_enlazada_8cpp_ac87c0466e9dc65a2f7c3618b91feb037_icgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/_lista_doble_enlazada_8cpp_ac87c0466e9dc65a2f7c3618b91feb037_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/_lista_doble_enlazada_8cpp_ac87c0466e9dc65a2f7c3618b91feb037_icgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/_logger_8cpp__dep__incl.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/_logger_8cpp__dep__incl.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/_logger_8cpp__dep__incl.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/_logger_8cpp__incl.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/_logger_8cpp__incl.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/_logger_8cpp__incl.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/_memory_manager_8cpp__dep__incl.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/_memory_manager_8cpp__dep__incl.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/_memory_manager_8cpp__dep__incl.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/_memory_manager_8cpp__incl.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/_memory_manager_8cpp__incl.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/_memory_manager_8cpp__incl.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/_node_8cpp__dep__incl.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/_node_8cpp__dep__incl.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/_node_8cpp__dep__incl.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/_node_8cpp__incl.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/_node_8cpp__incl.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/_node_8cpp__incl.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/_r_l_vlist_8cpp__dep__incl.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/_r_l_vlist_8cpp__dep__incl.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/_r_l_vlist_8cpp__dep__incl.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/_r_l_vlist_8cpp__incl.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/_r_l_vlist_8cpp__incl.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/_r_l_vlist_8cpp__incl.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/_r_l_vnode_8cpp__dep__incl.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/_r_l_vnode_8cpp__dep__incl.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/_r_l_vnode_8cpp__dep__incl.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/_r_l_vnode_8cpp__incl.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/_r_l_vnode_8cpp__incl.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/_r_l_vnode_8cpp__incl.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_g_u_i_a3513c2c1dfabcbd02007af3cf2140db7_icgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_g_u_i_a3513c2c1dfabcbd02007af3cf2140db7_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_g_u_i_a3513c2c1dfabcbd02007af3cf2140db7_icgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_g_u_i_a6b325a302174496cb842fd9056592332_icgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_g_u_i_a6b325a302174496cb842fd9056592332_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_g_u_i_a6b325a302174496cb842fd9056592332_icgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_json_handler__coll__graph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_json_handler__coll__graph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_json_handler__coll__graph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_json_handler_a7b299cae60de054f4fdb51539116796b_cgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_json_handler_a7b299cae60de054f4fdb51539116796b_cgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_json_handler_a7b299cae60de054f4fdb51539116796b_cgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_json_handler_a7b299cae60de054f4fdb51539116796b_icgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_json_handler_a7b299cae60de054f4fdb51539116796b_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_json_handler_a7b299cae60de054f4fdb51539116796b_icgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_json_handler_aa6436a3030fb99dd9316ee04f8ee4427_icgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_json_handler_aa6436a3030fb99dd9316ee04f8ee4427_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_json_handler_aa6436a3030fb99dd9316ee04f8ee4427_icgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_linked_list__coll__graph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_linked_list__coll__graph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_linked_list__coll__graph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_linked_list_a15a6453db577467a288d260f8a07377d_cgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_linked_list_a15a6453db577467a288d260f8a07377d_cgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_linked_list_a15a6453db577467a288d260f8a07377d_cgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_linked_list_a15a6453db577467a288d260f8a07377d_icgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_linked_list_a15a6453db577467a288d260f8a07377d_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_linked_list_a15a6453db577467a288d260f8a07377d_icgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_linked_list_a3b2f0e81de101d993e61259ff8d13e12_cgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_linked_list_a3b2f0e81de101d993e61259ff8d13e12_cgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_linked_list_a3b2f0e81de101d993e61259ff8d13e12_cgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_linked_list_a3b2f0e81de101d993e61259ff8d13e12_icgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_linked_list_a3b2f0e81de101d993e61259ff8d13e12_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_linked_list_a3b2f0e81de101d993e61259ff8d13e12_icgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_linked_list_a5cdd735aa5956e122506001542b020fb_cgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_linked_list_a5cdd735aa5956e122506001542b020fb_cgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_linked_list_a5cdd735aa5956e122506001542b020fb_cgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_linked_list_a5cdd735aa5956e122506001542b020fb_icgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_linked_list_a5cdd735aa5956e122506001542b020fb_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_linked_list_a5cdd735aa5956e122506001542b020fb_icgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_linked_list_a629ffde4aacdca24b641c2497a38f60a_cgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_linked_list_a629ffde4aacdca24b641c2497a38f60a_cgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_linked_list_a629ffde4aacdca24b641c2497a38f60a_cgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_linked_list_a629ffde4aacdca24b641c2497a38f60a_icgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_linked_list_a629ffde4aacdca24b641c2497a38f60a_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_linked_list_a629ffde4aacdca24b641c2497a38f60a_icgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_linked_list_a6fc1e6dd702fa563cc9ab8c0e7e83db5_cgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_linked_list_a6fc1e6dd702fa563cc9ab8c0e7e83db5_cgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_linked_list_a6fc1e6dd702fa563cc9ab8c0e7e83db5_cgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_linked_list_a6fc1e6dd702fa563cc9ab8c0e7e83db5_icgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_linked_list_a6fc1e6dd702fa563cc9ab8c0e7e83db5_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_linked_list_a6fc1e6dd702fa563cc9ab8c0e7e83db5_icgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_linked_list_ad89a7b72aff9979f14ae6b5f1af01f2e_cgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_linked_list_ad89a7b72aff9979f14ae6b5f1af01f2e_cgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_linked_list_ad89a7b72aff9979f14ae6b5f1af01f2e_cgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_linked_list_ad89a7b72aff9979f14ae6b5f1af01f2e_icgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_linked_list_ad89a7b72aff9979f14ae6b5f1af01f2e_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_linked_list_ad89a7b72aff9979f14ae6b5f1af01f2e_icgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_linked_list_aed0af5eb2e87e7fd2e93938139944fa3_cgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_linked_list_aed0af5eb2e87e7fd2e93938139944fa3_cgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_linked_list_aed0af5eb2e87e7fd2e93938139944fa3_cgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_linked_list_aed0af5eb2e87e7fd2e93938139944fa3_icgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_linked_list_aed0af5eb2e87e7fd2e93938139944fa3_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_linked_list_aed0af5eb2e87e7fd2e93938139944fa3_icgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_linked_list_af8cfc7375df7c3aa2c7931535c7d4704_cgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_linked_list_af8cfc7375df7c3aa2c7931535c7d4704_cgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_linked_list_af8cfc7375df7c3aa2c7931535c7d4704_cgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_linked_list_af8cfc7375df7c3aa2c7931535c7d4704_icgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_linked_list_af8cfc7375df7c3aa2c7931535c7d4704_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_linked_list_af8cfc7375df7c3aa2c7931535c7d4704_icgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_logger_a504e9b959374d626af1021760ef0f0a0_icgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_logger_a504e9b959374d626af1021760ef0f0a0_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_logger_a504e9b959374d626af1021760ef0f0a0_icgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_logger_af64096c0d6f3bfe43864ea264fb1cdf8_icgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_logger_af64096c0d6f3bfe43864ea264fb1cdf8_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_logger_af64096c0d6f3bfe43864ea264fb1cdf8_icgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_a016fedbb19ff926abed122528ea90746_cgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_a016fedbb19ff926abed122528ea90746_cgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_a016fedbb19ff926abed122528ea90746_cgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_a016fedbb19ff926abed122528ea90746_icgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_a016fedbb19ff926abed122528ea90746_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_a016fedbb19ff926abed122528ea90746_icgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_a0e168fb42fe4192bd543605f39ae539b_cgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_a0e168fb42fe4192bd543605f39ae539b_cgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_a0e168fb42fe4192bd543605f39ae539b_cgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_a0e168fb42fe4192bd543605f39ae539b_icgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_a0e168fb42fe4192bd543605f39ae539b_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_a0e168fb42fe4192bd543605f39ae539b_icgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_a0e5063d1cf59b041f6daee538cb4e15e_icgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_a0e5063d1cf59b041f6daee538cb4e15e_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_a0e5063d1cf59b041f6daee538cb4e15e_icgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_a258a81cc3327633195fb34698ae3ddd7_icgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_a258a81cc3327633195fb34698ae3ddd7_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_a258a81cc3327633195fb34698ae3ddd7_icgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_a38ec4352355805cfdcf358e9c866db46_cgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_a38ec4352355805cfdcf358e9c866db46_cgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_a38ec4352355805cfdcf358e9c866db46_cgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_a38ec4352355805cfdcf358e9c866db46_icgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_a38ec4352355805cfdcf358e9c866db46_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_a38ec4352355805cfdcf358e9c866db46_icgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_a3d48aadfef60b4f045ae7fd1e854e57f_cgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_a3d48aadfef60b4f045ae7fd1e854e57f_cgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_a3d48aadfef60b4f045ae7fd1e854e57f_cgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_a3d48aadfef60b4f045ae7fd1e854e57f_icgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_a3d48aadfef60b4f045ae7fd1e854e57f_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_a3d48aadfef60b4f045ae7fd1e854e57f_icgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_a5bd75f7a078bd5c87713480c252532ac_cgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_a5bd75f7a078bd5c87713480c252532ac_cgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_a5bd75f7a078bd5c87713480c252532ac_cgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_a5bd75f7a078bd5c87713480c252532ac_icgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_a5bd75f7a078bd5c87713480c252532ac_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_a5bd75f7a078bd5c87713480c252532ac_icgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_a5d3ba83cdb4309b3c080ccf0f42c5e26_cgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_a5d3ba83cdb4309b3c080ccf0f42c5e26_cgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_a5d3ba83cdb4309b3c080ccf0f42c5e26_cgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_a5d3ba83cdb4309b3c080ccf0f42c5e26_icgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_a5d3ba83cdb4309b3c080ccf0f42c5e26_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_a5d3ba83cdb4309b3c080ccf0f42c5e26_icgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_a66ce8cf5daa3ca1c276dad7d36689c65_cgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_a66ce8cf5daa3ca1c276dad7d36689c65_cgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_a66ce8cf5daa3ca1c276dad7d36689c65_cgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_a66ce8cf5daa3ca1c276dad7d36689c65_icgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_a66ce8cf5daa3ca1c276dad7d36689c65_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_a66ce8cf5daa3ca1c276dad7d36689c65_icgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_a786146a210b34268ad185b8f2ea36bda_cgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_a786146a210b34268ad185b8f2ea36bda_cgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_a786146a210b34268ad185b8f2ea36bda_cgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_a786146a210b34268ad185b8f2ea36bda_icgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_a786146a210b34268ad185b8f2ea36bda_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_a786146a210b34268ad185b8f2ea36bda_icgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_a7a0adaec9bb12e73ab9a7c0f6677577e_icgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_a7a0adaec9bb12e73ab9a7c0f6677577e_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_a7a0adaec9bb12e73ab9a7c0f6677577e_icgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_a7c37efe09e8eafb404efbf4783c035d1_icgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_a7c37efe09e8eafb404efbf4783c035d1_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_a7c37efe09e8eafb404efbf4783c035d1_icgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_a801aa3b92b5008cf95db72388d0941b3_cgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_a801aa3b92b5008cf95db72388d0941b3_cgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_a801aa3b92b5008cf95db72388d0941b3_cgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_a801aa3b92b5008cf95db72388d0941b3_icgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_a801aa3b92b5008cf95db72388d0941b3_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_a801aa3b92b5008cf95db72388d0941b3_icgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_a8a2925eb68f8c0e26947385d5235892c_cgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_a8a2925eb68f8c0e26947385d5235892c_cgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_a8a2925eb68f8c0e26947385d5235892c_cgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_a8bb86dfed1dd90ee3f3c5e5edacc95a9_icgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_a8bb86dfed1dd90ee3f3c5e5edacc95a9_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_a8bb86dfed1dd90ee3f3c5e5edacc95a9_icgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_a8d27e28b889c7fcbd1132ca31adc96a1_cgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_a8d27e28b889c7fcbd1132ca31adc96a1_cgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_a8d27e28b889c7fcbd1132ca31adc96a1_cgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_a8d27e28b889c7fcbd1132ca31adc96a1_icgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_a8d27e28b889c7fcbd1132ca31adc96a1_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_a8d27e28b889c7fcbd1132ca31adc96a1_icgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_a8e8c4c6f5967d95753f97f7f0952b410_cgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_a8e8c4c6f5967d95753f97f7f0952b410_cgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_a8e8c4c6f5967d95753f97f7f0952b410_cgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_a8e8c4c6f5967d95753f97f7f0952b410_icgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_a8e8c4c6f5967d95753f97f7f0952b410_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_a8e8c4c6f5967d95753f97f7f0952b410_icgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_a921cac750cccfa74f0f4b91345b3f334_cgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_a921cac750cccfa74f0f4b91345b3f334_cgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_a921cac750cccfa74f0f4b91345b3f334_cgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_a921cac750cccfa74f0f4b91345b3f334_icgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_a921cac750cccfa74f0f4b91345b3f334_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_a921cac750cccfa74f0f4b91345b3f334_icgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_a975493c199eb27fc21b4f8271206e5b6_cgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_a975493c199eb27fc21b4f8271206e5b6_cgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_a975493c199eb27fc21b4f8271206e5b6_cgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_a975493c199eb27fc21b4f8271206e5b6_icgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_a975493c199eb27fc21b4f8271206e5b6_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_a975493c199eb27fc21b4f8271206e5b6_icgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_a9d532186fa7b8a634c24a0f290f1a625_icgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_a9d532186fa7b8a634c24a0f290f1a625_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_a9d532186fa7b8a634c24a0f290f1a625_icgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_aa6882aaea670ea33fc27a66e0a0e7142_cgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_aa6882aaea670ea33fc27a66e0a0e7142_cgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_aa6882aaea670ea33fc27a66e0a0e7142_cgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_aa6882aaea670ea33fc27a66e0a0e7142_icgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_aa6882aaea670ea33fc27a66e0a0e7142_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_aa6882aaea670ea33fc27a66e0a0e7142_icgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_ac0bb5e0ac73428767449c0df5f90f616_icgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_ac0bb5e0ac73428767449c0df5f90f616_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_ac0bb5e0ac73428767449c0df5f90f616_icgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_ac0f32ea9414b43e8534ef08a9ef7dbc7_cgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_ac0f32ea9414b43e8534ef08a9ef7dbc7_cgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_ac0f32ea9414b43e8534ef08a9ef7dbc7_cgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_ac0f32ea9414b43e8534ef08a9ef7dbc7_icgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_ac0f32ea9414b43e8534ef08a9ef7dbc7_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_ac0f32ea9414b43e8534ef08a9ef7dbc7_icgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_ac13f4ee68e31bb830abf916904b033ba_cgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_ac13f4ee68e31bb830abf916904b033ba_cgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_ac13f4ee68e31bb830abf916904b033ba_cgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_ac13f4ee68e31bb830abf916904b033ba_icgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_ac13f4ee68e31bb830abf916904b033ba_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_ac13f4ee68e31bb830abf916904b033ba_icgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_acb994c7c12a7ce5c3281773fcf3bdb8e_cgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_acb994c7c12a7ce5c3281773fcf3bdb8e_cgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_acb994c7c12a7ce5c3281773fcf3bdb8e_cgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_acb994c7c12a7ce5c3281773fcf3bdb8e_icgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_acb994c7c12a7ce5c3281773fcf3bdb8e_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_acb994c7c12a7ce5c3281773fcf3bdb8e_icgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_ad0b1e91a275b5aad933f3cdbfdafc924_cgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_ad0b1e91a275b5aad933f3cdbfdafc924_cgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_ad0b1e91a275b5aad933f3cdbfdafc924_cgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_ad0b1e91a275b5aad933f3cdbfdafc924_icgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_ad0b1e91a275b5aad933f3cdbfdafc924_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_ad0b1e91a275b5aad933f3cdbfdafc924_icgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_ad86bd94b55fe72b882e22570df0466bf_cgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_ad86bd94b55fe72b882e22570df0466bf_cgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_ad86bd94b55fe72b882e22570df0466bf_cgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_ad86bd94b55fe72b882e22570df0466bf_icgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_ad86bd94b55fe72b882e22570df0466bf_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_memory_manager_ad86bd94b55fe72b882e22570df0466bf_icgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_node__coll__graph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_node__coll__graph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_node__coll__graph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_node_a0216818b7b2384cf6a9d8225315df41e_icgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_node_a0216818b7b2384cf6a9d8225315df41e_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_node_a0216818b7b2384cf6a9d8225315df41e_icgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_node_a279404f8dff38caaf33847ddb941c006_icgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_node_a279404f8dff38caaf33847ddb941c006_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_node_a279404f8dff38caaf33847ddb941c006_icgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_node_a2c4f94e88a6bdf0b3b8a2d4c32034bd9_icgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_node_a2c4f94e88a6bdf0b3b8a2d4c32034bd9_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_node_a2c4f94e88a6bdf0b3b8a2d4c32034bd9_icgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_node_a66846674168da0221996ea08edca4aea_icgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_node_a66846674168da0221996ea08edca4aea_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_node_a66846674168da0221996ea08edca4aea_icgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_node_a80dc873551ff3878fcaaa260bde603af_icgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_node_a80dc873551ff3878fcaaa260bde603af_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_node_a80dc873551ff3878fcaaa260bde603af_icgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_node_a815c897407e2c039c4d86ef42848d8e5_icgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_node_a815c897407e2c039c4d86ef42848d8e5_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_node_a815c897407e2c039c4d86ef42848d8e5_icgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_node_a81e9f5e01dea4e47abf7a911b5bc5296_icgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_node_a81e9f5e01dea4e47abf7a911b5bc5296_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_node_a81e9f5e01dea4e47abf7a911b5bc5296_icgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_node_af1906631f0991c746b65b0201c7ad151_icgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_node_af1906631f0991c746b65b0201c7ad151_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_node_af1906631f0991c746b65b0201c7ad151_icgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_r_l_vlist__coll__graph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_r_l_vlist__coll__graph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_r_l_vlist__coll__graph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_r_l_vlist_a0cb47fa16eadce817723b21de1aa7fc6_cgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_r_l_vlist_a0cb47fa16eadce817723b21de1aa7fc6_cgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_r_l_vlist_a0cb47fa16eadce817723b21de1aa7fc6_cgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_r_l_vlist_a26bf143d1887ef81a25b8b7474d2da94_cgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_r_l_vlist_a26bf143d1887ef81a25b8b7474d2da94_cgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_r_l_vlist_a26bf143d1887ef81a25b8b7474d2da94_cgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_r_l_vlist_a26bf143d1887ef81a25b8b7474d2da94_icgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_r_l_vlist_a26bf143d1887ef81a25b8b7474d2da94_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_r_l_vlist_a26bf143d1887ef81a25b8b7474d2da94_icgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_r_l_vlist_a2c98b89a346b9417e974640deadb7c2e_cgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_r_l_vlist_a2c98b89a346b9417e974640deadb7c2e_cgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_r_l_vlist_a2c98b89a346b9417e974640deadb7c2e_cgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_r_l_vlist_a2c98b89a346b9417e974640deadb7c2e_icgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_r_l_vlist_a2c98b89a346b9417e974640deadb7c2e_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_r_l_vlist_a2c98b89a346b9417e974640deadb7c2e_icgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_r_l_vlist_a36345994af3742fb6e4b34bf8d53afc4_cgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_r_l_vlist_a36345994af3742fb6e4b34bf8d53afc4_cgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_r_l_vlist_a36345994af3742fb6e4b34bf8d53afc4_cgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_r_l_vlist_a40e20813d428dbcfd53c89383cfec681_cgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_r_l_vlist_a40e20813d428dbcfd53c89383cfec681_cgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_r_l_vlist_a40e20813d428dbcfd53c89383cfec681_cgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_r_l_vlist_a43d6d7da57f13397db3222580a38ef0c_cgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_r_l_vlist_a43d6d7da57f13397db3222580a38ef0c_cgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_r_l_vlist_a43d6d7da57f13397db3222580a38ef0c_cgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_r_l_vlist_a5dda3a82a02f189fbd2d47fb6be148c9_cgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_r_l_vlist_a5dda3a82a02f189fbd2d47fb6be148c9_cgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_r_l_vlist_a5dda3a82a02f189fbd2d47fb6be148c9_cgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_r_l_vlist_a6d56c2c1476f7cf43350a095c3c6f0a0_cgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_r_l_vlist_a6d56c2c1476f7cf43350a095c3c6f0a0_cgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_r_l_vlist_a6d56c2c1476f7cf43350a095c3c6f0a0_cgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_r_l_vlist_a793f7c1c62df484bb504d80956fa3f5b_cgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_r_l_vlist_a793f7c1c62df484bb504d80956fa3f5b_cgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_r_l_vlist_a793f7c1c62df484bb504d80956fa3f5b_cgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_r_l_vlist_a94c3188c9a766c2897cc69a26bf4c85b_cgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_r_l_vlist_a94c3188c9a766c2897cc69a26bf4c85b_cgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_r_l_vlist_a94c3188c9a766c2897cc69a26bf4c85b_cgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_r_l_vlist_aa133487173bdd4b03b44c13a2bbd6cd2_cgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_r_l_vlist_aa133487173bdd4b03b44c13a2bbd6cd2_cgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_r_l_vlist_aa133487173bdd4b03b44c13a2bbd6cd2_cgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_r_l_vnode__coll__graph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_r_l_vnode__coll__graph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_r_l_vnode__coll__graph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_r_l_vnode_a809ef4e4a3c96e530ec65c9fb0e862bf_icgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_r_l_vnode_a809ef4e4a3c96e530ec65c9fb0e862bf_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_r_l_vnode_a809ef4e4a3c96e530ec65c9fb0e862bf_icgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_r_l_vnode_a8fa829b5f32643d3b81cb221663bedb3_icgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_r_l_vnode_a8fa829b5f32643d3b81cb221663bedb3_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_r_l_vnode_a8fa829b5f32643d3b81cb221663bedb3_icgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_r_l_vnode_a95f3b16f32102cb46fb37f03702b3ed9_icgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_r_l_vnode_a95f3b16f32102cb46fb37f03702b3ed9_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_r_l_vnode_a95f3b16f32102cb46fb37f03702b3ed9_icgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_r_l_vnode_aa18e0750d3da9be94a623696a5e4c25d_icgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_r_l_vnode_aa18e0750d3da9be94a623696a5e4c25d_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_r_l_vnode_aa18e0750d3da9be94a623696a5e4c25d_icgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_r_l_vnode_aa349427e47e58ac9e87b1ec4ec988b5c_icgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_r_l_vnode_aa349427e47e58ac9e87b1ec4ec988b5c_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_r_l_vnode_aa349427e47e58ac9e87b1ec4ec988b5c_icgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_r_l_vnode_aaa6040f7094c0c579b8541d96ea4a06c_icgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_r_l_vnode_aaa6040f7094c0c579b8541d96ea4a06c_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_r_l_vnode_aaa6040f7094c0c579b8541d96ea4a06c_icgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_r_l_vnode_abaaffefe8c8f566080eb8a218981f005_icgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_r_l_vnode_abaaffefe8c8f566080eb8a218981f005_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_r_l_vnode_abaaffefe8c8f566080eb8a218981f005_icgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_r_l_vnode_ae6bd2cf0f329fddd91e642364934ac63_icgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_r_l_vnode_ae6bd2cf0f329fddd91e642364934ac63_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/class_r_l_vnode_ae6bd2cf0f329fddd91e642364934ac63_icgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/cliente_8cpp__incl.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/cliente_8cpp__incl.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/cliente_8cpp__incl.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/dir_000000_000002.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/dir_38ee47272bf4692599223185df01392d_dep.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/dir_38ee47272bf4692599223185df01392d_dep.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/dir_38ee47272bf4692599223185df01392d_dep.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/graph_legend.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/graph_legend.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/graph_legend.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/servidor_8cpp__incl.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/servidor_8cpp__incl.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/servidor_8cpp__incl.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/servidor_8cpp_a00cc15197d90c98ee92da37db49f5519_icgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/servidor_8cpp_a00cc15197d90c98ee92da37db49f5519_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/servidor_8cpp_a00cc15197d90c98ee92da37db49f5519_icgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/servidor_8cpp_a05480a638ff273b48e47cc0fec4ce36a_icgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/servidor_8cpp_a05480a638ff273b48e47cc0fec4ce36a_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/servidor_8cpp_a05480a638ff273b48e47cc0fec4ce36a_icgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/servidor_8cpp_a121c2756397aee9a8c4d79f86e9779bc_icgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/servidor_8cpp_a121c2756397aee9a8c4d79f86e9779bc_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/servidor_8cpp_a121c2756397aee9a8c4d79f86e9779bc_icgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/servidor_8cpp_a13a148d8c2ff417811303c106d1bf337_icgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/servidor_8cpp_a13a148d8c2ff417811303c106d1bf337_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/servidor_8cpp_a13a148d8c2ff417811303c106d1bf337_icgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/servidor_8cpp_a306290cfa7bbf6cc3a3ab56b9eec398a_icgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/servidor_8cpp_a306290cfa7bbf6cc3a3ab56b9eec398a_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/servidor_8cpp_a306290cfa7bbf6cc3a3ab56b9eec398a_icgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/servidor_8cpp_a387825fabebca9c9ebdc17cf30f5f684_icgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/servidor_8cpp_a387825fabebca9c9ebdc17cf30f5f684_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/servidor_8cpp_a387825fabebca9c9ebdc17cf30f5f684_icgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/servidor_8cpp_a86b339fabd673627788442b879a03cf2_icgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/servidor_8cpp_a86b339fabd673627788442b879a03cf2_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/servidor_8cpp_a86b339fabd673627788442b879a03cf2_icgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/servidor_8cpp_a8c6eb0e03cc08d8f68d04a83ca907fe7_icgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/servidor_8cpp_a8c6eb0e03cc08d8f68d04a83ca907fe7_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/servidor_8cpp_a8c6eb0e03cc08d8f68d04a83ca907fe7_icgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/servidor_8cpp_aa465e5e2194cf66b20b3e593386ede21_icgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/servidor_8cpp_aa465e5e2194cf66b20b3e593386ede21_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/servidor_8cpp_aa465e5e2194cf66b20b3e593386ede21_icgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/servidor_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4_cgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/servidor_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4_cgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/servidor_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4_cgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/servidor_8cpp_af5119ff1bf38402ca16a835b6440a75a_icgraph.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/servidor_8cpp_af5119ff1bf38402ca16a835b6440a75a_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/html/servidor_8cpp_af5119ff1bf38402ca16a835b6440a75a_icgraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/_g_u_i_8cpp__dep__incl.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/_g_u_i_8cpp__dep__incl.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/_g_u_i_8cpp__incl.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/_g_u_i_8cpp__incl.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/_json_handler_8cpp__dep__incl.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/_json_handler_8cpp__dep__incl.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/_json_handler_8cpp__incl.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/_json_handler_8cpp__incl.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/_linked_list_8cpp__dep__incl.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/_linked_list_8cpp__dep__incl.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/_linked_list_8cpp__incl.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/_linked_list_8cpp__incl.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/_lista_doble_enlazada_8cpp__dep__incl.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/_lista_doble_enlazada_8cpp__dep__incl.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/_lista_doble_enlazada_8cpp__incl.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/_lista_doble_enlazada_8cpp__incl.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/_lista_doble_enlazada_8cpp_a44e830c2d064a82c9f82dca6772b484b_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/_lista_doble_enlazada_8cpp_a44e830c2d064a82c9f82dca6772b484b_icgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/_lista_doble_enlazada_8cpp_a813ff85432320022e40dbe4f0e7cafa2_cgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/_lista_doble_enlazada_8cpp_a813ff85432320022e40dbe4f0e7cafa2_cgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/_lista_doble_enlazada_8cpp_a813ff85432320022e40dbe4f0e7cafa2_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/_lista_doble_enlazada_8cpp_a813ff85432320022e40dbe4f0e7cafa2_icgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/_lista_doble_enlazada_8cpp_ac87c0466e9dc65a2f7c3618b91feb037_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/_lista_doble_enlazada_8cpp_ac87c0466e9dc65a2f7c3618b91feb037_icgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/_logger_8cpp__dep__incl.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/_logger_8cpp__dep__incl.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/_logger_8cpp__incl.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/_logger_8cpp__incl.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/_memory_manager_8cpp__dep__incl.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/_memory_manager_8cpp__dep__incl.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/_memory_manager_8cpp__incl.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/_memory_manager_8cpp__incl.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/_node_8cpp__dep__incl.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/_node_8cpp__dep__incl.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/_node_8cpp__incl.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/_node_8cpp__incl.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/_r_l_vlist_8cpp__dep__incl.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/_r_l_vlist_8cpp__dep__incl.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/_r_l_vlist_8cpp__incl.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/_r_l_vlist_8cpp__incl.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/_r_l_vnode_8cpp__dep__incl.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/_r_l_vnode_8cpp__dep__incl.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/_r_l_vnode_8cpp__incl.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/_r_l_vnode_8cpp__incl.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_g_u_i_a3513c2c1dfabcbd02007af3cf2140db7_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_g_u_i_a3513c2c1dfabcbd02007af3cf2140db7_icgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_g_u_i_a6b325a302174496cb842fd9056592332_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_g_u_i_a6b325a302174496cb842fd9056592332_icgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_json_handler__coll__graph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_json_handler__coll__graph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_json_handler_a7b299cae60de054f4fdb51539116796b_cgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_json_handler_a7b299cae60de054f4fdb51539116796b_cgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_json_handler_a7b299cae60de054f4fdb51539116796b_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_json_handler_a7b299cae60de054f4fdb51539116796b_icgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_json_handler_aa6436a3030fb99dd9316ee04f8ee4427_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_json_handler_aa6436a3030fb99dd9316ee04f8ee4427_icgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_linked_list__coll__graph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_linked_list__coll__graph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_linked_list_a15a6453db577467a288d260f8a07377d_cgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_linked_list_a15a6453db577467a288d260f8a07377d_cgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_linked_list_a15a6453db577467a288d260f8a07377d_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_linked_list_a15a6453db577467a288d260f8a07377d_icgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_linked_list_a3b2f0e81de101d993e61259ff8d13e12_cgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_linked_list_a3b2f0e81de101d993e61259ff8d13e12_cgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_linked_list_a3b2f0e81de101d993e61259ff8d13e12_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_linked_list_a3b2f0e81de101d993e61259ff8d13e12_icgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_linked_list_a5cdd735aa5956e122506001542b020fb_cgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_linked_list_a5cdd735aa5956e122506001542b020fb_cgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_linked_list_a5cdd735aa5956e122506001542b020fb_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_linked_list_a5cdd735aa5956e122506001542b020fb_icgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_linked_list_a629ffde4aacdca24b641c2497a38f60a_cgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_linked_list_a629ffde4aacdca24b641c2497a38f60a_cgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_linked_list_a629ffde4aacdca24b641c2497a38f60a_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_linked_list_a629ffde4aacdca24b641c2497a38f60a_icgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_linked_list_a6fc1e6dd702fa563cc9ab8c0e7e83db5_cgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_linked_list_a6fc1e6dd702fa563cc9ab8c0e7e83db5_cgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_linked_list_a6fc1e6dd702fa563cc9ab8c0e7e83db5_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_linked_list_a6fc1e6dd702fa563cc9ab8c0e7e83db5_icgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_linked_list_ad89a7b72aff9979f14ae6b5f1af01f2e_cgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_linked_list_ad89a7b72aff9979f14ae6b5f1af01f2e_cgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_linked_list_ad89a7b72aff9979f14ae6b5f1af01f2e_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_linked_list_ad89a7b72aff9979f14ae6b5f1af01f2e_icgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_linked_list_aed0af5eb2e87e7fd2e93938139944fa3_cgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_linked_list_aed0af5eb2e87e7fd2e93938139944fa3_cgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_linked_list_aed0af5eb2e87e7fd2e93938139944fa3_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_linked_list_aed0af5eb2e87e7fd2e93938139944fa3_icgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_linked_list_af8cfc7375df7c3aa2c7931535c7d4704_cgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_linked_list_af8cfc7375df7c3aa2c7931535c7d4704_cgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_linked_list_af8cfc7375df7c3aa2c7931535c7d4704_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_linked_list_af8cfc7375df7c3aa2c7931535c7d4704_icgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_logger_a504e9b959374d626af1021760ef0f0a0_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_logger_a504e9b959374d626af1021760ef0f0a0_icgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_logger_af64096c0d6f3bfe43864ea264fb1cdf8_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_logger_af64096c0d6f3bfe43864ea264fb1cdf8_icgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_memory_manager_a016fedbb19ff926abed122528ea90746_cgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_memory_manager_a016fedbb19ff926abed122528ea90746_cgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_memory_manager_a016fedbb19ff926abed122528ea90746_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_memory_manager_a016fedbb19ff926abed122528ea90746_icgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_memory_manager_a0e168fb42fe4192bd543605f39ae539b_cgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_memory_manager_a0e168fb42fe4192bd543605f39ae539b_cgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_memory_manager_a0e168fb42fe4192bd543605f39ae539b_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_memory_manager_a0e168fb42fe4192bd543605f39ae539b_icgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_memory_manager_a0e5063d1cf59b041f6daee538cb4e15e_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_memory_manager_a0e5063d1cf59b041f6daee538cb4e15e_icgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_memory_manager_a258a81cc3327633195fb34698ae3ddd7_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_memory_manager_a258a81cc3327633195fb34698ae3ddd7_icgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_memory_manager_a38ec4352355805cfdcf358e9c866db46_cgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_memory_manager_a38ec4352355805cfdcf358e9c866db46_cgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_memory_manager_a38ec4352355805cfdcf358e9c866db46_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_memory_manager_a38ec4352355805cfdcf358e9c866db46_icgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_memory_manager_a3d48aadfef60b4f045ae7fd1e854e57f_cgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_memory_manager_a3d48aadfef60b4f045ae7fd1e854e57f_cgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_memory_manager_a3d48aadfef60b4f045ae7fd1e854e57f_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_memory_manager_a3d48aadfef60b4f045ae7fd1e854e57f_icgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_memory_manager_a5bd75f7a078bd5c87713480c252532ac_cgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_memory_manager_a5bd75f7a078bd5c87713480c252532ac_cgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_memory_manager_a5bd75f7a078bd5c87713480c252532ac_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_memory_manager_a5bd75f7a078bd5c87713480c252532ac_icgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_memory_manager_a5d3ba83cdb4309b3c080ccf0f42c5e26_cgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_memory_manager_a5d3ba83cdb4309b3c080ccf0f42c5e26_cgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_memory_manager_a5d3ba83cdb4309b3c080ccf0f42c5e26_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_memory_manager_a5d3ba83cdb4309b3c080ccf0f42c5e26_icgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_memory_manager_a66ce8cf5daa3ca1c276dad7d36689c65_cgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_memory_manager_a66ce8cf5daa3ca1c276dad7d36689c65_cgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_memory_manager_a66ce8cf5daa3ca1c276dad7d36689c65_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_memory_manager_a66ce8cf5daa3ca1c276dad7d36689c65_icgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_memory_manager_a786146a210b34268ad185b8f2ea36bda_cgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_memory_manager_a786146a210b34268ad185b8f2ea36bda_cgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_memory_manager_a786146a210b34268ad185b8f2ea36bda_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_memory_manager_a786146a210b34268ad185b8f2ea36bda_icgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_memory_manager_a7a0adaec9bb12e73ab9a7c0f6677577e_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_memory_manager_a7a0adaec9bb12e73ab9a7c0f6677577e_icgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_memory_manager_a7c37efe09e8eafb404efbf4783c035d1_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_memory_manager_a7c37efe09e8eafb404efbf4783c035d1_icgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_memory_manager_a801aa3b92b5008cf95db72388d0941b3_cgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_memory_manager_a801aa3b92b5008cf95db72388d0941b3_cgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_memory_manager_a801aa3b92b5008cf95db72388d0941b3_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_memory_manager_a801aa3b92b5008cf95db72388d0941b3_icgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_memory_manager_a8a2925eb68f8c0e26947385d5235892c_cgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_memory_manager_a8a2925eb68f8c0e26947385d5235892c_cgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_memory_manager_a8bb86dfed1dd90ee3f3c5e5edacc95a9_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_memory_manager_a8bb86dfed1dd90ee3f3c5e5edacc95a9_icgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_memory_manager_a8d27e28b889c7fcbd1132ca31adc96a1_cgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_memory_manager_a8d27e28b889c7fcbd1132ca31adc96a1_cgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_memory_manager_a8d27e28b889c7fcbd1132ca31adc96a1_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_memory_manager_a8d27e28b889c7fcbd1132ca31adc96a1_icgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_memory_manager_a8e8c4c6f5967d95753f97f7f0952b410_cgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_memory_manager_a8e8c4c6f5967d95753f97f7f0952b410_cgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_memory_manager_a8e8c4c6f5967d95753f97f7f0952b410_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_memory_manager_a8e8c4c6f5967d95753f97f7f0952b410_icgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_memory_manager_a921cac750cccfa74f0f4b91345b3f334_cgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_memory_manager_a921cac750cccfa74f0f4b91345b3f334_cgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_memory_manager_a921cac750cccfa74f0f4b91345b3f334_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_memory_manager_a921cac750cccfa74f0f4b91345b3f334_icgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_memory_manager_a975493c199eb27fc21b4f8271206e5b6_cgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_memory_manager_a975493c199eb27fc21b4f8271206e5b6_cgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_memory_manager_a975493c199eb27fc21b4f8271206e5b6_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_memory_manager_a975493c199eb27fc21b4f8271206e5b6_icgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_memory_manager_a9d532186fa7b8a634c24a0f290f1a625_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_memory_manager_a9d532186fa7b8a634c24a0f290f1a625_icgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_memory_manager_aa6882aaea670ea33fc27a66e0a0e7142_cgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_memory_manager_aa6882aaea670ea33fc27a66e0a0e7142_cgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_memory_manager_aa6882aaea670ea33fc27a66e0a0e7142_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_memory_manager_aa6882aaea670ea33fc27a66e0a0e7142_icgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_memory_manager_ac0bb5e0ac73428767449c0df5f90f616_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_memory_manager_ac0bb5e0ac73428767449c0df5f90f616_icgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_memory_manager_ac0f32ea9414b43e8534ef08a9ef7dbc7_cgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_memory_manager_ac0f32ea9414b43e8534ef08a9ef7dbc7_cgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_memory_manager_ac0f32ea9414b43e8534ef08a9ef7dbc7_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_memory_manager_ac0f32ea9414b43e8534ef08a9ef7dbc7_icgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_memory_manager_ac13f4ee68e31bb830abf916904b033ba_cgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_memory_manager_ac13f4ee68e31bb830abf916904b033ba_cgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_memory_manager_ac13f4ee68e31bb830abf916904b033ba_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_memory_manager_ac13f4ee68e31bb830abf916904b033ba_icgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_memory_manager_acb994c7c12a7ce5c3281773fcf3bdb8e_cgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_memory_manager_acb994c7c12a7ce5c3281773fcf3bdb8e_cgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_memory_manager_acb994c7c12a7ce5c3281773fcf3bdb8e_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_memory_manager_acb994c7c12a7ce5c3281773fcf3bdb8e_icgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_memory_manager_ad0b1e91a275b5aad933f3cdbfdafc924_cgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_memory_manager_ad0b1e91a275b5aad933f3cdbfdafc924_cgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_memory_manager_ad0b1e91a275b5aad933f3cdbfdafc924_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_memory_manager_ad0b1e91a275b5aad933f3cdbfdafc924_icgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_memory_manager_ad86bd94b55fe72b882e22570df0466bf_cgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_memory_manager_ad86bd94b55fe72b882e22570df0466bf_cgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_memory_manager_ad86bd94b55fe72b882e22570df0466bf_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_memory_manager_ad86bd94b55fe72b882e22570df0466bf_icgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_node__coll__graph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_node__coll__graph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_node_a0216818b7b2384cf6a9d8225315df41e_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_node_a0216818b7b2384cf6a9d8225315df41e_icgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_node_a279404f8dff38caaf33847ddb941c006_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_node_a279404f8dff38caaf33847ddb941c006_icgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_node_a2c4f94e88a6bdf0b3b8a2d4c32034bd9_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_node_a2c4f94e88a6bdf0b3b8a2d4c32034bd9_icgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_node_a66846674168da0221996ea08edca4aea_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_node_a66846674168da0221996ea08edca4aea_icgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_node_a80dc873551ff3878fcaaa260bde603af_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_node_a80dc873551ff3878fcaaa260bde603af_icgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_node_a815c897407e2c039c4d86ef42848d8e5_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_node_a815c897407e2c039c4d86ef42848d8e5_icgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_node_a81e9f5e01dea4e47abf7a911b5bc5296_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_node_a81e9f5e01dea4e47abf7a911b5bc5296_icgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_node_af1906631f0991c746b65b0201c7ad151_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_node_af1906631f0991c746b65b0201c7ad151_icgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_r_l_vlist__coll__graph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_r_l_vlist__coll__graph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_r_l_vlist_a0cb47fa16eadce817723b21de1aa7fc6_cgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_r_l_vlist_a0cb47fa16eadce817723b21de1aa7fc6_cgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_r_l_vlist_a26bf143d1887ef81a25b8b7474d2da94_cgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_r_l_vlist_a26bf143d1887ef81a25b8b7474d2da94_cgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_r_l_vlist_a26bf143d1887ef81a25b8b7474d2da94_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_r_l_vlist_a26bf143d1887ef81a25b8b7474d2da94_icgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_r_l_vlist_a2c98b89a346b9417e974640deadb7c2e_cgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_r_l_vlist_a2c98b89a346b9417e974640deadb7c2e_cgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_r_l_vlist_a2c98b89a346b9417e974640deadb7c2e_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_r_l_vlist_a2c98b89a346b9417e974640deadb7c2e_icgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_r_l_vlist_a36345994af3742fb6e4b34bf8d53afc4_cgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_r_l_vlist_a36345994af3742fb6e4b34bf8d53afc4_cgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_r_l_vlist_a40e20813d428dbcfd53c89383cfec681_cgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_r_l_vlist_a40e20813d428dbcfd53c89383cfec681_cgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_r_l_vlist_a43d6d7da57f13397db3222580a38ef0c_cgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_r_l_vlist_a43d6d7da57f13397db3222580a38ef0c_cgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_r_l_vlist_a5dda3a82a02f189fbd2d47fb6be148c9_cgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_r_l_vlist_a5dda3a82a02f189fbd2d47fb6be148c9_cgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_r_l_vlist_a6d56c2c1476f7cf43350a095c3c6f0a0_cgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_r_l_vlist_a6d56c2c1476f7cf43350a095c3c6f0a0_cgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_r_l_vlist_a793f7c1c62df484bb504d80956fa3f5b_cgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_r_l_vlist_a793f7c1c62df484bb504d80956fa3f5b_cgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_r_l_vlist_a94c3188c9a766c2897cc69a26bf4c85b_cgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_r_l_vlist_a94c3188c9a766c2897cc69a26bf4c85b_cgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_r_l_vlist_aa133487173bdd4b03b44c13a2bbd6cd2_cgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_r_l_vlist_aa133487173bdd4b03b44c13a2bbd6cd2_cgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_r_l_vnode__coll__graph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_r_l_vnode__coll__graph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_r_l_vnode_a809ef4e4a3c96e530ec65c9fb0e862bf_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_r_l_vnode_a809ef4e4a3c96e530ec65c9fb0e862bf_icgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_r_l_vnode_a8fa829b5f32643d3b81cb221663bedb3_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_r_l_vnode_a8fa829b5f32643d3b81cb221663bedb3_icgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_r_l_vnode_a95f3b16f32102cb46fb37f03702b3ed9_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_r_l_vnode_a95f3b16f32102cb46fb37f03702b3ed9_icgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_r_l_vnode_aa18e0750d3da9be94a623696a5e4c25d_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_r_l_vnode_aa18e0750d3da9be94a623696a5e4c25d_icgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_r_l_vnode_aa349427e47e58ac9e87b1ec4ec988b5c_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_r_l_vnode_aa349427e47e58ac9e87b1ec4ec988b5c_icgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_r_l_vnode_aaa6040f7094c0c579b8541d96ea4a06c_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_r_l_vnode_aaa6040f7094c0c579b8541d96ea4a06c_icgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_r_l_vnode_abaaffefe8c8f566080eb8a218981f005_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_r_l_vnode_abaaffefe8c8f566080eb8a218981f005_icgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_r_l_vnode_ae6bd2cf0f329fddd91e642364934ac63_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/class_r_l_vnode_ae6bd2cf0f329fddd91e642364934ac63_icgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/cliente_8cpp__incl.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/cliente_8cpp__incl.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/servidor_8cpp__incl.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/servidor_8cpp__incl.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/servidor_8cpp_a00cc15197d90c98ee92da37db49f5519_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/servidor_8cpp_a00cc15197d90c98ee92da37db49f5519_icgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/servidor_8cpp_a05480a638ff273b48e47cc0fec4ce36a_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/servidor_8cpp_a05480a638ff273b48e47cc0fec4ce36a_icgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/servidor_8cpp_a121c2756397aee9a8c4d79f86e9779bc_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/servidor_8cpp_a121c2756397aee9a8c4d79f86e9779bc_icgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/servidor_8cpp_a13a148d8c2ff417811303c106d1bf337_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/servidor_8cpp_a13a148d8c2ff417811303c106d1bf337_icgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/servidor_8cpp_a306290cfa7bbf6cc3a3ab56b9eec398a_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/servidor_8cpp_a306290cfa7bbf6cc3a3ab56b9eec398a_icgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/servidor_8cpp_a387825fabebca9c9ebdc17cf30f5f684_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/servidor_8cpp_a387825fabebca9c9ebdc17cf30f5f684_icgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/servidor_8cpp_a86b339fabd673627788442b879a03cf2_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/servidor_8cpp_a86b339fabd673627788442b879a03cf2_icgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/servidor_8cpp_a8c6eb0e03cc08d8f68d04a83ca907fe7_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/servidor_8cpp_a8c6eb0e03cc08d8f68d04a83ca907fe7_icgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/servidor_8cpp_aa465e5e2194cf66b20b3e593386ede21_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/servidor_8cpp_aa465e5e2194cf66b20b3e593386ede21_icgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/servidor_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4_cgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/servidor_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4_cgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/servidor_8cpp_af5119ff1bf38402ca16a835b6440a75a_icgraph.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doxygendoc/latex/servidor_8cpp_af5119ff1bf38402ca16a835b6440a75a_icgraph.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/classdiagrams/cliente.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/classdiagrams/memorymanager.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cliente-Servidor/Logger.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Cliente-Servidor/Logger.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cliente-Servidor/MemoryList/LinkedList.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Cliente-Servidor/MemoryList/LinkedList.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cliente-Servidor/MemoryList/Node.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Cliente-Servidor/MemoryList/Node.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cliente-Servidor/RLVList/RLVlist.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Cliente-Servidor/RLVList/RLVlist.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cliente-Servidor/RLVList/RLVnode.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Cliente-Servidor/RLVList/RLVnode.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cliente-Servidor/servidor.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Cliente-Servidor/servidor.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/cliente.dir/Cliente-Servidor/cliente.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/cliente.dir/Cliente-Servidor/cliente.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/mserver.dir/Cliente-Servidor/servidor.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/mserver.dir/Cliente-Servidor/servidor.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cliente-Servidor/MemoryManager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Cliente-Servidor/MemoryManager.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/cliente" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/cliente" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/mserver" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/mserver" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,11 +737,15 @@
     </file-type-list>
   </component>
   <component name="ProjectId" id="1qqN8OdfhWC32wR7oVhUtqZhRfn" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
@@ -75,9 +768,9 @@
     </key>
   </component>
   <component name="RunManager" selected="CMake Application.cliente">
-    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
-        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
     <configuration name="cliente" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Datos_2_Proyecto_1" TARGET_NAME="cliente" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Datos_2_Proyecto_1" RUN_TARGET_NAME="cliente">
@@ -88,11 +781,6 @@
     <configuration name="mserver" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Datos_2_Proyecto_1" TARGET_NAME="mserver" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Datos_2_Proyecto_1" RUN_TARGET_NAME="mserver">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
     <list>
@@ -127,7 +815,9 @@
       <workItem from="1619483094223" duration="3926000" />
       <workItem from="1619489957878" duration="9154000" />
       <workItem from="1619501008929" duration="681000" />
-      <workItem from="1619550085487" duration="10465000" />
+      <workItem from="1619550085487" duration="11200000" />
+      <workItem from="1619563356252" duration="1534000" />
+      <workItem from="1619567828967" duration="5158000" />
     </task>
     <task id="LOCAL-00001" summary="Added communication between server and client">
       <created>1619222048025</created>
@@ -206,7 +896,21 @@
       <option name="project" value="LOCAL" />
       <updated>1619498631390</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="added doxygen documentation">
+      <created>1619562041063</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1619562041063</updated>
+    </task>
+    <task id="LOCAL-00013" summary="added doxygen documentation 2">
+      <created>1619564600944</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1619564600944</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -225,6 +929,7 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Added communication between server and client" />
     <MESSAGE value="Added logger" />
     <MESSAGE value="added logging when server request" />
@@ -236,6 +941,8 @@
     <MESSAGE value="RLV find value" />
     <MESSAGE value="added error in free memory" />
     <MESSAGE value="Ref getaddr complete" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ref getaddr complete" />
+    <MESSAGE value="added doxygen documentation" />
+    <MESSAGE value="added doxygen documentation 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="added doxygen documentation 2" />
   </component>
 </project>

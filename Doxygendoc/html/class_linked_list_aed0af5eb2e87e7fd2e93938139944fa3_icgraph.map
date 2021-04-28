@@ -1,0 +1,5 @@
+<map id="LinkedList::changemem" name="LinkedList::changemem">
+<area shape="rect" id="node1" title="changemem cambia el espacio de memoria del puntero" alt="" coords="344,13,520,39"/>
+<area shape="rect" id="node2" href="$class_memory_manager.html#ad0b1e91a275b5aad933f3cdbfdafc924" title="change_refvar cambia el valor de la variable ref que se le indique" alt="" coords="108,5,296,47"/>
+<area shape="rect" id="node3" href="$servidor_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main es la funcion donde corre el servido se y se hace el manejo de mensajes y memoria con el cliente" alt="" coords="5,13,60,39"/>
+</map>

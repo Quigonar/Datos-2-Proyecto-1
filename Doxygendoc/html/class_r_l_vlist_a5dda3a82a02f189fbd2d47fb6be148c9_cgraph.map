@@ -1,0 +1,5 @@
+<map id="RLVlist::find" name="RLVlist::find">
+<area shape="rect" id="node1" title="find busca si la variable existe en la lista" alt="" coords="5,31,104,57"/>
+<area shape="rect" id="node2" href="$class_r_l_vnode.html#aaa6040f7094c0c579b8541d96ea4a06c" title="get_name retorna el nombre de la variable" alt="" coords="152,5,303,32"/>
+<area shape="rect" id="node3" href="$class_r_l_vnode.html#abaaffefe8c8f566080eb8a218981f005" title="get_next retorna el punter next" alt="" coords="156,56,299,83"/>
+</map>

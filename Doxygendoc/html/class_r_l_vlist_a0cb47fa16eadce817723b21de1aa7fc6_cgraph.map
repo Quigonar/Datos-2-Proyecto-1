@@ -1,0 +1,4 @@
+<map id="RLVlist::append" name="RLVlist::append">
+<area shape="rect" id="node1" title="append agrega nueva variable al RLV" alt="" coords="5,5,128,32"/>
+<area shape="rect" id="node2" href="$class_r_l_vnode.html#a95f3b16f32102cb46fb37f03702b3ed9" title="set_next cambia el valor del puntero next" alt="" coords="176,5,319,32"/>
+</map>

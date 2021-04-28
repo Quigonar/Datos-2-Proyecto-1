@@ -12,23 +12,28 @@
 using namespace std;
 
 /**
+ *
  *@brief Clase MemoryManager que se encarga de manejar la memoria del server
  */
 class MemoryManager {
 
     /**
+     * @var int offset
      * @brief int offset es el offset de la memoria
      */
     int offset;
     /**
+     * @var char* mem
      * @brief char* mem es el espacio de memoria reservado
      */
     char* mem;
     /**
+     * @var in bytes
      * @brief int bytes es la cantidad de bytes que reservaron
      */
     int bytes;
     /**
+     * @var used
      * @brief int used es la cantidad de bytes que han sido utilizados
      */
     int used;

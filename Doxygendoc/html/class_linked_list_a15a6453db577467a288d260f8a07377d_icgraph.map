@@ -1,0 +1,5 @@
+<map id="LinkedList::findvar" name="LinkedList::findvar">
+<area shape="rect" id="node1" title="findvar encuentra si la variable existe dentro de la lista" alt="" coords="319,42,459,69"/>
+<area shape="rect" id="node2" href="$class_memory_manager.html#a5bd75f7a078bd5c87713480c252532ac" title="get_varref se encarga de retornar la cantidad de referencias que tenga la variable que se le indique" alt="" coords="108,5,271,47"/>
+<area shape="rect" id="node3" href="$servidor_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main es la funcion donde corre el servido se y se hace el manejo de mensajes y memoria con el cliente" alt="" coords="5,42,60,69"/>
+</map>

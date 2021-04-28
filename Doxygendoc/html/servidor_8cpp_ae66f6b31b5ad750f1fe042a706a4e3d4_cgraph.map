@@ -1,0 +1,52 @@
+<map id="main" name="main">
+<area shape="rect" id="node1" title="main es la funcion donde corre el servido se y se hace el manejo de mensajes y memoria con el cliente" alt="" coords="5,1186,60,1213"/>
+<area shape="rect" id="node2" href="$class_memory_manager.html#ac13f4ee68e31bb830abf916904b033ba" title="add_varref le suma la cantidad de veces que la variable esta siendo referenciada" alt="" coords="175,724,340,766"/>
+<area shape="rect" id="node6" href="$class_memory_manager.html#a016fedbb19ff926abed122528ea90746" title="addvariablechar se encarga de asignarle valor char al ultimo espacio de memoria disponible" alt="" coords="134,958,381,985"/>
+<area shape="rect" id="node8" href="$class_memory_manager.html#ac0f32ea9414b43e8534ef08a9ef7dbc7" title="addvariabledouble se encarga de asignarle valor double al ultimo espacio de memoria disponible" alt="" coords="126,1009,389,1036"/>
+<area shape="rect" id="node9" href="$class_memory_manager.html#a8e8c4c6f5967d95753f97f7f0952b410" title="addvariablefloat se encarga de asignarle valor float al ultimo espacio de memoria disponible" alt="" coords="134,1060,381,1086"/>
+<area shape="rect" id="node10" href="$class_memory_manager.html#a801aa3b92b5008cf95db72388d0941b3" title="addvariableint se encarga de asignarle valor int al ultimo espacio de memoria disponible" alt="" coords="140,1110,375,1137"/>
+<area shape="rect" id="node11" href="$class_memory_manager.html#a38ec4352355805cfdcf358e9c866db46" title="addvariablelong se encarga de asignarle valor long al ultimo espacio de memoria disponible" alt="" coords="134,908,381,934"/>
+<area shape="rect" id="node12" href="$class_memory_manager.html#a0e168fb42fe4192bd543605f39ae539b" title="addvariablecref se encarga de asignarle valor puntero al ultimo espacio de memoria disponible" alt="" coords="139,1161,375,1188"/>
+<area shape="rect" id="node13" href="$servidor_8cpp.html#a121c2756397aee9a8c4d79f86e9779bc" title="mem_parse cambia un espacio de memoria a string" alt="" coords="493,1186,592,1213"/>
+<area shape="rect" id="node14" href="$class_memory_manager.html#a8d27e28b889c7fcbd1132ca31adc96a1" title="change_charvar cambia el valor de la variable char que se le indique" alt="" coords="163,78,351,119"/>
+<area shape="rect" id="node15" href="$class_linked_list.html#a6fc1e6dd702fa563cc9ab8c0e7e83db5" title="finsoffset retorna el offset de la variable" alt="" coords="465,281,621,308"/>
+<area shape="rect" id="node17" href="$class_memory_manager.html#a3d48aadfef60b4f045ae7fd1e854e57f" title="change_doublevar cambia el valor de la variable double que se le indique" alt="" coords="163,143,351,184"/>
+<area shape="rect" id="node18" href="$class_memory_manager.html#a921cac750cccfa74f0f4b91345b3f334" title="change_floatvar cambia el valor de la variable float que se le indique" alt="" coords="163,208,351,250"/>
+<area shape="rect" id="node19" href="$class_memory_manager.html#acb994c7c12a7ce5c3281773fcf3bdb8e" title="change_intvar cambia el valor de la variable int que se le indique" alt="" coords="163,274,351,315"/>
+<area shape="rect" id="node20" href="$class_memory_manager.html#aa6882aaea670ea33fc27a66e0a0e7142" title="change_longvar cambia el valor de la variable long que se le indique" alt="" coords="163,339,351,380"/>
+<area shape="rect" id="node21" href="$class_memory_manager.html#ad0b1e91a275b5aad933f3cdbfdafc924" title="change_refvar cambia el valor de la variable ref que se le indique" alt="" coords="163,404,351,446"/>
+<area shape="rect" id="node23" href="$servidor_8cpp.html#aa465e5e2194cf66b20b3e593386ede21" title="char_parse cambia string a char" alt="" coords="211,1262,304,1289"/>
+<area shape="rect" id="node24" href="$class_memory_manager.html#a975493c199eb27fc21b4f8271206e5b6" title="deleteint se encarga de borrar la variable char que se le indique de memoria" alt="" coords="152,521,363,548"/>
+<area shape="rect" id="node26" href="$class_memory_manager.html#a66ce8cf5daa3ca1c276dad7d36689c65" title="deleteint se encarga de borrar la variable double que se le indique de memoria" alt="" coords="144,572,371,598"/>
+<area shape="rect" id="node27" href="$class_memory_manager.html#ad86bd94b55fe72b882e22570df0466bf" title="deleteint se encarga de borrar la variable float que se le indique de memoria" alt="" coords="152,622,363,649"/>
+<area shape="rect" id="node28" href="$class_memory_manager.html#a786146a210b34268ad185b8f2ea36bda" title="deleteint se encarga de borrar la variable int que se le indique de memoria" alt="" coords="158,673,357,700"/>
+<area shape="rect" id="node29" href="$class_memory_manager.html#a5d3ba83cdb4309b3c080ccf0f42c5e26" title="deleteint se encarga de borrar la variable long que se le indique de memoria" alt="" coords="152,470,363,497"/>
+<area shape="rect" id="node30" href="$servidor_8cpp.html#af5119ff1bf38402ca16a835b6440a75a" title="double_parse cambia string a double" alt="" coords="203,1313,312,1340"/>
+<area shape="rect" id="node31" href="$class_linked_list.html#a15a6453db577467a288d260f8a07377d" title="findvar encuentra si la variable existe dentro de la lista" alt="" coords="473,732,613,758"/>
+<area shape="rect" id="node32" href="$servidor_8cpp.html#a00cc15197d90c98ee92da37db49f5519" title="float_parse cambia string a float" alt="" coords="210,1364,305,1390"/>
+<area shape="rect" id="node33" href="$class_memory_manager.html#a32989fb8cd7731cfff0e9f8ac5de6c2d" title="free_memory se encarga de borrar toda la memoria despues de parar la ejecución y la reinicia" alt="" coords="174,1415,341,1456"/>
+<area shape="rect" id="node34" href="$class_logger.html#a504e9b959374d626af1021760ef0f0a0" title="get_errorlog crea un formato de log con fecha, tipo error y con mensaje" alt="" coords="181,1481,334,1508"/>
+<area shape="rect" id="node35" href="$class_logger.html#af64096c0d6f3bfe43864ea264fb1cdf8" title="get_infolog crea un formato de log con fecha, tipo info y con mensaje" alt="" coords="184,1532,331,1558"/>
+<area shape="rect" id="node36" href="$class_memory_manager.html#a5bd75f7a078bd5c87713480c252532ac" title="get_varref se encarga de retornar la cantidad de referencias que tenga la variable que se le indique" alt="" coords="176,842,339,883"/>
+<area shape="rect" id="node37" href="$class_memory_manager.html#a258a81cc3327633195fb34698ae3ddd7" title="getlist se encarga de retornar el puntero de la memoria virtual para hacer otras operaciones con ella" alt="" coords="166,1582,349,1609"/>
+<area shape="rect" id="node38" href="$class_memory_manager.html#a0e5063d1cf59b041f6daee538cb4e15e" title="getmemoryoffsetchar devuleve el espacio de memoria en el offset que se le pida" alt="" coords="116,1633,399,1660"/>
+<area shape="rect" id="node39" href="$class_memory_manager.html#a9d532186fa7b8a634c24a0f290f1a625" title="getmemoryoffsetdouble devuleve el espacio de memoria en el offset que se le pida" alt="" coords="108,1684,407,1710"/>
+<area shape="rect" id="node40" href="$class_memory_manager.html#a8bb86dfed1dd90ee3f3c5e5edacc95a9" title="getmemoryoffsetfloat devuleve el espacio de memoria en el offset que se le pida" alt="" coords="116,1734,399,1761"/>
+<area shape="rect" id="node41" href="$class_memory_manager.html#a7c37efe09e8eafb404efbf4783c035d1" title="getmemoryoffsetint devuleve el espacio de memoria en el offset que se le pida" alt="" coords="122,1785,393,1812"/>
+<area shape="rect" id="node42" href="$class_memory_manager.html#a7a0adaec9bb12e73ab9a7c0f6677577e" title="getmemoryoffsetlong devuleve el espacio de memoria en el offset que se le pida" alt="" coords="116,1836,399,1862"/>
+<area shape="rect" id="node43" href="$class_memory_manager.html#ac0bb5e0ac73428767449c0df5f90f616" title="getoffset retorna el offset en que se encuentre la memoria" alt="" coords="158,1886,357,1913"/>
+<area shape="rect" id="node44" href="$servidor_8cpp.html#a306290cfa7bbf6cc3a3ab56b9eec398a" title="int_parse cambia string a int" alt="" coords="216,1937,299,1964"/>
+<area shape="rect" id="node45" href="$servidor_8cpp.html#a13a148d8c2ff417811303c106d1bf337" title="int_tostring cambia un int a un string" alt="" coords="209,1988,305,2014"/>
+<area shape="rect" id="node46" href="$servidor_8cpp.html#a8c6eb0e03cc08d8f68d04a83ca907fe7" title="jsonReviever se encarga de desempaquetar el mensaje JSON del cliente" alt="" coords="204,2038,311,2065"/>
+<area shape="rect" id="node47" href="$servidor_8cpp.html#a05480a638ff273b48e47cc0fec4ce36a" title="jsonSender se encarga de formatear los mensajes de servidor&#45;&gt; cliente" alt="" coords="210,2089,305,2116"/>
+<area shape="rect" id="node48" href="$servidor_8cpp.html#a387825fabebca9c9ebdc17cf30f5f684" title="long_parse cambia string a long" alt="" coords="211,2140,304,2166"/>
+<area shape="rect" id="node49" href="$servidor_8cpp.html#a86b339fabd673627788442b879a03cf2" title="msgsender se encarga de formatear los mensajes de info o de log servidor&#45;&gt;cliente" alt="" coords="210,2190,305,2217"/>
+<area shape="rect" id="node50" href="$class_memory_manager.html#ae416e1713c377be836e23fa1ab13fdfa" title="printmem imprime la memoria en consola para hacer casos de prueba" alt="" coords="155,2241,360,2268"/>
+<area shape="rect" id="node3" href="$class_linked_list.html#a5cdd735aa5956e122506001542b020fb" title="changeref cambia la cantidad de referencias que tenga una variable" alt="" coords="463,622,623,649"/>
+<area shape="rect" id="node4" href="$class_node.html#a81e9f5e01dea4e47abf7a911b5bc5296" title="get_name retorna el nombre de la variable" alt="" coords="679,597,808,624"/>
+<area shape="rect" id="node5" href="$class_node.html#a815c897407e2c039c4d86ef42848d8e5" title="get_next retorna el puntero al siguiente elemento" alt="" coords="683,546,804,573"/>
+<area shape="rect" id="node7" href="$class_linked_list.html#af8cfc7375df7c3aa2c7931535c7d4704" title="append se encarga de agregar nuevos nodos al final de la lista" alt="" coords="471,1034,614,1061"/>
+<area shape="rect" id="node16" href="$class_node.html#a66846674168da0221996ea08edca4aea" title="get_offset retorna el offset de la variable" alt="" coords="679,281,808,308"/>
+<area shape="rect" id="node22" href="$class_linked_list.html#aed0af5eb2e87e7fd2e93938139944fa3" title="changemem cambia el espacio de memoria del puntero" alt="" coords="455,521,631,548"/>
+<area shape="rect" id="node25" href="$class_linked_list.html#a629ffde4aacdca24b641c2497a38f60a" title="delete_elem borra el elemento que se le indique de la memoria" alt="" coords="455,572,631,598"/>
+</map>

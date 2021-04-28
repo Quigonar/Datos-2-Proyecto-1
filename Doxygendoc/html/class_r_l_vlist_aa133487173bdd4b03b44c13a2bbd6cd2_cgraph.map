@@ -1,0 +1,6 @@
+<map id="RLVlist::change_val" name="RLVlist::change_val">
+<area shape="rect" id="node1" title="change_val busca el elemento y cambia el valor" alt="" coords="5,56,153,83"/>
+<area shape="rect" id="node2" href="$class_r_l_vnode.html#aaa6040f7094c0c579b8541d96ea4a06c" title="get_name retorna el nombre de la variable" alt="" coords="201,5,352,32"/>
+<area shape="rect" id="node3" href="$class_r_l_vnode.html#abaaffefe8c8f566080eb8a218981f005" title="get_next retorna el punter next" alt="" coords="205,56,348,83"/>
+<area shape="rect" id="node4" href="$class_r_l_vnode.html#aa18e0750d3da9be94a623696a5e4c25d" title="set_value cambia el valor del value de la variable" alt="" coords="202,107,351,133"/>
+</map>

@@ -1,0 +1,10 @@
+<map id="LinkedList::delete_elem" name="LinkedList::delete_elem">
+<area shape="rect" id="node1" title="delete_elem borra el elemento que se le indique de la memoria" alt="" coords="383,132,559,159"/>
+<area shape="rect" id="node2" href="$class_memory_manager.html#a975493c199eb27fc21b4f8271206e5b6" title="deleteint se encarga de borrar la variable char que se le indique de memoria" alt="" coords="116,5,327,32"/>
+<area shape="rect" id="node4" href="$class_memory_manager.html#a66ce8cf5daa3ca1c276dad7d36689c65" title="deleteint se encarga de borrar la variable double que se le indique de memoria" alt="" coords="108,56,335,83"/>
+<area shape="rect" id="node5" href="$class_memory_manager.html#ad86bd94b55fe72b882e22570df0466bf" title="deleteint se encarga de borrar la variable float que se le indique de memoria" alt="" coords="116,107,327,133"/>
+<area shape="rect" id="node6" href="$class_memory_manager.html#a786146a210b34268ad185b8f2ea36bda" title="deleteint se encarga de borrar la variable int que se le indique de memoria" alt="" coords="122,157,321,184"/>
+<area shape="rect" id="node7" href="$class_memory_manager.html#a5d3ba83cdb4309b3c080ccf0f42c5e26" title="deleteint se encarga de borrar la variable long que se le indique de memoria" alt="" coords="116,208,327,235"/>
+<area shape="rect" id="node8" href="$class_memory_manager.html#a8a2925eb68f8c0e26947385d5235892c" title="deleteint se encarga de borrar la variable ref que se le indique de memoria" alt="" coords="121,259,321,285"/>
+<area shape="rect" id="node3" href="$servidor_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main es la funcion donde corre el servido se y se hace el manejo de mensajes y memoria con el cliente" alt="" coords="5,107,60,133"/>
+</map>

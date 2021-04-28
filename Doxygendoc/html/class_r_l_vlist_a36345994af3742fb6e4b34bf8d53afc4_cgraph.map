@@ -1,0 +1,5 @@
+<map id="RLVlist::get_name" name="RLVlist::get_name">
+<area shape="rect" id="node1" title="get_name organiza todos los nombres para el RLV" alt="" coords="5,31,144,57"/>
+<area shape="rect" id="node2" href="$class_r_l_vnode.html#aaa6040f7094c0c579b8541d96ea4a06c" title="get_name retorna el nombre de la variable" alt="" coords="192,5,343,32"/>
+<area shape="rect" id="node3" href="$class_r_l_vnode.html#abaaffefe8c8f566080eb8a218981f005" title="get_next retorna el punter next" alt="" coords="196,56,339,83"/>
+</map>
