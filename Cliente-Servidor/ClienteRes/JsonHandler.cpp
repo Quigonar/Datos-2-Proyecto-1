@@ -31,7 +31,9 @@ public:
     map<string, string> referencesD;
     map<string, string> referencesC;
     map<string, string> structs;
-    string terminal, structName;
+    map<string, string> referencesS;
+    map<string, string> structsCreated;
+    string terminal, structName, structName2;
     int counter = 1;
     vector<string> variableScope, addRef;
     bool scopeActive, printValue, changeType, isStruct;
@@ -107,9 +109,10 @@ public:
                     doubles[variable] = num;
                 return true;
             }
-            else if (type == "struct" && *(typeid(stoi(value)).name()) == 's')
+            else if (type == "structs")
             {
-                cout << "Not implemented yet" << endl;
+                if (addMap)
+                    structsCreated[variable] = value;
                 return true;
             }
             //Verifica que el reference<int> ingresado sea valido
@@ -147,6 +150,12 @@ public:
                     referencesC[variable] = value;
                 return true;
             }
+            else if (type == "reference<struct>")
+            {
+                if (addMap)
+                    referencesS[variable] = value;
+                return true;
+            }
         }
         //Si no logra la conversion entonces retorna falso y despliega el error en stdout
         catch (invalid_argument error)
@@ -171,8 +180,8 @@ public:
         line = node->data;
         bool ignoreStep = false;
         bool addReference = false;
-        string types[11] = {"int", "long", "char", "float", "double", "struct", "reference<int>", "reference<long>",
-                           "reference<float>", "reference<double>", "reference<char>"};
+        string types[12] = {"int", "long", "char", "float", "double", "struct", "reference<int>", "reference<long>",
+                           "reference<float>", "reference<double>", "reference<char>", "reference<struct>"};
 
         //Divisor de la linea por espacios y los anade a un vector lineSplit
         delimiter = " ";
@@ -191,7 +200,7 @@ public:
             return "continue";
 
         //Verifica si el tipo esta definido al principio y define el tipo de la variable
-        for (n = 0; n < 11; n++)
+        for (n = 0; n < 12; n++)
         {
             if (lineSplit.front() == types[n])
             {
@@ -270,6 +279,24 @@ public:
             ignoreStep = true;
             addReference = true;
         }
+        else if (referencesS.count(lineSplit.front()) > 0 && type.empty())
+        {
+            type = "reference<struct>";
+            ignoreStep = true;
+            addReference = true;
+        }
+        else if (structs.count(lineSplit.front()) > 0 && type.empty())
+        {
+            type = "structs";
+            ignoreStep = true;
+            addReference = true;
+        }
+        else if (structsCreated.count(lineSplit.front()) > 0 && type.empty())
+        {
+            type = "structsCreated";
+            ignoreStep = true;
+            addReference = true;
+        }
 
         //Si se encuentra el inicio de un scope torna scopeActive a true para tomar en cuenta las variables que se crean en el
         else if(lineSplit.front() == "{" && lineSplit.size() == 1 && !scopeActive)
@@ -313,13 +340,42 @@ public:
         }
         else if(lineSplit.front() == "}" && lineSplit.size() == 1 && !scopeActive && isStruct)
         {
-            string variables = structs.at(structName);
-            type = "struct";
-            isStruct = false;
-            string jsonStr = R"({"type":")" + type + R"(","value":")" + variables + R"(","variable":")"+ structName +"\"}";
-            structName = "";
-            counter = 1;
-            return jsonStr;
+            if (counter == 3)
+            {
+                string variables = structs.at(structName);
+                type = "struct";
+                isStruct = false;
+                string jsonStr = R"({"type":")" + type + R"(","value":")" + variables + R"(","variable":")"+ structName +"\"}";
+                structName = "";
+                counter = 1;
+                return jsonStr;
+            }
+            else
+            {
+                terminal.append("Error! need to define at least 2 variables in the struct.");
+                return "error";
+            }
+        }
+        else if (lineSplit.front() == "}" && lineSplit.size() == 1 && scopeActive && isStruct)
+        {
+            if (counter == 3)
+            {
+                string variables = structs.at(structName);
+                type = "struct";
+                isStruct = false;
+                variableScope.push_back(structName);
+                string jsonStr =
+                        R"({"type":")" + type + R"(","value":")" + variables + R"(","variable":")" + structName + "\"}";
+                structName = "";
+                counter = 1;
+                return jsonStr;
+            }
+            else
+            {
+                terminal.append("Error! need to define at least 2 variables in the struct.");
+                return "error";
+            }
+
         }
         //Si no seria el imprimir alguna variable y desplegarla en la terminal o stdout
         if (printValue)
@@ -373,6 +429,7 @@ public:
                 string Type = "addRef";
                 addRef.push_back(R"({"type":")" + Type + R"(","value":")" + "ref" + R"(","variable":")"+ lineSplit.front() +"\"}");
                 terminal.append(referencesI.at(lineSplit.front()) + "\n");
+                printValue = false;
                 return "print";
             }
             else if (referencesL.count(lineSplit.front()) > 0 )
@@ -380,6 +437,7 @@ public:
                 string Type = "addRef";
                 addRef.push_back(R"({"type":")" + Type + R"(","value":")" + "ref" + R"(","variable":")"+ lineSplit.front() +"\"}");
                 terminal.append(referencesL.at(lineSplit.front()) + "\n");
+                printValue = false;
                 return "print";
             }
             else if (referencesF.count(lineSplit.front()) > 0 )
@@ -387,6 +445,7 @@ public:
                 string Type = "addRef";
                 addRef.push_back(R"({"type":")" + Type + R"(","value":")" + "ref" + R"(","variable":")"+ lineSplit.front() +"\"}");
                 terminal.append(referencesF.at(lineSplit.front()) + "\n");
+                printValue = false;
                 return "print";
             }
             else if (referencesD.count(lineSplit.front()) > 0 )
@@ -394,6 +453,7 @@ public:
                 string Type = "addRef";
                 addRef.push_back(R"({"type":")" + Type + R"(","value":")" + "ref" + R"(","variable":")"+ lineSplit.front() +"\"}");
                 terminal.append(referencesD.at(lineSplit.front()) + "\n");
+                printValue = false;
                 return "print";
             }
             else if (referencesC.count(lineSplit.front()) > 0 )
@@ -401,8 +461,34 @@ public:
                 string Type = "addRef";
                 addRef.push_back(R"({"type":")" + Type + R"(","value":")" + "ref" + R"(","variable":")"+ lineSplit.front() +"\"}");
                 terminal.append(referencesC.at(lineSplit.front()) + "\n");
+                printValue = false;
                 return "print";
             }
+            else if (structs.count(lineSplit.front()) > 0)
+            {
+                string Type = "addRef";
+                addRef.push_back(R"({"type":")" + Type + R"(","value":")" + "struct" + R"(","variable":")" + lineSplit.front() + "\"}");
+                terminal.append(rlv->findmem(lineSplit.front()));
+                printValue = false;
+                return "print";
+            }
+            else if (structsCreated.count(lineSplit.front()) > 0)
+            {
+                string Type = "addRef";
+                addRef.push_back(R"({"type":")" + Type + R"(","value":")" + "ref" + R"(","variable":")" + lineSplit.front() + "\"}");
+                terminal.append(structsCreated.at(lineSplit.front()));
+                printValue = false;
+                return "print";
+            }
+            else if (referencesS.count(lineSplit.front()) > 0)
+            {
+                string Type = "addRef";
+                addRef.push_back(R"({"type":")" + Type + R"(","value":")" + "ref" + R"(","variable":")" + lineSplit.front() + "\"}");
+                terminal.append(referencesS.at(lineSplit.front()));
+                printValue = false;
+                return "print";
+            }
+            cout << "Counter: " << structsCreated.count(lineSplit.front()) << endl;
         }
 
         //Y por ultimo devolver un error y desplegarlo en la terminal o stdout
@@ -423,7 +509,8 @@ public:
                 variableScope.push_back(variable);
             //Si se redefine una variable daria error
             if (ints.count(variable) > 0 || longs.count(variable) > 0 || floats.count(variable) > 0 || doubles.count(variable) > 0 || chars.count(variable) ||
-                referencesI.count(variable) > 0 || referencesL.count(variable) > 0 || referencesF.count(variable) > 0 || referencesD.count(variable) > 0 || referencesC.count(variable) > 0){
+                referencesI.count(variable) > 0 || referencesL.count(variable) > 0 || referencesF.count(variable) > 0 || referencesD.count(variable) > 0 || referencesC.count(variable) > 0
+                || referencesS.count(variable) > 0 || structs.count(variable) > 0 || structsCreated.count(variable) > 0) {
                 terminal.append("Error! redefining same variable: " + variable + "\n");
                 return "error";
             }
@@ -461,10 +548,26 @@ public:
                     referencesC[variable] = "NULL";
                     type = "reference";
                 }
+                else if (type == "reference<struct>") {
+                    referencesS[variable] = "NULL";
+                    type = "reference";
+                }
 
                 string jsonStr = R"({"type":")"+ type + R"(","value":")" + value + R"(","variable":")" + variable + "\"}";
                 return jsonStr;
             }
+        }
+        else if (lineSplit.back().length() >= 2 && lineSplit.back().back() == ';' && !isStruct && type == "structs" && lineSplit.size() == 2)
+        {
+            cout << "Entered structs" << endl;
+            type = "reference";
+            variable = lineSplit.back().erase(lineSplit.back().length() - 1);
+            value = rlv->findmem(lineSplit.front());
+            structsCreated[variable] = value;
+            string Type = "addRef";
+            addRef.push_back(R"({"type":")" + Type + R"(","value":")" + "struct" + R"(","variable":")" + lineSplit.front() + "\"}");
+            string jsonStr = R"({"type":")"+ type + R"(","value":")" + value + R"(","variable":")" + variable + "\"}";
+            return jsonStr;
         }
         else if (lineSplit.front().length() >= 2 && lineSplit.front().back() == ';' && isStruct && counter <= 2)
         {
@@ -472,8 +575,6 @@ public:
                 structs.at(structName) += type + "," + lineSplit.front().erase(lineSplit.front().length() - 1) + ",";
             else if (counter == 2)
                 structs.at(structName) += type + "," + lineSplit.front().erase(lineSplit.front().length() - 1);
-            cout << counter << endl;
-            cout << structs.at(structName) << endl;
             counter++;
             return "continue";
         }
@@ -509,6 +610,13 @@ public:
         //Y si no se continua a encontrar el valor de la variable.
         else
         {
+            //Si la variable es un struct
+            if (type == "structs")
+            {
+                structName2 = lineSplit.front();
+                it = lineSplit.begin();
+                lineSplit.erase(it);
+            }
             //Si se encuentra fuera del scope y se quiere dar valor a variable ya definida
             if (ignoreStep && !scopeActive)
                 variable = lineSplit.front();
@@ -534,11 +642,14 @@ public:
         }
 
         //Si el sintaxis esta bien escrito se procede a poner el valor a la variable
+        cout << "lineSplit 1: " << lineSplit.front() << variable << endl;
+
         if (lineSplit.front() == '=' && !isStruct)
         {
             it = lineSplit.begin();
             lineSplit.erase(it);
             //Si a la variable no se le quiere hacer una operacion y si presenta el punto y coma atras
+            cout << "lineSplit :" << lineSplit.front().back() << lineSplit.front().length() << endl;
             if (lineSplit.front().back() == ';' && lineSplit.front().length() >= 2)
             {
                 value = lineSplit.front().erase(lineSplit.front().length() - 1);
@@ -599,7 +710,15 @@ public:
                     changeType = true;
                     value = referencesC.at(value);
                 }
+                else if (structsCreated.count(value) > 0) {
+                    cout << "Entered structsCreated" << endl;
+                    string Type = "addRef";
+                    addRef.push_back(R"({"type":")" + Type + R"(","value":")" + "ref" + R"(","variable":")" + value + "\"}");
+                    changeType = true;
+                    value = structsCreated.at(value);
+                }
                 //Verificar que el valor de la variable se valido
+                cout << type << value << variable << endl;
                 bool validValue = valueVerifier(type, value, variable, true);
                 cout << validValue << endl;
                 //Retorna el JSON si es valido
@@ -616,7 +735,7 @@ public:
             }
             //Si se quiere crear una referencia
             else if (lineSplit.size() == 2 && (type == "reference<int>" || type == "reference<long>" || type == "reference<float>"
-                        || type == "reference<double>" || type == "reference<char>"))
+                        || type == "reference<double>" || type == "reference<char>" || type == "reference<struct>"))
             {
                 //Si la referencia se crea con el getaddr de una variable
                 if (lineSplit.front() == "getaddr" && lineSplit.back().back() == ';') {
@@ -690,6 +809,24 @@ public:
                             string Type = "addRef";
                             addRef.push_back(R"({"type":")" + Type + R"(","value":")" + "char" + R"(","variable":")" +
                                              lineSplit.back() + "\"}");
+                            addRef.push_back(R"({"type":")" + Type + R"(","value":")" + "ref" + R"(","variable":")" +
+                                             variable + "\"}");
+                            string mem = rlv->findmem(lineSplit.back());
+                            bool validValue = valueVerifier(type, mem, variable, true);
+                            type = "reference";
+                            if (validValue) {
+                                string jsonStr = R"({"type":")" + type + R"(","value":")" + mem + R"(","variable":")" +
+                                                 variable + "\"}";
+                                return jsonStr;
+                            }
+                        } else if (type == "reference<struct>" &&
+                                   structsCreated.count(lineSplit.back().erase(lineSplit.back().size() - 1)) > 0)
+                        {
+                            string Type = "addRef";
+                            addRef.push_back(R"({"type":")" + Type + R"(","value":")" + "ref" + R"(","variable":")" +
+                                             lineSplit.back() + "\"}");
+                            addRef.push_back(R"({"type":")" + Type + R"(","value":")" + "ref" + R"(","variable":")" +
+                                             variable + "\"}");
                             string mem = rlv->findmem(lineSplit.back());
                             bool validValue = valueVerifier(type, mem, variable, true);
                             type = "reference";
@@ -770,6 +907,20 @@ public:
                                                  variable + "\"}";
                                 return jsonStr;
                             }
+                        } else if (type == "reference<struct>" &&
+                                   structsCreated.count(lineSplit.back().erase(lineSplit.back().size() - 1)) > 0)
+                        {
+                            string Type = "addRef";
+                            addRef.push_back(R"({"type":")" + Type + R"(","value":")" + "ref" + R"(","variable":")" +
+                                             lineSplit.back() + "\"}");
+                            string mem = rlv->findmem(lineSplit.back());
+                            bool validValue = valueVerifier(type, mem, variable, true);
+                            type = "reference";
+                            if (validValue) {
+                                string jsonStr = R"({"type":")" + type + R"(","value":")" + mem + R"(","variable":")" +
+                                                 variable + "\"}";
+                                return jsonStr;
+                            }
                         }
                     }
                     //Si no la variable no existe
@@ -788,7 +939,7 @@ public:
             }
             //Si se quiere crear una variable diferente de referencia
             else if (lineSplit.size() == 2 && (type == "int" || type == "long" || type == "float" || type == "double"
-                    || type == "char"))
+                    || type == "char" || type == "structs"))
             {
                 //Si la variable se usa getvalue para dar valor
                 if (lineSplit.front() == "getvalue" && lineSplit.back().back() == ';')
@@ -864,6 +1015,22 @@ public:
                                 return jsonStr;
                             }
                         }
+                        else if (type == "structs" && referencesS.count(lineSplit.back().erase(lineSplit.back().size() - 1)) > 0)
+                        {
+                            string val = rlv->findvalue(referencesS.at(lineSplit.back()));
+                            string Type = "addRef";
+                            addRef.push_back(R"({"type":")" + Type + R"(","value":")" + "ref" + R"(","variable":")"+ lineSplit.back() +"\"}");
+                            addRef.push_back(R"({"type":")" + Type + R"(","value":")" + "struct" + R"(","variable":")"+ structName2 +"\"}");
+                            structName2 = "";
+                            bool validValue = valueVerifier(type, val, variable, true);
+                            type = "reference";
+                            cout << validValue << endl;
+                            if (validValue)
+                            {
+                                string jsonStr = R"({"type":")"+ type + R"(","value":")" + val + R"(","variable":")" + variable + "\"}";
+                                return jsonStr;
+                            }
+                        }
                     }
                     //Verificar si se tiene que anadir una referencia a la variable
                     else if (!addReference)
@@ -928,6 +1095,19 @@ public:
                             if (validValue)
                             {
                                 string jsonStr = R"({"type":")"+ type + R"(","value":")" + valChar + R"(","variable":")" + variable + "\"}";
+                                return jsonStr;
+                            }
+                        }
+                        else if (type == "structs" && referencesS.count(lineSplit.back().erase(lineSplit.back().size() - 1)) > 0)
+                        {
+                            string val = rlv->findvalue(referencesS.at(lineSplit.back()));
+                            string Type = "addRef";
+                            addRef.push_back(R"({"type":")" + Type + R"(","value":")" + "ref" + R"(","variable":")"+ lineSplit.back() +"\"}");
+                            bool validValue = valueVerifier(type, val, variable, true);
+                            cout << validValue << endl;
+                            if (validValue)
+                            {
+                                string jsonStr = R"({"type":")"+ type + R"(","value":")" + val + R"(","variable":")" + variable + "\"}";
                                 return jsonStr;
                             }
                         }

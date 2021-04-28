@@ -350,14 +350,14 @@ int main()
                 vector<string> variables;
                 string delimiter = ",";
                 auto start = 0U;
-                auto end = variable.find(delimiter);
+                auto end = value.find(delimiter);
                 while (end != string::npos)
                 {
-                    variables.push_back(variable.substr(start, end - start));
+                    variables.push_back(value.substr(start, end - start));
                     start = end + delimiter.length();
-                    end = variable.find(delimiter, start);
+                    end = value.find(delimiter, start);
                 }
-                variables.push_back(variable.substr(start, end));
+                variables.push_back(value.substr(start, end));
 
                 string type1 = variables.at(0);
                 string name1 = variables.at(1);
@@ -455,10 +455,10 @@ int main()
                     value2 = to_string(*mserver.getmemoryoffsetchar(aoffset));
                 }
 
-                mserver.addvariablestruct(variable,offset1,type1);
+                mserver.addvariablestruct(variable,offset1,type1, addr1);
                 json = jsonSender(addr1,value1,variable,xref1);
-                log = jsonSender(addr2,value2," ", " ");
-                auxjson = msgsender(logger.get_infolog("Struct: " + variable + " was allocated successfully"), "msg");
+                auxjson = jsonSender(addr2,value2," ", " ");
+                log = msgsender(logger.get_infolog("Struct: " + variable + " was allocated successfully"), "msg");
             }
             else if (type == "reference")//revisa se le envio menssaje para creacion de un referencetype
             {
@@ -528,6 +528,12 @@ int main()
                     }
                     else if(mserver.getlist("char")->findvar(i)){//si el valor es char
                         mserver.deletechar(i);
+                    }
+                    else if (mserver.getlist("struct")->findvar(i)){
+                        mserver.deletestruct(i);
+                    }
+                    else if (mserver.getlist("ref")->findvar(i)){
+                        mserver.deleteref(i);
                     }
                     string type = "ignore";
                     json = R"({"type":")" + type + R"(","msg":")" + "msg" + "\"}";//genera json
@@ -618,6 +624,7 @@ int main()
                     string addr = mem_parse((void*)mserver.getmemoryoffsetint(offset));
                     string xref = int_tostring(refnum);
                     json = jsonSender(addr,"empty",variable,xref);//genera json
+                    cout << json << endl;
                     //genera log
                     log = msgsender(logger.get_infolog("Struct: "+variable+ " has been referenced"),"msg");
                 }
@@ -636,6 +643,13 @@ int main()
             packetR.clear();
             json = "";//vacia el log
 
+            if(auxjson != ""){// si se genero un log de error
+                cout<<"log is being sent"<<endl;
+                packetS << auxjson;
+                socket.send(packetS);
+                auxjson = "";
+                packetS.clear();
+            }
             if(log != ""){// si se genero un log de error
                 cout<<"log is being sent"<<endl;
                 packetS << log;
@@ -643,13 +657,7 @@ int main()
                 log = "";
                 packetS.clear();
             }
-            if(auxjson != ""){// si se genero un log de error
-                cout<<"log is being sent"<<endl;
-                packetS << log;
-                socket.send(packetS);
-                log = "";
-                packetS.clear();
-            }
+
         }
     }
     

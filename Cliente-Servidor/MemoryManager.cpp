@@ -240,9 +240,9 @@ public:
     }
 
 
-    void addvariablestruct(string name,int aoffset, string type){
+    void addvariablestruct(string name,int aoffset, string type, string value){
 
-        structarray.append(aoffset,type,name);
+        structarray.append(aoffset,type,name, "", value);
     }
     /**
      * @brief mem_parse cambia el espacio de memoria en un string

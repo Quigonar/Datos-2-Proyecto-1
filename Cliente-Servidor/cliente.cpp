@@ -256,6 +256,7 @@ int main(int argc, char *argv[])
                         variables.push_back(variable.substr(start, end));
                         cout<< rlvlist.get_name() <<endl;
                         for (auto & i : variables) {
+                            cout << i << endl;
                             rlvlist.RLVupdate(i);
                         }
                         RLVStrA = rlvlist.get_memory();

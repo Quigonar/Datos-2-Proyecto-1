@@ -198,6 +198,46 @@ public:
         }
     }
 
+    string findrefname(string aname) {
+        if (start == NULL)//lista nula
+        {
+            return "NULL";
+        }
+        else if (start == tail)//lista solo tiene un elemento
+        {
+            if (start->get_name() == aname)//revisar el primer elemento
+            {
+                return start->get_refname();//obtiene refnum
+            }
+            else
+            {
+                return "NULL";
+            }
+        }
+        else
+        {
+            if (start->get_name() == aname)//revisar el primer elemento
+            {
+                return start->get_refname();//obtiene refnum
+            }
+            else
+            {
+                Node* tmp = start->get_next();//buscar a traves de la lista
+                while (tmp != NULL)
+                {
+                    if (tmp->get_name() == aname)//revisar si el elemento es name
+                    {
+                        return tmp->get_refname();//retorna las referencias
+                    }
+
+                    tmp = tmp->get_next();//siguiente elemento
+                }
+
+                return "NULL";
+            }
+        }
+    }
+
     /**
      * @brief changeref cambia la cantidad de referencias que tenga una variable
      * @param aname nombre de la variable
