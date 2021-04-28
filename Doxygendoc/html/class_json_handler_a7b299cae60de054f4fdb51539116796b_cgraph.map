@@ -1,0 +1,9 @@
+<map id="JsonHandler::jsonSender" name="JsonHandler::jsonSender">
+<area shape="rect" id="node1" title="verificador de las lineas el cual tambien crea los errores en el stdout y los JSONs que se envian al ..." alt="" coords="5,81,185,108"/>
+<area shape="rect" id="node2" href="$class_r_l_vlist.html#a26bf143d1887ef81a25b8b7474d2da94" title="findmem busca el espacio de memoria de la variable" alt="" coords="235,107,367,133"/>
+<area shape="rect" id="node6" href="$class_r_l_vlist.html#a2c98b89a346b9417e974640deadb7c2e" title="findvalue busca el valor de la variable con el espacio de memoria" alt="" coords="233,56,368,83"/>
+<area shape="rect" id="node3" href="$class_r_l_vnode.html#aa349427e47e58ac9e87b1ec4ec988b5c" title="get_mem retorna memoria de la variable" alt="" coords="417,56,565,83"/>
+<area shape="rect" id="node4" href="$class_r_l_vnode.html#aaa6040f7094c0c579b8541d96ea4a06c" title="get_name retorna el nombre de la variable" alt="" coords="416,157,567,184"/>
+<area shape="rect" id="node5" href="$class_r_l_vnode.html#abaaffefe8c8f566080eb8a218981f005" title="get_next retorna el punter next" alt="" coords="420,107,563,133"/>
+<area shape="rect" id="node7" href="$class_r_l_vnode.html#a8fa829b5f32643d3b81cb221663bedb3" title="get_value retorna el valor de la variable" alt="" coords="416,5,567,32"/>
+</map>

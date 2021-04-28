@@ -1,0 +1,5 @@
+<map id="LinkedList::changeref" name="LinkedList::changeref">
+<area shape="rect" id="node1" title="changeref cambia la cantidad de referencias que tenga una variable" alt="" coords="321,13,481,39"/>
+<area shape="rect" id="node2" href="$class_memory_manager.html#ac13f4ee68e31bb830abf916904b033ba" title="add_varref le suma la cantidad de veces que la variable esta siendo referenciada" alt="" coords="108,5,273,47"/>
+<area shape="rect" id="node3" href="$servidor_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main es la funcion donde corre el servido se y se hace el manejo de mensajes y memoria con el cliente" alt="" coords="5,13,60,39"/>
+</map>

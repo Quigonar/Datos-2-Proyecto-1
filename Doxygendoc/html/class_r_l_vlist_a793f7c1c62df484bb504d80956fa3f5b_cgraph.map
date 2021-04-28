@@ -1,0 +1,5 @@
+<map id="RLVlist::get_ref" name="RLVlist::get_ref">
+<area shape="rect" id="node1" title="get_ref organiza todos los ref para el RLV" alt="" coords="5,31,125,57"/>
+<area shape="rect" id="node2" href="$class_r_l_vnode.html#abaaffefe8c8f566080eb8a218981f005" title="get_next retorna el punter next" alt="" coords="173,5,316,32"/>
+<area shape="rect" id="node3" href="$class_r_l_vnode.html#ae6bd2cf0f329fddd91e642364934ac63" title="get_ref retorna la cantidad de referencias" alt="" coords="179,56,311,83"/>
+</map>

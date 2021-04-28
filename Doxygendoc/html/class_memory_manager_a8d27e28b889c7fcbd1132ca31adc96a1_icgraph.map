@@ -1,0 +1,4 @@
+<map id="MemoryManager::change_charvar" name="MemoryManager::change_charvar">
+<area shape="rect" id="node1" title="change_charvar cambia el valor de la variable char que se le indique" alt="" coords="108,5,296,47"/>
+<area shape="rect" id="node2" href="$servidor_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main es la funcion donde corre el servido se y se hace el manejo de mensajes y memoria con el cliente" alt="" coords="5,13,60,39"/>
+</map>

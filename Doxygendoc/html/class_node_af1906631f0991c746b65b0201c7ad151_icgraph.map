@@ -1,0 +1,18 @@
+<map id="Node::set_next" name="Node::set_next">
+<area shape="rect" id="node1" title="set_next cambia el valor del puntero" alt="" coords="643,284,763,311"/>
+<area shape="rect" id="node2" href="$class_linked_list.html#af8cfc7375df7c3aa2c7931535c7d4704" title="append se encarga de agregar nuevos nodos al final de la lista" alt="" coords="435,157,578,184"/>
+<area shape="rect" id="node10" href="$class_linked_list.html#a629ffde4aacdca24b641c2497a38f60a" title="delete_elem borra el elemento que se le indique de la memoria" alt="" coords="419,411,595,437"/>
+<area shape="rect" id="node3" href="$class_memory_manager.html#a016fedbb19ff926abed122528ea90746" title="addvariablechar se encarga de asignarle valor char al ultimo espacio de memoria disponible" alt="" coords="116,5,363,32"/>
+<area shape="rect" id="node5" href="$class_memory_manager.html#ac0f32ea9414b43e8534ef08a9ef7dbc7" title="addvariabledouble se encarga de asignarle valor double al ultimo espacio de memoria disponible" alt="" coords="108,56,371,83"/>
+<area shape="rect" id="node6" href="$class_memory_manager.html#a8e8c4c6f5967d95753f97f7f0952b410" title="addvariablefloat se encarga de asignarle valor float al ultimo espacio de memoria disponible" alt="" coords="116,107,363,133"/>
+<area shape="rect" id="node7" href="$class_memory_manager.html#a801aa3b92b5008cf95db72388d0941b3" title="addvariableint se encarga de asignarle valor int al ultimo espacio de memoria disponible" alt="" coords="122,157,357,184"/>
+<area shape="rect" id="node8" href="$class_memory_manager.html#a38ec4352355805cfdcf358e9c866db46" title="addvariablelong se encarga de asignarle valor long al ultimo espacio de memoria disponible" alt="" coords="116,208,363,235"/>
+<area shape="rect" id="node9" href="$class_memory_manager.html#a0e168fb42fe4192bd543605f39ae539b" title="addvariablecref se encarga de asignarle valor puntero al ultimo espacio de memoria disponible" alt="" coords="121,259,357,285"/>
+<area shape="rect" id="node4" href="$servidor_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main es la funcion donde corre el servido se y se hace el manejo de mensajes y memoria con el cliente" alt="" coords="5,259,60,285"/>
+<area shape="rect" id="node11" href="$class_memory_manager.html#a975493c199eb27fc21b4f8271206e5b6" title="deleteint se encarga de borrar la variable char que se le indique de memoria" alt="" coords="134,309,345,336"/>
+<area shape="rect" id="node12" href="$class_memory_manager.html#a66ce8cf5daa3ca1c276dad7d36689c65" title="deleteint se encarga de borrar la variable double que se le indique de memoria" alt="" coords="126,360,353,387"/>
+<area shape="rect" id="node13" href="$class_memory_manager.html#ad86bd94b55fe72b882e22570df0466bf" title="deleteint se encarga de borrar la variable float que se le indique de memoria" alt="" coords="134,411,345,437"/>
+<area shape="rect" id="node14" href="$class_memory_manager.html#a786146a210b34268ad185b8f2ea36bda" title="deleteint se encarga de borrar la variable int que se le indique de memoria" alt="" coords="140,461,339,488"/>
+<area shape="rect" id="node15" href="$class_memory_manager.html#a5d3ba83cdb4309b3c080ccf0f42c5e26" title="deleteint se encarga de borrar la variable long que se le indique de memoria" alt="" coords="134,512,345,539"/>
+<area shape="rect" id="node16" href="$class_memory_manager.html#a8a2925eb68f8c0e26947385d5235892c" title="deleteint se encarga de borrar la variable ref que se le indique de memoria" alt="" coords="139,563,339,589"/>
+</map>

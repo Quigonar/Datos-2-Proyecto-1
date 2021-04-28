@@ -1,0 +1,6 @@
+<map id="Node::get_refnum" name="Node::get_refnum">
+<area shape="rect" id="node1" title="get_refnum retorna la cantidad de referencias" alt="" coords="504,13,643,39"/>
+<area shape="rect" id="node2" href="$class_linked_list.html#ad89a7b72aff9979f14ae6b5f1af01f2e" title="findref buscar la cantidad de referencias que tenga la variable que se pida" alt="" coords="319,13,456,39"/>
+<area shape="rect" id="node3" href="$class_memory_manager.html#a5bd75f7a078bd5c87713480c252532ac" title="get_varref se encarga de retornar la cantidad de referencias que tenga la variable que se le indique" alt="" coords="108,5,271,47"/>
+<area shape="rect" id="node4" href="$servidor_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main es la funcion donde corre el servido se y se hace el manejo de mensajes y memoria con el cliente" alt="" coords="5,13,60,39"/>
+</map>

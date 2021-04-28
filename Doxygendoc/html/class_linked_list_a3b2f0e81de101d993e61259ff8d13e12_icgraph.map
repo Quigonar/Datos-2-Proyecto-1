@@ -1,0 +1,5 @@
+<map id="LinkedList::find" name="LinkedList::find">
+<area shape="rect" id="node1" title="find busca si la variable existe en la lista" alt="" coords="361,5,480,32"/>
+<area shape="rect" id="node2" href="$class_memory_manager.html#ae416e1713c377be836e23fa1ab13fdfa" title="printmem imprime la memoria en consola para hacer casos de prueba" alt="" coords="108,5,313,32"/>
+<area shape="rect" id="node3" href="$servidor_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main es la funcion donde corre el servido se y se hace el manejo de mensajes y memoria con el cliente" alt="" coords="5,5,60,32"/>
+</map>

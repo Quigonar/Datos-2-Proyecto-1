@@ -1,0 +1,5 @@
+<map id="ClienteRes/GUI.cpp" name="ClienteRes/GUI.cpp">
+<area shape="rect" id="node1" title="Manejo de la interfaz grafica del usuario." alt="" coords="5,5,152,32"/>
+<area shape="rect" id="node2" href="$cliente_8cpp.html" title="Manejo de todo el IDE del usuario." alt="" coords="32,155,125,181"/>
+<area shape="rect" id="node3" href="$_json_handler_8cpp.html" title="Manejo de las lineas y JSONs recibidos por el cliente." alt="" coords="48,80,248,107"/>
+</map>

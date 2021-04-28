@@ -1,0 +1,13 @@
+<map id="Node::set_mem" name="Node::set_mem">
+<area shape="rect" id="node1" title="set_mem cambia el valor al que apunta el puntero" alt="" coords="643,237,768,264"/>
+<area shape="rect" id="node2" href="$class_linked_list.html#af8cfc7375df7c3aa2c7931535c7d4704" title="append se encarga de agregar nuevos nodos al final de la lista" alt="" coords="435,157,578,184"/>
+<area shape="rect" id="node10" href="$class_linked_list.html#aed0af5eb2e87e7fd2e93938139944fa3" title="changemem cambia el espacio de memoria del puntero" alt="" coords="419,263,595,289"/>
+<area shape="rect" id="node3" href="$class_memory_manager.html#a016fedbb19ff926abed122528ea90746" title="addvariablechar se encarga de asignarle valor char al ultimo espacio de memoria disponible" alt="" coords="116,5,363,32"/>
+<area shape="rect" id="node5" href="$class_memory_manager.html#ac0f32ea9414b43e8534ef08a9ef7dbc7" title="addvariabledouble se encarga de asignarle valor double al ultimo espacio de memoria disponible" alt="" coords="108,56,371,83"/>
+<area shape="rect" id="node6" href="$class_memory_manager.html#a8e8c4c6f5967d95753f97f7f0952b410" title="addvariablefloat se encarga de asignarle valor float al ultimo espacio de memoria disponible" alt="" coords="116,107,363,133"/>
+<area shape="rect" id="node7" href="$class_memory_manager.html#a801aa3b92b5008cf95db72388d0941b3" title="addvariableint se encarga de asignarle valor int al ultimo espacio de memoria disponible" alt="" coords="122,157,357,184"/>
+<area shape="rect" id="node8" href="$class_memory_manager.html#a38ec4352355805cfdcf358e9c866db46" title="addvariablelong se encarga de asignarle valor long al ultimo espacio de memoria disponible" alt="" coords="116,208,363,235"/>
+<area shape="rect" id="node9" href="$class_memory_manager.html#a0e168fb42fe4192bd543605f39ae539b" title="addvariablecref se encarga de asignarle valor puntero al ultimo espacio de memoria disponible" alt="" coords="121,259,357,285"/>
+<area shape="rect" id="node4" href="$servidor_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main es la funcion donde corre el servido se y se hace el manejo de mensajes y memoria con el cliente" alt="" coords="5,157,60,184"/>
+<area shape="rect" id="node11" href="$class_memory_manager.html#ad0b1e91a275b5aad933f3cdbfdafc924" title="change_refvar cambia el valor de la variable ref que se le indique" alt="" coords="145,310,333,351"/>
+</map>

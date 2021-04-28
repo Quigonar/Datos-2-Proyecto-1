@@ -1,0 +1,6 @@
+<map id="RLVlist::findvalue" name="RLVlist::findvalue">
+<area shape="rect" id="node1" title="findvalue busca el valor de la variable con el espacio de memoria" alt="" coords="5,56,140,83"/>
+<area shape="rect" id="node2" href="$class_r_l_vnode.html#aa349427e47e58ac9e87b1ec4ec988b5c" title="get_mem retorna memoria de la variable" alt="" coords="189,5,337,32"/>
+<area shape="rect" id="node3" href="$class_r_l_vnode.html#abaaffefe8c8f566080eb8a218981f005" title="get_next retorna el punter next" alt="" coords="192,56,335,83"/>
+<area shape="rect" id="node4" href="$class_r_l_vnode.html#a8fa829b5f32643d3b81cb221663bedb3" title="get_value retorna el valor de la variable" alt="" coords="188,107,339,133"/>
+</map>

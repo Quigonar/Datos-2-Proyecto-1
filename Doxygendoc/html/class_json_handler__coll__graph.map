@@ -1,0 +1,5 @@
+<map id="JsonHandler" name="JsonHandler">
+<area shape="rect" id="node1" title="Clase JsonHandler que se encarga de manejar las lineas y JSONs recibidos por el cliente." alt="" coords="5,199,105,225"/>
+<area shape="rect" id="node2" href="$class_r_l_vlist.html" title="Clase RLVlist se encarga del manejo de datos del Ram Live View." alt="" coords="22,109,89,136"/>
+<area shape="rect" id="node3" href="$class_r_l_vnode.html" title="Clase RLVnode se encarga de guardar los valores de las variables para el RLV." alt="" coords="16,5,95,32"/>
+</map>

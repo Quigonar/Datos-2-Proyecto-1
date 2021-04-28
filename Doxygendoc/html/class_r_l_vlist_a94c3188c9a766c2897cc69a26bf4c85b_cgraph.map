@@ -1,0 +1,5 @@
+<map id="RLVlist::get_memory" name="RLVlist::get_memory">
+<area shape="rect" id="node1" title="get_memory organiza todos los espacios de memoria para el RLV" alt="" coords="5,31,163,57"/>
+<area shape="rect" id="node2" href="$class_r_l_vnode.html#aa349427e47e58ac9e87b1ec4ec988b5c" title="get_mem retorna memoria de la variable" alt="" coords="211,5,359,32"/>
+<area shape="rect" id="node3" href="$class_r_l_vnode.html#abaaffefe8c8f566080eb8a218981f005" title="get_next retorna el punter next" alt="" coords="213,56,356,83"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="RLVlist::findmem" name="RLVlist::findmem">
+<area shape="rect" id="node1" title="findmem busca el espacio de memoria de la variable" alt="" coords="336,5,468,32"/>
+<area shape="rect" id="node2" href="$class_json_handler.html#a7b299cae60de054f4fdb51539116796b" title="verificador de las lineas el cual tambien crea los errores en el stdout y los JSONs que se envian al ..." alt="" coords="108,5,288,32"/>
+<area shape="rect" id="node3" href="$cliente_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main es el main del IDE o cliente" alt="" coords="5,5,60,32"/>
+</map>

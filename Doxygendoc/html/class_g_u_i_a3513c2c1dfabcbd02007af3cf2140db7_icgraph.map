@@ -1,0 +1,4 @@
+<map id="GUI::update" name="GUI::update">
+<area shape="rect" id="node1" title="devuelve int del boton que se presiona" alt="" coords="108,5,207,32"/>
+<area shape="rect" id="node2" href="$cliente_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main es el main del IDE o cliente" alt="" coords="5,5,60,32"/>
+</map>

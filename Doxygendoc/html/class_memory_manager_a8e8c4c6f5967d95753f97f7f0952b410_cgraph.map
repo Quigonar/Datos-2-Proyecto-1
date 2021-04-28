@@ -1,0 +1,7 @@
+<map id="MemoryManager::addvariablefloat" name="MemoryManager::addvariablefloat">
+<area shape="rect" id="node1" title="addvariablefloat se encarga de asignarle valor float al ultimo espacio de memoria disponible" alt="" coords="5,56,252,83"/>
+<area shape="rect" id="node2" href="$class_linked_list.html#af8cfc7375df7c3aa2c7931535c7d4704" title="append se encarga de agregar nuevos nodos al final de la lista" alt="" coords="300,56,443,83"/>
+<area shape="rect" id="node3" href="$class_node.html#a2c4f94e88a6bdf0b3b8a2d4c32034bd9" title="set_mem cambia el valor al que apunta el puntero" alt="" coords="501,5,627,32"/>
+<area shape="rect" id="node4" href="$class_node.html#af1906631f0991c746b65b0201c7ad151" title="set_next cambia el valor del puntero" alt="" coords="504,56,624,83"/>
+<area shape="rect" id="node5" href="$class_node.html#a0216818b7b2384cf6a9d8225315df41e" title="set_refname retorna el nombre de la referencia" alt="" coords="491,107,637,133"/>
+</map>
