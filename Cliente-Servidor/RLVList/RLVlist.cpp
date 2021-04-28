@@ -360,8 +360,6 @@ public:
      * @param aname nombre de la variable
      */
     void RLVupdate(string aname,bool stc = false){
-
-
         if (start == NULL){//lista nula
             //
         }else {
@@ -412,7 +410,7 @@ public:
             RLVupdate(" ",true);
         }
         else{
-            //
+            cout<<"finished"<<endl;
         }
     }
     /**
