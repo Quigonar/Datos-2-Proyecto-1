@@ -346,7 +346,118 @@ int main()
             }
             else if (type == "struct")//revisa se le envio menssaje para creacion de un struct
             {
-                //Sigue sintaxis de C
+                vector<string> variables;
+                string delimiter = ",";
+                auto start = 0U;
+                auto end = variable.find(delimiter);
+                while (end != string::npos)
+                {
+                    variables.push_back(variable.substr(start, end - start));
+                    start = end + delimiter.length();
+                    end = variable.find(delimiter, start);
+                }
+                variables.push_back(variable.substr(start, end));
+
+                string type1 = variables.at(0);
+                string name1 = variables.at(1);
+                string type2 = variables.at(2);
+                string name2 = variables.at(3);
+
+                string addr1;
+                string addr2;
+                string xref1;
+                string xref2;
+
+                string value1;
+                string value2;
+                int offset1;
+
+                if(type1 == "int"){
+                    bool paso = mserver.addvariableint(0,name1);
+                    int aoffset = mserver.getlist("int")->findoffset(name1);
+                    offset1 = aoffset;
+                    addr1 = mem_parse((void*)mserver.getmemoryoffsetint(aoffset));
+                    xref1 = int_tostring(mserver.get_varref("int",name1));
+                    value1 = to_string(*mserver.getmemoryoffsetint(aoffset));
+                }
+                else if(type1 == "float"){
+                    bool paso = mserver.addvariablefloat(0.0,name1);
+                    int aoffset = mserver.getlist("float")->findoffset(name1);
+                    offset1 = aoffset;
+                    addr1 = mem_parse((void*)mserver.getmemoryoffsetfloat(aoffset));
+                    xref1 = int_tostring(mserver.get_varref("float",name1));
+                    value1 = to_string(*mserver.getmemoryoffsetfloat(aoffset));
+                }
+                else if(type1 =="double"){
+                    bool paso = mserver.addvariabledouble(0.0,name1);
+                    int aoffset = mserver.getlist("double")->findoffset(name1);
+                    offset1 = aoffset;
+                    addr1 = mem_parse((void*)mserver.getmemoryoffsetdouble(aoffset));
+                    xref1 = int_tostring(mserver.get_varref("double",name1));
+                    value1 = to_string(*mserver.getmemoryoffsetdouble(aoffset));
+                }
+                else if(type1 =="long"){
+                    bool paso = mserver.addvariablelong(0,name1);
+                    int aoffset = mserver.getlist("long")->findoffset(name1);
+                    offset1 = aoffset;
+                    addr1 = mem_parse((void*)mserver.getmemoryoffsetlong(aoffset));
+                    xref1 = int_tostring(mserver.get_varref("long",name1));
+                    value1 = to_string(*mserver.getmemoryoffsetlong(aoffset));
+                }
+                else if(type1 =="char"){
+                    bool paso = mserver.addvariablechar('0',name1);
+                    int aoffset = mserver.getlist("char")->findoffset(name1);
+                    offset1 = aoffset;
+                    addr1 = mem_parse((void*)mserver.getmemoryoffsetchar(aoffset));
+                    xref1 = int_tostring(mserver.get_varref("char",name1));
+                    value1 = to_string(*mserver.getmemoryoffsetchar(aoffset));
+                }
+
+                if(type2 == "int"){
+                    bool paso = mserver.addvariableint(0,name2);
+                    int aoffset = mserver.getlist("int")->findoffset(name2);
+                    offset1 = aoffset;
+                    addr2 = mem_parse((void*)mserver.getmemoryoffsetint(aoffset));
+                    xref2 = int_tostring(mserver.get_varref("int",name2));
+                    value2 = to_string(*mserver.getmemoryoffsetint(aoffset));
+                }
+                else if(type2 == "float"){
+                    bool paso = mserver.addvariablefloat(0.0,name2);
+                    int aoffset = mserver.getlist("float")->findoffset(name2);
+                    offset1 = aoffset;
+                    addr2 = mem_parse((void*)mserver.getmemoryoffsetfloat(aoffset));
+                    xref2 = int_tostring(mserver.get_varref("float",name2));
+                    value2 = to_string(*mserver.getmemoryoffsetfloat(aoffset));
+                }
+                else if(type2 =="double"){
+                    bool paso = mserver.addvariabledouble(0.0,name2);
+                    int aoffset = mserver.getlist("double")->findoffset(name2);
+                    offset1 = aoffset;
+                    addr2 = mem_parse((void*)mserver.getmemoryoffsetdouble(aoffset));
+                    xref2 = int_tostring(mserver.get_varref("double",name2));
+                    value2 = to_string(*mserver.getmemoryoffsetdouble(aoffset));
+                }
+                else if(type2 =="long"){
+                    bool paso = mserver.addvariablelong(0,name2);
+                    int aoffset = mserver.getlist("long")->findoffset(name2);
+                    offset1 = aoffset;
+                    addr2 = mem_parse((void*)mserver.getmemoryoffsetlong(aoffset));
+                    xref2 = int_tostring(mserver.get_varref("long",name1));
+                    value2 = to_string(*mserver.getmemoryoffsetlong(aoffset));
+                }
+                else if(type2 =="char"){
+                    bool paso = mserver.addvariablechar('0',name2);
+                    int aoffset = mserver.getlist("char")->findoffset(name2);
+                    offset1 = aoffset;
+                    addr2 = mem_parse((void*)mserver.getmemoryoffsetchar(aoffset));
+                    xref2 = int_tostring(mserver.get_varref("char",name1));
+                    value2 = to_string(*mserver.getmemoryoffsetchar(aoffset));
+                }
+
+                mserver.addvariablestruct(variable,offset1,type1);
+                json = jsonSender(addr1,value1,variable,xref1);
+                log = jsonSender(addr2,value2," ", " ");
+
             }
             else if (type == "reference")//revisa se le envio menssaje para creacion de un referencetype
             {

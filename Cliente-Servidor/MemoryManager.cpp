@@ -238,6 +238,12 @@ public:
             return false;
         }
     }
+
+
+    void addvariablestruct(string name,int aoffset, string type){
+
+        structarray.append(aoffset,type,name);
+    }
     /**
      * @brief mem_parse cambia el espacio de memoria en un string
      * @param ptr puntero al espacio de memoria que se quiere parsear
