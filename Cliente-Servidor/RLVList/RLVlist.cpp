@@ -359,7 +359,9 @@ public:
      * @void RLVupdate borra el elemento que se le indique de RLV
      * @param aname nombre de la variable
      */
-    void RLVupdate(string aname){
+    void RLVupdate(string aname,bool stc = false){
+
+
         if (start == NULL){//lista nula
             //
         }else {
@@ -395,22 +397,8 @@ public:
                                 break;
                             }
                             else{
-
                                 tmp->set_next(tmpnext->get_next());//saltar elemento
                                 size--;
-                                tmpnext = tmp->get_next();
-                                if(tmp->get_next()->get_name() == " "){
-                                    if (tmp->get_next() == tail){
-                                        tail = tmp;
-                                        tail->set_next(NULL);
-                                        size--;
-                                        break;
-                                    }
-                                    else{
-                                        tmp->set_next(tmpnext->get_next());//saltar elemento
-                                        size--;
-                                    }
-                                }
                                 break;
                             }
                         }
@@ -418,6 +406,13 @@ public:
                     }
                 }
             }
+        }
+
+        if (stc == false){
+            RLVupdate(" ",true);
+        }
+        else{
+            //
         }
     }
     /**
