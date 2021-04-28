@@ -181,6 +181,10 @@ int main(int argc, char *argv[])
                 jsonHandler.referencesF.clear();
                 jsonHandler.referencesD.clear();
                 jsonHandler.referencesC.clear();
+                jsonHandler.structName.clear();
+                jsonHandler.isStruct = false;
+                jsonHandler.structs.clear();
+                jsonHandler.counter = 1;
                 RLVStrA.clear();
                 RLVStrVal.clear();
                 RLVStrVar.clear();
