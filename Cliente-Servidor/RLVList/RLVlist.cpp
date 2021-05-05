@@ -51,7 +51,7 @@ public:
         }
         else
         {
-            if (find(name)){//revis asi ya existe en la lista
+            if (find(name) && name != " "){//revis asi ya existe en la lista
                 if(value !="empty"){//revisa si es puntero
                     change_val(name,value);//cambia el espacio de memoria
                 }

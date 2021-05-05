@@ -183,6 +183,7 @@ int main(int argc, char *argv[])
                 jsonHandler.referencesC.clear();
                 jsonHandler.structName.clear();
                 jsonHandler.isStruct = false;
+                jsonHandler.scopeActive = false;
                 jsonHandler.structs.clear();
                 jsonHandler.counter = 1;
                 RLVStrA.clear();
